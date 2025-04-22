@@ -20,6 +20,8 @@
 
 - [Cava](https://github.com/karlstav/cava) - Idk why people enjoy using this. Just kept it for preview sake.
 
+- [MacType](https://github.com/snowie2000/mactype) - If you love MacOS and want better font rendering, this software is a heaven. Recently brought back from dead. Really recommend this. (even though their website is dead, good to see this project active in github)
+
 ### Preview:
 ![image](https://github.com/user-attachments/assets/ac41f38c-ed5b-4f65-886e-332b7fc4a242)
 

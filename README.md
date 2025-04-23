@@ -6,11 +6,11 @@
 
 - [GlazeWM Autotiler](https://github.com/orbi-tal/glaze-autotiler) - Implements a missing feature to `GlazeWM`: Tiling Layouts. Soon to be deprecated as they're going to be added in the next update.
   
-- [Komorebi](https://github.com/LGUG2Z/komorebi) - Another Tiling Manager made using Rust, heard they making good progress in implementing animations with recent updates (might change to this and add the config later)
+- [Komorebi](https://github.com/LGUG2Z/komorebi) - Another Tiling Manager made using Rust, with goodies like animations and better transparency support. Sure a hell to customize this. (Update: On the progress)
 
 - [AltSnap](https://github.com/RamonUnch/AltSnap) - If you've used Hyprland, you'll know it.
   
-- [Flow Launcher](https://github.com/Flow-Launcher/Flow.Launcher) - Powetoys Run, but better. (Microsoft Ruined it with their new trash: `Command Plaette`)
+- [Flow Launcher](https://github.com/Flow-Launcher/Flow.Launcher) - Powetoys Run, but better. (Microsoft Ruined it with their new trash: `Command Palette`)
   
 - [WindHawk](https://github.com/ramensoftware/windhawk) - Centralized Customization for Windows, made with love :)
   
@@ -23,13 +23,17 @@
 - [MacType](https://github.com/snowie2000/mactype) - If you love MacOS and want better font rendering, this software is a heaven. Recently brought back from dead. Really recommend this. (even though their website is dead, good to see this project active in github)
 
 ### Preview:
-### GlazeWM
+GlazeWM
+
 ![image](https://github.com/user-attachments/assets/ac41f38c-ed5b-4f65-886e-332b7fc4a242)
 
 ![image](https://github.com/user-attachments/assets/4f9c55cb-f394-468c-9443-6f2a06be1845)
 
 ![image](https://github.com/user-attachments/assets/5bedfc16-2c4b-474a-b1dd-66c900a86de2)
 
+Komorebi
+
+Soon<sup>TM</sup>
 
 
 

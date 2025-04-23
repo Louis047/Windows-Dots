@@ -177,7 +177,7 @@ window_rules:
       - window_title: { equals: "Notepad" }
       - window_title: { equals: "Snipping Tool"}
       - window_process: { equals: "BCUninstaller" }
-      - window_process: { equals: "ApplicationFramHost" }
+      - window_process: { equals: "ApplicationFrameHost" }
       - window_process: { equals: "Photos" }
 
 

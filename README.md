@@ -25,15 +25,20 @@
 ### Preview:
 GlazeWM
 
-![image](https://github.com/user-attachments/assets/ac41f38c-ed5b-4f65-886e-332b7fc4a242)
+![PIC 1](https://github.com/Louis047/Windows-Dots/blob/main/Images/Screenshot%202025-04-22%20230937.png)
 
-![image](https://github.com/user-attachments/assets/4f9c55cb-f394-468c-9443-6f2a06be1845)
+![PIC 2](https://github.com/Louis047/Windows-Dots/blob/main/Images/Screenshot%202025-04-22%20233629.png)
 
-![image](https://github.com/user-attachments/assets/5bedfc16-2c4b-474a-b1dd-66c900a86de2)
+![PIC 3](https://github.com/Louis047/Windows-Dots/blob/main/Images/Screenshot%202025-04-22%20233642.png)
 
 Komorebi
 
-Soon<sup>TM</sup>
+![PIC 4]()
+
+![PIC 5]()
+
+![PIC 6]()
+
 
 
 

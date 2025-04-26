@@ -16,7 +16,7 @@
   
 - [Smooth-Scroll](https://www.smoothscroll.net/win/) - System-Level implementation for buttery-smooth scrolling. Sad that it's paid but I do appreciate the developer's work. Might as well support him by buying a license with my first salary :)
 
-- [Fastfetch](https://github.com/fastfetch-cli/fastfetch) - Linux ricer's sex toy.
+- [Fastfetch](https://github.com/fastfetch-cli/fastfetch) - A ricer's sex toy.
 
 - [Cava](https://github.com/karlstav/cava) - Idk why people enjoy using this. Just kept it for preview sake.
 

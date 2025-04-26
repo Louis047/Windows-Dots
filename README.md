@@ -25,7 +25,7 @@
 ### Preview:
 GlazeWM Setup
 
-![PIC 1](https://github.com/Louis047/Windows-Dots/blob/main/Images/Screenshot%202025-04-22%20230937.png)
+![PIC 1]()
 
 ![PIC 2](https://github.com/Louis047/Windows-Dots/blob/main/Images/Screenshot%202025-04-22%20233629.png)
 

@@ -41,12 +41,14 @@ Komorebi Setup
 ### Things to be done:
 **GlazeWM**
 - [x] Setup Complete
+- [ ] Preview Video
 
 **Komorebi**
 - [ ] Floating applications fix - window size ain't the right
 - [ ] Focus workspace on apps with `initial_workspace_rules`
 - [ ] Inconsistent animation sometimes
 - [ ] Add more app to `rules`
+- [ ] Preview Video
 
 
 

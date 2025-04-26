@@ -41,7 +41,6 @@ Komorebi Setup
 ### Things to be done:
 **GlazeWM**
 - [x] Setup Complete
-- [ ] Preview Video
 
 **Komorebi**
 - [ ] Floating applications fix - window size ain't the right

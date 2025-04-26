@@ -1,20 +1,20 @@
 # Windows-Dots
 ### Tools Used:
-- [Yet Another Status Bar](https://github.com/amnweb/yasb) - polybar port to Windows, built using Python.
+- [Yet Another Status Bar](https://github.com/amnweb/yasb) - a status bar with customizations, built using Python.
   
 - [GlazeWM](https://github.com/glzr-io/glazewm) - i3-like window tiling manager, built using Rust.
 
-- [GlazeWM Autotiler](https://github.com/orbi-tal/glaze-autotiler) - Implements a missing feature to `GlazeWM`: Tiling Layouts. Soon to be deprecated as they're going to be added in the next update.
+- [GlazeWM Autotiler](https://github.com/orbi-tal/glaze-autotiler) - Implements a missing feature to GlazeWM: `Tiling Layouts`. Soon to be deprecated as they're going to be added in the next update.
   
-- [Komorebi](https://github.com/LGUG2Z/komorebi) - Another Tiling Manager made using Rust, with goodies like animations and better transparency support. Sure a hell to customize this. (Update: On the progress)
+- [Komorebi](https://github.com/LGUG2Z/komorebi) - Another Tiling Manager made using Rust, with goodies like animations and better transparency support. Sure a hell to customize this.
 
 - [AltSnap](https://github.com/RamonUnch/AltSnap) - If you've used Hyprland, you'll know it.
   
 - [Flow Launcher](https://github.com/Flow-Launcher/Flow.Launcher) - Powetoys Run, but better. (Microsoft Ruined it with their new trash: `Command Palette`)
   
-- [WindHawk](https://github.com/ramensoftware/windhawk) - Centralized Customization for Windows, made with love :)
+- [WindHawk](https://github.com/ramensoftware/windhawk) - Centralized Customization for Windows, made with love :). Every user should try this.
   
-- [Smooth-Scroll](https://www.smoothscroll.net/win/) - System-Level implementation for buttery-smooth scrolling. Sad that it's paid but I do appreciate the developer's work. Might as well support him by buying a license with my first salary :)
+- [Smooth-Scroll](https://www.smoothscroll.net/win/) - System-Level implementation for buttery-smooth scrolling. Sad that it's paid but has a free trial upto 21 days. I do appreciate the developer's work. Might as well support him by buying a license with my first salary :)
 
 - [Fastfetch](https://github.com/fastfetch-cli/fastfetch) - A ricer's sex toy.
 

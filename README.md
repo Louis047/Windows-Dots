@@ -50,6 +50,7 @@ Komorebi Setup
 
 **YASB**
 - [ ] Game Mode Toggle
+- [ ] Improve Media widget
 - [ ] Preview Video
 
 

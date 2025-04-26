@@ -4,7 +4,7 @@
   
 - [GlazeWM](https://github.com/glzr-io/glazewm) - i3-like window tiling manager, built using Rust.
 
-- [GlazeWM Autotiler](https://github.com/orbi-tal/glaze-autotiler) - Implements a missing feature to GlazeWM: `Tiling Layouts`. Soon to be deprecated as they're going to be added in the next update.
+- [GlazeWM Autotiler](https://github.com/orbi-tal/glaze-autotiler) - Implements a missing feature to GlazeWM: `Tiling Layouts`. Soon to be deprecated as the functionality is about to be merged in the next update.
   
 - [Komorebi](https://github.com/LGUG2Z/komorebi) - Another Tiling Manager made using Rust, with goodies like animations and better transparency support. Sure a hell to customize this.
 

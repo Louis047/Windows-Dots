@@ -37,7 +37,6 @@ Komorebi
 
 ![PIC 5](https://github.com/Louis047/Windows-Dots/blob/main/Images/Screenshot%202025-04-26%20222339.png)
 
-![PIC 6]()
 
 
 

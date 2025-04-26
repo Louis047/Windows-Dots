@@ -48,6 +48,9 @@ Komorebi Setup
 - [ ] Focus workspace on apps with `initial_workspace_rules`
 - [ ] Inconsistent animation sometimes
 - [ ] Add more app to `rules`
+
+**YASB**
+- [ ] Game Mode Toggle
 - [ ] Preview Video
 
 

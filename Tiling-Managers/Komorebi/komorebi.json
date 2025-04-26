@@ -72,6 +72,11 @@
       "kind": "Exe",
       "id": "explorer.exe",
       "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "SnippingTool.exe",
+      "matching_strategy": "Equals"
     }
   ],
   "monitors": [
@@ -144,8 +149,15 @@
           "layout": "BSP"
         },
         {
-          "name": "Random Space",
-          "layout": "BSP"
+          "name": "Songs",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Spotify.exe",
+              "matching_strategy": "Equals"
+            }
+          ]
         },
         {
           "name": "Package Manager",

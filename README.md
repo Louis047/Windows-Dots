@@ -23,7 +23,7 @@
 - [MacType](https://github.com/snowie2000/mactype) - If you love MacOS and want better font rendering, this software is a heaven. Recently brought back from dead. Really recommend this. (even though their website is dead, good to see this project active in github)
 
 ### Preview:
-GlazeWM
+GlazeWM Setup
 
 ![PIC 1](https://github.com/Louis047/Windows-Dots/blob/main/Images/Screenshot%202025-04-22%20230937.png)
 
@@ -31,11 +31,22 @@ GlazeWM
 
 ![PIC 3](https://github.com/Louis047/Windows-Dots/blob/main/Images/Screenshot%202025-04-22%20233642.png)
 
-Komorebi
+Komorebi Setup
 
 ![PIC 4](https://github.com/Louis047/Windows-Dots/blob/main/Images/Screenshot%202025-04-26%20222210.png)
 
 ![PIC 5](https://github.com/Louis047/Windows-Dots/blob/main/Images/Screenshot%202025-04-26%20222339.png)
+
+
+### Things to be done:
+**GlazeWM**
+- [x] Setup Complete
+
+**Komorebi**
+- [ ] Floating applications fix - window size ain't the right
+- [ ] Focus workspace on apps with `initial_workspace_rules`
+- [ ] Inconsistent animation sometimes
+- [ ] Add more app to `rules`
 
 
 

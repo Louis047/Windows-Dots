@@ -1,7 +1,6 @@
 # Changes made from the base config, make sure to read the docs provided in the third comment to modify according to one's liking
 # This is solely meant for GlazeWM users as I haven't touched Komorebi for I love GlazeWM's simplicity.
-# Finally done! Setting up komorebi took a week of my life, thanks to demotivation + burning out
-# Skipped my project works for this, cuz i love it.
+# UPDATE: Done modifying with Komorebi!
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: true
 watch_config: true
@@ -125,7 +124,7 @@ widgets:
         alignment: "right"
         direction: "down"
         offset_top: 6
-        offset_left: 220
+        offset_left: 240
         max_title_size: 150
         show_date_time: true
       icons:
@@ -347,6 +346,7 @@ widgets:
       options:
         label: "<span>\ue0b2</span> {%H:%M} <span>\ue0b0</span>"
         label_alt: "<span>\ue0c2</span>{%A %d %B %Y %H:%M}<span>\ue0c0</span>"
+        tooltip: false
         timezones: []
         calendar:
           blur: True
@@ -358,10 +358,10 @@ widgets:
       options:
         label: "<span>{icon}</span> {temp}"
         label_alt: "{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}"
-        api_key: "3bf4cf9a7c3f40d6b31174128242807"
+        api_key: "9d80bcfc41264b75856173713252804"
         update_interval: 600
         hide_decimal: true
-        location: "Tuticorin"
+        location: "Kollam"
         callbacks:
           on_left: "toggle_card"
         weather_card: 
@@ -386,7 +386,8 @@ widgets:
         label_alt: "{wifi_name} {wifi_strength}%"
         update_interval: 5000
         callbacks:
-          on_left: "exec cmd.exe /c start ms-settings:network"
+          on_left: "exec quick_settings"
+          on_middle: "exec cmd.exe /c start ms-settings:network"
           on_right: "toggle_label"
         wifi_icons: [
           "\udb82\udd2e",  # 0% strength icon

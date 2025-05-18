@@ -36,7 +36,7 @@ QToolTip {
 .yasb-bar {
     padding: 0;
     margin: 0;
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.25);
     border-radius: 0px;
 }
 .widget {
@@ -208,8 +208,8 @@ QToolTip {
 }
 .komorebi-workspaces .ws-btn{
     color: rgba(128, 128, 128, 0.5);
-    width: 10px;
-    height: 10px;
+    width: 26px;
+    height: 26px;
     padding: 0 4px 0 4px;
     border-radius: 5px;
     margin: 0 2px;
@@ -295,8 +295,8 @@ QToolTip {
     background: red;
 }
 .systray .button {
-    border-radius: 10px;
-    padding: 3px 3px;
+    border-radius: 9px;
+    padding: 2px 2px;
 }
 .systray .button:hover {
     background: #727272;
@@ -473,7 +473,7 @@ QToolTip {
 
 /*                              Disk                                */
 .disk-widget {
-    padding: 0 6px 0 6px;
+    padding: 0 6px 0 1px;
 }
 .disk-group {
     background-color:rgba(17, 17, 27, 0.15); 

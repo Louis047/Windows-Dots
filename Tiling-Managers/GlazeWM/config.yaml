@@ -48,9 +48,9 @@ gaps:
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '40px'
+    top: '14px'
     right: '14px'
-    bottom: '14px'
+    bottom: '36px'
     left: '14px'
 
 window_effects:
@@ -70,7 +70,7 @@ window_effects:
     # Change the corner style of the window's frame.
     # ** Exclusive to Windows 11 due to API limitations.
     corner_style:
-      enabled: false
+      enabled: true
       # Allowed values: 'square', 'rounded', 'small_rounded'.
       style: 'square'
 
@@ -108,7 +108,7 @@ window_behavior:
       # Whether to center floating windows by default.
       centered: true
       # Whether to show floating windows as always on top.
-      shown_on_top: false
+      shown_on_top: true
 
     fullscreen:
       # Maximize the window if possible. If the window doesn't have a
@@ -179,6 +179,9 @@ window_rules:
       - window_process: { equals: "BCUninstaller" }
       - window_process: { equals: "ApplicationFrameHost" }
       - window_process: { equals: "Photos" }
+      - window_title: { equals: "Windhawk" }
+      - window_process: { equals: "WindowsTerminal" }
+
 
 
   # Start apps in their own workspaces (cuz i love seeing them in an instant lol)

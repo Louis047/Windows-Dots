@@ -51,6 +51,11 @@ Komorebi Setup
 - [x] Improve Media widget
 - [ ] Preview Video
 
+**Miscellaneous**
+- [ ] Oh-My-Posh Terminal Setup
+- [ ] Better File Manager
+- [ ] Innovations if possible
+
 
 
 

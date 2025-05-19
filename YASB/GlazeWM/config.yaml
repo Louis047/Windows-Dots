@@ -218,7 +218,7 @@ widgets:
         alignment: "right"
         direction: "up"
         offset_top: 2
-        offset_left: 238
+        offset_left: 134
         thumbnail_corner_radius: 0
         thumbnail_size: 120
         max_title_size: 80

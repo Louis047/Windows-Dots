@@ -25,11 +25,11 @@
 ### Preview:
 GlazeWM Setup
 
-![PIC 1](https://github.com/Louis047/Windows-Dots/blob/main/Images/Screenshot%202025-04-22%20230937.png)
+![PIC 1](https://github.com/Louis047/Windows-Dots/blob/main/Images/Images/2025-05-20_01-39.png)
 
-![PIC 2](https://github.com/Louis047/Windows-Dots/blob/main/Images/Screenshot%202025-04-22%20233629.png)
+![PIC 2](https://github.com/Louis047/Windows-Dots/blob/main/Images/Images/2025-05-20_01-40.png)
 
-![PIC 3](https://github.com/Louis047/Windows-Dots/blob/main/Images/Screenshot%202025-04-22%20233642.png)
+![PIC 3](https://github.com/Louis047/Windows-Dots/blob/main/Images/Images/2025-05-20_01-40_1.png)
 
 Komorebi Setup
 

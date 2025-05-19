@@ -1,244 +1,249 @@
 /* 
-Base Configuration, modified for i3-style
+Base Configuration, modified from i3-style with a new look. I missed transparency :)
+Update: Back to i3-style, with better minimal modifications
 For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 */
 :root {
-    --rosewater: #f5e0dc;
-    --flamingo: #f2cdcd;
-    --pink: #f5c2e7;
-    --mauve: #cba6f7;
-    --red: #f38ba8;
-    --maroon: #eba0ac;
-    --peach: #fab387;
-    --yellow: #f9e2af;
-    --green: #a6e3a1;
-    --teal: #94e2d5;
-    --sky: #89dceb;
-    --sapphire: #74c7ec;
-    --blue: #89b4fa;
-    --lavender: #b4befe;
-    --text: #cdd6f4;
-    --subtext1: #bac2de;
-    --subtext0: #a6adc8;
-    --overlay2: #9399b2;
-    --overlay1: #7f849c;
-    --overlay0: #6c7086;
-    --surface2: #585b70;
-    --surface1: #45475a;
-    --surface0: #282936;
-    --base: #1e1e2e;
-    --mantle: rgba(24, 24, 37, 0.5);
-    --crust: rgba(17, 17, 27, 0.85);
-    --main: #10151d;
+    --line: rgb(80, 80, 80);
+    --pbg: rgba(15, 15, 15, 1);
+    --pgb_hover: rgba(65, 65, 65, 1);
+    --power_menu_buttons: rgba(100, 100, 100, 1);
+    --bar_bg: #000000;
+    --workspace_active: #e1e1e1;
+    --workspace_inactive: #707070;
+    --workspace_empty: #2a2a2a;
+    --workspace_hover: #404040;
+    --text: rgb(200, 200, 200);
+    --text_alt: rgb(150, 150, 150);
+    --widget_bg: rgba(20, 20, 20, 1);
+    --widget_bg_alt: rgba(13, 13, 13, 1);
+    --widget_border: rgba(40, 40, 40, 1);
 }
-/* Global styles for ToolTip */
-QToolTip {
-    padding: 6px;
-    color: #ffffff;
-    font-size: 12px;
-    background-color: #1e1e2e;
-    border: 0px solid #313244;
-    border-radius: 6px;
-}
+
+/*                                 COMMON YASB ELEMENTS                          */
 * {
-    font-size: 12px;
-    color: white;
-    font-weight: 600;
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 750;
     font-family: "JetBrainsMono NFP";
     margin: 0;
     padding: 0;
 }
 .yasb-bar {
-    padding: 0;
+    padding: 0 2px;
     margin: 0;
-    background-color: black;
-    border-radius: 0px;
+    background-color: var(--bar_bg);
 }
+
 .widget {
     padding: 0 3px;
     margin: 0;
 }
 .icon {
-    font-size: 15px;
+    font-size: 14px;
 }
 .widget .label {
     padding: 0px 2px;
 }
 
-
-.apps-widget {
-    padding: 0 4px 0 2px;
-}
-.apps-widget .label {
-    font-size: 14px;
-    padding: 0 2px;
-    color: var(--subtext0);
-}
-.apps-widget .label:hover {
-    color: var(--text);
-}
-
+/*                                      WIDGETS                                     */
+/*              Power Menu                     */
 .power-menu-widget .label {
-    color: #00ece0;
-    font-size: 13px;
-    padding: 0px 2px 0px 0px;
+    padding: 0 0 0 2px;
 }
 .power-menu-popup {
-    background-color: transparent;
+    background: transparent;
 }
 .power-menu-popup .button {
     padding: 0;
     width: 180px;
     height: 230px;
-    border-radius: 8px;
-    background-color:black;
-    color: black;
-    border-left: 4px solid rgba(255, 255, 255, 0);
-    border-right: 4px solid rgba(255, 255, 255, 0);
-    border-top: 4px solid rgba(255, 255, 255, 0);
-    border-bottom: 4px solid rgba(255, 255, 255, 0);
+    border-radius: 0px;
+    background-color: var(--pbg);
+    color: var(--text);
+    border-left: 4px solid rgba(58, 59, 83, 0);
+    border-right: 4px solid rgba(58, 59, 83, 0);
+    border-top: 4px solid rgba(58, 59, 83, 0);
+    border-bottom: 4px solid rgba(58, 59, 83, 0);
     margin: 0px;
 }
 .power-menu-popup .button.hover {
-    background-color: white;
-    color: black;
-    border-left: 4px solid white;
-    border-right: 4px solid white;
-    border-top: 4px solid white;
-    border-bottom: 4px solid white;
+    background-color: var(--pgb_hover);
+    border-left: 4px solid var(--base);
+    border-right: 4px solid var(--base);
+    border-top: 4px solid var(--base);
+    border-bottom: 4px solid var(--base);
 }
 
 .power-menu-popup .button .label {
     margin-bottom: 8px;
     font-size: 16px;
     font-weight: 500;
-    color: var(--overlay2);
+    color: var(--text);
 }
-
 .power-menu-popup .button .icon {
     font-size: 64px;
     padding-top: 32px;
-    color: var(--surface2);
+    color: var(--power_menu_buttons);
 }
-
-.power-menu-popup .button.cancel .icon {
-    padding: 0;
-    margin: 0;
-}
-.power-menu-popup .button.cancel .label {
-    color: var(--red);
-    margin: 0;
-}
-.power-menu-popup .button.cancel {
-    height: 32px;
-    border-radius: 4px;
-}
-
-.uptime {
+.uptime{
     font-size: 26px;
-    margin-bottom: 10px;
-    color: white;
-    font-weight: 600;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
+    border: 2px solid rgb(59, 59, 59);
+    background-color: rgba(15, 15, 15, 1);
+    border-radius: 8px;
+    margin-left: 600px;
+    margin-right: 600px;
+
 }
 
+
+/*                          GlazeWM                              */
 .glazewm-workspaces {
     margin: 0;
 }
 
 .glazewm-workspaces .ws-btn {
-    font-size: 15px;
     background-color: transparent;
     border: none;
-    padding: 4px 8px; /* Increased padding */
-    margin: 0; /* Remove margin between buttons */
-    color: black;
+    padding: 1px 2px 0 6px;
+    margin: 0 2px 0 2px;
 }
 
-.glazewm-workspaces .ws-btn.active,
-.glazewm-workspaces .ws-btn:hover {
-    background-color: #ffffff;
-    border-radius: 0px; /* Optional: Add slight rounding */
+.glazewm-workspaces .ws-btn.active_populated,
+.glazewm-workspaces .ws-btn.active_empty {
+    color: var(--workspace_active);
 }
 
-/* Keep existing populated/empty state colors */
 .glazewm-workspaces .ws-btn.populated {
-    color: #ffffff;
+    color: var(--workspace_inactive);
 }
 
 .glazewm-workspaces .ws-btn.empty {
-    color: #7D8B9D;
+    color: var(--workspace_empty);
 }
+
 .glazewm-workspaces .ws-btn:hover,
 .glazewm-workspaces .ws-btn.populated:hover,
 .glazewm-workspaces .ws-btn.empty:hover {
-    background: grey;
-    margin: 0;     
-    display: flex;  
-    align-items: center; 
-    justify-content: center;  
+    color: var(--workspace_hover);
 }
 
-
-.volume-widget .icon {
-    color: var(--blue);
-    margin: 1px 2px 0 0;
-}
-
-.weather-widget,
-.volume-widget {
-    padding: 0 4px;
-}
-.weather-widget .icon {
-    font-size: 18px;
-    margin: 0 2px 1px 0;
-    color: var(--yellow);
-}
+/*                          Media                              */
 .media-widget {
     padding: 0;
     margin: 0;
-    border-radius: 0;
 }
 .media-widget .label {
-    color: #c4dbba;
-    background-color: rgba(0, 0, 0, 0.254);
+    color: var(--text);
     padding: 0px;
     padding-right: 4px;
     font-size: 12px;
 }
-.media-widget .label.maintext {
-    padding-top: 3px;
+
+.media-menu {
+    min-width: 420px;
+    max-width: 420px;
+    background-color: var(--widget_bg);
 }
-.media-widget .btn {
-    color: #989caa;
-    padding: 0 4px;
-    margin: 0;
-    font-family: Segoe Fluent Icons;
+.media-menu .title,
+.media-menu .artist,
+.media-menu .source {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+.media-menu .artist {
+    font-size: 13px;
+    color: #6c7086;
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+.media-menu .source {
+    font-size: 11px;
+    color: #000;
+    font-weight: normal;
+    border-radius: 0px;
+    background-color: #bac2de;
+    padding: 2px 4px;
+
+}
+/* The source class name is the same as what you see in the media widget; just replace spaces with dashes and convert it to lowercase. 
+Example: "Windows Media" becomes "windows-media" */
+.media-menu .source.firefox {
+    background-color: #ff583b;
+    color: #ffffff;
+}
+.media-menu .source.spotify {
+    background-color: #199143;
+    color: #ffffff;
+}
+.media-menu .source.edge {
+    background-color: #0078d4;
+    color: #ffffff;
+}
+.media-menu .source.windows-media {
+    background-color: #0078d4;
+    color: #ffffff;
+}
+
+.media-menu .btn {
+    font-family: "Segoe Fluent Icons";
+    font-size: 14px;
     font-weight: 400;
+    margin: 10px 2px 0px 2px;
+    min-width: 40px;
+    max-width: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    border-radius: 0px;
 }
-.media-widget .btn:hover {
-    color: #babfd3;
+.media-menu .btn.prev {
+    margin-left: 10px;
 }
-.media-widget .btn.play {
-    font-size: 16px;
+.media-menu .btn:hover {
+    color: white;
 }
-.media-widget .btn.disabled:hover,
-.media-widget .btn.disabled {
+.media-menu .btn.play {
+    font-size: 16px
+}
+.media-menu .btn.disabled:hover,
+.media-menu .btn.disabled {
     color: #4e525c;
-    font-size: 12px;
     background-color: rgba(0, 0, 0, 0);
 }
-.taskbar-widget {
-    padding: 0;
-    margin: 0;
-    border: none;
+
+.media-menu .playback-time {
+    font-size: 13px;
+    color: var(--text_alt);
+    margin-top: 20px;
+    min-width: 100px;
+}
+.media-menu .progress-slider {
+    height: 10px;
+    margin: 5px 4px;
+    border-radius: 3px;
+}
+.media-menu .progress-slider::groove {
+    background: transparent;
+    height: 2px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.1);
+
+}
+.media-menu .progress-slider::groove:hover {
+    background: transparent;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.2);
+}
+.media-menu .progress-slider::sub-page {
+    background: white;
+    border-radius: 3px;
+    height: 4px;
 }
 
-
-.clock-widget .label {
-    font-size: 14px;
-}
-
+/*                                  System Tray                         */
 .systray {
     background: transparent;
     border: None;
@@ -247,7 +252,7 @@ QToolTip {
 
 .systray .unpinned-container {
     background: transparent;
-    border-radius: 0px;
+    border-radius: 8px;
 }
 
 .systray .pinned-container {
@@ -255,79 +260,79 @@ QToolTip {
 }
 
 .systray .pinned-container[forceshow=true] {
-    background: transparent;
+    background: rgba(0, 0, 0, 0);
 }
 
 .systray .button {
-    border-radius: 0px;
-    padding: 1px 1px;
-}
-
-.systray .button:hover {
-    background: #747474;
-}
-
-.systray .button[dragging=true] {
-    background: rgb(255, 255, 255);
-    border-color: #fcf3ef00;
-}
-
-.systray .unpinned-visibility-btn {
-    border-radius: 0px;
-    height: 10px;
-    width: 12px;
-}
-
-.systray .unpinned-visibility-btn:checked {
+    border-radius: 4px;
+    padding: 2px 2px;
     background: transparent;
 }
 
-.systray .unpinned-visibility-btn:hover {
-    color: white;
+.systray .button:hover {
+    background: grey;
 }
 
+.systray .button[dragging=true] {
+    background: rgb(145, 145, 145);
+    border-color: rgb(145, 145, 145);
+}
+
+.systray .unpinned-visibility-btn {
+    border-radius: 4px;
+    height: 20px;
+    width: 16px;
+}
+
+.systray .unpinned-visibility-btn:checked {
+    background: rgba(0, 0, 0, 0);
+}
+
+.systray .unpinned-visibility-btn:hover {
+    border: 1px solid #AAAAAA;
+    border-radius: 4px;
+    border-color: #AAAAAA;
+}
+/*                          Wi-Fi                           */
 .wifi-widget .widget-container .icon {
-    color:lightgray;
+    color:var(--text);
     background: transparent;
     padding: 3px 0px;
 }
 
+/*                          Battery                           */
 .battery-widget .widget-container .icon {
     padding: 0px 3px;
 }
-
 .battery-widget .widget-container .icon.status-low {
     color: red;
     background: transparent;
 }
-
 .battery-widget .widget-container .icon.status-medium {
     color: yellow;
     background: transparent;
 }
-
 .battery-widget .widget-container .icon.status-charging {
-    color: rgb(128, 0, 255);
+    color: var(--text);
     background: transparent;
 }
 
+/*                          Wallpaper                          */
 .wallpapers-widget {
-    padding: 0 6px 0 6px;
+    padding: 0 6px 0 4px;
 }
-
 .wallpapers-gallery-window {
-    background-color: rgba(85, 42, 240, 0.01);
+    background-color: rgb(10, 10, 10);
     border: 0;
     margin: 0;
 }
-
 .wallpapers-gallery-buttons {
     background-color:rgba(255, 255, 255, 0);
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     font-size: 14px;
     padding: 8px 0;
-    border-radius: 8px;
+    border-radius: 0px;
     margin:0 8px 8px 8px;
     width: 600px;
 }
@@ -336,27 +341,26 @@ QToolTip {
 }
 .wallpapers-gallery-image {
     border: 4px solid transparent;
-    border-radius: 10px;
+    border-radius: 0px;
 }
 .wallpapers-gallery-image:hover {
-    border: 4px solid rgb(66, 68, 83);
+    border: 4px solid rgb(180, 180, 180);
 }
 .wallpapers-gallery-image.focused {
     border: 4px solid #ffffff;
 }
 
+/*                          Clock & Calendar                            */
 .clock-widget .widget-container .label {
-    padding: 0px 0px 2px;
+    padding: 0px 0px 0px;
 }
-
 .calendar {
-    background-color: rgba(17, 17, 27, 0.4);
+    background-color: var(--widget_bg);
 }
 .calendar .calendar-table,
 .calendar .calendar-table::item {
-    background-color: rgba(17, 17, 27, 0);
-    color: rgba(162, 177, 196, 0.85);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--widget_bg_alt);
+    color: rgba(197, 197, 197, 0.85);
     margin: 0;
     padding: 0;
     border: none;
@@ -371,7 +375,6 @@ QToolTip {
 .calendar .day-label,
 .calendar .month-label,
 .calendar .date-label {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     color: #fff;
     font-weight: 700;
@@ -388,30 +391,163 @@ QToolTip {
     margin-top: -20px;
 }
 
+/*                             Memory                           */
 .memory-widget .icon {
-    color:rgb(163, 255, 76);
-    padding: 0px 3px;
+    padding: 0px 1px;
 }
 
+/*                              CPU                             */
 .cpu-widget .widget-container .icon {
-    color:rgb(240, 224, 99);
     padding: 0px 3px;
 }
 
+/*                          Notifications                        */
 .notification-widget {
-    padding: 0 3px 0 2px;
+    padding: 0 3px 0 3px;
 }
 .notification-widget .widget-container {
 	background: transparent;
 	margin: 3px 0 3px 0;
-	border-radius: 12px;
 }
 .notification-widget .icon {
-    font-size: 12px;
+    font-size: 14px;
 }
 .notification-widget .icon.new-notification {
-    color: #9089fa;
+    color: var(--text);
 }
 .notification-widget .label.new-notification {
-    color: #9089fa;
+    color: var(--text);
+}
+
+/*                              Disk                                */
+.disk-widget {
+    padding: 0 2px 0 2px;
+}
+.disk-widget .label{
+    padding: 0 1px 0 6px;
+}
+.disk-group {
+    background-color:var(--widget_bg); 
+    border: 1px solid var(--widget_border);
+}
+
+/*                          Notes                       */
+.notes-widget {
+    padding: 0 2px 0 4px;
+}
+.notes-menu {
+    min-width: 400px;
+    max-width: 400px;
+    background-color: rgba(20, 20, 20, 1);
+}
+.notes-menu .note-item {
+    background-color:transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+}
+.notes-menu .note-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.notes-menu .note-item .icon {
+    font-size: 16px;
+    padding: 0 4px;
+}
+.notes-menu .delete-button {
+    color: #ff6b6b;
+    background: transparent;
+    border: none;
+    font-size: 8px;
+    padding: 7px 8px;
+    border-radius: 0px;
+}
+.notes-menu .delete-button:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+.notes-menu .note-item .title {
+    font-size: 13px;
+}
+.notes-menu .note-item .date {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+}
+.notes-menu .empty-list {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 24px;
+    font-weight: 600;
+    padding: 10px 0 20px 0;     
+}
+.notes-menu .add-button,  
+.notes-menu .cancel-button {
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 0px;
+    color: white;
+}
+.notes-menu .cancel-button {
+    margin-left: 4px;
+}
+.notes-menu .add-button:hover,
+.notes-menu .cancel-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.notes-menu .scroll-area {
+    background: transparent; 
+    border: none; 
+    border-radius:0;
+}
+.notes-menu .note-input {
+    background-color:rgba(17, 17, 27, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    max-height: 30px;
+    padding: 4px;
+    border-radius: 0px;
+}
+.note-input:focus {
+    border: 1px solid #717171;
+}
+
+/*                      Volume                     */
+.volume-slider {
+    border: none;
+}
+.volume-slider::groove {
+    color: black;
+}
+.volume-slider::handle{
+    color: black;
+} 
+.audio-menu {
+    background-color:rgb(15, 15, 15); 
+}
+.audio-container .device {
+    background-color:transparent;
+    border: none;
+    padding:6px 8px 6px 4px;
+    margin: 2px 0;
+    font-size: 12px;
+    border-radius: 0px;
+}
+.audio-container .device.selected {
+    background-color: rgba(255, 255, 255, 0.085);
+}
+.audio-container .device:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+/*                    Weather                   */
+.weather-card{
+    background-color: var(--widget_bg);
+    border: 1px solid var(--widget_border);
+}
+.weather-card-today,
+.weather-card-day{
+    background-color: var(--widget_bg_alt);
+}
+
+/*                  Lines-Separator             */
+.separator-widget{
+    color: var(--line);
+    padding: 0;
+    margin: 0;
 }

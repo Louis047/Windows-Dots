@@ -9,7 +9,359 @@ bars:
   primary-bar:
     enabled: true
     screens: ["*"]
+    class_name: "yasb-bar"# Changes made from the base config, make sure to read the docs provided in the third comment to modify according to one's liking
+# This is solely meant for GlazeWM users as I haven't touched Komorebi for I love GlazeWM's simplicity.
+# New Update: Back to GlazeWM, snappier the better.
+# For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
+watch_stylesheet: true
+watch_config: true
+debug: false
+bars:
+  primary-bar:
+    enabled: true
+    screens: ["*"]
     class_name: "yasb-bar"
+    alignment:
+      position: "bottom"
+      center: false
+    animation:
+      enabled: false
+      duration: 1000
+    blur_effect:
+      enabled: False
+      acrylic: False
+      dark_mode: True
+      round_corners: False
+      border_color: "System"
+    window_flags:
+      always_on_top: false
+      windows_app_bar: false # This interferes with apps in full-screen. Notably while watching videos in full screen
+      hide_on_fullscreen: true
+    dimensions:
+      width: "100%"
+      height: 26
+    padding:
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+    widgets:
+      left: [
+        "glazewm_workspaces",
+        "media"
+      ]
+      center: [
+        "active_window"
+      ]
+      right: [
+        "systray",
+        "disk",
+        "memory",
+        "cpu",
+        "lines",
+        "battery",
+        "wifi",
+        "volume",
+        "lines",
+        "weather",
+        "wallpapers",
+        "notifications",
+        "notes",
+        "lines",
+        "clock",
+        "power_menu"
+      ]
+widgets:
+  lines:
+    type: "yasb.custom.CustomWidget"
+    options:
+      label: "\u007c"
+      label_alt: "\u007c"
+      class_name: "separator-widget"
+      callbacks:
+        on_left: "do_nothing"
+  notes:
+    type: "yasb.notes.NotesWidget"
+    options:
+      label: "<span>\ue678</span>{count}"
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+      menu:
+        blur: false
+        round_corners: false
+        border_color: "System"
+        alignment: "right"
+        direction: "up"
+        offset_top: 2
+        offset_left: 80
+        max_title_size: 150
+        show_date_time: true
+      icons:                      
+        note: "\udb82\udd0c"
+        delete: "\ue20d"
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "do_nothing"
+  notifications:
+    type: "yasb.notifications.NotificationsWidget"
+    options:
+      label: "<span>\udb84\udd6b</span>"
+      label_alt: "{count} F**ks"
+      hide_empty: true
+      tooltip: true
+      callbacks:
+        on_left: "toggle_notification"
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+  memory:
+    type: "yasb.memory.MemoryWidget"
+    options:
+      label: "<span>\uefc5</span> {virtual_mem_percent}%"
+      label_alt: "{virtual_mem_free}/{virtual_mem_total}"
+      update_interval: 2500
+      callbacks:
+        on_left: "do_nothing"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+      memory_thresholds:
+        low: 20
+        medium: 60
+        high: 90
+  cpu:
+    type: "yasb.cpu.CpuWidget"
+    options:
+      label: "<span>\uf4bc</span> {info[percent][total]:.0f}%"
+      update_interval: 2000
+      callbacks:
+        on_right: "exec cmd /c Taskmgr"
+        on_left: "do_nothing"   
+  wallpapers:
+    type: "yasb.wallpapers.WallpapersWidget"
+    options:
+      label: "<span>\udb83\ude09</span>"
+      image_path: "C:\\Users\\Lone\\Pictures\\Wallpapers"
+      change_automatically: true
+      update_interval: 120
+      gallery:
+        enabled: true
+        blur: False
+        image_width: 255
+        image_per_page: 7
+        show_buttons: false
+        orientation: "portrait"
+        image_spacing: 8
+        lazy_load: true
+        lazy_load_delay: 5
+        lazy_load_fadein: 100
+        image_corner_radius: 0
+        enable_cache: False
+  disk:
+    type: "yasb.disk.DiskWidget"
+    options:
+        label: "<span>\uf473</span> {space[used][gb]}/{space[total][gb]}"
+        label_alt: "{space[used][percent]}"
+        volume_label: "C"
+        update_interval: 60
+        group_label:
+          volume_labels: ["C", "D", "E", "F"]
+          show_label_name: true
+          blur: False
+          round_corners: False
+          border_color: "System"
+          alignment: "right"
+          direction: "up"
+          offset_top: 2
+          offset_left: 120
+        callbacks:
+          on_left: "toggle_group"
+          on_right: "toggle_label" 
+  systray:
+    type: "yasb.systray.SystrayWidget"
+    options:
+      class_name: "systray"
+      label_collapsed: "\uf438"
+      label_expanded: "\uf44a"
+      label_position: "right" # Can be "left" or "right"
+      icon_size: 14 # Can be any integer between 8 and 64
+      pin_click_modifier: "alt" # Can be "ctrl", "alt" or "shift"
+      show_unpinned: false
+      show_unpinned_button: true
+      show_battery: false
+      show_volume: false
+      show_network: false
+  glazewm_workspaces:
+      type: "glazewm.workspaces.GlazewmWorkspacesWidget"
+      options:
+        offline_label: "GlazeWM Offline"
+        hide_empty_workspaces: true
+        hide_if_offline: true
+  media:
+    type: "yasb.media.MediaWidget"
+    options:
+      label: "{artist} <span>\uf001</span> {title}"
+      label_alt: "<span>\uf001</span> {title}"
+      hide_empty: true
+      callbacks:
+        on_left: "toggle_label"
+        on_middle: "do_nothing"
+        on_right: "toggle_media_menu"
+      max_field_size:
+        label: 75
+      show_thumbnail: false
+      controls_only: false
+      controls_left: false
+      controls_hide: true
+      icons:
+        prev_track: "\ue892"
+        next_track: "\ue893"
+        play: "\ue768"
+        pause: "\ue769"
+      media_menu:
+        blur: false
+        round_corners: false
+        border_color: "system"
+        alignment: "right"
+        direction: "up"
+        offset_top: 2
+        offset_left: 134
+        thumbnail_corner_radius: 0
+        thumbnail_size: 120
+        max_title_size: 80
+        max_artist_size: 20
+        show_source: true
+      media_menu_icons:
+        play: "\ue768"
+        pause: "\ue769"
+        prev_track: "\ue892"
+        next_track: "\ue893"
+  clock:
+      type: "yasb.clock.ClockWidget"
+      options:
+        label: "{%H:%M}"
+        label_alt: "{%A %d %B %Y %H:%M}"
+        tooltip: false
+        timezones: []
+        calendar:
+          blur: False
+          round_corners: False
+          alignment: "right"
+          direction: "up"
+          offset_top: 2
+          offset_left: 200
+  weather:
+      type: "yasb.weather.WeatherWidget"
+      options:
+        label: "<span>{icon}</span> {temp}"
+        label_alt: "{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}"
+        api_key: "9d80bcfc41264b75856173713252804"
+        update_interval: 600
+        hide_decimal: true
+        location: "Kollam"
+        callbacks:
+          on_left: "toggle_card"
+        weather_card: 
+          blur: False
+          round_corners: False
+          border_color: "System"
+          alignment: "right"
+          direction: "up"
+          icon_size: 64
+          offset_top: 6
+          offset_left: 74
+  wifi:
+      type: "yasb.wifi.WifiWidget"
+      options:
+        label: "<span>{wifi_icon}</span>"
+        label_alt: "{wifi_name} {wifi_strength}%"
+        update_interval: 2500
+        callbacks:
+          on_left: "exec quick_settings"
+          on_middle: "exec cmd.exe /c start ms-settings:network"
+          on_right: "toggle_label"
+        ethernet_label: "<span>\udb80\ude00</span>"
+        ethernet_label_alt: "<span>{ethernet_name}</span>"
+        wifi_icons: [
+          "\udb81\uddaa",  # 0% strength icon
+          "\udb81\udda9",  # 1-20% strength
+          "\udb81\udda9",  # 21-40% strength
+          "\udb81\udda9",  # 41-80% strength
+          "\udb81\udda9"   # 81-100% strength
+        ]
+  volume:
+    type: "yasb.volume.VolumeWidget"
+    options:
+      label: "<span>{icon}</span> {level}"
+      label_alt: "{volume}"
+      volume_icons:
+        - "\ueee8"  # Icon for muted
+        - "\uf026"  # Icon for 0-10% volume
+        - "\uf027"  # Icon for 11-30% volume
+        - "\uf027"  # Icon for 31-60% volume
+        - "\uf028"  # Icon for 61-100% volume
+      audio_menu:
+        blur: False
+        round_corners: False
+        border_color: 'System'
+        alignment: 'right'
+        direction: 'up'
+        offset_top: 6
+        offset_left: 80
+      callbacks:
+        on_left: "toggle_volume_menu"
+        on_right: "toggle_mute"
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 6
+        offset: [ 1, 1 ]
+  battery:
+    type: "yasb.battery.BatteryWidget"
+    options:
+        label: "<span>{icon}</span>{percent}%"
+        label_alt: "<span>\udb81\udd1b</span> {time_remaining}"
+        charging_options:
+          icon_format: "{charging_icon}"
+        status_thresholds:
+          critical: 10 
+          low: 20 
+          medium: 45 
+          high: 75 
+          full: 100
+  power_menu:
+    type: "yasb.power_menu.PowerMenuWidget"
+    options:
+      label: "\u23fb"
+      uptime: True
+      blur: False
+      blur_background: True
+      animation_duration: 100
+      button_row: 3
+      buttons:
+        lock: ["\uea75", "Lock"]
+        sleep: ["\u23fe","Sleep"]
+        signout: ["\udb80\udf43", "Sign out"]
+        shutdown: ["\uf011", "Shut Down"]
+        restart: ["\uead2", "Restart"]
+        cancel: ["\udb81\udf3a", "Cancel"]
+  active_window:
+    type: "yasb.active_window.ActiveWindowWidget"
+    options:
+      label: "{win[process][name]}"
+      label_no_window: ""
+      label_icon: false
+      label_icon_size: 16
+      max_length: 30
+      monitor_exclusive: true
+      callbacks:
+        on_left: "do_nothing"
+
+
     alignment:
       position: "bottom"
       center: false
@@ -350,4 +702,3 @@ widgets:
       monitor_exclusive: true
       callbacks:
         on_left: "do_nothing"
-

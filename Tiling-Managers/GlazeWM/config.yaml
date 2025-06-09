@@ -173,7 +173,7 @@ window_rules:
   - commands: ["set-floating"] 
     match:
       - window_title: { equals: "Task Manager" }
-      - window_process: { regex: 'winspy|explorer|qbittorrent|mmc|nvcplui' }
+      - window_process: { regex: 'winspy|explorer|qbittorrent|mmc|nvcplui|mpv' }
       - window_title: { equals: "App Installer" }
       - window_title: { equals: "Settings" }
       - window_process: { equals: "GHelper" }
@@ -186,6 +186,10 @@ window_rules:
       - window_process: { equals: "Photos" }
       - window_title: { equals: "Windhawk" }
       - window_process: { equals: "Radeonsoftware" }
+      - window_title: { regex: "Revision Tool|Atlas Toolkit" }
+      - window_process: { equals: "FileConverter" }
+      # - window_process: { regex: "zen|chrome|firefox|arc|vivaldi|librewolf" }
+      #   window_class: { equals: "MozillaWindowClass" }
 
   # Start apps in their own workspaces (cuz i love seeing them in an instant lol)
   - commands: ['move --workspace 1', 'focus --workspace 1']
@@ -193,7 +197,7 @@ window_rules:
       - window_process: { regex: 'zen|chrome|firefox|arc|vivaldi|librewolf' }
   - commands: ['move --workspace 2', 'focus --workspace 2']
     match:
-      - window_process: { regex: 'Code|Trae' }
+      - window_process: { regex: 'Code|Trae|Cursor' }
   - commands: ['move --workspace 3', 'focus --workspace 3']
     match:
       - window_process: { regex: 'Equibop|Discord|Vesktop|GoofCord|WebCord|LegCord' }
@@ -375,3 +379,10 @@ keybindings:
     bindings: ['alt+shift+8']
   - commands: ['move --workspace 9', 'focus --workspace 9']
     bindings: ['alt+shift+9']
+
+    # Shift/Move Apps to previous/next workspace
+    # - bindings: ['focus --next-workspace']
+    #   commands: ['alt+shift+d']
+
+    # - bindings: ['focus --prev-workspace']
+    #   commands: ['alt+shift+a']

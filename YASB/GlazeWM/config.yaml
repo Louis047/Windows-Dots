@@ -37,14 +37,14 @@ bars:
     widgets:
       left: [
         "glazewm_workspaces",
+        "notes",
         "media"
       ]
       center: [
         "active_window"
       ]
       right: [
-        "systray",
-        "disk",
+        "lines",
         "memory",
         "cpu",
         "lines",
@@ -55,7 +55,8 @@ bars:
         "weather",
         "wallpapers",
         "notifications",
-        "notes",
+        "lines",
+        "systray",
         "lines",
         "clock",
         "power_menu"
@@ -72,12 +73,7 @@ widgets:
   notes:
     type: "yasb.notes.NotesWidget"
     options:
-      label: "<span>\ue678</span>{count}"
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
+      label: "<span>\ue678</span>"
       menu:
         blur: false
         round_corners: false
@@ -100,9 +96,10 @@ widgets:
       label: "<span>\udb84\udd6b</span>"
       label_alt: "{count} F**ks"
       hide_empty: true
-      tooltip: true
+      tooltip: false
       callbacks:
         on_left: "toggle_notification"
+        on_right: "toggle_label"
       container_padding:
         top: 0
         left: 0
@@ -134,9 +131,13 @@ widgets:
     type: "yasb.wallpapers.WallpapersWidget"
     options:
       label: "<span>\udb83\ude09</span>"
-      image_path: "C:\\Users\\Lone\\Pictures\\Wallpapers"
+      image_path: "C:\\Users\\Lone\\Pictures\\Customs\\mountain" # IMPORTANT: Change the directory according to your carousel location
       change_automatically: false
       update_interval: 120
+      animation:
+        enabled: true
+        type: fadeInOut
+        duration: 0
       gallery:
         enabled: true
         blur: False
@@ -144,32 +145,32 @@ widgets:
         image_per_page: 7
         show_buttons: false
         orientation: "portrait"
-        image_spacing: 8
-        lazy_load: true
-        lazy_load_delay: 5
-        lazy_load_fadein: 100
+        image_spacing: 6
+        lazy_load: false
+        lazy_load_delay: 0
+        lazy_load_fadein: 0
         image_corner_radius: 0
         enable_cache: False
-  disk:
-    type: "yasb.disk.DiskWidget"
-    options:
-        label: "<span>\uf473</span> {space[used][gb]}/{space[total][gb]}"
-        label_alt: "{space[used][percent]}"
-        volume_label: "C"
-        update_interval: 60
-        group_label:
-          volume_labels: ["C", "D", "E", "F"]
-          show_label_name: true
-          blur: False
-          round_corners: False
-          border_color: "System"
-          alignment: "right"
-          direction: "up"
-          offset_top: 2
-          offset_left: 120
-        callbacks:
-          on_left: "toggle_group"
-          on_right: "toggle_label" 
+  # disk: You can add this if you really wanted it. Felt like taking too much space in bar so removed.
+  #   type: "yasb.disk.DiskWidget"
+  #   options:
+  #       label: "<span>\uf473</span> {space[used][gb]}/{space[total][gb]}"
+  #       label_alt: "{space[used][percent]}"
+  #       volume_label: "C"
+  #       update_interval: 60
+  #       group_label:
+  #         volume_labels: ["C", "D", "E", "F"]
+  #         show_label_name: true
+  #         blur: False
+  #         round_corners: False
+  #         border_color: "System"
+  #         alignment: "right"
+  #         direction: "up"
+  #         offset_top: 2
+  #         offset_left: 120
+  #       callbacks:
+  #         on_left: "toggle_group"
+  #         on_right: "toggle_label" 
   systray:
     type: "yasb.systray.SystrayWidget"
     options:
@@ -177,10 +178,10 @@ widgets:
       label_collapsed: "\uf438"
       label_expanded: "\uf44a"
       label_position: "right" # Can be "left" or "right"
-      icon_size: 14 # Can be any integer between 8 and 64
+      icon_size: 13 # Can be any integer between 8 and 64
       pin_click_modifier: "alt" # Can be "ctrl", "alt" or "shift"
-      show_unpinned: false
-      show_unpinned_button: true
+      show_unpinned: true
+      show_unpinned_button: false
       show_battery: false
       show_volume: false
       show_network: false

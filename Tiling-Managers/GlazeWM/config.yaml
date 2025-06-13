@@ -1,352 +1,389 @@
-# Changes made from the base config, make sure to read the docs provided in the third comment to modify according to one's liking
-# This is solely meant for GlazeWM users as I haven't touched Komorebi for I love GlazeWM's simplicity.
-# New Update: Back to GlazeWM, snappier the better.
-# For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
-watch_stylesheet: true
-watch_config: true
-debug: false
-bars:
-  primary-bar:
+general:
+  # Commands to run when the WM has started. This is useful for running a
+  # script or launching another application.
+  # Example: The below command launches Zebar/YASB.
+  # startup_commands: ['shell-exec yasb']
+  # Commenting the above, found an issue with GlazeWM interfering with Systray in YASB
+
+  # Commands to run just before the WM is shutdown.
+  # Example: The below command kills Zebar/YASB.
+  shutdown_commands: ['shell-exec taskkill /IM yasb.exe /F']
+
+  # Commands to run after the WM config is reloaded.
+  config_reload_commands: []
+
+  # Whether to automatically focus windows underneath the cursor.
+  focus_follows_cursor: false
+
+  # Whether to switch back and forth between the previously focused
+  # workspace when focusing the current workspace.
+  toggle_workspace_on_refocus: false
+
+  cursor_jump:
+    # Whether to automatically move the cursor on the specified trigger.
     enabled: true
-    screens: ["*"]
-    class_name: "yasb-bar"
-    alignment:
-      position: "bottom"
-      center: false
-    animation:
+
+    # Trigger for cursor jump:
+    # - 'monitor_focus': Jump when focus changes between monitors.
+    # - 'window_focus': Jump when focus changes between windows.
+    trigger: 'window_focus'
+
+  # How windows should be hidden when switching workspaces.
+  # - 'cloak': Recommended. Hides windows with no animation.
+  # - 'hide': Legacy method (v3.5 and earlier) that has a brief animation,
+  # but has stability issues with some apps.
+  hide_method: 'cloak'
+
+  # Affects which windows get shown in the native Windows taskbar. Has no
+  # effect if `hide_method: 'hide'`.
+  # - 'true': Show all windows (regardless of workspace).
+  # - 'false': Only show windows from the currently shown workspaces.
+  show_all_in_taskbar: false
+
+gaps:
+  # Whether to scale the gaps with the DPI of the monitor.
+  scale_with_dpi: true
+
+  # Gap between adjacent windows.
+  inner_gap: '16px'
+
+  # Gap between windows and the screen edge.
+  outer_gap:
+    top: '16px'
+    right: '16px'
+    bottom: '40px'
+    left: '16px'
+
+window_effects:
+  # Visual effects to apply to the focused window.
+  focused_window:
+    # Highlight the window with a colored border.
+    # ** Exclusive to Windows 11 due to API limitations.
+    border:
+      enabled: true
+      color: '#FFFFFF'
+
+    # Remove the title bar from the window's frame. Note that this can
+    # cause rendering issues for some applications.
+    hide_title_bar:
       enabled: false
-      duration: 1000
-    blur_effect:
-      enabled: False
-      acrylic: False
-      dark_mode: True
-      round_corners: False
-      border_color: "System"
-    window_flags:
-      always_on_top: false
-      windows_app_bar: false # This interferes with apps in full-screen. Notably while watching videos in full screen
-      hide_on_fullscreen: true
-    dimensions:
-      width: "100%"
-      height: 26
-    padding:
-      top: 0
-      left: 0
-      bottom: 0
-      right: 0
-    widgets:
-      left: [
-        "glazewm_workspaces",
-        "notes",
-        "media"
-      ]
-      center: [
-        "active_window"
-      ]
-      right: [
-        "lines",
-        "memory",
-        "cpu",
-        "lines",
-        "battery",
-        "wifi",
-        "volume",
-        "lines",
-        "weather",
-        "wallpapers",
-        "notifications",
-        "lines",
-        "systray",
-        "lines",
-        "clock",
-        "power_menu"
-      ]
-widgets:
-  lines:
-    type: "yasb.custom.CustomWidget"
-    options:
-      label: "\u007c"
-      label_alt: "\u007c"
-      class_name: "separator-widget"
-      callbacks:
-        on_left: "do_nothing"
-  notes:
-    type: "yasb.notes.NotesWidget"
-    options:
-      label: "<span>\ue678</span>"
-      menu:
-        blur: false
-        round_corners: false
-        border_color: "System"
-        alignment: "right"
-        direction: "up"
-        offset_top: 2
-        offset_left: 80
-        max_title_size: 150
-        show_date_time: true
-      icons:                      
-        note: "\udb82\udd0c"
-        delete: "\ue20d"
-      callbacks:
-        on_left: "toggle_menu"
-        on_middle: "do_nothing"
-  notifications:
-    type: "yasb.notifications.NotificationsWidget"
-    options:
-      label: "<span>\udb84\udd6b</span>"
-      label_alt: "{count} F**ks"
-      hide_empty: true
-      tooltip: false
-      callbacks:
-        on_left: "toggle_notification"
-        on_right: "toggle_label"
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
-  memory:
-    type: "yasb.memory.MemoryWidget"
-    options:
-      label: "<span>\uefc5</span> {virtual_mem_percent}%"
-      label_alt: "{virtual_mem_free}/{virtual_mem_total}"
-      update_interval: 2500
-      callbacks:
-        on_left: "do_nothing"
-        on_middle: "do_nothing"
-        on_right: "toggle_label"
-      memory_thresholds:
-        low: 20
-        medium: 60
-        high: 90
-  cpu:
-    type: "yasb.cpu.CpuWidget"
-    options:
-      label: "<span>\uf4bc</span> {info[percent][total]:.0f}%"
-      update_interval: 2000
-      callbacks:
-        on_right: "exec cmd /c Taskmgr"
-        on_left: "do_nothing"   
-  wallpapers:
-    type: "yasb.wallpapers.WallpapersWidget"
-    options:
-      label: "<span>\udb83\ude09</span>"
-      image_path: "C:\\Users\\Lone\\Pictures\\Customs\\mountain" # IMPORTANT: Change the directory according to your carousel location
-      change_automatically: false
-      update_interval: 120
-      animation:
-        enabled: true
-        type: fadeInOut
-        duration: 0
-      gallery:
-        enabled: true
-        blur: False
-        image_width: 255
-        image_per_page: 7
-        show_buttons: false
-        orientation: "portrait"
-        image_spacing: 6
-        lazy_load: false
-        lazy_load_delay: 0
-        lazy_load_fadein: 0
-        image_corner_radius: 0
-        enable_cache: False
-  # disk: You can add this if you really wanted it. Felt like taking too much space in bar so removed.
-  #   type: "yasb.disk.DiskWidget"
-  #   options:
-  #       label: "<span>\uf473</span> {space[used][gb]}/{space[total][gb]}"
-  #       label_alt: "{space[used][percent]}"
-  #       volume_label: "C"
-  #       update_interval: 60
-  #       group_label:
-  #         volume_labels: ["C", "D", "E", "F"]
-  #         show_label_name: true
-  #         blur: False
-  #         round_corners: False
-  #         border_color: "System"
-  #         alignment: "right"
-  #         direction: "up"
-  #         offset_top: 2
-  #         offset_left: 120
-  #       callbacks:
-  #         on_left: "toggle_group"
-  #         on_right: "toggle_label" 
-  systray:
-    type: "yasb.systray.SystrayWidget"
-    options:
-      class_name: "systray"
-      label_collapsed: "\uf438"
-      label_expanded: "\uf44a"
-      label_position: "right" # Can be "left" or "right"
-      icon_size: 13 # Can be any integer between 8 and 64
-      pin_click_modifier: "alt" # Can be "ctrl", "alt" or "shift"
-      show_unpinned: true
-      show_unpinned_button: false
-      show_battery: false
-      show_volume: false
-      show_network: false
-  glazewm_workspaces:
-      type: "glazewm.workspaces.GlazewmWorkspacesWidget"
-      options:
-        offline_label: "GlazeWM Offline"
-        hide_empty_workspaces: true
-        hide_if_offline: true
-  media:
-    type: "yasb.media.MediaWidget"
-    options:
-      label: "{artist} <span>\uf001</span> {title}"
-      label_alt: "<span>\uf001</span> {title}"
-      hide_empty: true
-      callbacks:
-        on_left: "toggle_label"
-        on_middle: "do_nothing"
-        on_right: "toggle_media_menu"
-      max_field_size:
-        label: 75
-      show_thumbnail: false
-      controls_only: false
-      controls_left: false
-      controls_hide: true
-      icons:
-        prev_track: "\ue892"
-        next_track: "\ue893"
-        play: "\ue768"
-        pause: "\ue769"
-      media_menu:
-        blur: false
-        round_corners: false
-        border_color: "system"
-        alignment: "right"
-        direction: "up"
-        offset_top: 2
-        offset_left: 134
-        thumbnail_corner_radius: 0
-        thumbnail_size: 120
-        max_title_size: 80
-        max_artist_size: 20
-        show_source: true
-      media_menu_icons:
-        play: "\ue768"
-        pause: "\ue769"
-        prev_track: "\ue892"
-        next_track: "\ue893"
-  clock:
-      type: "yasb.clock.ClockWidget"
-      options:
-        label: "{%H:%M}"
-        label_alt: "{%A %d %B %Y %H:%M}"
-        tooltip: false
-        timezones: []
-        calendar:
-          blur: False
-          round_corners: False
-          alignment: "right"
-          direction: "up"
-          offset_top: 2
-          offset_left: 200
-  weather:
-      type: "yasb.weather.WeatherWidget"
-      options:
-        label: "<span>{icon}</span> {temp}"
-        label_alt: "{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}"
-        api_key: "9d80bcfc41264b75856173713252804"
-        update_interval: 600
-        hide_decimal: true
-        location: "Kollam"
-        callbacks:
-          on_left: "toggle_card"
-        weather_card: 
-          blur: False
-          round_corners: False
-          border_color: "System"
-          alignment: "right"
-          direction: "up"
-          icon_size: 64
-          offset_top: 6
-          offset_left: 74
-  wifi:
-      type: "yasb.wifi.WifiWidget"
-      options:
-        label: "<span>{wifi_icon}</span>"
-        label_alt: "{wifi_name} {wifi_strength}%"
-        update_interval: 2500
-        callbacks:
-          on_left: "exec quick_settings"
-          on_middle: "exec cmd.exe /c start ms-settings:network"
-          on_right: "toggle_label"
-        ethernet_label: "<span>\udb80\ude00</span>"
-        ethernet_label_alt: "<span>{ethernet_name}</span>"
-        wifi_icons: [
-          "\udb81\uddaa",  # 0% strength icon
-          "\udb81\udda9",  # 1-20% strength
-          "\udb81\udda9",  # 21-40% strength
-          "\udb81\udda9",  # 41-80% strength
-          "\udb81\udda9"   # 81-100% strength
-        ]
-  volume:
-    type: "yasb.volume.VolumeWidget"
-    options:
-      label: "<span>{icon}</span> {level}"
-      label_alt: "{volume}"
-      volume_icons:
-        - "\ueee8"  # Icon for muted
-        - "\uf026"  # Icon for 0-10% volume
-        - "\uf027"  # Icon for 11-30% volume
-        - "\uf027"  # Icon for 31-60% volume
-        - "\uf028"  # Icon for 61-100% volume
-      audio_menu:
-        blur: False
-        round_corners: False
-        border_color: 'System'
-        alignment: 'right'
-        direction: 'up'
-        offset_top: 6
-        offset_left: 80
-      callbacks:
-        on_left: "toggle_volume_menu"
-        on_right: "toggle_mute"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 6
-        offset: [ 1, 1 ]
-  battery:
-    type: "yasb.battery.BatteryWidget"
-    options:
-        label: "<span>{icon}</span>{percent}%"
-        label_alt: "<span>\udb81\udd1b</span> {time_remaining}"
-        charging_options:
-          icon_format: "{charging_icon}"
-        status_thresholds:
-          critical: 10 
-          low: 20 
-          medium: 45 
-          high: 75 
-          full: 100
-  power_menu:
-    type: "yasb.power_menu.PowerMenuWidget"
-    options:
-      label: "\u23fb"
-      uptime: True
-      blur: False
-      blur_background: True
-      animation_duration: 100
-      button_row: 3
-      buttons:
-        lock: ["\uea75", "Lock"]
-        sleep: ["\u23fe","Sleep"]
-        signout: ["\udb80\udf43", "Sign out"]
-        shutdown: ["\uf011", "Shut Down"]
-        restart: ["\uead2", "Restart"]
-        cancel: ["\udb81\udf3a", "Cancel"]
-  active_window:
-    type: "yasb.active_window.ActiveWindowWidget"
-    options:
-      label: "{win[process][name]}"
-      label_no_window: ""
-      label_icon: false
-      label_icon_size: 16
-      max_length: 30
-      monitor_exclusive: true
-      callbacks:
-        on_left: "do_nothing"
+
+    # Change the corner style of the window's frame.
+    # ** Exclusive to Windows 11 due to API limitations.
+    corner_style:
+      enabled: true
+      # Allowed values: 'square', 'rounded', 'small_rounded'.
+      style: 'square'
+
+    # Change the transparency of the window.
+    transparency:
+      enabled: false
+      # Can be something like '95%' or '0.95' for slightly transparent windows.
+      # '0' or '0%' is fully transparent (and, by consequence, unfocusable).
+      opacity: '95%'
+
+  # Visual effects to apply to non-focused windows.
+  other_windows:
+    border:
+      enabled: true
+      color: '#808080'
+    hide_title_bar:
+      enabled: false
+    corner_style:
+      enabled: true
+      style: 'square'
+    transparency:
+      enabled: false
+      opacity: '0%'
+
+window_behavior:
+  # New windows are created in this state whenever possible.
+  # Allowed values: 'tiling', 'floating'.
+  initial_state: 'tiling'
+
+  # Sets the default options for when a new window is created. This also
+  # changes the defaults for when the state change commands, like
+  # `set-floating`, are used without any flags.
+  state_defaults:
+    floating:
+      # Whether to center floating windows by default.
+      centered: false
+      # Whether to show floating windows as always on top.
+      shown_on_top: false
+
+    fullscreen:
+      # Maximize the window if possible. If the window doesn't have a
+      # maximize button, then it'll be fullscreen'ed normally instead.
+      maximized: true
+
+      # Whether to show fullscreen windows as always on top.
+      shown_on_top: false
+
+workspaces:
+  - name: '1'
+    display_name: '1'
+  - name: '2'
+    display_name: '2'
+  - name: '3'
+    display_name: '3'
+  - name: '4'
+    display_name: '4'
+  - name: '5'
+    display_name: '5'
+  - name: '6'
+    display_name: '6'
+  - name: '7'
+    display_name: '7'
+  - name: '8'
+    display_name: '8'
+  - name: '9'
+    display_name: '9'
+
+window_rules:
+  - commands: ['ignore']
+    match:
+      # Ignores any Bar windows.
+      # - window_process: { equals: 'zebar' } cuz i dont use this, yasb >>>>
+      - window_process: { equals: 'yasb' }
+
+      # Ignores picture-in-picture windows for browsers.
+      - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
+        window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
+
+      # Ignore rules for various 3rd-party apps.
+      - window_process: { equals: 'PowerToys' }
+        window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
+      - window_process: { equals: 'PowerToys' }
+        window_title: { regex: '.*? - Peek' }
+      - window_process: { equals: 'Lively' }
+        window_class: { regex: 'HwndWrapper' }
+      
+      # Ignores certain games (interferes with GlazeWM)
+      # Feel free to add your games here
+      # - window_process: { equals: "VALORANT-Win64-Shipping" }
+      # - window_title: { equals: "Grand Theft Auto V" }
+      # - window_title: { equals: "Saints Row" }
+      # - window_process: { equals: "GhostOfTsushima" }
+
+      # Ignores Screenshot Apps (tend to cause issue with Tiling Manager, ShareX doesn't smh. I don't understand how the f apps work, it is what it is)
+      - window_process: { equals: "Lightshot" }
+      - window_process: { equals: "Greenshot" }
+
+  # Floating-required apps
+  - commands: ["set-floating"] 
+    match:
+      - window_title: { equals: "Task Manager" }
+      - window_process: { regex: 'winspy|explorer|qbittorrent|mmc|nvcplui|mpv' }
+      - window_title: { equals: "App Installer" }
+      - window_title: { equals: "Settings" }
+      - window_process: { equals: "GHelper" }
+      - window_process: { equals: "SmoothScrollGUI" }
+      - window_process: { equals: "Heroic" }
+      - window_process: { equals: "Notepad" }
+      - window_title: { equals: "Snipping Tool"}
+      - window_process: { equals: "BCUninstaller" }
+      - window_process: { equals: "ApplicationFrameHost" }
+      - window_process: { equals: "Photos" }
+      - window_title: { equals: "Windhawk" }
+      - window_process: { equals: "Radeonsoftware" }
+      - window_title: { regex: "Revision Tool|Atlas Toolkit" }
+      - window_process: { equals: "FileConverter" }
+      - window_process: { equals: "ABDownloadManager" }
+      # - window_process: { regex: "zen|chrome|firefox|arc|vivaldi|librewolf" }
+      #   window_class: { equals: "MozillaWindowClass" }
+
+  # Start apps in their own workspaces (cuz i love seeing them in an instant lol)
+  - commands: ['move --workspace 1', 'focus --workspace 1']
+    match: 
+      - window_process: { regex: 'zen|chrome|firefox|arc|vivaldi|librewolf' }
+  - commands: ['move --workspace 2', 'focus --workspace 2']
+    match:
+      - window_process: { regex: 'Code|Trae|Cursor' }
+  - commands: ['move --workspace 3', 'focus --workspace 3']
+    match:
+      - window_process: { regex: 'Equibop|Discord|Vesktop|GoofCord|WebCord|LegCord' }
+      - window_title: { equals: "WhatsApp" }
+      - window_title: { equals: "Unigram" }
+      - window_title: { equals: "Telegram" }
+      - window_title: { equals: "Signal" }
+  - commands: ['move --workspace 4', 'focus --workspace 4']
+    match:
+      - window_process: { equals: "WINWORD" }
+      - window_process: { equals: "POWERPNT" }
+      - window_process: { regex: "EXCEL" }
+  - commands: ['move --workspace 6', 'focus --workspace 6']
+    match:
+      - window_process: { equals: "VALORANT-Win64-Shipping" }
+      - window_process: { equals: "Riot Client" }
+      - window_process: { equals: "gta5" }
+  - commands: ['move --workspace 7', 'focus --workspace 7']
+    match:
+      - window_process: { regex: 'Spotify' }
+  - commands: ['move --workspace 8', 'focus --workspace 8']
+    match:
+      - window_title: { equals: "UniGetUI" }
+  - commands: ['move --workspace 9', 'focus --workspace 9']
+    match:
+      - window_process: { regex: 'obs64' }
+
+keybindings:
+  # Shift focus in a given direction.
+  - commands: ['focus --direction left']
+    bindings: ['alt+h', 'alt+left']
+  - commands: ['focus --direction right']
+    bindings: ['alt+l', 'alt+right']
+  - commands: ['focus --direction up']
+    bindings: ['alt+k', 'alt+up']
+  - commands: ['focus --direction down']
+    bindings: ['alt+j', 'alt+down']
+
+  # Move focused window in a given direction.
+  - commands: ['move --direction left']
+    bindings: ['alt+shift+h', 'alt+shift+left']
+  - commands: ['move --direction right']
+    bindings: ['alt+shift+l', 'alt+shift+right']
+  - commands: ['move --direction up']
+    bindings: ['alt+shift+k', 'alt+shift+up']
+  - commands: ['move --direction down']
+    bindings: ['alt+shift+j', 'alt+shift+down']
+
+  # Resize focused window by a percentage or pixel amount.
+  - commands: ['resize --width -2%']
+    bindings: ['alt+ctrl+left']
+  - commands: ['resize --width +2%']
+    bindings: ['alt+ctrl+right']
+  - commands: ['resize --height +2%']
+    bindings: ['alt+ctrl+up']
+  - commands: ['resize --height -2%']
+    bindings: ['alt+ctrl+down']
+
+  # As an alternative to the resize keybindings above, resize mode enables
+  # resizing via arrow keys or HJKL. The binding mode is defined above with
+  # the name 'resize'.
+  - commands: ['wm-enable-binding-mode --name resize']
+    bindings: ['alt+r']
+
+  # Disables window management and all other keybindings until alt+shift+p
+  # is pressed again.
+  - commands: ['wm-toggle-pause']
+    bindings: ['alt+shift+p']
+
+  # Change tiling direction. This determines where new tiling windows will
+  # be inserted.
+  - commands: ['toggle-tiling-direction']
+    bindings: ['alt+v']
+
+  # Change focus from tiling windows -> floating -> fullscreen.
+  - commands: ['wm-cycle-focus']
+    bindings: ['alt+space']
+
+  # Change the focused window to be floating.
+  - commands: ['toggle-floating --centered']
+    bindings: ['alt+shift+space']
+
+  # Change the focused window to be tiling.
+  - commands: ['toggle-tiling']
+    bindings: ['alt+t']
+
+  # Change the focused window to be fullscreen.
+  - commands: ['toggle-fullscreen']
+    bindings: ['alt+f']
+
+  # Minimize focused window.
+  - commands: ['toggle-minimized']
+    bindings: ['alt+m']
+
+  # Close focused window.
+  - commands: ['close']
+    bindings: ['alt+shift+q']
+
+  # Kill GlazeWM process safely.
+  - commands: ['wm-exit']
+    bindings: ['alt+shift+e']
+
+  # Re-evaluate configuration file.
+  - commands: ['wm-reload-config']
+    bindings: ['alt+shift+r']
+
+  # Redraw all windows.
+  - commands: ['wm-redraw']
+    bindings: ['alt+shift+w']
+
+  # Launch CMD terminal. Alternatively, use `shell-exec wt` or
+  # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
+  # Terminal and Git Bash respectively.
+  - commands: ['shell-exec wt']
+    bindings: ['alt+enter']
+
+  # Open Debian
+  - commands: ['shell-exec wt -p Debian']
+    bindings: ['alt+shift+enter']
+
+  # Focus the next/previous active workspace defined in `workspaces` config.
+  - commands: ['focus --next-active-workspace']
+    bindings: ['alt+d']
+  - commands: ['focus --prev-active-workspace']
+    bindings: ['alt+a']
+
+  # Focus the workspace that last had focus.
+  # - commands: ['focus --recent-workspace']
+  #   bindings: ['alt+d']
+
+  # Change focus to a workspace defined in `workspaces` config.
+  - commands: ['focus --workspace 1']
+    bindings: ['alt+1']
+  - commands: ['focus --workspace 2']
+    bindings: ['alt+2']
+  - commands: ['focus --workspace 3']
+    bindings: ['alt+3']
+  - commands: ['focus --workspace 4']
+    bindings: ['alt+4']
+  - commands: ['focus --workspace 5']
+    bindings: ['alt+5']
+  - commands: ['focus --workspace 6']
+    bindings: ['alt+6']
+  - commands: ['focus --workspace 7']
+    bindings: ['alt+7']
+  - commands: ['focus --workspace 8']
+    bindings: ['alt+8']
+  - commands: ['focus --workspace 9']
+    bindings: ['alt+9']
+
+  # Move the focused window's parent workspace to a monitor in a given
+  # direction.
+  # - commands: ['move-workspace --direction left']
+  #   bindings: ['alt+shift+a']
+  # - commands: ['move-workspace --direction right']
+  #   bindings: ['alt+shift+f']
+  # - commands: ['move-workspace --direction up']
+  #   bindings: ['alt+shift+d']
+  # - commands: ['move-workspace --direction down']
+  #   bindings: ['alt+shift+s']
+  # Commented it out, only monitor-gasmic people loves this shit
+
+  # Move focused window to a workspace defined in `workspaces` config.
+  - commands: ['move --workspace 1', 'focus --workspace 1']
+    bindings: ['alt+shift+1']
+  - commands: ['move --workspace 2', 'focus --workspace 2']
+    bindings: ['alt+shift+2']
+  - commands: ['move --workspace 3', 'focus --workspace 3']
+    bindings: ['alt+shift+3']
+  - commands: ['move --workspace 4', 'focus --workspace 4']
+    bindings: ['alt+shift+4']
+  - commands: ['move --workspace 5', 'focus --workspace 5']
+    bindings: ['alt+shift+5']
+  - commands: ['move --workspace 6', 'focus --workspace 6']
+    bindings: ['alt+shift+6']
+  - commands: ['move --workspace 7', 'focus --workspace 7']
+    bindings: ['alt+shift+7']
+  - commands: ['move --workspace 8', 'focus --workspace 8']
+    bindings: ['alt+shift+8']
+  - commands: ['move --workspace 9', 'focus --workspace 9']
+    bindings: ['alt+shift+9']
+
+    # Shift/Move Apps to previous/next workspace
+    # - bindings: ['focus --next-workspace']
+    #   commands: ['alt+shift+d']
+
+    # - bindings: ['focus --prev-workspace']
+    #   commands: ['alt+shift+a']

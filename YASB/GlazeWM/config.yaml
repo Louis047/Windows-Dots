@@ -44,7 +44,6 @@ bars:
         "active_window"
       ]
       right: [
-        "lines",
         "memory",
         "cpu",
         "lines",
@@ -188,7 +187,7 @@ widgets:
   glazewm_workspaces:
       type: "glazewm.workspaces.GlazewmWorkspacesWidget"
       options:
-        offline_label: "GlazeWM Offline"
+        offline_label: "󰈹"
         hide_empty_workspaces: true
         hide_if_offline: true
   media:

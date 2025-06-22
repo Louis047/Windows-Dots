@@ -21,7 +21,7 @@ general:
 
   cursor_jump:
     # Whether to automatically move the cursor on the specified trigger.
-    enabled: true
+    enabled: false
 
     # Trigger for cursor jump:
     # - 'monitor_focus': Jump when focus changes between monitors.
@@ -117,27 +117,27 @@ window_behavior:
       maximized: true
 
       # Whether to show fullscreen windows as always on top.
-      shown_on_top: false
+      shown_on_top: true
 
 workspaces:
   - name: '1'
-    display_name: '1'
+    display_name: '󰈹'
   - name: '2'
-    display_name: '2'
+    display_name: '󰨞'
   - name: '3'
-    display_name: '3'
+    display_name: '󰭹'
   - name: '4'
-    display_name: '4'
+    display_name: '󰏆'
   - name: '5'
-    display_name: '5'
+    display_name: '󰂫'
   - name: '6'
-    display_name: '6'
+    display_name: ''
   - name: '7'
-    display_name: '7'
+    display_name: ''
   - name: '8'
-    display_name: '8'
+    display_name: ''
   - name: '9'
-    display_name: '9'
+    display_name: '󰻃'
 
 window_rules:
   - commands: ['ignore']
@@ -160,10 +160,10 @@ window_rules:
       
       # Ignores certain games (interferes with GlazeWM)
       # Feel free to add your games here
-      # - window_process: { equals: "VALORANT-Win64-Shipping" }
-      # - window_title: { equals: "Grand Theft Auto V" }
-      # - window_title: { equals: "Saints Row" }
-      # - window_process: { equals: "GhostOfTsushima" }
+      - window_process: { equals: "VALORANT-Win64-Shipping" }
+      - window_title: { equals: "Grand Theft Auto V" }
+      - window_title: { equals: "Saints Row" }
+      - window_process: { equals: "GhostOfTsushima" }
 
       # Ignores Screenshot Apps (tend to cause issue with Tiling Manager, ShareX doesn't smh. I don't understand how the f apps work, it is what it is)
       - window_process: { equals: "Lightshot" }
@@ -198,7 +198,7 @@ window_rules:
       - window_process: { regex: 'zen|chrome|firefox|arc|vivaldi|librewolf' }
   - commands: ['move --workspace 2', 'focus --workspace 2']
     match:
-      - window_process: { regex: 'Code|Trae|Cursor' }
+      - window_process: { regex: 'Code|Trae|Cursor|Windsurf' }
   - commands: ['move --workspace 3', 'focus --workspace 3']
     match:
       - window_process: { regex: 'Equibop|Discord|Vesktop|GoofCord|WebCord|LegCord' }
@@ -213,7 +213,6 @@ window_rules:
       - window_process: { regex: "EXCEL" }
   - commands: ['move --workspace 6', 'focus --workspace 6']
     match:
-      - window_process: { equals: "VALORANT-Win64-Shipping" }
       - window_process: { equals: "Riot Client" }
       - window_process: { equals: "gta5" }
   - commands: ['move --workspace 7', 'focus --workspace 7']
@@ -325,10 +324,6 @@ keybindings:
   - commands: ['focus --prev-active-workspace']
     bindings: ['alt+a']
 
-  # Focus the workspace that last had focus.
-  # - commands: ['focus --recent-workspace']
-  #   bindings: ['alt+d']
-
   # Change focus to a workspace defined in `workspaces` config.
   - commands: ['focus --workspace 1']
     bindings: ['alt+1']
@@ -380,10 +375,3 @@ keybindings:
     bindings: ['alt+shift+8']
   - commands: ['move --workspace 9', 'focus --workspace 9']
     bindings: ['alt+shift+9']
-
-    # Shift/Move Apps to previous/next workspace
-    # - bindings: ['focus --next-workspace']
-    #   commands: ['alt+shift+d']
-
-    # - bindings: ['focus --prev-workspace']
-    #   commands: ['alt+shift+a']

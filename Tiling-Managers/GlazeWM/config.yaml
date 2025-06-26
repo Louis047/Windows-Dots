@@ -189,6 +189,7 @@ window_rules:
       - window_title: { regex: "Revision Tool|Atlas Toolkit" }
       - window_process: { equals: "FileConverter" }
       - window_process: { equals: "ABDownloadManager" }
+      - window_process: { equals: "ShareX" }
       # - window_process: { regex: "zen|chrome|firefox|arc|vivaldi|librewolf" }
       #   window_class: { equals: "MozillaWindowClass" }
 
@@ -215,6 +216,7 @@ window_rules:
     match:
       - window_process: { equals: "Riot Client" }
       - window_process: { equals: "gta5" }
+      - window_process: { equals: "Heroic" }
   - commands: ['move --workspace 7', 'focus --workspace 7']
     match:
       - window_process: { regex: 'Spotify' }

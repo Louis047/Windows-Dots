@@ -37,6 +37,7 @@ bars:
     widgets:
       left: [
         "glazewm_workspaces",
+        "lines",
         "notes",
         "media"
       ]
@@ -187,21 +188,23 @@ widgets:
   glazewm_workspaces:
       type: "glazewm.workspaces.GlazewmWorkspacesWidget"
       options:
-        offline_label: "󰈹"
+        offline_label: "Offline"
         hide_empty_workspaces: true
         hide_if_offline: true
   media:
     type: "yasb.media.MediaWidget"
     options:
-      label: "{artist} <span>\uf001</span> {title}"
-      label_alt: "<span>\uf001</span> {title}"
+      label: "<span>\uf001</span> {title}"
+      label_alt: "<span>\uf001</span> {title} - {artist}"
       hide_empty: true
       callbacks:
         on_left: "toggle_label"
         on_middle: "do_nothing"
         on_right: "toggle_media_menu"
       max_field_size:
-        label: 75
+        label: 65
+        label_alt: 75
+        truncate_whole_label: true
       show_thumbnail: false
       controls_only: false
       controls_left: false
@@ -343,9 +346,17 @@ widgets:
     options:
       label: "{win[process][name]}"
       label_no_window: ""
+      label_alt: "{win[process]}"
       label_icon: false
-      label_icon_size: 16
+      label_icon_size: 14
       max_length: 30
       monitor_exclusive: true
+      rewrite:
+        - pattern: "^(.+?)\\.exe$"
+          replacement: "\\1"
+          case: title
+        - pattern: "\\bui\\b"
+          replacement: "UI"
       callbacks:
         on_left: "do_nothing"
+        on_right: "toggle_label"

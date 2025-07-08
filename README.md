@@ -22,6 +22,8 @@
 
 - [MacType](https://github.com/snowie2000/mactype) - If you love MacOS and want better font rendering, this software is a heaven. Recently brought back from dead. Really recommend this. (even though their website is dead, good to see this project active in github)
 
+- [Tacky-Borders](https://github.com/lukeyou05/tacky-borders) - A cool Windows Border Customization without any compromise in resource usage. An Accidental discovery. Komorebi has this integrated.
+
 ### Preview:
 GlazeWM Setup
 
@@ -40,21 +42,22 @@ Komorebi Setup
 
 ### Things to be done:
 **GlazeWM**
-- [x] Setup Complete
+- [ ] Fix KeyBinds 
 
 **Komorebi**
 - [x] Floating applications fix - window size ain't the right
 - [x] Focus workspace on apps with `initial_workspace_rules`
-- [ ] Inconsistent animation sometimes [UPDATE SOON]
 
 **YASB**
-- [x] Improve Media widget
-- [ ] Preview Video
+- [x] Improve Media Widget
+- [ ] Update WiFi Widget
+- [ ] Add Hotspot Widget, if possible
 
 **Miscellaneous**
 - [ ] Oh-My-Posh Terminal Setup
 - [ ] Better File Manager
-- [ ] Innovations if possible
+- [ ] Preview Video
+
 
 
 

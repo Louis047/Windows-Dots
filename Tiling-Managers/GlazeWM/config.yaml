@@ -42,17 +42,17 @@ general:
 
 gaps:
   # Whether to scale the gaps with the DPI of the monitor.
-  scale_with_dpi: true
+  scale_with_dpi: false
 
   # Gap between adjacent windows.
-  inner_gap: '16px'
+  inner_gap: '20px'
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '16px'
-    right: '16px'
-    bottom: '40px'
-    left: '16px'
+    top: '54px'
+    right: '20px'
+    bottom: '20px'
+    left: '20px'
 
 window_effects:
   # Visual effects to apply to the focused window.
@@ -60,7 +60,7 @@ window_effects:
     # Highlight the window with a colored border.
     # ** Exclusive to Windows 11 due to API limitations.
     border:
-      enabled: true
+      enabled: false
       color: '#FFFFFF'
 
     # Remove the title bar from the window's frame. Note that this can
@@ -71,7 +71,7 @@ window_effects:
     # Change the corner style of the window's frame.
     # ** Exclusive to Windows 11 due to API limitations.
     corner_style:
-      enabled: true
+      enabled: false
       # Allowed values: 'square', 'rounded', 'small_rounded'.
       style: 'square'
 
@@ -85,12 +85,12 @@ window_effects:
   # Visual effects to apply to non-focused windows.
   other_windows:
     border:
-      enabled: true
+      enabled: false
       color: '#808080'
     hide_title_bar:
       enabled: false
     corner_style:
-      enabled: true
+      enabled: false
       style: 'square'
     transparency:
       enabled: false
@@ -107,14 +107,14 @@ window_behavior:
   state_defaults:
     floating:
       # Whether to center floating windows by default.
-      centered: false
+      centered: true
       # Whether to show floating windows as always on top.
       shown_on_top: false
 
     fullscreen:
       # Maximize the window if possible. If the window doesn't have a
       # maximize button, then it'll be fullscreen'ed normally instead.
-      maximized: true
+      maximized: false
 
       # Whether to show fullscreen windows as always on top.
       shown_on_top: true
@@ -143,7 +143,7 @@ window_rules:
   - commands: ['ignore']
     match:
       # Ignores any Bar windows.
-      # - window_process: { equals: 'zebar' } cuz i dont use this, yasb >>>>
+      - window_process: { equals: 'zebar' }
       - window_process: { equals: 'yasb' }
 
       # Ignores picture-in-picture windows for browsers.
@@ -160,10 +160,10 @@ window_rules:
       
       # Ignores certain games (interferes with GlazeWM)
       # Feel free to add your games here
-      - window_process: { equals: "VALORANT-Win64-Shipping" }
-      - window_title: { equals: "Grand Theft Auto V" }
-      - window_title: { equals: "Saints Row" }
-      - window_process: { equals: "GhostOfTsushima" }
+      # - window_process: { equals: "VALORANT-Win64-Shipping" }
+      # - window_title: { equals: "Grand Theft Auto V" }
+      # - window_title: { equals: "Saints Row" }
+      # - window_process: { equals: "GhostOfTsushima" }
 
       # Ignores Screenshot Apps (tend to cause issue with Tiling Manager, ShareX doesn't smh. I don't understand how the f apps work, it is what it is)
       - window_process: { equals: "Lightshot" }
@@ -172,17 +172,14 @@ window_rules:
   # Floating-required apps
   - commands: ["set-floating"] 
     match:
-      - window_title: { equals: "Task Manager" }
-      - window_process: { regex: 'winspy|explorer|qbittorrent|mmc|nvcplui|mpv' }
-      - window_title: { equals: "App Installer" }
-      - window_title: { equals: "Settings" }
+      # Essentials
+      - window_process: { regex: 'winspy|explorer|qbittorrent|mmc|nvcplui|mpv|Notepads' }
       - window_process: { equals: "GHelper" }
       - window_process: { equals: "SmoothScrollGUI" }
       - window_process: { equals: "Heroic" }
       - window_process: { equals: "Notepad" }
       - window_title: { equals: "Snipping Tool"}
       - window_process: { equals: "BCUninstaller" }
-      - window_process: { equals: "ApplicationFrameHost" }
       - window_process: { equals: "Photos" }
       - window_title: { equals: "Windhawk" }
       - window_process: { equals: "Radeonsoftware" }
@@ -190,8 +187,29 @@ window_rules:
       - window_process: { equals: "FileConverter" }
       - window_process: { equals: "ABDownloadManager" }
       - window_process: { equals: "ShareX" }
+      - window_process: { equals: "uad-ng" }
+      - window_title: { equals: "LocalSend" }
+
+      # System Apps
+      - window_title: { equals: "Task Manager" }
+      - window_title: { equals: "App Installer" }
+      - window_title: { equals: "Settings" }
+      - window_process: { regex: "WindowsTerminal" }
+
+      # UWP Apps
+      - window_title: { equals: "DTS:X Ultra" }
+      - window_title: { equals: "Character Map UWP"}
+      - window_title: { equals: "Fastboot Firmware Flasher" }
+      - window_title: { equals: "Realtek Audio Console" }
+
+      # Miscellaneous
       # - window_process: { regex: "zen|chrome|firefox|arc|vivaldi|librewolf" }
       #   window_class: { equals: "MozillaWindowClass" }
+
+  # Tiling Required Apps (for UWP Apps)
+  - commands: ["set-tiling"]
+    match:
+      - window_title: { equals: "WhatsApp" }
 
   # Start apps in their own workspaces (cuz i love seeing them in an instant lol)
   - commands: ['move --workspace 1', 'focus --workspace 1']
@@ -217,6 +235,7 @@ window_rules:
       - window_process: { equals: "Riot Client" }
       - window_process: { equals: "gta5" }
       - window_process: { equals: "Heroic" }
+      - window_process: { regex: "steam" }
   - commands: ['move --workspace 7', 'focus --workspace 7']
     match:
       - window_process: { regex: 'Spotify' }
@@ -261,8 +280,8 @@ keybindings:
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
   # the name 'resize'.
-  - commands: ['wm-enable-binding-mode --name resize']
-    bindings: ['alt+r']
+  # - commands: ['wm-enable-binding-mode --name resize']
+  #   bindings: ['alt+r']
 
   # Disables window management and all other keybindings until alt+shift+p
   # is pressed again.

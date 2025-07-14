@@ -4,12 +4,12 @@ watch_config_changes: True
 # Global configuration options
 global:
   # border_width: Width of the border (in pixels)
-  border_width: 2
+  border_width: 3
 
   # border_offset: Offset of the border from the window edges (in pixels)
   #   - Negative values shrink the border inwards
   #   - Positive values expand the border outwards
-  border_offset: 0
+  border_offset: -1
 
   # border-radius: Radius of the border's corners. Supported values:
   #   - Auto: Automatically determine the radius

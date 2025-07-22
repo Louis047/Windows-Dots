@@ -50,7 +50,7 @@ Komorebi Setup
 
 **YASB**
 - [x] Improve Media Widget
-- [ ] Update WiFi Widget
+- [x] Update WiFi Widget
 - [ ] Add Hotspot Widget, if possible
 
 **Miscellaneous**

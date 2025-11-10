@@ -6,8 +6,9 @@ For more information about configuration options, please visit their documentati
 :root {
     --line: rgb(125, 125, 125);
     --pbg: rgba(15, 15, 15, 1);
-    --pgb_hover: rgba(65, 65, 65, 1);
+    --pgb_hover: rgba(45, 45, 45, 1);
     --power_menu_buttons: rgba(100, 100, 100, 1);
+    --power_menu_border: rgba(200, 200, 200, 1);
     --bar_bg: #000000;
     --workspace_active: #e1e1e1;
     --workspace_inactive: #707070;
@@ -18,6 +19,9 @@ For more information about configuration options, please visit their documentati
     --widget_bg: rgba(20, 20, 20, 1);
     --widget_bg_alt: rgba(13, 13, 13, 1);
     --widget_border: rgba(40, 40, 40, 1);
+    --progress_bar_load: rgb(135, 135, 135);
+	--wifi_pass: rgb(160, 160, 160);
+    --tooltip_color: rgba(25, 25, 25, 1);
 }
 
 /*                                 COMMON YASB ELEMENTS                          */
@@ -49,7 +53,7 @@ For more information about configuration options, please visit their documentati
 /*                                      WIDGETS                                     */
 /*              Power Menu                     */
 .power-menu-widget .label {
-    padding: 0 0 0 2px;
+    padding: 0 2px 0 2px;
 }
 .power-menu-popup {
     background: transparent;
@@ -69,10 +73,10 @@ For more information about configuration options, please visit their documentati
 }
 .power-menu-popup .button.hover {
     background-color: var(--pgb_hover);
-    border-left: 4px solid var(--base);
-    border-right: 4px solid var(--base);
-    border-top: 4px solid var(--base);
-    border-bottom: 4px solid var(--base);
+    border-left: 4px solid var(--power_menu_border);
+    border-right: 4px solid var(--power_menu_border);
+    border-top: 4px solid var(--power_menu_border);
+    border-bottom: 4px solid var(--power_menu_border);
 }
 
 .power-menu-popup .button .label {
@@ -89,11 +93,10 @@ For more information about configuration options, please visit their documentati
 .uptime{
     font-size: 26px;
     margin-bottom: 60px;
-    border: 2px solid rgb(59, 59, 59);
-    background-color: rgba(15, 15, 15, 1);
-    border-radius: 3px;
-    margin-left: 600px;
-    margin-right: 600px;
+    background: transparent;
+    border-radius: 0px;
+    margin-left: 625px;
+    margin-right: 625px;
 
 }
 
@@ -106,9 +109,9 @@ For more information about configuration options, please visit their documentati
 .glazewm-workspaces .ws-btn {
     background-color: transparent;
     border: none;
-    padding:1px 2px 0 6px;
+    padding:1px 2px 0 4px;
     margin: 0 2px 0 2px;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .glazewm-workspaces .ws-btn.active_populated,
@@ -138,7 +141,7 @@ For more information about configuration options, please visit their documentati
 .media-widget .label {
     color: var(--text);
     padding: 0px;
-    padding-right: 4px;
+    padding-left: 4px;
     font-size: 12px;
 }
 
@@ -294,16 +297,163 @@ Example: "Windows Media" becomes "windows-media" */
     border-radius: 4px;
     border-color: #AAAAAA;
 }
+
 /*                          Wi-Fi                           */
+.wifi-widget {
+    padding: 0;
+    margin: 0;
+}
+
 .wifi-widget .widget-container .icon {
-    color:var(--text);
+    color: var(--text);
     background: transparent;
-    padding: 3px 0px;
+    padding: 1px 2px;
+    font-weight: 600;
+}
+
+/*                       Wi-Fi Menu                            */
+.wifi-menu {
+    background-color: var(--widget_bg);
+    max-height: 350px;
+    min-height: 375px;
+    min-width: 375px;
+    border-radius: 0px;
+}
+
+.wifi-menu .progress-bar {
+    max-height: 1px;
+}
+
+.wifi-menu .progress-bar::chunk {
+    background-color: var(--progress_bar_load);
+}
+
+.wifi-menu .header {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    padding: 6px;
+    margin-left: 125px;
+    background-color: var(--widget_bg);
+    color: var(--text);
+}
+
+.wifi-menu .error-message {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+    padding: 12px;
+    background-color: red;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wifi-menu .wifi-list {
+    background-color: var(--widget_bg_alt);
+    margin-right: 0px;
+}
+
+.wifi-menu .wifi-item {
+    min-height: 35px;
+    padding: 4px 12px;
+    border-radius: 0px;
+}
+
+.wifi-menu .wifi-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0px;
+}
+
+.wifi-menu .wifi-item[active=true] {
+    background-color: rgba(255, 255, 255, 0.15);
+    font-size: 14px;
+    border-radius: 0px;
+    padding: 0 12px 0 12px;
+    min-height: 80px;
+}
+
+.wifi-menu .wifi-item .icon {
+    font-family: 'Segoe Fluent Icons';
+    font-size: 26px;
+    margin-right: 10px;
+}
+
+.wifi-menu .wifi-item .name {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.wifi-menu .wifi-item .password {
+    background-color: transparent;
+    font-size: 14px;
+    border-radius: 0px;
+    border: 1px solid var(--wifi_pass);
+}
+
+.wifi-menu .wifi-item .status {
+    font-size: 14px;
+}
+
+.wifi-menu .wifi-item .strength {
+    font-size: 14px;
+}
+
+.wifi-menu .wifi-item .controls-container {
+    padding-top: 8px;
+}
+
+.wifi-menu .wifi-item .connect {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 4px 30px;
+    border-radius: 0px;
+    border: none;
+    font-size: 14px;
+}
+
+.wifi-menu .wifi-item .connect:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.wifi-menu .wifi-item .connect:pressed {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.wifi-menu .footer {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 12px;
+    margin-top: 2px;
+    color: var(--text_alt);
+}
+
+.wifi-menu .footer .settings-button {
+    background-color: transparent;
+    border: none;
+    padding: 0 2px;
+    min-width: 26px;
+    min-height: 26px;
+    border-radius: 0px;
+}
+
+.wifi-menu .footer .refresh-icon {
+    font-family: 'Segoe Fluent Icons';
+    background-color: transparent;
+    border: none;
+    min-width: 26px;
+    min-height: 26px;
+    color: #fff;
+    border-radius: 0px;
+}
+
+.wifi-menu .footer .refresh-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0px;
 }
 
 /*                          Battery                           */
 .battery-widget .widget-container .icon {
-    padding: 0px 3px;
+    padding: 0px 2px;
+    font-size: 12px;
 }
 .battery-widget .widget-container .icon.status-low {
     color: red;
@@ -434,7 +584,7 @@ Example: "Windows Media" becomes "windows-media" */
 
 /*                          Notes                       */
 .notes-widget {
-    padding: 0 10px 0 4px;
+    padding: 0 4px 0 4px;
 }
 .notes-menu {
     min-width: 400px;
@@ -551,4 +701,96 @@ Example: "Windows Media" becomes "windows-media" */
     color: var(--line);
     padding: 0;
     margin: 0;
+}
+
+/*              Border Fixes                    */
+QPushButton {
+    outline: none;
+    border-radius: 0px;
+}
+
+/*                  Tooltip                     */
+.tooltip {
+    background-color: var(--tooltip_color);
+    border: 1px solid var(--widget_bg_alt);
+    border-radius: 0px;
+    color: var(--text);
+    padding: 4px 8px;
+    font-family: "JetBrainsMono NF";
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+/*              Context Menu                     */
+.context-menu,
+.context-menu .menu-checkbox {
+    background-color: #202020;
+    border: none;
+    padding: 4px 0px;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+.context-menu::right-arrow {
+    width: 8px;
+    height: 8px;
+    padding-right: 24px;
+}
+.context-menu::item,
+.context-menu .menu-checkbox {
+    background-color: transparent;
+    padding: 6px 12px;
+    margin: 2px 6px;
+    border-radius: 6px;
+    min-width: 100px;
+}
+.context-menu::item:selected,
+.context-menu .menu-checkbox:hover {
+    background-color: #3a3a3a;
+    color: #FFFFFF;
+}
+.context-menu::separator {
+    height: 1px;
+    background-color: #404040;
+    margin: 4px 8px;
+}
+.context-menu::item:disabled {
+    color: #666666;
+    background-color: transparent;
+}
+.context-menu .menu-checkbox .checkbox {
+    border: none;
+    padding: 8px 16px;
+    font-size: 12px;
+    margin: 0;
+    color: #FFFFFF;
+    font-family: 'Segoe UI'
+}
+.context-menu .submenu::item:disabled {
+    margin: 0;
+    padding-left: 16px;
+}
+.context-menu .menu-checkbox .checkbox:unchecked {
+    color: #999
+}
+.context-menu .menu-checkbox .checkbox::indicator {
+    width: 12px;
+    height: 12px;
+    margin-left: 0px;
+    margin-right: 8px;
+}
+.context-menu .menu-checkbox .checkbox::indicator:unchecked {
+    background: #444444;
+    border-radius: 2px;
+}
+.context-menu .menu-checkbox .checkbox::indicator:checked {
+    background: #007acc;
+    border-radius: 2px;
+}
+.context-menu .menu-checkbox .checkbox:focus {
+    outline: none;
+}
+.context-menu::item:checked {
+    background-color: #0078d7;
+    color: white;
 }

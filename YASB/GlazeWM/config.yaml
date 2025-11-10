@@ -1,4 +1,3 @@
-# Changes made from the base config, make sure to read the docs provided in the third comment to modify according to one's liking
 # This is solely meant for GlazeWM users as I haven't touched Komorebi for I love GlazeWM's simplicity.
 # New Update: Back to GlazeWM, snappier the better.
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
@@ -24,7 +23,7 @@ bars:
       border_color: "System"
     window_flags:
       always_on_top: false
-      windows_app_bar: false # This interferes with apps in full-screen. Notably while watching videos in full screen
+      windows_app_bar: true # This interferes with apps in full-screen. Notably while watching videos in full screen
       hide_on_fullscreen: true
     dimensions:
       width: "100%"
@@ -36,30 +35,29 @@ bars:
       right: 0
     widgets:
       left: [
+        "power_menu",
         "glazewm_workspaces",
-        "lines",
-        "notes",
         "media"
       ]
       center: [
         "active_window"
       ]
       right: [
-        "memory",
-        "cpu",
+        "weather",
         "lines",
         "battery",
         "wifi",
         "volume",
         "lines",
-        "weather",
-        "wallpapers",
-        "notifications",
+        "memory",
+        "cpu",
         "lines",
         "systray",
         "lines",
-        "clock",
-        "power_menu"
+        "notifications",
+        "wallpapers",
+        "notes",
+        "clock"
       ]
 widgets:
   lines:
@@ -131,7 +129,7 @@ widgets:
     type: "yasb.wallpapers.WallpapersWidget"
     options:
       label: "<span>\udb83\ude09</span>"
-      image_path: "C:\\Users\\Lone\\Pictures\\Customs\\mountain" # IMPORTANT: Change the directory according to your carousel location
+      image_path: "C:\\Users\\Lone\\Pictures\\Wallpapers" # IMPORTANT: Change the directory according to your carousel location
       change_automatically: false
       update_interval: 120
       animation:
@@ -328,7 +326,7 @@ widgets:
   power_menu:
     type: "yasb.power_menu.PowerMenuWidget"
     options:
-      label: "\u23fb"
+      label: "\ue62a"
       uptime: True
       blur: False
       blur_background: True

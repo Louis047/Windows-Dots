@@ -274,12 +274,12 @@ Example: "Windows Media" becomes "windows-media" */
 }
 
 .systray .button:hover {
-    background: grey;
+    background: rgb(44, 44, 44);
 }
 
 .systray .button[dragging=true] {
-    background: rgb(145, 145, 145);
-    border-color: rgb(145, 145, 145);
+    background: rgb(88, 88, 88);
+    border-color: rgb(88, 88, 88);
 }
 
 .systray .unpinned-visibility-btn {

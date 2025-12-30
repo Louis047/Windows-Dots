@@ -43,18 +43,18 @@ bars:
         "active_window"
       ]
       right: [
-        "weather",
+        "disk",
+        "memory",
+        "cpu",
         "lines",
         "battery",
         "wifi",
         "volume",
         "lines",
-        "memory",
-        "cpu",
-        "lines",
         "systray",
         "lines",
         "notifications",
+        "weather",
         "wallpapers",
         "notes",
         "clock"
@@ -78,8 +78,8 @@ widgets:
         border_color: "System"
         alignment: "right"
         direction: "up"
-        offset_top: 2
-        offset_left: 80
+        offset_top: 4
+        offset_left: 44
         max_title_size: 150
         show_date_time: true
       icons:                      
@@ -103,6 +103,28 @@ widgets:
         left: 0
         bottom: 0
         right: 0
+  disk:
+    type: "yasb.disk.DiskWidget"
+    options:
+        label: "<span>\udb80\udeca</span> {space[used][percent]}"
+        label_alt: "{volume_label} {space[used][gb]} / {space[total][gb]}"
+        volume_label: "C"
+        update_interval: 60
+        group_label:
+          volume_labels: ["C", "D", "E", "F"]
+          show_label_name: true
+          blur: False
+          round_corners: False
+          round_corners_type: "small"
+          border_color: "System"
+          alignment: "right"
+          direction: "up"
+          offset_top: 4
+          offset_left: 40
+        callbacks:
+          on_left: "toggle_group"
+          on_middle: "toggle_label"
+          on_right: "exec explorer C:\\"
   memory:
     type: "yasb.memory.MemoryWidget"
     options:
@@ -150,25 +172,6 @@ widgets:
         image_corner_radius: 0
         enable_cache: False
   # disk: You can add this if you really wanted it. Felt like taking too much space in bar so removed.
-  #   type: "yasb.disk.DiskWidget"
-  #   options:
-  #       label: "<span>\uf473</span> {space[used][gb]}/{space[total][gb]}"
-  #       label_alt: "{space[used][percent]}"
-  #       volume_label: "C"
-  #       update_interval: 60
-  #       group_label:
-  #         volume_labels: ["C", "D", "E", "F"]
-  #         show_label_name: true
-  #         blur: False
-  #         round_corners: False
-  #         border_color: "System"
-  #         alignment: "right"
-  #         direction: "up"
-  #         offset_top: 2
-  #         offset_left: 120
-  #       callbacks:
-  #         on_left: "toggle_group"
-  #         on_right: "toggle_label" 
   systray:
     type: "yasb.systray.SystrayWidget"
     options:
@@ -242,8 +245,8 @@ widgets:
           round_corners: False
           alignment: "right"
           direction: "up"
-          offset_top: 2
-          offset_left: 200
+          offset_top: 4
+          offset_left: -2
   weather:
       type: "yasb.weather.WeatherWidget"
       options:
@@ -252,7 +255,7 @@ widgets:
         api_key: "9d80bcfc41264b75856173713252804"
         update_interval: 600
         hide_decimal: true
-        location: "Kollam"
+        location: "Tuticorin"
         callbacks:
           on_left: "toggle_card"
         weather_card: 
@@ -262,8 +265,8 @@ widgets:
           alignment: "right"
           direction: "up"
           icon_size: 64
-          offset_top: 6
-          offset_left: 74
+          offset_top: 4
+          offset_left: 85
   wifi:
       type: "yasb.wifi.WifiWidget"
       options:
@@ -305,11 +308,6 @@ widgets:
       callbacks:
         on_left: "toggle_volume_menu"
         on_right: "toggle_mute"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 6
-        offset: [ 1, 1 ]
   battery:
     type: "yasb.battery.BatteryWidget"
     options:

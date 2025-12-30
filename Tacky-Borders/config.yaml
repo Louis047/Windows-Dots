@@ -4,7 +4,7 @@ watch_config_changes: True
 # Global configuration options
 global:
   # border_width: Width of the border (in pixels)
-  border_width: 3
+  border_width: 2
 
   # border_offset: Offset of the border from the window edges (in pixels)
   #   - Negative values shrink the border inwards
@@ -41,60 +41,7 @@ global:
   #             end: [1.0, 0.0]
   #       NOTE: [0.0, 0.0] = top-left, [1.0, 1.0] = bottom-right
   active_color: "#ffffff"
-  inactive_color: "#808080"
-
-
-  # komorebi_colors: Additional integration for komorebi's special window kinds.
-  #   - active_color is used for komorebi's "Single" window kind.
-  #   - inactive_color is used for komorebi's "Unfocused" window kind.
-  # komorebi_colors:
-  #   stack_color: "#e762b7"
-  #   monocle_color: "#62e793"
-  #   floating_color: "#f5f5a5"
-  #   enabled: False
-
-  # animations: Configure animation behavior for window borders
-  #   fps: Animation frame rate
-  #   active: Animations for active windows
-  #   inactive: Animations for inactive windows
-  #
-  # Supported animation types:
-  #   - Spiral
-  #   - ReverseSpiral
-  #   - Fade
-  #
-  # Specify animation types and parameters as follows:
-  #   active:
-  #     - type: Spiral
-  #       duration: 1800
-  #       easing: Linear
-  #
-  #     - type: Fade
-  #       duration: 200
-  #       easing: EaseInOutQuad
-  #
-  # NOTE: Spiral animations may be resource-intensive on low-end systems.
-  # animations:
-  #   active:
-  #     - type: ReverseSpiral
-  #       duration: 1800
-  #       easing: EaseInOutQuad
-
-  #     - type: Fade
-  #       duration: 200
-  #       easing: EaseInOutQuad
-
-  #   inactive:
-  #     - type: Spiral
-  #       duration: 1800
-  #       easing: EaseInOutQuad
-
-  #     - type: Fade
-  #       duration: 200
-  #       easing: EaseInOutQuad
-
-  #   fps: 60
-  #   enabled: False
+  inactive_color: "#606060"
 
   # initialize_delay: Time (in ms) before the border appears after opening a new window
   # unminimize_delay: Time (in ms) before the border appears after unminimizing a window

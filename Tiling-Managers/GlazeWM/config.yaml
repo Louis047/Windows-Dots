@@ -2,12 +2,12 @@ general:
   # Commands to run when the WM has started. This is useful for running a
   # script or launching another application.
   # Example: The below command launches Zebar/YASB.
-  # startup_commands: ['shell-exec yasb']
+  startup_commands: ['shell-exec gat-gwm']
   # Commenting the above, found an issue with GlazeWM interfering with Systray in YASB
 
   # Commands to run just before the WM is shutdown.
   # Example: The below command kills Zebar/YASB.
-  shutdown_commands: ["shell-exec taskkill /IM yasb.exe /F"]
+  shutdown_commands: ["shell-exec taskkill /IM yasb.exe /F", "shell-exec taskkill /IM gat-gwm.exe /F"]
 
   # Commands to run after the WM config is reloaded.
   # config_reload_commands: ["shell-exec yasbc reload"]
@@ -15,7 +15,7 @@ general:
   # Whether to automatically focus windows underneath the cursor.
   focus_follows_cursor: false
 
-  # Whether to switch back and forth between the previously focused
+  # Whether to switch back and forth between the previously focused 
   # workspace when focusing the current workspace.
   toggle_workspace_on_refocus: false
 
@@ -45,14 +45,14 @@ gaps:
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: "14px"
+  inner_gap: "10px"
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: "14px"
-    right: "14px"
-    bottom: "14px"
-    left: "14px"
+    top: "10px"
+    right: "10px"
+    bottom: "10px"
+    left: "10px"
 
 window_effects:
   # Visual effects to apply to the focused window.
@@ -60,7 +60,7 @@ window_effects:
     # Highlight the window with a colored border.
     # ** Exclusive to Windows 11 due to API limitations.
     border:
-      enabled: true
+      enabled: false
       color: "#FFFFFF"
 
     # Remove the title bar from the window's frame. Note that this can
@@ -72,7 +72,7 @@ window_effects:
     corner_style:
       enabled: false
       # Allowed values: 'square', 'rounded', 'small_rounded'.
-      style: "square"
+      style: "square" 
 
     # Change the transparency of the window.
     transparency:
@@ -84,11 +84,11 @@ window_effects:
   # Visual effects to apply to non-focused windows.
   other_windows:
     border:
-      enabled: true
-      color: "#808080"
-    hide_title_bar:
       enabled: false
-    corner_style:
+      color: "#808080"
+    hide_title_bar: 
+      enabled: false
+    corner_style: 
       enabled: false
       style: "square"
     transparency:
@@ -106,7 +106,7 @@ window_behavior:
   state_defaults:
     floating:
       # Whether to center floating windows by default.
-      centered: true
+      centered: false
       # Whether to show floating windows as always on top.
       shown_on_top: false
 
@@ -122,30 +122,44 @@ workspaces:
   - name: "1"
     # display_name: '󰈹'
     display_name: "1"
+    bind_to_monitor: 0
+    keep_alive: true
   - name: "2"
     # display_name: '󰨞'
     display_name: "2"
+    bind_to_monitor: 0
+    keep_alive: true
   - name: "3"
     # display_name: '󰭹'
     display_name: "3"
+    bind_to_monitor: 1
+    keep_alive: true
   - name: "4"
     # display_name: '󰏆'
     display_name: "4"
+    bind_to_monitor: 0
+    keep_alive: true
   - name: "5"
     # display_name: '󰂫'
     display_name: "5"
+    bind_to_monitor: 0
+    keep_alive: true
   - name: "6"
     # display_name: ''
     display_name: "6"
+    bind_to_monitor: 0
   - name: "7"
     # display_name: ''
     display_name: "7"
+    bind_to_monitor: 1
   - name: "8"
     # display_name: ''
     display_name: "8"
+    bind_to_monitor: 0
   - name: "9"
     # display_name: '󰻃'
     display_name: "9"
+    bind_to_monitor: 1
 
 window_rules:
   - commands: ["ignore"]
@@ -199,11 +213,19 @@ window_rules:
       - window_title: { regex: "Notepads" }
       - window_title: { regex: "Sign In -" }
       - window_process: { regex: "Flow.Launcher" }
+      - window_title: { equals: "Welcome to Flow Launcher" }
+      - window_title: { includes: "FLOAT" }
+      - window_process: { equals: "devenv" } # Float the VS Rename dialog
+        window_title: { equals: "Rename" }
+      - window_process: { equals: "devenv" } # Float the VS Find and Replace dialog
+        window_title: { equals: "Find and Replace" }
+      - window_process: { equals: "devenv" } # Float the VS Search
+        window_title: { equals: "Search" }
 
       # System Apps
       - window_title: { equals: "Task Manager" }
       - window_title: { equals: "App Installer" }
-      - window_title: { equals: "Settings" }
+      - window_title: { equals: "Settings" } # Change to SystemSettings
       - window_process: { regex: "WindowsTerminal" }
 
       # UWP Apps
@@ -212,26 +234,24 @@ window_rules:
       - window_title: { equals: "Fastboot Firmware Flasher" }
       - window_title: { equals: "Realtek Audio Console" }
 
-      # Miscellaneous
-      # - window_process: { regex: "zen|chrome|firefox|arc|vivaldi|librewolf" }
-      #   window_class: { equals: "MozillaWindowClass" }
-
   # Tiling Required Apps (for UWP Apps)
   - commands: ["set-tiling"]
     match:
-      - window_title: { equals: "WhatsApp" }
+      - window_title: { equals: "WhatsApp" } # WhatsApp
+      - window_process: { equals: "devenv" } # Visual Studio (Thanks to @Miitto)
+        window_title: { not_regex: "(Rename|Search|Find and Replace)" }
 
   # Start apps in their own workspaces (cuz i love seeing them in an instant lol)
   - commands: ["move --workspace 1", "focus --workspace 1"]
     match:
-      - window_process: { regex: "zen|chrome|firefox|arc|vivaldi|librewolf" }
+      - window_process: { regex: "zen|chrome|firefox|arc|vivaldi|librewolf|opera" }
   - commands: ["move --workspace 2", "focus --workspace 2"]
     match:
       - window_process: { regex: "Code|Trae|Cursor|Windsurf|Zed" }
   - commands: ["move --workspace 3", "focus --workspace 3"]
     match:
       - window_process:
-          { regex: "Equibop|Discord|Vesktop|GoofCord|WebCord|LegCord|Dorion" }
+          { regex: "Equibop|Discord|Vesktop|Goofcord|Webcord|Legcord|Dorion" }
       - window_title: { equals: "WhatsApp" }
       - window_title: { equals: "Unigram" }
       - window_title: { equals: "Telegram" }
@@ -261,23 +281,23 @@ window_rules:
 keybindings:
   # Shift focus in a given direction.
   - commands: ["focus --direction left"]
-    bindings: ["alt+h", "alt+left"]
+    bindings: ["alt+left"]
   - commands: ["focus --direction right"]
-    bindings: ["alt+l", "alt+right"]
+    bindings: ["alt+right"]
   - commands: ["focus --direction up"]
-    bindings: ["alt+k", "alt+up"]
+    bindings: ["alt+up"]
   - commands: ["focus --direction down"]
-    bindings: ["alt+j", "alt+down"]
+    bindings: ["alt+down"]
 
   # Move focused window in a given direction.
   - commands: ["move --direction left"]
-    bindings: ["alt+shift+h", "alt+shift+left"]
+    bindings: ["alt+shift+left"]
   - commands: ["move --direction right"]
-    bindings: ["alt+shift+l", "alt+shift+right"]
+    bindings: ["alt+shift+right"]
   - commands: ["move --direction up"]
-    bindings: ["alt+shift+k", "alt+shift+up"]
+    bindings: ["alt+shift+up"]
   - commands: ["move --direction down"]
-    bindings: ["alt+shift+j", "alt+shift+down"]
+    bindings: ["alt+shift+down"]
 
   # Resize focused window by a percentage or pixel amount.
   - commands: ["resize --width -2%"]
@@ -309,11 +329,7 @@ keybindings:
   - commands: ["wm-cycle-focus"]
     bindings: ["alt+space"]
 
-  # Change the focused window to be floating.
-  - commands: ["toggle-floating --centered"]
-    bindings: ["alt+shift+space"]
-
-  # Change the focused window to be tiling.
+  # Change the focused window to be tiling/floating
   - commands: ["toggle-tiling"]
     bindings: ["alt+t"]
 
@@ -379,15 +395,11 @@ keybindings:
 
   # Move the focused window's parent workspace to a monitor in a given
   # direction.
-  # - commands: ['move-workspace --direction left']
-  #   bindings: ['alt+shift+a']
-  # - commands: ['move-workspace --direction right']
-  #   bindings: ['alt+shift+f']
-  # - commands: ['move-workspace --direction up']
-  #   bindings: ['alt+shift+d']
-  # - commands: ['move-workspace --direction down']
-  #   bindings: ['alt+shift+s']
-  # Commented it out, only monitor-gasmic people loves this shit
+  - commands: ['move-workspace --direction left']
+    bindings: ['alt+shift+a']
+  - commands: ['move-workspace --direction right']
+    bindings: ['alt+shift+d']
+  # Nvm, this feature is kinda nuts
 
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ["move --workspace 1", "focus --workspace 1"]

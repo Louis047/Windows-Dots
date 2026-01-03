@@ -54,7 +54,7 @@ Some useful mods I found for my Windows workflow
 - Windows 11 Taskbar Styler - As the name says, to make it compact
 - Taskbar Height and Icon Size - For the above
 - Center Titlebar
-- Dark Mode Conext Menus
+- Dark Mode Context Menus
 - Explorer Font Changer - Very useful to change fonts system-wide (I prefer `Segoe UI Variable Display`)
 - No Focus Rectangle
 

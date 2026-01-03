@@ -59,7 +59,7 @@ Some useful mods I found for my Windows workflow
 - No Focus Rectangle
 
 #### YASB
-1. To use wallpaper widget, save them in this location `C:\Users\Lone\Pictures\Wallpapers\Home Screen`
+1. To use wallpaper widget, save them in this location `C:\Users\$USER\Pictures\Wallpapers\Home Screen`
 2. Most of the widgets are customized for you, and YASB has the ability to choose your own widgets on runtime
 3. Make sure to change your location in the weather widget
 

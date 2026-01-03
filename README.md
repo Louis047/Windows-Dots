@@ -94,3 +94,15 @@ To install this, you have to install `rustup` and `cargo` then use the below com
 cargo install --git https://github.com/Dutch-Raptor/GAT-GWM.git --features=no_console
 ```
 Have already done the required configurations for it in GlazeWM
+
+#### Zen Browser
+Some changes in settings required for a good tiling experience
+Type `about:config` in the search bar and change the following configurations
+1. `zen.theme.content-element-separation` : 0 (You may prefer to keep this default if you love padding)
+2. `zen.view.experimental-no-window-controls` : true 
+
+Recommended Mods
+- Disable Rounded Corners
+- Bleeding Corners Fix
+- Load Bar
+- No Sidebar Scrollbar 

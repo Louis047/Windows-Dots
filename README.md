@@ -1,7 +1,10 @@
 # Windows-Dots
 
 > [!NOTE]
-> Make sure to go through the readme entirely for a complete setup. You are open to choose according to your liking too.
+> 1. Make sure to go through the readme entirely for a complete setup. You are open to choose according to your liking too.
+> 2. `$USER` - Your User Name
+> 3. If `$PROFILE` doesn't exist, use this command to create a profile for powershell `New-Item -Path $PROFILE -Type File -Force`
+> 4. If the above command doesn't work, allow Powershell to sign remote scripts `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine` 
 
 ### Tools Used:
 - [Yet Another Status Bar](https://github.com/amnweb/yasb) - a status bar with customizations, built using Python.
@@ -107,3 +110,21 @@ Recommended Mods
 - Bleeding Corners Fix
 - Load Bar
 - No Sidebar Scrollbar 
+
+#### Oh My Posh
+Use `robbyrussel` theme for minimalism
+
+Before that, create a directory for `$POSH_THEMES_PATH`
+```
+mkdir $env:POSH_THEMES_PATH -Force
+```
+
+Now to apply it, add the following command to `$PROFILE`
+```
+if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
+	oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\robbyrussell.omp.json" | Invoke-Expression
+}
+```
+
+> [!NOTE]
+> I recommend to install `oh-my-posh` with `scoop` package manager as the configuration is provided according to that. You can test with other type of installation and let me know of any issues!

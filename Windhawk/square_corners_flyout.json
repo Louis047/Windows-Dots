@@ -1,0 +1,5 @@
+{
+  "theme": "",
+  "controlStyles[0].target": "Grid#ConfirmatorMainGrid",
+  "controlStyles[0].styles[0]": "CornerRadius=0"
+}

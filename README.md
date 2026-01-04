@@ -61,6 +61,9 @@ Some useful mods I found for my Windows workflow
 - Explorer Font Changer - Very useful to change fonts system-wide (I prefer `Segoe UI Variable Display`)
 - No Focus Rectangle
 
+For square corners in Action Center + Volume, copy the respective file content from `Windhawk` directory and paste it in Advanced Settings --> Mod Settings in `Windows 11 Notification Center Styler` mod for Action Center and `Windows 11 Taskbar Styler` mod for Volume and Brightness flyouts
+
+
 #### YASB
 1. To use wallpaper widget, save them in this location `C:\Users\$USER\Pictures\Wallpapers\Home Screen`
 2. Most of the widgets are customized for you, and YASB has the ability to choose your own widgets on runtime
@@ -75,9 +78,6 @@ Open Powershell and type this command
 thide enable-autostart
 ```
 This adds thide to startup to hide taskbar permanently everytime, runs in tray
-
-#### Windhawk
-For square corners, copy the file content from `Windhawk` directory and paste it in Advanced Settings --> Mod Settings in `Windows 11 Notification Center Styler` mod
 
 #### Flow Launcher
 For an optimal search, make changes to the following plugins

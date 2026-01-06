@@ -37,7 +37,7 @@
   </Settings>
   <Actions Context="Author">
     <Exec>
-      <Command>C:\Users\Lone\scoop\apps\tacky-borders\current\tacky-borders.exe</Command>
+      <Command>%USERPROFILE%\scoop\apps\tacky-borders\current\tacky-borders.exe</Command>
     </Exec>
   </Actions>
 </Task>

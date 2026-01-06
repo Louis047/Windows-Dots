@@ -1,6 +1,5 @@
 /* 
-Base Configuration, modified from i3-style with a new look. I missed transparency :)
-Update: Back to i3-style, with better minimal modifications
+Base Configuration, modified for i3-style with a new look.
 For more information about configuration options, please visit their documentation https://github.com/amnweb/yasb/wiki
 */
 :root {
@@ -10,9 +9,9 @@ For more information about configuration options, please visit their documentati
     --power_menu_buttons: rgba(100, 100, 100, 1);
     --power_menu_border: rgba(200, 200, 200, 1);
     --bar_bg: #000000;
-    --workspace_active: #e1e1e1;
+    --workspace_active: rgb(200, 200, 200);
     --workspace_inactive: #707070;
-    --workspace_empty: #2a2a2a;
+    --workspace_empty: #707070;
     --workspace_hover: #404040;
     --text: rgb(200, 200, 200);
     --text_alt: rgb(150, 150, 150);
@@ -22,6 +21,11 @@ For more information about configuration options, please visit their documentati
     --progress_bar_load: rgb(135, 135, 135);
 	--wifi_pass: rgb(160, 160, 160);
     --tooltip_color: rgba(25, 25, 25, 1);
+    --context_menu_bg: rgb(0, 0, 0);
+    --context_menu_box_checked: rgb(225, 225, 225);
+    --context_menu_box_unchecked: rgb(50, 50, 50);
+    --context_menu_separator: rgb(80, 80, 80);
+    --context_menu_disabled: rgb(100, 100, 100);
 }
 
 /*                                 COMMON YASB ELEMENTS                          */
@@ -473,7 +477,7 @@ Example: "Windows Media" becomes "windows-media" */
     padding: 0 6px 0 4px;
 }
 .wallpapers-gallery-window {
-    background-color: rgb(10, 10, 10);
+    background-color: var(--widget_bg);
     border: 0;
     margin: 0;
 }
@@ -488,7 +492,7 @@ Example: "Windows Media" becomes "windows-media" */
     width: 600px;
 }
 .wallpapers-gallery-buttons:hover {
-    background-color:rgba(255, 255, 255, 0.1)
+    background-color:rgba(255, 255, 255, 1)
 }
 .wallpapers-gallery-image {
     border: 2px solid transparent;
@@ -544,12 +548,12 @@ Example: "Windows Media" becomes "windows-media" */
 
 /*                             Memory                           */
 .memory-widget .icon {
-    padding: 0px 1px;
+    padding: 0px 2px;
 }
 
 /*                              CPU                             */
 .cpu-widget .widget-container .icon {
-    padding: 0px 3px;
+    padding: 0px 2px;
 }
 
 /*                          Notifications                        */
@@ -572,10 +576,10 @@ Example: "Windows Media" becomes "windows-media" */
 
 /*                              Disk                                */
 .disk-widget {
-    padding: 0 2px 0 2px;
+    padding: 0 2px;
 }
 .disk-widget .label{
-    padding: 0 1px 0 6px;
+    padding: 0 2px 0 6px;
 }
 .disk-group {
     background-color:var(--widget_bg); 
@@ -725,11 +729,13 @@ QPushButton {
 /*              Context Menu                     */
 .context-menu,
 .context-menu .menu-checkbox {
-    background-color: #202020;
-    border: none;
+    background-color: var(--context_menu_bg);
     padding: 4px 0px;
     font-size: 12px;
-    color: #FFFFFF;
+    color: var(--text);
+}
+.context-menu{
+    border: 1px solid var(--widget_border);
 }
 .context-menu::right-arrow {
     width: 8px;
@@ -741,21 +747,21 @@ QPushButton {
     background-color: transparent;
     padding: 6px 12px;
     margin: 2px 6px;
-    border-radius: 6px;
+    border-radius: 0;
     min-width: 100px;
 }
 .context-menu::item:selected,
 .context-menu .menu-checkbox:hover {
-    background-color: #3a3a3a;
+    background-color: transparent;
     color: #FFFFFF;
 }
 .context-menu::separator {
     height: 1px;
-    background-color: #404040;
+    background-color: var(--context_menu_separator);
     margin: 4px 8px;
 }
 .context-menu::item:disabled {
-    color: #666666;
+    color: var(--context_menu_disabled);
     background-color: transparent;
 }
 .context-menu .menu-checkbox .checkbox {
@@ -763,8 +769,9 @@ QPushButton {
     padding: 8px 16px;
     font-size: 12px;
     margin: 0;
+}
+.context-menu .menu-checkbox .checkbox:hover{
     color: #FFFFFF;
-    font-family: 'Segoe UI'
 }
 .context-menu .submenu::item:disabled {
     margin: 0;
@@ -780,17 +787,16 @@ QPushButton {
     margin-right: 8px;
 }
 .context-menu .menu-checkbox .checkbox::indicator:unchecked {
-    background: #444444;
-    border-radius: 2px;
+    background: var(--context_menu_box_unchecked);
+    border-radius: 0;
 }
 .context-menu .menu-checkbox .checkbox::indicator:checked {
-    background: #007acc;
-    border-radius: 2px;
+    background: var(--context_menu_box_checked);
+    border-radius: 0;
 }
 .context-menu .menu-checkbox .checkbox:focus {
     outline: none;
 }
 .context-menu::item:checked {
-    background-color: #0078d7;
-    color: white;
+    background-color: var(--context_menu_box_checked);
 }

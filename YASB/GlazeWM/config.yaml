@@ -1,5 +1,4 @@
-# This is solely meant for GlazeWM users as I haven't touched Komorebi for I love GlazeWM's simplicity.
-# New Update: Back to GlazeWM, snappier the better.
+# Bar for GlazeWM
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: true
 watch_config: true
@@ -93,7 +92,7 @@ widgets:
     options:
       label: "<span>\udb84\udd6b</span>"
       label_alt: "{count} F**ks"
-      hide_empty: true
+      hide_empty: false
       tooltip: false
       callbacks:
         on_left: "toggle_notification"
@@ -151,11 +150,11 @@ widgets:
     type: "yasb.wallpapers.WallpapersWidget"
     options:
       label: "<span>\udb83\ude09</span>"
-      image_path: "C:\\Users\\Lone\\Pictures\\Wallpapers" # IMPORTANT: Change the directory according to your carousel location
+      image_path: "C:\\Users\\Lone\\Pictures\\Wallpapers\\Home Screen\\" # Update your directory according to your liking here
       change_automatically: false
-      update_interval: 120
+      update_interval: 100
       animation:
-        enabled: true
+        enabled: false
         type: fadeInOut
         duration: 0
       gallery:
@@ -171,7 +170,6 @@ widgets:
         lazy_load_fadein: 0
         image_corner_radius: 0
         enable_cache: False
-  # disk: You can add this if you really wanted it. Felt like taking too much space in bar so removed.
   systray:
     type: "yasb.systray.SystrayWidget"
     options:
@@ -192,6 +190,7 @@ widgets:
         offline_label: "Offline"
         hide_empty_workspaces: true
         hide_if_offline: true
+        enable_scroll_switching: true
   media:
     type: "yasb.media.MediaWidget"
     options:

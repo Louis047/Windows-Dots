@@ -1,5 +1,6 @@
 /* 
-Base Configuration, modified for i3-style with a new look.
+Base Configuration, modified from i3-style with a new look. I missed transparency :)
+Update: Back to i3-style, with better minimal modifications
 For more information about configuration options, please visit their documentation https://github.com/amnweb/yasb/wiki
 */
 :root {
@@ -21,11 +22,13 @@ For more information about configuration options, please visit their documentati
     --progress_bar_load: rgb(135, 135, 135);
 	--wifi_pass: rgb(160, 160, 160);
     --tooltip_color: rgba(25, 25, 25, 1);
-    --context_menu_bg: rgb(0, 0, 0);
+    --context_menu_bg: rgb(20, 20, 20);
+    --text_unchecked: #999;
     --context_menu_box_checked: rgb(225, 225, 225);
     --context_menu_box_unchecked: rgb(50, 50, 50);
     --context_menu_separator: rgb(80, 80, 80);
     --context_menu_disabled: rgb(100, 100, 100);
+    --text_hover: #FFFFFF;
 }
 
 /*                                 COMMON YASB ELEMENTS                          */
@@ -753,7 +756,7 @@ QPushButton {
 .context-menu::item:selected,
 .context-menu .menu-checkbox:hover {
     background-color: transparent;
-    color: #FFFFFF;
+    color: var(--text_hover);
 }
 .context-menu::separator {
     height: 1px;
@@ -771,14 +774,17 @@ QPushButton {
     margin: 0;
 }
 .context-menu .menu-checkbox .checkbox:hover{
-    color: #FFFFFF;
+    color: var(--text_hover);
 }
 .context-menu .submenu::item:disabled {
     margin: 0;
     padding-left: 16px;
 }
 .context-menu .menu-checkbox .checkbox:unchecked {
-    color: #999
+    color: var(--text_unchecked);
+}
+.context-menu .menu-checkbox .checkbox:unchecked:hover {
+    color: var(--text_hover);
 }
 .context-menu .menu-checkbox .checkbox::indicator {
     width: 12px;
@@ -796,7 +802,4 @@ QPushButton {
 }
 .context-menu .menu-checkbox .checkbox:focus {
     outline: none;
-}
-.context-menu::item:checked {
-    background-color: var(--context_menu_box_checked);
 }

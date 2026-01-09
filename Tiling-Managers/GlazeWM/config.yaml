@@ -121,44 +121,30 @@ window_behavior:
 workspaces:
   - name: "1"
     # display_name: '󰈹'
-    display_name: "1"
     bind_to_monitor: 0
-    keep_alive: true
   - name: "2"
     # display_name: '󰨞'
-    display_name: "2"
     bind_to_monitor: 0
-    keep_alive: true
   - name: "3"
     # display_name: '󰭹'
-    display_name: "3"
     bind_to_monitor: 1
-    keep_alive: true
   - name: "4"
     # display_name: '󰏆'
-    display_name: "4"
     bind_to_monitor: 0
-    keep_alive: true
   - name: "5"
     # display_name: '󰂫'
-    display_name: "5"
     bind_to_monitor: 0
-    keep_alive: true
   - name: "6"
     # display_name: ''
-    display_name: "6"
     bind_to_monitor: 0
   - name: "7"
     # display_name: ''
-    display_name: "7"
     bind_to_monitor: 1
   - name: "8"
     # display_name: ''
-    display_name: "8"
-    bind_to_monitor: 0
+    bind_to_monitor: 1
   - name: "9"
     # display_name: '󰻃'
-    display_name: "9"
     bind_to_monitor: 1
 
 window_rules:
@@ -203,15 +189,15 @@ window_rules:
       - window_process: { equals: "BCUninstaller" }
       - window_process: { equals: "Photos" }
       - window_title: { equals: "Windhawk" }
-      - window_process: { equals: "Radeonsoftware" }
+      - window_process: { regex: "[Rr]adeon[Ss]oftware" }
       - window_title: { regex: "Revision Tool|Atlas Toolkit" }
       - window_process: { equals: "FileConverter" }
       - window_process: { equals: "ABDownloadManager" }
       - window_process: { equals: "ShareX" }
       - window_process: { equals: "uad-ng" }
       - window_title: { equals: "LocalSend" }
-      - window_title: { regex: "Notepads" }
-      - window_title: { regex: "Sign In -" }
+      - window_title: { regex: "[Nn]otepad*" } # For all notepad apps
+      - window_title: { regex: "[Ss]ign [Ii]n -*" }
       - window_process: { regex: "Flow.Launcher" }
       - window_title: { equals: "Welcome to Flow Launcher" }
       - window_title: { includes: "FLOAT" }
@@ -221,18 +207,25 @@ window_rules:
         window_title: { equals: "Find and Replace" }
       - window_process: { equals: "devenv" } # Float the VS Search
         window_title: { equals: "Search" }
+      - window_process: { equals: "wish" }
+      - window_process: { equals: "ImageGlass" }
 
       # System Apps
       - window_title: { equals: "Task Manager" }
       - window_title: { equals: "App Installer" }
       - window_title: { equals: "Settings" } # Change to SystemSettings
       - window_process: { regex: "WindowsTerminal" }
+      - window_process: { regex: "regedit" }
+      - window_process: { equals: "mspaint" }
+      - window_process: { equals: "ApplicationFrameHost" }
+      - window_process: { equals: "Microsoft.Photos" }
 
       # UWP Apps
       - window_title: { equals: "DTS:X Ultra" }
       - window_title: { equals: "Character Map UWP" }
       - window_title: { equals: "Fastboot Firmware Flasher" }
       - window_title: { equals: "Realtek Audio Console" }
+      - window_title: { equals: "Screenbox" }
 
   # Tiling Required Apps (for UWP Apps)
   - commands: ["set-tiling"]

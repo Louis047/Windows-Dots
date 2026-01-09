@@ -41,7 +41,7 @@ global:
   #             end: [1.0, 0.0]
   #       NOTE: [0.0, 0.0] = top-left, [1.0, 1.0] = bottom-right
   active_color: "#ffffff"
-  inactive_color: "#606060"
+  inactive_color: "#000000"
 
   # initialize_delay: Time (in ms) before the border appears after opening a new window
   # unminimize_delay: Time (in ms) before the border appears after unminimizing a window
@@ -53,6 +53,25 @@ global:
   initialize_delay: 0
   unminimize_delay: 0
 
+  # Shadow Effects
+  effects:
+    active:
+      - type: Shadow
+        radius: 2.5
+        opacity: 1.0
+        translation:
+          x: 0
+          y: 0
+    
+    inactive:
+      - type: Shadow
+        radius: 2.5
+        opacity: 1.0
+        translation:
+          x: 0
+          y: 0
+    enabled: True
+
 # Per-application configuration overrides
 window_rules:
   - match: Class
@@ -63,9 +82,8 @@ window_rules:
     name: "XamlExplorerHostIslandWindow"
     enabled: False
 
-  - match: Title
-    strategy: Contains
-    name: "Zebar"
+  - match: Process
+    name: "zebar"
     enabled: False
 
   - match: Title
@@ -80,9 +98,17 @@ window_rules:
     name: "Picture-in-Picture"
     enabled: False
   
-  - match: Title
+  - match: Process
     name: "yasb"
     enabled: False
+  
+  - match: Process
+    name: "tacky-borders"
+    enabled: False
+
+  - match: Process
+    name: "ShareX"
+    enabled: True
 
   # Example rule:
   # - match: Class                   # Match based on Class or Title

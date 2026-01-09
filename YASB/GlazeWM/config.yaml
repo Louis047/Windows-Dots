@@ -1,4 +1,5 @@
-# Bar for GlazeWM
+# This is solely meant for GlazeWM users as I haven't touched Komorebi for I love GlazeWM's simplicity.
+# New Update: Back to GlazeWM, snappier the better.
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: true
 watch_config: true
@@ -92,7 +93,7 @@ widgets:
     options:
       label: "<span>\udb84\udd6b</span>"
       label_alt: "{count} F**ks"
-      hide_empty: false
+      hide_empty: true
       tooltip: false
       callbacks:
         on_left: "toggle_notification"
@@ -163,13 +164,14 @@ widgets:
         image_width: 255
         image_per_page: 7
         show_buttons: false
+        respect_work_area: true
         orientation: "portrait"
         image_spacing: 6
         lazy_load: false
         lazy_load_delay: 0
         lazy_load_fadein: 0
         image_corner_radius: 0
-        enable_cache: False
+        enable_cache: True
   systray:
     type: "yasb.systray.SystrayWidget"
     options:
@@ -178,7 +180,7 @@ widgets:
       label_expanded: "\uf44a"
       label_position: "right" # Can be "left" or "right"
       icon_size: 13 # Can be any integer between 8 and 64
-      pin_click_modifier: "alt" # Can be "ctrl", "alt" or "shift"
+      pin_click_modifier: "ctrl" # Can be "ctrl", "alt" or "shift"
       show_unpinned: true
       show_unpinned_button: false
       show_battery: false
@@ -188,7 +190,7 @@ widgets:
       type: "glazewm.workspaces.GlazewmWorkspacesWidget"
       options:
         offline_label: "Offline"
-        hide_empty_workspaces: true
+        hide_empty_workspaces: false
         hide_if_offline: true
         enable_scroll_switching: true
   media:

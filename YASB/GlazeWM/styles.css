@@ -1,12 +1,11 @@
 /* 
-Base Configuration, modified from i3-style with a new look. I missed transparency :)
-Update: Back to i3-style, with better minimal modifications
+Base Configuration, modified from i3-style with a new look.
 For more information about configuration options, please visit their documentation https://github.com/amnweb/yasb/wiki
 */
 :root {
     --line: rgb(125, 125, 125);
-    --pbg: rgba(15, 15, 15, 1);
-    --pgb_hover: rgba(45, 45, 45, 1);
+    --power_menu_elem_bg: rgba(15, 15, 15, 1);
+    --power_menu_elem_hover: rgba(45, 45, 45, 1);
     --power_menu_buttons: rgba(100, 100, 100, 1);
     --power_menu_border: rgba(200, 200, 200, 1);
     --bar_bg: #000000;
@@ -70,7 +69,7 @@ For more information about configuration options, please visit their documentati
     width: 180px;
     height: 230px;
     border-radius: 0px;
-    background-color: var(--pbg);
+    background-color: var(--power_menu_elem_bg);
     color: var(--text);
     border-left: 4px solid rgba(58, 59, 83, 0);
     border-right: 4px solid rgba(58, 59, 83, 0);
@@ -79,7 +78,7 @@ For more information about configuration options, please visit their documentati
     margin: 0px;
 }
 .power-menu-popup .button.hover {
-    background-color: var(--pgb_hover);
+    background-color: var(--power_menu_elem_hover);
     border-left: 4px solid var(--power_menu_border);
     border-right: 4px solid var(--power_menu_border);
     border-top: 4px solid var(--power_menu_border);

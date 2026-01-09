@@ -1,5 +1,4 @@
-# This is solely meant for GlazeWM users as I haven't touched Komorebi for I love GlazeWM's simplicity.
-# New Update: Back to GlazeWM, snappier the better.
+# Bar For GlazeWM
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: true
 watch_config: true

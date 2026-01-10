@@ -197,7 +197,8 @@ window_rules:
       - window_process: { equals: "uad-ng" }
       - window_title: { equals: "LocalSend" }
       - window_title: { regex: "[Nn]otepad*" } # For all notepad apps
-      - window_title: { regex: "[Ss]ign [Ii]n -*" }
+      - window_title: { regex: "Sign In -" }
+      - window_title: { regex: "[Aa]ctivity [Ii]nformation -*"}
       - window_process: { regex: "Flow.Launcher" }
       - window_title: { equals: "Welcome to Flow Launcher" }
       - window_title: { includes: "FLOAT" }
@@ -209,6 +210,7 @@ window_rules:
         window_title: { equals: "Search" }
       - window_process: { equals: "wish" }
       - window_process: { equals: "ImageGlass" }
+      - window_process: { equals: "wezterm-gui" }
 
       # System Apps
       - window_title: { equals: "Task Manager" }
@@ -323,7 +325,7 @@ keybindings:
     bindings: ["alt+space"]
 
   # Change the focused window to be tiling/floating
-  - commands: ["toggle-tiling"]
+  - commands: ["toggle-floating --centered"]
     bindings: ["alt+t"]
 
   # Change the focused window to be fullscreen.
@@ -337,10 +339,6 @@ keybindings:
   # Close focused window.
   - commands: ["close"]
     bindings: ["alt+q"]
-
-  # Kill GlazeWM process safely.
-  - commands: ["wm-exit"]
-    bindings: ["alt+shift+e"]
 
   # Re-evaluate configuration file.
   - commands: ["wm-reload-config"]

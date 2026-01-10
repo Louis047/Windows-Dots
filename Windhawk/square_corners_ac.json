@@ -1,11 +1,15 @@
 {
   "theme": "",
-  "controlStyles[0].target": "Grid#MediaTransportControlsRegion",
-  "controlStyles[0].styles[0]": "CornerRadius=0",
+  "controlStyles[0].target": "Grid#NotificationCenterGrid",
+  "controlStyles[0].styles[0]": "BorderThickness=1",
+  "controlStyles[0].styles[1]": "BorderBrush:=<SolidColorBrush Color=\"#555555\" />",
+  "controlStyles[0].styles[2]": "CornerRadius=0",
   "controlStyles[1].target": "Grid#ControlCenterRegion",
-  "controlStyles[1].styles[0]": "CornerRadius=0",
+  "controlStyles[1].styles[0]": "BorderThickness=1",
+  "controlStyles[1].styles[1]": "BorderBrush:=<SolidColorBrush Color=\"#555555\" />",
+  "controlStyles[1].styles[2]": "CornerRadius=0",
   "controlStyles[2].target": "Grid#CalendarCenterGrid",
-  "controlStyles[2].styles[0]": "CornerRadius=0",
-  "controlStyles[3].target": "Grid#NotificationCenterGrid",
-  "controlStyles[3].styles[0]": "CornerRadius=0"
+  "controlStyles[2].styles[0]": "BorderThickness=1",
+  "controlStyles[2].styles[1]": "BorderBrush:=<SolidColorBrush Color=\"#555555\" />",
+  "controlStyles[2].styles[2]": "CornerRadius=0"
 }

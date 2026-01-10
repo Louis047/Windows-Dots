@@ -1,18 +1,18 @@
 # Bar For GlazeWM
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
-watch_stylesheet: true
-watch_config: true
-debug: false
+watch_stylesheet: True
+watch_config: False
+debug: False
 bars:
   primary-bar:
-    enabled: true
+    enabled: True
     screens: ["*"]
     class_name: "yasb-bar"
     alignment:
       position: "bottom"
-      center: false
+      center: False
     animation:
-      enabled: false
+      enabled: False
       duration: 1000
     blur_effect:
       enabled: False
@@ -21,9 +21,9 @@ bars:
       round_corners: False
       border_color: "System"
     window_flags:
-      always_on_top: false
-      windows_app_bar: true # This interferes with apps in full-screen. Notably while watching videos in full screen
-      hide_on_fullscreen: true
+      always_on_top: False
+      windows_app_bar: True # This interferes with apps in full-screen. Notably while watching videos in full screen
+      hide_on_fullscreen: True
     dimensions:
       width: "100%"
       height: 26
@@ -46,11 +46,11 @@ bars:
         "memory",
         "cpu",
         "lines",
+        "systray",
+        "lines",
         "battery",
         "wifi",
         "volume",
-        "lines",
-        "systray",
         "lines",
         "notifications",
         "weather",
@@ -72,15 +72,15 @@ widgets:
     options:
       label: "<span>\ue678</span>"
       menu:
-        blur: false
-        round_corners: false
+        blur: False
+        round_corners: False
         border_color: "System"
         alignment: "right"
         direction: "up"
         offset_top: 4
         offset_left: 44
         max_title_size: 150
-        show_date_time: true
+        show_date_time: True
       icons:                      
         note: "\udb82\udd0c"
         delete: "\ue20d"
@@ -92,8 +92,8 @@ widgets:
     options:
       label: "<span>\udb84\udd6b</span>"
       label_alt: "{count} F**ks"
-      hide_empty: true
-      tooltip: false
+      hide_empty: True
+      tooltip: False
       callbacks:
         on_left: "toggle_notification"
         on_right: "toggle_label"
@@ -111,7 +111,7 @@ widgets:
         update_interval: 60
         group_label:
           volume_labels: ["C", "D", "E", "F"]
-          show_label_name: true
+          show_label_name: True
           blur: False
           round_corners: False
           round_corners_type: "small"
@@ -151,22 +151,22 @@ widgets:
     options:
       label: "<span>\udb83\ude09</span>"
       image_path: "C:\\Users\\Lone\\Pictures\\Wallpapers\\Home Screen\\" # Update your directory according to your liking here
-      change_automatically: false
+      change_automatically: False
       update_interval: 100
       animation:
-        enabled: false
+        enabled: False
         type: fadeInOut
         duration: 0
       gallery:
-        enabled: true
+        enabled: True
         blur: False
         image_width: 255
         image_per_page: 7
-        show_buttons: false
-        respect_work_area: true
+        show_buttons: False
+        respect_work_area: True
         orientation: "portrait"
         image_spacing: 6
-        lazy_load: false
+        lazy_load: False
         lazy_load_delay: 0
         lazy_load_fadein: 0
         image_corner_radius: 0
@@ -180,24 +180,24 @@ widgets:
       label_position: "right" # Can be "left" or "right"
       icon_size: 13 # Can be any integer between 8 and 64
       pin_click_modifier: "ctrl" # Can be "ctrl", "alt" or "shift"
-      show_unpinned: true
-      show_unpinned_button: false
-      show_battery: false
-      show_volume: false
-      show_network: false
+      show_unpinned: True
+      show_unpinned_button: False
+      show_battery: False
+      show_volume: False
+      show_network: False
   glazewm_workspaces:
       type: "glazewm.workspaces.GlazewmWorkspacesWidget"
       options:
         offline_label: "Offline"
-        hide_empty_workspaces: false
-        hide_if_offline: true
-        enable_scroll_switching: true
+        hide_empty_workspaces: False
+        hide_if_offline: True
+        enable_scroll_switching: True
   media:
     type: "yasb.media.MediaWidget"
     options:
       label: "<span>\uf001</span> {title}"
       label_alt: "<span>\uf001</span> {title} - {artist}"
-      hide_empty: true
+      hide_empty: True
       callbacks:
         on_left: "toggle_label"
         on_middle: "do_nothing"
@@ -205,19 +205,19 @@ widgets:
       max_field_size:
         label: 65
         label_alt: 75
-        truncate_whole_label: true
-      show_thumbnail: false
-      controls_only: false
-      controls_left: false
-      controls_hide: true
+        truncate_whole_label: True
+      show_thumbnail: False
+      controls_only: False
+      controls_left: False
+      controls_hide: True
       icons:
         prev_track: "\ue892"
         next_track: "\ue893"
         play: "\ue768"
         pause: "\ue769"
       media_menu:
-        blur: false
-        round_corners: false
+        blur: False
+        round_corners: False
         border_color: "system"
         alignment: "right"
         direction: "up"
@@ -227,7 +227,7 @@ widgets:
         thumbnail_size: 120
         max_title_size: 80
         max_artist_size: 20
-        show_source: true
+        show_source: True
       media_menu_icons:
         play: "\ue768"
         pause: "\ue769"
@@ -238,7 +238,7 @@ widgets:
       options:
         label: "{%H:%M}"
         label_alt: "{%A %d %B %Y %H:%M}"
-        tooltip: false
+        tooltip: False
         timezones: []
         calendar:
           blur: False
@@ -254,7 +254,7 @@ widgets:
         label_alt: "{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}"
         api_key: "9d80bcfc41264b75856173713252804"
         update_interval: 600
-        hide_decimal: true
+        hide_decimal: True
         location: "Tuticorin"
         callbacks:
           on_left: "toggle_card"
@@ -343,10 +343,10 @@ widgets:
       label: "{win[process][name]}"
       label_no_window: ""
       label_alt: "{win[process]}"
-      label_icon: false
+      label_icon: False
       label_icon_size: 14
       max_length: 30
-      monitor_exclusive: true
+      monitor_exclusive: True
       rewrite:
         - pattern: "^(.+?)\\.exe$"
           replacement: "\\1"

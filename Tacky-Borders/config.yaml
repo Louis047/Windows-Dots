@@ -1,10 +1,19 @@
 # watch_config_changes: Automatically reload borders whenever the config file is modified.
 watch_config_changes: True
 
+# rendering_backend: Type of renderer. Supported values:
+#   - V2: A more complex, feature-rich renderer. Available in v1.2.0 and above.
+#   - Legacy: A simpler, more limited renderer. Available in v0.1.0 and above.
+#
+# NOTE: Performance between the two may vary system-to-system. Choose whichever works best.
+rendering_backend: V2
+
+# Logging
+enable_logging: True
 # Global configuration options
 global:
   # border_width: Width of the border (in pixels)
-  border_width: 2
+  border_width: 3
 
   # border_offset: Offset of the border from the window edges (in pixels)
   #   - Negative values shrink the border inwards
@@ -19,6 +28,15 @@ global:
   #   - Or specify any numeric value for a custom radius
   border_radius: Square
 
+
+  # border_z_order: Z-order of the border relative to its window. Supported values:
+  #   - AboveWindow: Place the border above its window
+  #   - BelowWindow: Place the border below its window
+  #
+  # NOTE: Using 'AboveWindow' may cause the border to flicker when used with some applications
+  # that manipulate window layering, leading to z-order conflicts.
+  border_z_order: BelowWindow
+
   # active_color: the color of the active window's border
   # inactive_color: the color of the inactive window's border
   #
@@ -26,7 +44,7 @@ global:
   #   - Solid: Use a hex code or "accent"
   #       Example:
   #         active_color: "#ffffff"
-  #         OR
+  #         OR2
   #         active_color: "accent"
   #   - Gradient: Define colors and direction
   #       Example:
@@ -41,7 +59,7 @@ global:
   #             end: [1.0, 0.0]
   #       NOTE: [0.0, 0.0] = top-left, [1.0, 1.0] = bottom-right
   active_color: "#ffffff"
-  inactive_color: "#000000"
+  inactive_color: "#2a2a2a"
 
   # initialize_delay: Time (in ms) before the border appears after opening a new window
   # unminimize_delay: Time (in ms) before the border appears after unminimizing a window
@@ -57,7 +75,7 @@ global:
   effects:
     active:
       - type: Shadow
-        radius: 2.5
+        radius: 4.5
         opacity: 1.0
         translation:
           x: 0
@@ -65,7 +83,7 @@ global:
     
     inactive:
       - type: Shadow
-        radius: 2.5
+        radius: 4.5
         opacity: 1.0
         translation:
           x: 0
@@ -99,16 +117,8 @@ window_rules:
     enabled: False
   
   - match: Process
-    name: "yasb"
-    enabled: False
-  
-  - match: Process
     name: "tacky-borders"
     enabled: False
-
-  - match: Process
-    name: "ShareX"
-    enabled: True
 
   # Example rule:
   # - match: Class                   # Match based on Class or Title

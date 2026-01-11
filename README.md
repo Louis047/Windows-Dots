@@ -5,6 +5,7 @@
 > 2. `$USER` - Your User Name
 > 3. If `$PROFILE` doesn't exist, use this command to create a profile for powershell `New-Item -Path $PROFILE -Type File -Force`
 > 4. If the above command doesn't work, allow Powershell to sign remote scripts `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine` 
+> 5. Make sure to create `.env` for YASB in its default director as some widgets like `weather` rely on it. Documentation [here](https://github.com/amnweb/yasb/wiki/Configuration#environment-variables-support)
 
 ### Tools Used:
 - [Yet Another Status Bar](https://github.com/amnweb/yasb) - a status bar with customizations, built using Python.
@@ -67,9 +68,8 @@ For square corners in other windows elements (Action Center, Flyouts), copy the 
 
 
 #### YASB
-1. To use wallpaper widget, save them in this location `C:\Users\$USER\Pictures\Wallpapers\Home Screen`
+1. To use wallpaper widget, save them in this location `C:\Users\$USER\Pictures\Wallpapers\Home Screen` (path with double backslashes)
 2. Most of the widgets are customized for you, and YASB has the ability to choose your own widgets on runtime
-3. Make sure to change your location in the weather widget
 
 #### Task Scheduler
 Made changes from the base `AltDrag` config to be optimal for both desktop and laptop users, `tacky-borders` included

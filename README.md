@@ -117,6 +117,9 @@ Recommended Mods
 - No-Gaps
 - Zen Custom URL Bar (for sqaure corners)
 
+#### Windows Terminal
+In Settings, go to Rendering section and change Graphics API to `Direct2D` to fix font rendering issues
+
 #### Oh My Posh
 Use `robbyrussel` theme for minimalism
 

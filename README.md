@@ -62,9 +62,10 @@ Some useful mods I found for my Windows workflow
 - Explorer Font Changer - Very useful to change fonts system-wide (I prefer `Segoe UI Variable Display`)
 - No Focus Rectangle
 
-For square corners in other windows elements (Action Center, Flyouts), copy the respective file content from `Windhawk` directory and paste it in Advanced Settings --> Mod Settings in the following mods
+For square corners in other windows elements (Action Center, Flyouts, Start Menu), copy the respective file content from `Windhawk` directory and paste it in Advanced Settings --> Mod Settings in the following mods
 - Action Center - Windows 11 Notification Center Styler
 - Volume and Brightness Flyouts - Windows 11 Taskbar Styler
+- Start Menu - Windows 11 Start Menu Styler
 
 
 #### YASB

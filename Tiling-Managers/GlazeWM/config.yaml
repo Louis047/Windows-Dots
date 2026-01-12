@@ -211,7 +211,8 @@ window_rules:
       - window_process: { equals: "wish" }
       - window_process: { equals: "ImageGlass" }
       - window_process: { equals: "wezterm-gui" }
-
+      - window_process: { equals: "HandBrake" }
+      
       # System Apps
       - window_title: { equals: "Task Manager" }
       - window_title: { equals: "App Installer" }

@@ -1,4 +1,3 @@
-/* TO-DO: ADD MEDIA SOURCE TAG UNIQUE COLORS
 /* 
 Base Configuration, modified from i3-style with a new look.
 For more information about configuration options, please visit their documentation https://github.com/amnweb/yasb/wiki
@@ -23,7 +22,6 @@ For more information about configuration options, please visit their documentati
     --widget_border: rgb(85, 85, 85);
     --widget_border_alt: rgb(45, 45, 45); 
     --progress_bar_load: rgb(135, 135, 135);
-	--wifi_pass: rgb(160, 160, 160);
     --tooltip_color: rgba(25, 25, 25, 1);
     --context_menu_bg: rgb(20, 20, 20);
     --text_unchecked: #999;
@@ -52,6 +50,8 @@ For more information about configuration options, please visit their documentati
     --media_menu_btn_hover: #FFFFFF;
     --media_menu_btn_hover_alt: rgba(175, 175, 175, 1);
     --media_menu_btn_disabled: #3b3b3b;
+    --media_menu_btn: #acacac;
+    --media_menu_btn_alt: #4A4A4A;
 }
 
 /*                                 COMMON YASB ELEMENTS                          */
@@ -75,9 +75,14 @@ For more information about configuration options, please visit their documentati
 }
 .icon {
     font-size: 14px;
+    font-weight: 700;
 }
 .widget .label {
     padding: 0px 2px;
+}
+.grouper-button {
+    font-size: 14px;
+    font-weight: 700;
 }
 /*                                      WIDGETS                                     */
 /*              Power Menu                     */
@@ -173,7 +178,7 @@ For more information about configuration options, please visit their documentati
     padding-left: 8px;
     font-size: 14px;
 }
-
+/*                          Media-Menu                          */
 .media-menu {
     min-width: 420px;
     max-width: 420px;
@@ -182,17 +187,19 @@ For more information about configuration options, please visit their documentati
 }
 .media-menu .title,
 .media-menu .artist {
-    font-size: 14px;
-    font-weight: 600;
     margin-left: 10px;
-    color: var(--text);
 
 }
+.media-menu .title {
+    color: var(--text);
+    font-size: 15px;
+}
 .media-menu .artist {
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 600;
     color: var(--text_alt);
-    margin-top: 12px;
-    margin-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 .media-menu .source {
     font-size: 11px;
@@ -205,23 +212,66 @@ For more information about configuration options, please visit their documentati
 .media-menu .thumbnail {
     border: var(--global_widget_border_alt);
 }
-/* The source class name is the same as what you see in the media widget; just replace spaces with dashes and convert it to lowercase. 
-Example: "Windows Media" becomes "windows-media" */
-.media-menu .source.firefox {
-    background-color: #ff583b;
-    color: #ffffff;
+/*                                  Media-Menu source specific                          */
+.media-menu .source.aimp {
+    background-color: #6f42c1;
 }
-.media-menu .source.spotify {
-    background-color: #199143;
-    color: #ffffff;
+.media-menu .source.apple-music {
+    background-color: #fa2b56;
+}
+.media-menu .source.brave {
+    background-color: #fb542b;
+}
+.media-menu .source.chrome {
+    background-color: #4285f4;
 }
 .media-menu .source.edge {
     background-color: #0078d4;
-    color: #ffffff;
 }
-.media-menu .source.windows-media {
+.media-menu .source.firefox {
+    background-color: #ff7139;
+}
+.media-menu .source.foobar2000 {
+    background-color: #444444;
+}
+.media-menu .source.media-player {
     background-color: #0078d4;
-    color: #ffffff;
+}
+.media-menu .source.murglar {
+    background-color: #8a8a8a;
+}
+.media-menu .source.musicbee {
+    background-color: #ffcc00;
+}
+.media-menu .source.nsmusics {
+    background-color: #e64a19;
+}
+.media-menu .source.opera {
+    background-color: #ff1b2d;
+}
+.media-menu .source.qobuz {
+    background-color: #003a6f;
+}
+.media-menu .source.spotify {
+    background-color: #1db954;
+}
+.media-menu .source.screenbox {
+    background-color: #007ab3;
+}
+.media-menu .source.tidal {
+    background-color: #000000;
+}
+.media-menu .source.winamp {
+    background-color: #f1a11b;
+}
+.media-menu .source.youtube {
+    background-color: #ff0000;
+}
+.media-menu .source.youtube-music {
+    background-color: #c51f1f;
+}
+.media-menu .source.zen {
+    background-color: #dfdfdf;
 }
 
 .media-menu .btn {
@@ -234,14 +284,19 @@ Example: "Windows Media" becomes "windows-media" */
     border-radius: 0px;
 }
 
-.media-menu .btn:hover {
+.media-menu .btn.play:hover {
     color: var(--media_menu_btn_hover);
 }
 .media-menu .btn.prev:hover,
 .media-menu .btn.next:hover {
     color: var(--media_menu_btn_hover_alt);
 }
+.media-menu .btn.prev,
+.media-menu .btn.next {
+    color: var(--media_menu_btn_alt);
+}
 .media-menu .btn.play {
+    color: var(--media_menu_btn);
     font-size: 42px;
 }
 .media-menu .btn.disabled:hover,
@@ -329,7 +384,7 @@ Example: "Windows Media" becomes "windows-media" */
 
 /*                          Wi-Fi                           */
 .wifi-widget {
-    padding: 0;
+    padding: 0 2px 0 0;
     margin: 0;
 }
 
@@ -337,7 +392,7 @@ Example: "Windows Media" becomes "windows-media" */
     color: var(--text);
     background: transparent;
     padding: 1px 2px;
-    font-weight: 600;
+    font-size: 13px;
 }
 
 /*                          Battery                           */
@@ -594,6 +649,7 @@ Example: "Windows Media" becomes "windows-media" */
 }
 
 /*                    Weather                   */
+
 .weather-card{
     background-color: var(--widget_bg);
     border: var(--global_widget_border);
@@ -602,6 +658,10 @@ Example: "Windows Media" becomes "windows-media" */
 .weather-card-day{
     background-color: var(--widget_bg_alt);
     border: var(--global_widget_border_alt);
+}
+.weather-card-today .label.location {
+    font-size: 24px;
+    font-weight: 700;
 }
 
 /*                  Lines-Separator             */
@@ -705,12 +765,8 @@ QPushButton {
     outline: none;
 }
 
-/*                 System Information                */
-.sysinfo .grouper-button {
-    font-size: 14px;
-}
-
-/*                System Tray                       */
+/*                                  GROUP WIDGETS                     */
+/*                System Tray                     */
 .system-tray .grouper-button {
-    font-size: 20px;
+    font-size: 12px;   
 }

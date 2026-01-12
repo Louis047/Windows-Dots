@@ -1,7 +1,7 @@
 # Bar For GlazeWM
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: True
-watch_config: False
+watch_config: True
 debug: False
 update_check: False
 glazewm:
@@ -72,6 +72,9 @@ widgets:
     type: "yasb.notes.NotesWidget"
     options:
       label: "<span>\udb83\udebf</span>"
+      animation:
+        enabled: False
+        duration: 0
       menu:
         blur: False
         round_corners: False
@@ -96,7 +99,7 @@ widgets:
       label: "<span>\ueb9a</span>"
       label_alt: "{count} F**ks"
       hide_empty: True
-      tooltip: True
+      tooltip: False
       callbacks:
         on_left: "toggle_notification"
         on_right: "toggle_label"
@@ -126,6 +129,9 @@ widgets:
         label_alt: "<span>\udb80\udeca</span> {space[used][gb]}/{space[total][gb]}"
         volume_label: "C"
         update_interval: 60
+        animation:
+          enabled: False
+          duration: 0
         group_label:
           volume_labels: ["C", "D", "E", "F"]
           show_label_name: True
@@ -147,6 +153,9 @@ widgets:
       label: "<span>\uefc5</span> {virtual_mem_percent}%"
       label_alt: "<span>\uefc5</span> {virtual_mem_free}/{virtual_mem_total}"
       update_interval: 2500
+      animation:
+        enabled: False
+        duration: 0
       callbacks:
         on_left: "toggle_label"
         on_middle: "do_nothing"
@@ -161,6 +170,9 @@ widgets:
       label: "<span>\uf4bc</span> {info[percent][total]:.0f}%"
       label_alt: "<span>\uf4bc</span> {info[freq][current]} GHz"
       update_interval: 1000
+      animation:
+        enabled: False
+        duration: 0
       cpu_thresholds:
         low: 25
         medium: 50
@@ -175,6 +187,7 @@ widgets:
       image_path: "C:\\Users\\Lone\\Pictures\\Wallpapers\\Home Screen\\" # Update your directory according to your liking here
       change_automatically: False
       update_interval: 100
+      tooltip: False
       animation:
         enabled: False
         type: fadeInOut
@@ -203,8 +216,8 @@ widgets:
       ]
       collapse_options:
         enabled: true
-        expanded_label: "\uf44a"
-        collapsed_label: "\uf438"
+        expanded_label: "\uf054"
+        collapsed_label: "\uf053"
         label_position: "left"
   systray:
     type: "yasb.systray.SystrayWidget"
@@ -231,7 +244,7 @@ widgets:
     type: "yasb.media.MediaWidget"
     options:
       label: "<span>\udb80\udf86</span>"
-      hide_empty: True
+      hide_empty: False
       callbacks:
         on_left: "toggle_media_menu"
       max_field_size:
@@ -251,7 +264,7 @@ widgets:
         offset_top: 4
         offset_left: -18
         thumbnail_corner_radius: 0
-        thumbnail_size: 120
+        thumbnail_size: 140
         max_title_size: 80
         max_artist_size: 20
         show_source: True
@@ -265,7 +278,7 @@ widgets:
       options:
         label: "{%H:%M}"
         label_alt: "{%A %d %B %Y %H:%M}"
-        tooltip: True
+        tooltip: False
         timezones: [] # To be added later once figured out
         calendar:
           blur: False
@@ -284,11 +297,15 @@ widgets:
       type: "yasb.weather.WeatherWidget"
       options:
         label: "<span>{icon}</span> {temp}"
-        label_alt: "{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}"
+        label_alt: "Min {min_temp} Max {max_temp} Hum {humidity}"
         api_key: env
         location: env
         update_interval: 600
         hide_decimal: True
+        tooltip: False
+        animation: 
+          enabled: False
+          duration: 0
         callbacks:
           on_left: "toggle_card"
           on_right: "toggle_label"
@@ -315,16 +332,20 @@ widgets:
         ethernet_label_alt: "<span>{ethernet_name}</span>"
         wifi_icons: [
           "\udb82\udd2e",  # 0% strength icon
-          "\udb82\udd1f",  # 1-20% strength
-          "\udb82\udd22",  # 21-40% strength
-          "\udb82\udd25",  # 41-80% strength
-          "\udb82\udd28"   # 81-100% strength
+          "\uf1eb",  # 1-20% strength
+          "\uf1eb",  # 21-40% strength
+          "\uf1eb",  # 41-80% strength
+          "\uf1eb"   # 81-100% strength
         ]
   volume:
     type: "yasb.volume.VolumeWidget"
     options:
       label: "<span>{icon}</span> {level}"
-      label_alt: "{volume}"
+      tooltip: False
+      mute_text: ""
+      animation:
+        enabled: False
+        duration: 0
       volume_icons:
         - "\ueee8"  # Icon for muted
         - "\uf026"  # Icon for 0-10% volume
@@ -350,6 +371,9 @@ widgets:
         update_interval: 1000
         hide_unsupported: True
         time_remaining_natural: True
+        animation:
+          enabled: False
+          duration: 0
         charging_options:
           icon_format: "{charging_icon}"
         status_thresholds:
@@ -372,7 +396,7 @@ widgets:
       uptime: True
       blur: False
       blur_background: True
-      animation_duration: 100
+      animation_duration: 50
       button_row: 3
       buttons:
         lock: ["\uea75", "Lock"]

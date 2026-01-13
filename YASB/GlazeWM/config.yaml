@@ -1,7 +1,7 @@
 # Bar For GlazeWM
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: True
-watch_config: False
+watch_config: True
 debug: False
 update_check: False
 glazewm:
@@ -97,8 +97,8 @@ widgets:
     type: "yasb.notifications.NotificationsWidget"
     options:
       label: "<span>\ueb9a</span>"
-      label_alt: "{count} F**ks"
-      hide_empty: False
+      label_alt: "<span>\ueb9a</span> {count}"
+      hide_empty: True
       tooltip: False
       callbacks:
         on_left: "toggle_notification"

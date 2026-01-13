@@ -128,7 +128,7 @@ widgets:
         label: "<span>\udb80\udeca</span> {space[used][percent]}"
         label_alt: "<span>\udb80\udeca</span> {space[used][gb]}/{space[total][gb]}"
         volume_label: "C"
-        update_interval: 60
+        update_interval: 0
         animation:
           enabled: False
           duration: 0
@@ -152,7 +152,7 @@ widgets:
     options:
       label: "<span>\uefc5</span> {virtual_mem_percent}%"
       label_alt: "<span>\uefc5</span> {virtual_mem_free}/{virtual_mem_total}"
-      update_interval: 2500
+      update_interval: 5000
       animation:
         enabled: False
         duration: 0
@@ -186,7 +186,7 @@ widgets:
       label: "<span>\udb83\ude09</span>"
       image_path: "C:\\Users\\Lone\\Pictures\\Wallpapers\\Home Screen\\" # Update your directory according to your liking here
       change_automatically: False
-      update_interval: 100
+      update_interval: 21600
       tooltip: False
       animation:
         enabled: False
@@ -300,7 +300,7 @@ widgets:
         label_alt: "Min {min_temp} Max {max_temp} Hum {humidity}"
         api_key: env
         location: env
-        update_interval: 600
+        update_interval: 3600
         hide_decimal: True
         tooltip: False
         animation: 
@@ -368,7 +368,7 @@ widgets:
     options:
         label: "<span>{icon}</span>{percent}%"
         label_alt: "<span>\udb81\udd1b</span> {time_remaining}"
-        update_interval: 1000
+        update_interval: 5000
         hide_unsupported: True
         time_remaining_natural: True
         animation:

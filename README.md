@@ -53,19 +53,24 @@ Komorebi Setup
 #### Windhawk
 Some useful mods I found for my Windows workflow
 - Disable rounded corners in Windows 11 - I hate rounded corners with a square monitors so yes 
-- Windows 11 Notification Center Styler - Use this to change border to square for both `Action Center`, `Notification Center` and `Flyouts`
-- Windows 11 Start Menu Styler - Again, to remove square borders (don't use it anymore)
-- Windows 11 Taskbar Styler - As the name says, to make it compact
+- Windows 11 Notification Center Styler - Use this to change border to square for and `Action Center` and `Toast Notifications`
+- Windows 11 Start Menu Styler - To remove square borders for it as well 
+- Windows 11 Taskbar Styler - To make taskbar transparent and configure border for `Flyouts`
 - Taskbar Height and Icon Size - For the above
 - Center Titlebar
 - Dark Mode Context Menus
-- Explorer Font Changer - Very useful to change fonts system-wide (I prefer `Segoe UI Variable Display`)
+- Explorer Font Changer - Very useful to change fonts system-wide(almost). I prefer `Segoe UI Variable Display`
 - No Focus Rectangle
+- Taskbar Tray System Icon Tweaks
 
 For square corners in other windows elements (Action Center, Flyouts, Start Menu), copy the respective file content from `Windhawk` directory and paste it in Advanced Settings --> Mod Settings in the following mods
 - Action Center - Windows 11 Notification Center Styler
 - Volume and Brightness Flyouts - Windows 11 Taskbar Styler
-- Start Menu - Windows 11 Start Menu Styler
+- Start Menu and other elements - Windows 11 Start Menu Styler
+
+Changes to be made from some mods
+- Taskbar Height and Icon Size - Set taskbar height and all other elements to `-1`
+- Taskbar Tray System Icon Tweaks - Hide everything
 
 
 #### YASB

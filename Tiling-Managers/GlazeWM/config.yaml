@@ -10,29 +10,29 @@ general:
   shutdown_commands: ["shell-exec taskkill /IM yasb.exe /F", "shell-exec taskkill /IM gat-gwm.exe /F"]
 
   # Commands to run after the WM config is reloaded.
-  # config_reload_commands: ["shell-exec yasbc reload"]
+  config_reload_commands: []
 
   # Whether to automatically focus windows underneath the cursor.
   focus_follows_cursor: false
 
-  # Whether to switch back and forth between the previously focused 
+  # Whether to switch back and forth between the previously focused
   # workspace when focusing the current workspace.
   toggle_workspace_on_refocus: false
 
   cursor_jump:
     # Whether to automatically move the cursor on the specified trigger.
-    enabled: false
+    enabled: true
 
     # Trigger for cursor jump:
     # - 'monitor_focus': Jump when focus changes between monitors.
     # - 'window_focus': Jump when focus changes between windows.
-    trigger: "window_focus"
+    trigger: 'monitor_focus'
 
   # How windows should be hidden when switching workspaces.
   # - 'cloak': Recommended. Hides windows with no animation.
   # - 'hide': Legacy method (v3.5 and earlier) that has a brief animation,
   # but has stability issues with some apps.
-  hide_method: "cloak"
+  hide_method: 'cloak'
 
   # Affects which windows get shown in the native Windows taskbar. Has no
   # effect if `hide_method: 'hide'`.
@@ -108,7 +108,7 @@ window_behavior:
       # Whether to center floating windows by default.
       centered: false
       # Whether to show floating windows as always on top.
-      shown_on_top: false
+      shown_on_top: true
 
     fullscreen:
       # Maximize the window if possible. If the window doesn't have a
@@ -148,23 +148,30 @@ workspaces:
     bind_to_monitor: 1
 
 window_rules:
-  - commands: ["ignore"]
+  - commands: ['ignore']
     match:
-      # Ignores any Bar windows.
-      - window_process: { equals: "zebar" }
-      - window_process: { equals: "yasb" }
+      # Ignores any Zebar windows.
+      - window_process: { equals: 'zebar' }
 
       # Ignores picture-in-picture windows for browsers.
-      - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
-        window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
+      - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
+        window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
 
       # Ignore rules for various 3rd-party apps.
-      - window_process: { equals: "PowerToys" }
+      - window_process: { equals: 'PowerToys' }
         window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
-      - window_process: { equals: "PowerToys" }
-        window_title: { regex: ".*? - Peek" }
-      - window_process: { equals: "Lively" }
-        window_class: { regex: "HwndWrapper" }
+      - window_title: { equals: 'Command Palette' }
+        window_class: { equals: 'WinUIDesktopWin32WindowClass' }
+      - window_process: { equals: 'PowerToys' }
+        window_title: { regex: '.*? - Peek' }
+      - window_process: { equals: 'Lively' }
+        window_class: { regex: 'HwndWrapper' }
+      - window_process: { equals: 'EXCEL' }
+        window_class: { not_regex: 'XLMAIN' }
+      - window_process: { equals: 'WINWORD' }
+        window_class: { not_regex: 'OpusApp' }
+      - window_process: { equals: 'POWERPNT' }
+        window_class: { not_regex: 'PPTFrameClass' }
 
       # Ignores certain games (interferes with GlazeWM)
       # Feel free to add your games here
@@ -197,7 +204,7 @@ window_rules:
       - window_process: { equals: "uad-ng" }
       - window_title: { equals: "LocalSend" }
       - window_title: { regex: "[Nn]otepad*" } # For all notepad apps
-      - window_title: { regex: "Sign In -" }
+      - window_title: { regex: "Sign in -" }
       - window_title: { regex: "[Aa]ctivity [Ii]nformation -*"}
       - window_process: { regex: "Flow.Launcher" }
       - window_title: { equals: "Welcome to Flow Launcher" }
@@ -212,12 +219,14 @@ window_rules:
       - window_process: { equals: "ImageGlass" }
       - window_process: { equals: "wezterm-gui" }
       - window_process: { equals: "HandBrake" }
+      - window_process: { equals: "Everything" }
       
       # System Apps
       - window_title: { equals: "Task Manager" }
       - window_title: { equals: "App Installer" }
       - window_title: { equals: "Settings" } # Change to SystemSettings
       - window_process: { regex: "WindowsTerminal" }
+      - window_process: { regex: "cmd" }
       - window_process: { regex: "regedit" }
       - window_process: { equals: "mspaint" }
       - window_process: { equals: "ApplicationFrameHost" }
@@ -240,7 +249,7 @@ window_rules:
   # Start apps in their own workspaces (cuz i love seeing them in an instant lol)
   - commands: ["move --workspace 1", "focus --workspace 1"]
     match:
-      - window_process: { regex: "zen|chrome|firefox|arc|vivaldi|librewolf|opera" }
+      - window_process: { regex: "zen|chrome|firefox|vivaldi|Arc|librewolf|opera" }
   - commands: ["move --workspace 2", "focus --workspace 2"]
     match:
       - window_process: { regex: "Code|Trae|Cursor|Windsurf|Zed" }
@@ -326,7 +335,7 @@ keybindings:
     bindings: ["alt+space"]
 
   # Change the focused window to be tiling/floating
-  - commands: ["toggle-floating --centered"]
+  - commands: ["toggle-tiling"]
     bindings: ["alt+t"]
 
   # Change the focused window to be fullscreen.

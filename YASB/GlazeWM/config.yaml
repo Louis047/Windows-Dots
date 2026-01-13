@@ -1,7 +1,7 @@
 # Bar For GlazeWM
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: True
-watch_config: True
+watch_config: False
 debug: False
 update_check: False
 glazewm:
@@ -98,7 +98,7 @@ widgets:
     options:
       label: "<span>\ueb9a</span>"
       label_alt: "{count} F**ks"
-      hide_empty: True
+      hide_empty: False
       tooltip: False
       callbacks:
         on_left: "toggle_notification"
@@ -216,8 +216,8 @@ widgets:
       ]
       collapse_options:
         enabled: true
-        expanded_label: "\uf054"
-        collapsed_label: "\uf053"
+        expanded_label: "\uf152"
+        collapsed_label: "\uf191"
         label_position: "left"
   systray:
     type: "yasb.systray.SystrayWidget"

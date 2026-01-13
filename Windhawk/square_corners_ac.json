@@ -1,5 +1,4 @@
 {
-  "theme": "",
   "controlStyles[0].target": "Grid#NotificationCenterGrid",
   "controlStyles[0].styles[0]": "BorderThickness=1",
   "controlStyles[0].styles[1]": "BorderBrush:=<SolidColorBrush Color=\"#555555\" />",

@@ -77,6 +77,9 @@ Changes to be made from some mods
 1. To use wallpaper widget, save them in this location `C:\Users\$USER\Pictures\Wallpapers\Home Screen` (path with double backslashes)
 2. Most of the widgets are customized for you, and YASB has the ability to choose your own widgets on runtime
 
+#### Nilesoft Shell
+Paste the config into the app directory. Make sure to open them as admin. 
+
 #### Task Scheduler
 Made changes from the base `AltDrag` config to be optimal for both desktop and laptop users, `tacky-borders` included
 

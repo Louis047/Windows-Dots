@@ -225,7 +225,6 @@ window_rules:
       - window_title: { equals: "Task Manager" }
       - window_title: { equals: "App Installer" }
       - window_title: { equals: "Settings" } # Change to SystemSettings
-      - window_process: { regex: "WindowsTerminal" }
       - window_process: { regex: "cmd" }
       - window_process: { regex: "regedit" }
       - window_process: { equals: "mspaint" }
@@ -373,6 +372,12 @@ keybindings:
     bindings: ["alt+d"]
   - commands: ["focus --prev-active-workspace"]
     bindings: ["alt+a"]
+  
+  # Move window to next/previous active workspace
+  - commands: ["move --next-active-workspace", "focus --next-active-workspace"]
+    bindings: ["alt+shift+a"]
+  - commands: ["move --prev-active-workspace", "focus --prev-active-workspace"]
+    bindings: ["alt+shift+d"]
 
   # Change focus to a workspace defined in `workspaces` config.
   - commands: ["focus --workspace 1"]
@@ -393,14 +398,6 @@ keybindings:
     bindings: ["alt+8"]
   - commands: ["focus --workspace 9"]
     bindings: ["alt+9"]
-
-  # Move the focused window's parent workspace to a monitor in a given
-  # direction.
-  - commands: ['move-workspace --direction left']
-    bindings: ['alt+shift+a']
-  - commands: ['move-workspace --direction right']
-    bindings: ['alt+shift+d']
-  # Nvm, this feature is kinda nuts
 
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ["move --workspace 1", "focus --workspace 1"]

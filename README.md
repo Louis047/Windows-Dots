@@ -8,7 +8,7 @@
 > 5. Make sure to create `.env` for YASB in its default director as some widgets like `weather` rely on it. Documentation [here](https://github.com/amnweb/yasb/wiki/Configuration#environment-variables-support)
 
 ### Tools Used:
-- [Yet Another Status Bar](https://github.com/amnweb/yasb) - a status bar with customizations, built using Python.
+- [Yet Another Status Bar](https://github.com/amnweb/yasb) - A status bar with customizations, built using Python.
   
 - [GlazeWM](https://github.com/glzr-io/glazewm) - i3-like window tiling manager, built using Rust.
 
@@ -17,6 +17,8 @@
 - [Komorebi](https://github.com/LGUG2Z/komorebi) - Another Tiling Manager made using Rust, with goodies like animations and better transparency support. Sure a hell to customize this.
 
 - [AltSnap](https://github.com/RamonUnch/AltSnap) - Resizing window with `Alt` Key, with ease.
+
+- [Nilesoft Shell](https://github.com/moudey/Shell) - A great context menu customization tool with extensive features, allowing you to add your own context menu options with the help of scripts
   
 - [Flow Launcher](https://github.com/Flow-Launcher/Flow.Launcher) - Powetoys Run, but better. (Microsoft Ruined it with their new trash: `Command Palette`)
   

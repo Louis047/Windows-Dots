@@ -7,5 +7,7 @@
   "controlStyles[1].styles[0]": "BorderThickness=1",
   "controlStyles[1].styles[1]": "BorderBrush:=<SolidColorBrush Color=\"#555555\" />",
   "controlStyles[1].styles[2]": "CornerRadius=0",
+  "controlStyles[1].styles[3]": "Padding=0,0,0,0",
+  "controlStyles[1].styles[4]": "Margin=0,0,0,24",
   "theme": "SimplyTransparent"
 }

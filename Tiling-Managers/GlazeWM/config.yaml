@@ -10,7 +10,7 @@ general:
   shutdown_commands: ["shell-exec taskkill /IM yasb.exe /F", "shell-exec taskkill /IM gat-gwm.exe /F"]
 
   # Commands to run after the WM config is reloaded.
-  config_reload_commands: []
+  config_reload_commands: ["shell-exec yasbc reload"]
 
   # Whether to automatically focus windows underneath the cursor.
   focus_follows_cursor: false
@@ -45,14 +45,14 @@ gaps:
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: "10px"
+  inner_gap: "12px"
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: "10px"
-    right: "10px"
-    bottom: "10px"
-    left: "10px"
+    top: "12px"
+    right: "12px"
+    bottom: "12px"
+    left: "12px"
 
 window_effects:
   # Visual effects to apply to the focused window.
@@ -108,7 +108,7 @@ window_behavior:
       # Whether to center floating windows by default.
       centered: false
       # Whether to show floating windows as always on top.
-      shown_on_top: true
+      shown_on_top: false
 
     fullscreen:
       # Maximize the window if possible. If the window doesn't have a
@@ -116,7 +116,7 @@ window_behavior:
       maximized: false
 
       # Whether to show fullscreen windows as always on top.
-      shown_on_top: true
+      shown_on_top: false
 
 workspaces:
   - name: "1"
@@ -204,7 +204,6 @@ window_rules:
       - window_process: { equals: "uad-ng" }
       - window_title: { equals: "LocalSend" }
       - window_title: { regex: "[Nn]otepad*" } # For all notepad apps
-      - window_title: { regex: "Sign in -" }
       - window_title: { regex: "[Aa]ctivity [Ii]nformation -*"}
       - window_process: { regex: "Flow.Launcher" }
       - window_title: { equals: "Welcome to Flow Launcher" }
@@ -334,7 +333,7 @@ keybindings:
     bindings: ["alt+space"]
 
   # Change the focused window to be tiling/floating
-  - commands: ["toggle-tiling"]
+  - commands: ["toggle-floating --centered=true"]
     bindings: ["alt+t"]
 
   # Change the focused window to be fullscreen.

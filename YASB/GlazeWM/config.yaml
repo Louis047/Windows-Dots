@@ -1,7 +1,7 @@
 # Bar For GlazeWM
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: True
-watch_config: True
+watch_config: False
 debug: False
 update_check: False
 glazewm:
@@ -39,7 +39,7 @@ bars:
       right: 0
     widgets:
       left: [
-        "power_menu",
+        "start_menu",
         "media",
         "glazewm_workspaces"
       ]
@@ -60,6 +60,15 @@ bars:
         "clock"
       ]
 widgets:
+  start_menu:
+    type: "yasb.custom.CustomWidget"
+    options:
+      label: "\ue62a"
+      label_alt: "\ue62a"
+      class_name: "start-menu-widget"
+      callbacks:
+        on_left: "exec start_menu"
+        on_right: "exec quick_link"
   lines:
     type: "yasb.custom.CustomWidget"
     options:
@@ -128,7 +137,7 @@ widgets:
         label: "<span>\udb80\udeca</span> {space[used][percent]}"
         label_alt: "<span>\udb80\udeca</span> {space[used][gb]}/{space[total][gb]}"
         volume_label: "C"
-        update_interval: 0
+        update_interval: 60
         animation:
           enabled: False
           duration: 0
@@ -184,28 +193,28 @@ widgets:
     type: "yasb.wallpapers.WallpapersWidget"
     options:
       label: "<span>\udb83\ude09</span>"
-      image_path: "C:\\Users\\Lone\\Pictures\\Wallpapers\\Home Screen\\" # Update your directory according to your liking here
-      change_automatically: False
-      update_interval: 21600
-      tooltip: False
-      animation:
-        enabled: False
-        type: fadeInOut
-        duration: 0
+      # Example path to folder with images. Can be a single string or a list of strings.
+      # image_path: "C:\\Users\\{Username}\\Images" 
+      image_path: "C:\\Users\\Lone\\Pictures\\Wallpapers\\Home Screen\\"
+      change_automatically: false # Automatically change wallpaper
+      update_interval: 60 # If change_automatically is true, update interval in seconds
       gallery:
-        enabled: True
-        blur: False
-        image_width: 255
-        image_per_page: 7
-        show_buttons: False
-        respect_work_area: True
-        orientation: "portrait"
-        image_spacing: 6
-        lazy_load: False
-        lazy_load_delay: 0
-        lazy_load_fadein: 0
-        image_corner_radius: 0
-        enable_cache: True
+          enabled: true
+          blur: true
+          image_width: 250
+          image_per_page: 7
+          gallery_columns: 0 # 0 = auto, matches image_per_page for a single row
+          horizontal_position: "center" # left/center/right placement on screen
+          vertical_position: "center" # top/center/bottom placement
+          position_offset: 0 # minimum gap (px) from screen edges - see below for advanced options
+          respect_work_area: true # clamp to OS work area (avoids Windows taskbar)
+          show_buttons: false
+          orientation: "portrait"
+          image_spacing: 8
+          lazy_load: false
+          lazy_load_fadein: 0
+          image_corner_radius: 0
+
   system-tray:
     type: "yasb.grouper.GrouperWidget"
     options:

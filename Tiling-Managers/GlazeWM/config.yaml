@@ -10,7 +10,7 @@ general:
   shutdown_commands: ["shell-exec taskkill /IM yasb.exe /F", "shell-exec taskkill /IM gat-gwm.exe /F"]
 
   # Commands to run after the WM config is reloaded.
-  config_reload_commands: ["shell-exec yasbc reload"]
+  # config_reload_commands: ["shell-exec yasbc reload"]
 
   # Whether to automatically focus windows underneath the cursor.
   focus_follows_cursor: false
@@ -152,6 +152,8 @@ window_rules:
     match:
       # Ignores any Zebar windows.
       - window_process: { equals: 'zebar' }
+      - window_process: { equals: 'yasb' }
+
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
@@ -207,6 +209,13 @@ window_rules:
       - window_title: { regex: "[Aa]ctivity [Ii]nformation -*"}
       - window_process: { regex: "Flow.Launcher" }
       - window_title: { equals: "Welcome to Flow Launcher" }
+      - window_process: { equals: "wish" }
+      - window_process: { equals: "ImageGlass" }
+      - window_process: { equals: "wezterm-gui" }
+      - window_process: { equals: "HandBrake" }
+      - window_process: { equals: "Everything" }
+
+      # Visual Studio
       - window_title: { includes: "FLOAT" }
       - window_process: { equals: "devenv" } # Float the VS Rename dialog
         window_title: { equals: "Rename" }
@@ -214,12 +223,35 @@ window_rules:
         window_title: { equals: "Find and Replace" }
       - window_process: { equals: "devenv" } # Float the VS Search
         window_title: { equals: "Search" }
-      - window_process: { equals: "wish" }
-      - window_process: { equals: "ImageGlass" }
-      - window_process: { equals: "wezterm-gui" }
-      - window_process: { equals: "HandBrake" }
-      - window_process: { equals: "Everything" }
-      
+
+      # Jetbrains dotPeek
+      - window_process: { equals: "dotPeek64" }
+        window_title: { equals: "dotPeek License Agreement" }
+
+      # Ghidra
+      - window_process: { equals: "javaw" }
+        window_title: { equals: "New Project" }
+      - window_process: { equals: "javaw" }
+        window_title: { regex: "Select *" }
+      - window_process: { equals: "javaw" }
+        window_title: { regex: "Import *" }
+      - window_process: { equals: "javaw" }
+        window_title: { regex: "Choose *"}  
+      - window_process: { equals: "javaw" }
+        window_title: { regex: "Analy*" }
+      - window_process: { equals: "javaw" }
+        window_title: { regex: "CodeBrowser: *" }
+      - window_process: { equals: "javaw" }
+        window_title: { equals: "No Program Association" }
+      - window_process: { equals: "javaw" }
+        window_title: { regex: "Decompiler Find Text" }
+      - window_process: { equals: "javaw" }
+        window_title: { regex: "Rename *" }
+      - window_process: { equals: "javaw" }
+        window_title: { regex: "Edit *" }
+      - window_process: { equals: "javaw" }
+        window_title: { regex: "Save *" }
+
       # System Apps
       - window_title: { equals: "Task Manager" }
       - window_title: { equals: "App Installer" }
@@ -243,6 +275,7 @@ window_rules:
       - window_title: { equals: "WhatsApp" } # WhatsApp
       - window_process: { equals: "devenv" } # Visual Studio (Thanks to @Miitto)
         window_title: { not_regex: "(Rename|Search|Find and Replace)" }
+      - window_process: { equals: "Dorion" }
 
   # Start apps in their own workspaces (cuz i love seeing them in an instant lol)
   - commands: ["move --workspace 1", "focus --workspace 1"]
@@ -282,6 +315,10 @@ window_rules:
       - window_process: { regex: "obs64" }
 
 keybindings:
+
+  # Hide YASB Bar
+  - command: ["shell-exec yasbc hide-bar"]
+
   # Shift focus in a given direction.
   - commands: ["focus --direction left"]
     bindings: ["alt+left"]

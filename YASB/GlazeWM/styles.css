@@ -131,7 +131,6 @@ For more information about configuration options, please visit their documentati
     border-radius: 0px;
     margin-left: 625px;
     margin-right: 625px;
-
 }
 
 
@@ -425,6 +424,7 @@ For more information about configuration options, please visit their documentati
 .wallpapers-gallery-image {
     border: var(--global_widget_border_alt);
     border-radius: 0px;
+    margin:0 ;
 }
 .wallpapers-gallery-image:hover {
     border: 1px solid var(--wallpaper_focused);
@@ -665,10 +665,15 @@ For more information about configuration options, please visit their documentati
 }
 
 /*                  Lines-Separator             */
-.separator-widget .widget-container .label{
+.separator-widget .widget-container .label {
     color: var(--line);
     padding: 0;
     margin: 0;
+}
+
+/*                  Start Menu                  */
+.start-menu-widget .widget-container .label {
+    color: var(--text);
 }
 
 /*              Border Fixes                    */

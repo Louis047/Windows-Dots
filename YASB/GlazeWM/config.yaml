@@ -1,7 +1,7 @@
 # Bar For GlazeWM
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: True
-watch_config: False
+watch_config: True
 debug: False
 update_check: False
 glazewm:
@@ -18,7 +18,7 @@ bars:
       center: False
     animation:
       enabled: False
-      duration: 1000
+      duration: 0
     blur_effect:
       enabled: False
       acrylic: False
@@ -29,9 +29,9 @@ bars:
       always_on_top: False
       windows_app_bar: True # This interferes with apps in full-screen. Notably while watching videos in full screen
       hide_on_fullscreen: True
-    dimensions:
+    dimensions: 
       width: "100%"
-      height: 26
+      height: 28
     padding:
       top: 0
       left: 0

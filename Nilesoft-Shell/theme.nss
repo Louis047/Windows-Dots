@@ -14,7 +14,7 @@ theme
 	item
 	{
 		radius = 0
-		prefix = 1
+		prefix = 0
 		opacity = 100
 	}
 

@@ -7,8 +7,9 @@ general:
 
   # Commands to run just before the WM is shutdown.
   # Example: The below command kills Zebar/YASB.
-  shutdown_commands: ["shell-exec taskkill /IM yasb.exe /F", "shell-exec taskkill /IM gat-gwm.exe /F"]
-
+  shutdown_commands: ["shell-exec taskkill /IM gat-gwm.exe /F"]
+  # "shell-exec taskkill /IM yasb.exe /F",
+  
   # Commands to run after the WM config is reloaded.
   # config_reload_commands: ["shell-exec yasbc reload"]
 
@@ -153,6 +154,7 @@ window_rules:
       # Ignores any Zebar windows.
       - window_process: { equals: 'zebar' }
       - window_process: { equals: 'yasb' }
+      - window_process: { equals: 'tacky-borders' }
 
 
       # Ignores picture-in-picture windows for browsers.
@@ -214,6 +216,7 @@ window_rules:
       - window_process: { equals: "wezterm-gui" }
       - window_process: { equals: "HandBrake" }
       - window_process: { equals: "Everything" }
+      - window_process: { equals: "InnoUnpack" }
 
       # Visual Studio
       - window_title: { includes: "FLOAT" }
@@ -261,6 +264,7 @@ window_rules:
       - window_process: { equals: "mspaint" }
       - window_process: { equals: "ApplicationFrameHost" }
       - window_process: { equals: "Microsoft.Photos" }
+      - window_process: { equals: "OptionalFeatures" }
 
       # UWP Apps
       - window_title: { equals: "DTS:X Ultra" }

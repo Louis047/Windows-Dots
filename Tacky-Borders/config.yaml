@@ -26,7 +26,7 @@ global:
   #   - Round: Fully rounded corners
   #   - RoundSmall: Slightly rounded corners
   #   - Or specify any numeric value for a custom radius
-  border_radius: Square
+  border_radius: 0
 
 
   # border_z_order: Z-order of the border relative to its window. Supported values:
@@ -35,7 +35,7 @@ global:
   #
   # NOTE: Using 'AboveWindow' may cause the border to flicker when used with some applications
   # that manipulate window layering, leading to z-order conflicts.
-  border_z_order: BelowWindow
+  border_z_order: AboveWindow
 
   # active_color: the color of the active window's border
   # inactive_color: the color of the inactive window's border
@@ -59,7 +59,7 @@ global:
   #             end: [1.0, 0.0]
   #       NOTE: [0.0, 0.0] = top-left, [1.0, 1.0] = bottom-right
   active_color: "#ffffff"
-  inactive_color: "#2a2a2a"
+  inactive_color: "#000000"
 
   # initialize_delay: Time (in ms) before the border appears after opening a new window
   # unminimize_delay: Time (in ms) before the border appears after unminimizing a window
@@ -71,23 +71,29 @@ global:
   initialize_delay: 0
   unminimize_delay: 0
 
-  # Shadow Effects
+    # follow_native_border: Follow Windows' behavior for border visibility.
+  #
+  # Windows already shows or hides native borders depending on a window's type or state
+  # (e.g., they're hidden for borderless fullscreen windows). When enabled, this option makes
+  # tacky-borders follow that visibility behavior.
+  #
+  # NOTE: This setting only affects visibility for borders that have been initialized.
+  # To make sure a border is initialized in the first place, use window_rules.
+  follow_native_border: True
+
+  # Effects
   effects:
     active:
       - type: Shadow
-        radius: 4.5
+        blur: 3
+        spread: 4
         opacity: 1.0
-        translation:
-          x: 0
-          y: 0
     
     inactive:
       - type: Shadow
-        radius: 4.5
+        blur: 3
+        spread: 4
         opacity: 1.0
-        translation:
-          x: 0
-          y: 0
     enabled: True
 
 # Per-application configuration overrides
@@ -118,6 +124,10 @@ window_rules:
   
   - match: Process
     name: "tacky-borders"
+    enabled: False
+  
+  - match: Process
+    name: "seelen-ui"
     enabled: False
 
   # Example rule:

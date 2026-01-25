@@ -1,7 +1,7 @@
 # Bar For GlazeWM
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: True
-watch_config: True
+watch_config: False
 debug: False
 update_check: False
 glazewm:
@@ -213,7 +213,7 @@ widgets:
           respect_work_area: true # clamp to OS work area (avoids Windows taskbar)
           show_buttons: false
           orientation: "portrait"
-          image_spacing: 8
+          image_spacing: 12
           lazy_load: false
           lazy_load_fadein: 0
           image_corner_radius: 0
@@ -382,7 +382,7 @@ widgets:
     type: "yasb.battery.BatteryWidget"
     options:
         label: "<span>{icon}</span>{percent}%"
-        label_alt: "POW:{power} W HEALTH:{health}"
+        label_alt: "<span>\uf463</span>{power} <span>\udb82\udd72</span>{health}"
         update_interval: 5000
         hide_unsupported: True
         time_remaining_natural: True
@@ -423,18 +423,37 @@ widgets:
   active_window: # TO-DO: Add rewrite rules for specific apps
     type: "yasb.active_window.ActiveWindowWidget"
     options:
-      label: "{win[process][name]}"
+      label: "{win[title]}"
       label_no_window: ""
       label_alt: "{win[process]}"
-      label_icon: True
-      label_icon_size: 10
-      max_length: 25
+      label_icon: False
+      label_icon_size: 14
+      max_length: 75
+      max_length_ellipsis: ""
       monitor_exclusive: True
       rewrite:
+        # Strip trailing “.exe” (case-insensitive) and lowercase:
         - pattern: "^(.+?)\\.exe$"
           replacement: "\\1"
           case: title
+
+        # Uppercase UI  
         - pattern: "\\bui\\b"
           replacement: "UI"
+
+        # Change "* – Zen Browser" to "Zen Browser"
+        - pattern: "^(.*) — Zen Browser$"
+          replacement: "Zen Browser"
+
+        # Change "WinSpy *" to "WinSpy"
+        - pattern: "^WinSpy .*"
+          replacement: "WinSpy"
+
+        # Ignore ShareX window showing at startup (show nothing)
+        - pattern: "^ShareX .*"
+          replacement: ""
+
+        - pattern: "^ShareX - .*"
+          replacement: "ShareX"
       callbacks:
         on_left: "do_nothing"

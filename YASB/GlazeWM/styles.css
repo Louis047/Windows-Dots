@@ -420,18 +420,17 @@ For more information about configuration options, please visit their documentati
 .wallpapers-gallery-window {
     background-color: var(--widget_bg);
     border: var(--global_widget_border);
-    margin: 0;
 }
 .wallpapers-gallery-image {
     border: var(--global_widget_border_alt);
     border-radius: 0px;
-    margin:0 ;
+    margin: 0 0 2px 0 ;
 }
 .wallpapers-gallery-image:hover {
-    border: 1px solid var(--wallpaper_focused);
+    border: 2px solid var(--wallpaper_focused);
 }
 .wallpapers-gallery-image.focused {
-    border: 1px solid var(--wallpaper_focused);
+    border: 2px solid var(--wallpaper_focused);
 }
 
 /*                          Clock & Calendar                            */

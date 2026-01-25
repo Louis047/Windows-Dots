@@ -59,7 +59,7 @@ global:
   #             end: [1.0, 0.0]
   #       NOTE: [0.0, 0.0] = top-left, [1.0, 1.0] = bottom-right
   active_color: "#FFFFFF"
-  inactive_color: "#000000"
+  inactive_color: "#A0A0A0"
 
   # initialize_delay: Time (in ms) before the border appears after opening a new window
   # unminimize_delay: Time (in ms) before the border appears after unminimizing a window
@@ -85,13 +85,13 @@ global:
   effects:
     active:
       - type: Shadow
-        blur: 3
+        blur: 2
         spread: 4
         opacity: 1.0
     
     inactive:
       - type: Shadow
-        blur: 3
+        blur: 2
         spread: 4
         opacity: 1.0
     enabled: True

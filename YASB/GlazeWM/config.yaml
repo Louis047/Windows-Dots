@@ -198,6 +198,9 @@ widgets:
       image_path: "C:\\Users\\Lone\\Pictures\\Wallpapers\\Home Screen\\"
       change_automatically: false # Automatically change wallpaper
       update_interval: 60 # If change_automatically is true, update interval in seconds
+      animation:
+        enabled: False
+        duration: 0
       gallery:
           enabled: true
           blur: true
@@ -225,8 +228,8 @@ widgets:
       ]
       collapse_options:
         enabled: true
-        expanded_label: "\uf152"
-        collapsed_label: "\uf191"
+        expanded_label: "\uf054"
+        collapsed_label: "\uf053"
         label_position: "left"
   systray:
     type: "yasb.systray.SystrayWidget"
@@ -264,6 +267,9 @@ widgets:
       controls_only: False
       controls_left: False
       controls_hide: True
+      animation:
+        enabled: False
+        duration: 0
       media_menu:
         blur: False
         round_corners: False
@@ -376,7 +382,7 @@ widgets:
     type: "yasb.battery.BatteryWidget"
     options:
         label: "<span>{icon}</span>{percent}%"
-        label_alt: "<span>\udb81\udd1b</span> {time_remaining}"
+        label_alt: "POW:{power} W HEALTH:{health}"
         update_interval: 5000
         hide_unsupported: True
         time_remaining_natural: True
@@ -392,12 +398,12 @@ widgets:
           high: 75
           full: 100
         status_icons:
-          icon_charging: "\uf0e7"
-          icon_critical: "\udb80\udc7a"
-          icon_low: "\udb84\udea1"
-          icon_medium: "\udb84\udea2"
-          icon_high: "\udb84\udea3"
-          icon_full: "\udb84\udea3"
+          icon_charging: "\udb85\udc0c"
+          icon_critical: "\ueba1"
+          icon_low: "\ueba3"
+          icon_medium: "\ueba6"
+          icon_high: "\ueba9"
+          icon_full: "\uebaa"
   power_menu:
     type: "yasb.power_menu.PowerMenuWidget"
     options:

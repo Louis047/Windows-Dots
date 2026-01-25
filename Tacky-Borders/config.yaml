@@ -35,7 +35,7 @@ global:
   #
   # NOTE: Using 'AboveWindow' may cause the border to flicker when used with some applications
   # that manipulate window layering, leading to z-order conflicts.
-  border_z_order: AboveWindow
+  border_z_order: BelowWindow
 
   # active_color: the color of the active window's border
   # inactive_color: the color of the inactive window's border
@@ -58,7 +58,7 @@ global:
   #             start: [0.0, 1.0]
   #             end: [1.0, 0.0]
   #       NOTE: [0.0, 0.0] = top-left, [1.0, 1.0] = bottom-right
-  active_color: "#ffffff"
+  active_color: "#FFFFFF"
   inactive_color: "#000000"
 
   # initialize_delay: Time (in ms) before the border appears after opening a new window

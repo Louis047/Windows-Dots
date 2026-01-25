@@ -173,8 +173,7 @@ For more information about configuration options, please visit their documentati
 }
 .media-widget .label {
     color: var(--text);
-    padding: 0px;
-    padding-left: 8px;
+    padding: 0 2px 0 8px;
     font-size: 14px;
 }
 /*                          Media-Menu                          */
@@ -339,7 +338,8 @@ For more information about configuration options, please visit their documentati
 
 .systray .unpinned-container {
     background: transparent;
-    border-radius: 8px;
+    border-radius: 0;
+    padding: 0 0 0 2px;
 }
 
 .systray .pinned-container {
@@ -377,7 +377,7 @@ For more information about configuration options, please visit their documentati
 
 .systray .unpinned-visibility-btn:hover {
     border: 1px solid #AAAAAA;
-    border-radius: 4px;
+    border-radius: 0px;
     border-color: #AAAAAA;
 }
 
@@ -397,7 +397,8 @@ For more information about configuration options, please visit their documentati
 /*                          Battery                           */
 .battery-widget .widget-container .icon {
     padding: 0px 2px;
-    font-size: 14px;
+    font-size: 16px;
+    font-family: "Segoe Fluent Icons";
 }
 .battery-widget .widget-container .icon.status-low {
     color: red;
@@ -773,5 +774,7 @@ QPushButton {
 /*                                  GROUP WIDGETS                     */
 /*                System Tray                     */
 .system-tray .grouper-button {
-    font-size: 12px;   
+    font-size: 10px; 
+    font-weight: 900;
+    padding: 1px 4px 0 0;
 }

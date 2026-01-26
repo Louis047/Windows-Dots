@@ -479,7 +479,12 @@ For more information about configuration options, please visit their documentati
     color: var(--text);
     margin-top: -20px;
 }
-
+.calendar .holiday-label {
+    font-size: 14px;
+    /* padding-bottom: 24px; */
+    font-weight: 700;
+    color: var(--text);
+}
 /*                             Memory                           */
 .memory-widget .icon {
     padding: 0px 2px;

@@ -105,8 +105,8 @@ widgets:
   notifications:
     type: "yasb.notifications.NotificationsWidget"
     options:
-      label: "<span>\ueb9a</span>"
-      label_alt: "<span>\ueb9a</span> {count}"
+      label: "<span>\udb80\udd78</span>"
+      label_alt: "<span>\udb80\udd78</span> {count}"
       hide_empty: True
       tooltip: False
       callbacks:
@@ -306,6 +306,7 @@ widgets:
           show_holidays: True
           holiday_color: "#FF6E00"
           country_code: "IN"
+          extended: False
         animation:
           enabled: False
   weather:
@@ -431,6 +432,8 @@ widgets:
       max_length: 75
       max_length_ellipsis: ""
       monitor_exclusive: True
+      callbacks:
+        on_left: "do_nothing"
       rewrite:
         # Strip trailing “.exe” (case-insensitive) and lowercase:
         - pattern: "^(.+?)\\.exe$"
@@ -442,7 +445,7 @@ widgets:
           replacement: "UI"
 
         # Change "* – Zen Browser" to "Zen Browser"
-        - pattern: "^(.*) — Zen Browser$"
+        - pattern: "^(.*) — Zen Browser"
           replacement: "Zen Browser"
 
         # Change "WinSpy *" to "WinSpy"
@@ -455,5 +458,7 @@ widgets:
 
         - pattern: "^ShareX - .*"
           replacement: "ShareX"
-      callbacks:
-        on_left: "do_nothing"
+
+        # BCUninstaller Title
+        - pattern: "^Bulk Crap Uninstaller .*"
+          replacement: "Bulk Crap Uninstaller"

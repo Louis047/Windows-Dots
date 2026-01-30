@@ -27,7 +27,7 @@ general:
     # Trigger for cursor jump:
     # - 'monitor_focus': Jump when focus changes between monitors.
     # - 'window_focus': Jump when focus changes between windows.
-    trigger: 'monitor_focus'
+    trigger: 'window_focus'
 
   # How windows should be hidden when switching workspaces.
   # - 'cloak': Recommended. Hides windows with no animation.
@@ -217,6 +217,10 @@ window_rules:
       - window_process: { equals: "HandBrake" }
       - window_process: { equals: "Everything" }
       - window_process: { equals: "InnoUnpack" }
+      - window_process: { equals: "Antigravity" }
+        window_title: { equals: "Manager" }
+      - window_process: { regex: "vesktop|equibop" }
+        window_title: { regex: "QuickCSS Editor" }
 
       # Visual Studio
       - window_title: { includes: "FLOAT" }
@@ -287,11 +291,11 @@ window_rules:
       - window_process: { regex: "zen|chrome|firefox|vivaldi|Arc|librewolf|opera" }
   - commands: ["move --workspace 2", "focus --workspace 2"]
     match:
-      - window_process: { regex: "Code|Trae|Cursor|Windsurf|Zed" }
+      - window_process: { regex: "Code|Trae|Cursor|Windsurf|Zed|Antigravity" }
   - commands: ["move --workspace 3", "focus --workspace 3"]
     match:
       - window_process:
-          { regex: "Equibop|Discord|Vesktop|Goofcord|Webcord|Legcord|Dorion" }
+          { regex: "[Ee]quibop|[Dd]iscord|[Vv]esktop|[Gg]oofcord|[Ww]ebcord|[Ll]egcord|[Dd]orion" }
       - window_title: { equals: "WhatsApp" }
       - window_title: { equals: "Unigram" }
       - window_title: { equals: "Telegram" }

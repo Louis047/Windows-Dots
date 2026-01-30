@@ -1,7 +1,7 @@
 # Bar For GlazeWM
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: True
-watch_config: False
+watch_config: True
 debug: False
 update_check: False
 glazewm:
@@ -383,7 +383,7 @@ widgets:
     type: "yasb.battery.BatteryWidget"
     options:
         label: "<span>{icon}</span>{percent}%"
-        label_alt: "<span>\uf463</span>{power} <span>\udb82\udd72</span>{health}"
+        label_alt: "\uf463 {power} W \udb82\udd72 {health}%"
         update_interval: 5000
         hide_unsupported: True
         time_remaining_natural: True

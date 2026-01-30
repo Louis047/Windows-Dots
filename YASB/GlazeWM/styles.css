@@ -625,6 +625,9 @@ For more information about configuration options, please visit their documentati
 }
 
 /*                      Volume                     */
+.volume-widget .widget-container .icon {
+    padding: 0px 3px 0 0;
+}
 .volume-slider {
     border: none;
 }

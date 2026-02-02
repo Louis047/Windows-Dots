@@ -13,7 +13,7 @@ enable_logging: True
 # Global configuration options
 global:
   # border_width: Width of the border (in pixels)
-  border_width: 3
+  border_width: 2
 
   # border_offset: Offset of the border from the window edges (in pixels)
   #   - Negative values shrink the border inwards
@@ -26,7 +26,7 @@ global:
   #   - Round: Fully rounded corners
   #   - RoundSmall: Slightly rounded corners
   #   - Or specify any numeric value for a custom radius
-  border_radius: 0
+  border_radius: Square
 
 
   # border_z_order: Z-order of the border relative to its window. Supported values:
@@ -71,7 +71,7 @@ global:
   initialize_delay: 0
   unminimize_delay: 0
 
-    # follow_native_border: Follow Windows' behavior for border visibility.
+  # follow_native_border: Follow Windows' behavior for border visibility.
   #
   # Windows already shows or hides native borders depending on a window's type or state
   # (e.g., they're hidden for borderless fullscreen windows). When enabled, this option makes
@@ -94,7 +94,7 @@ global:
         blur: 2
         spread: 4
         opacity: 1.0
-    enabled: True
+    enabled: False
 
 # Per-application configuration overrides
 window_rules:

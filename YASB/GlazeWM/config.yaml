@@ -1,7 +1,7 @@
 # Bar For GlazeWM
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: True
-watch_config: True
+watch_config: False
 debug: False
 update_check: False
 glazewm:
@@ -31,7 +31,7 @@ bars:
       hide_on_fullscreen: True
     dimensions: 
       width: "100%"
-      height: 30
+      height: 26
     padding:
       top: 0
       left: 0
@@ -107,7 +107,7 @@ widgets:
     options:
       label: "<span>\udb80\udd78</span>"
       label_alt: "<span>\udb80\udd78</span> {count}"
-      hide_empty: True
+      hide_empty: False
       tooltip: False
       callbacks:
         on_left: "toggle_notification"
@@ -249,9 +249,10 @@ widgets:
       type: "glazewm.workspaces.GlazewmWorkspacesWidget"
       options:
         offline_label: "Offline"
-        hide_empty_workspaces: True
+        hide_empty_workspaces: False
         hide_if_offline: True
-        enable_scroll_switching: True
+        enable_scroll_switching: False
+        animation: False
   media:
     type: "yasb.media.MediaWidget"
     options:
@@ -363,11 +364,11 @@ widgets:
         enabled: False
         duration: 0
       volume_icons:
-        - "\ueee8"  # Icon for muted
-        - "\uf026"  # Icon for 0-10% volume
-        - "\uf027"  # Icon for 11-30% volume
-        - "\uf027"  # Icon for 31-60% volume
-        - "\uf028"  # Icon for 61-100% volume
+        - "\ue74f"  # Icon for muted
+        - "\ue994"  # Icon for 0-10% volume
+        - "\ue994"  # Icon for 11-30% volume
+        - "\ue994"  # Icon for 31-60% volume
+        - "\ue994"  # Icon for 61-100% volume
       audio_menu:
         blur: False
         round_corners: False

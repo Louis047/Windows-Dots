@@ -142,7 +142,7 @@ For more information about configuration options, please visit their documentati
 .glazewm-workspaces .ws-btn {
     background-color: transparent;
     border: none;
-    padding:1px 2px 0 4px;
+    padding:0 2px;
     margin: 0 2px 0 2px;
     font-size: 14px;
 }
@@ -396,7 +396,7 @@ For more information about configuration options, please visit their documentati
 
 /*                          Battery                           */
 .battery-widget .widget-container .icon {
-    padding: 0px 2px;
+    padding: 0px 2px 0 0;
     font-size: 16px;
     font-family: "Segoe Fluent Icons";
 }
@@ -626,7 +626,12 @@ For more information about configuration options, please visit their documentati
 
 /*                      Volume                     */
 .volume-widget .widget-container .icon {
-    padding: 0px 3px 0 0;
+    padding: 0;
+    font-family: "Segoe Fluent Icons";
+    font-size: 16px;
+}
+.volume-widget .widget-container .label {
+    padding: 0 0 0 1px;
 }
 .volume-slider {
     border: none;

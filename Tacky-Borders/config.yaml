@@ -94,7 +94,7 @@ global:
         blur: 2
         spread: 4
         opacity: 1.0
-    enabled: False
+    enabled: True
 
 # Per-application configuration overrides
 window_rules:

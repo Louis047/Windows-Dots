@@ -117,15 +117,20 @@ Some changes in settings required for a good tiling experience
 Type `about:config` in the search bar and change the following configurations
 1. `zen.theme.content-element-separation` : 0 (You may prefer to keep this default if you love padding)
 2. `zen.view.experimental-no-window-controls` : true 
-3. Install Sine Mods from [here](https://github.com/CosmoCreeper/Sine) (required for extras)
+3. Install Sine Mods from [here](https://github.com/CosmoCreeper/Sine) (required for extras, make sure to install pre-release version)
 
 Recommended Mods
 - Disable Rounded Corners
-- Bleeding Corners Fix
-- Load Bar
 - No Sidebar Scrollbar 
 - No-Gaps
 - Zen Custom URL Bar (for sqaure corners)
+- Deta Loading Bar (for good loading bar)
+- Tidy Downloads
+- Floating Statusbar and Findbar
+- Zen Drop Link to Split
+- New Icons
+- Context Menu Icons
+- Custom Swipe Animation & Color
 
 #### Windows Terminal
 In Settings, go to Rendering section and change Graphics API to `Direct2D` to fix font rendering issues

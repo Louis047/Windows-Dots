@@ -121,36 +121,31 @@ window_behavior:
 
 workspaces:
   - name: "1"
-    # display_name: '󰈹'
+    # display_name: 'I'
     bind_to_monitor: 0
-    keep_alive: True
   - name: "2"
-    # display_name: '󰨞'
+    # display_name: 'II'
     bind_to_monitor: 0
-    keep_alive: True
   - name: "3"
-    # display_name: '󰭹'
+    # display_name: 'III'
     bind_to_monitor: 1
-    keep_alive: True
   - name: "4"
-    # display_name: '󰏆'
+    # display_name: 'IV'
     bind_to_monitor: 0
-    keep_alive: True
   - name: "5"
-    # display_name: '󰂫'
+    # display_name: 'V'
     bind_to_monitor: 0
-    keep_alive: True
   - name: "6"
-    # display_name: ''
+    # display_name: 'F'
     bind_to_monitor: 0
   - name: "7"
-    # display_name: ''
+    # display_name: 'G'
     bind_to_monitor: 1
   - name: "8"
-    # display_name: ''
+    # display_name: 'H'
     bind_to_monitor: 1
   - name: "9"
-    # display_name: '󰻃'
+    # display_name: 'I'
     bind_to_monitor: 1
 
 window_rules:
@@ -212,8 +207,11 @@ window_rules:
       - window_process: { equals: "ShareX" }
       - window_process: { equals: "uad-ng" }
       - window_title: { equals: "LocalSend" }
-      - window_title: { regex: "[Nn]otepad*" } # For all notepad apps
+      - window_process: { regex: "[Nn]otepad*" } # For all notepad apps
       - window_title: { regex: "[Aa]ctivity [Ii]nformation -*"}
+      - window_title: { regex: "Browser Console" } 
+      - window_title: { regex: "Developer Tools" }
+      - window_title: { regex: "Extension:*" }
       - window_process: { regex: "Flow.Launcher" }
       - window_title: { equals: "Welcome to Flow Launcher" }
       - window_process: { equals: "wish" }

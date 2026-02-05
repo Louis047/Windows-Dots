@@ -246,13 +246,15 @@ widgets:
       show_volume: False
       show_network: False
   glazewm_workspaces:
-      type: "glazewm.workspaces.GlazewmWorkspacesWidget"
-      options:
-        offline_label: "Offline"
-        hide_empty_workspaces: False
-        hide_if_offline: True
-        enable_scroll_switching: False
-        animation: False
+    type: "glazewm.workspaces.GlazewmWorkspacesWidget"
+    options:
+      offline_label: "Offline"
+      hide_empty_workspaces: False
+      hide_if_offline: True
+      persistent_workspaces:
+       "*": 5   # Show 5 workspaces on all monitors
+      enable_scroll_switching: False
+      animation: False
   media:
     type: "yasb.media.MediaWidget"
     options:
@@ -384,7 +386,7 @@ widgets:
     type: "yasb.battery.BatteryWidget"
     options:
         label: "<span>{icon}</span>{percent}%"
-        label_alt: "\uf463 {power} W \udb82\udd72 {health}%"
+        label_alt: "\uf463 {power}W \ue95e {health}%"
         update_interval: 5000
         hide_unsupported: True
         time_remaining_natural: True

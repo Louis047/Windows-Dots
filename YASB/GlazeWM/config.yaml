@@ -4,6 +4,7 @@ watch_stylesheet: True
 watch_config: False
 debug: False
 update_check: False
+show_systray: True
 glazewm:
   start_command: "glazewm.exe start"
   stop_command: "glazewm.exe command wm-exit"
@@ -15,7 +16,7 @@ bars:
     class_name: "yasb-bar"
     alignment:
       position: "top"
-      center: False
+      align: "center"
     animation:
       enabled: False
       duration: 0
@@ -24,14 +25,26 @@ bars:
       acrylic: False
       dark_mode: False
       round_corners: False
-      border_color: "None"
+      border_color: None
     window_flags:
       always_on_top: False
       windows_app_bar: True # This interferes with apps in full-screen. Notably while watching videos in full screen
-      hide_on_fullscreen: True
+      hide_on_fullscreen: False
+      hide_on_maximized: False
+      auto_hide: False
+    layouts:
+      left:
+        alignment: "left"
+        stretch: True
+      center:
+        alignment: "center"
+        stretch: True
+      right:
+        alignment: "right"
+        stretch: True
     dimensions: 
       width: "100%"
-      height: 28
+      height: 30
     padding:
       top: 0
       left: 0
@@ -39,8 +52,9 @@ bars:
       right: 0
     widgets:
       left: [
-        "start_menu",
+        "power_menu",
         "media",
+        "glazewm_binding_mode",
         "glazewm_workspaces"
       ]
       center: [
@@ -60,15 +74,6 @@ bars:
         "clock"
       ]
 widgets:
-  start_menu:
-    type: "yasb.custom.CustomWidget"
-    options:
-      label: "\ue62a"
-      label_alt: "\ue62a"
-      class_name: "start-menu-widget"
-      callbacks:
-        on_left: "exec start_menu"
-        on_right: "exec quick_link"
   lines:
     type: "yasb.custom.CustomWidget"
     options:
@@ -251,10 +256,31 @@ widgets:
       offline_label: "Offline"
       hide_empty_workspaces: False
       hide_if_offline: True
-      persistent_workspaces:
-       "*": 5   # Show 5 workspaces on all monitors
+      # persistent_workspaces: (Change of plans for this feature, add opt-in feature with global focused workspace highlight)
+      #  "*": 5   # Show 5 workspaces on all monitors 
       enable_scroll_switching: False
       animation: False
+  glazewm_binding_mode:
+    type: "glazewm.binding_mode.GlazewmBindingModeWidget"
+    options:
+      label: "<span>{icon}</span>"
+      label_alt: "<span>{icon}</span> {binding_mode}"
+      hide_if_no_active: True
+      label_if_no_active: ""
+      default_icon: "\uf071"
+      icons: 
+        none: "\udb82\udca4"
+        resize: "\udb82\ude67"
+        pause: "\uf28c"
+      binding_modes_to_cycle_through: [
+        "none", # none handles if no binding mode is active
+        "resize",
+        "pause"
+      ]
+      callbacks:
+        on_left: "next_binding_mode"
+        on_middle: "do_nothing"
+        on_right: "disable_binding_mode"
   media:
     type: "yasb.media.MediaWidget"
     options:

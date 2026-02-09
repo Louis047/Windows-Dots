@@ -13,7 +13,7 @@ enable_logging: True
 # Global configuration options
 global:
   # border_width: Width of the border (in pixels)
-  border_width: 2
+  border_width: 3
 
   # border_offset: Offset of the border from the window edges (in pixels)
   #   - Negative values shrink the border inwards

@@ -27,7 +27,7 @@ general:
     # Trigger for cursor jump:
     # - 'monitor_focus': Jump when focus changes between monitors.
     # - 'window_focus': Jump when focus changes between windows.
-    trigger: 'window_focus'
+    trigger: 'monitor_focus'
 
   # How windows should be hidden when switching workspaces.
   # - 'cloak': Recommended. Hides windows with no animation.
@@ -46,14 +46,14 @@ gaps:
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: "10px"
+  inner_gap: "12px"
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: "10px"
-    right: "10px"
-    bottom: "10px"
-    left: "10px"
+    top: "12px"
+    right: "12px"
+    bottom: "12px"
+    left: "12px"
 
 window_effects:
   # Visual effects to apply to the focused window.
@@ -153,9 +153,6 @@ window_rules:
     match:
       # Ignores any Zebar windows.
       - window_process: { equals: 'zebar' }
-      - window_process: { equals: 'yasb' }
-      - window_process: { equals: 'tacky-borders' }
-
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
@@ -224,6 +221,12 @@ window_rules:
         window_title: { equals: "Manager" }
       - window_process: { regex: "vesktop|equibop" }
         window_title: { regex: "QuickCSS Editor" }
+      - window_process: { equals: "VirtualBox" }
+        window_title: { regex: "New *" }
+      - window_process: { equals: "VirtualBox" }
+        window_title: { regex: "Open *"}
+      - window_process: { equals: "VirtualBox" }
+        window_title: { regex: "*- Preferences" }  
 
       # Visual Studio
       - window_title: { includes: "FLOAT" }
@@ -272,6 +275,7 @@ window_rules:
       - window_process: { equals: "ApplicationFrameHost" }
       - window_process: { equals: "Microsoft.Photos" }
       - window_process: { equals: "OptionalFeatures" }
+      # - window_process: { equals: "WindowsTerminal" }
 
       # UWP Apps
       - window_title: { equals: "DTS:X Ultra" }
@@ -308,6 +312,9 @@ window_rules:
       - window_process: { equals: "WINWORD" }
       - window_process: { equals: "POWERPNT" }
       - window_process: { regex: "EXCEL" }
+  - commands: ["move --workspace 5", "focus --workspace 5"]
+    match:
+      - window_process: { equals: "VirtualBox" }
   - commands: ["move --workspace 6", "focus --workspace 6"]
     match:
       - window_process: { equals: "Riot Client" }
@@ -324,6 +331,28 @@ window_rules:
   - commands: ["move --workspace 9", "focus --workspace 9"]
     match:
       - window_process: { regex: "obs64" }
+
+binding_modes:
+  # When enabled, the focused window can be resized via arrow keys or HJKL.
+  - name: 'resize'
+    keybindings:
+      - commands: ['resize --width -2%']
+        bindings: ['left']
+      - commands: ['resize --width +2%']
+        bindings: ['right']
+      - commands: ['resize --height +2%']
+        bindings: ['up']
+      - commands: ['resize --height -2%']
+        bindings: ['down']
+      # Press enter/escape to return to default keybindings.
+      - commands: ['wm-disable-binding-mode --name resize']
+        bindings: ['escape', 'enter']
+
+  - name: 'pause'
+    keybindings:
+      # Disable all keybindings until this binding is pressed again.
+      - commands: ['wm-disable-binding-mode --name pause']
+        bindings: ['escape', 'enter']
 
 keybindings:
 
@@ -363,12 +392,12 @@ keybindings:
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
   # the name 'resize'.
-  # - commands: ['wm-enable-binding-mode --name resize']
-  #   bindings: ['alt+r']
+  - commands: ['wm-enable-binding-mode --name resize']
+    bindings: ['alt+ctrl+oem_pipe'] # oem_pipe - The \/| key on a US standard keyboard
 
   # Disables window management and all other keybindings until alt+shift+p
   # is pressed again.
-  - commands: ["wm-toggle-pause"]
+  - commands: ["wm-enable-binding-mode --name pause"]
     bindings: ["alt+shift+p"]
 
   # Change tiling direction. This determines where new tiling windows will

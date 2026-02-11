@@ -135,6 +135,7 @@ For more information about configuration options, please visit their documentati
 
 
 /*                          GlazeWM                              */
+/*                 Workspaces                          */
 .glazewm-workspaces {
     margin: 0;
 }
@@ -165,7 +166,12 @@ For more information about configuration options, please visit their documentati
 .glazewm-workspaces .ws-btn.empty:hover {
     color: var(--workspace_hover);
 }
-
+/*                Binding Mode                          */
+.glazewm-binding-mode {
+    color: var(--text);
+    font-weight: 900;
+    margin: 0 0 0 4px;
+}
 /*                          Media                              */
 .media-widget {
     padding: 0;
@@ -789,4 +795,80 @@ QPushButton {
     font-size: 10px; 
     font-weight: 900;
     padding: 1px 4px 0 0;
+}
+
+/* Bar widget */
+.quick-launch-widget .icon {
+    font-size: 14px;
+    padding: 0 4px;
+}
+.quick-launch-widget .icon:hover {
+    color: #fff;
+}
+.quick-launch-popup .container {
+    background-color:rgba(30, 30, 30, 0.9)
+}
+.quick-launch-popup .search {
+    padding: 12px 16px;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+.quick-launch-popup .search-icon {
+    font-family: "Segoe Fluent Icons";
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.6);
+    padding-right: 8px;
+    min-width: 18px;
+}
+.quick-launch-popup .search-submit-icon {
+    font-family: "Segoe Fluent Icons";
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.6);
+    min-width: 18px;
+}
+.quick-launch-popup .search-input {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'Segoe UI';
+    font-weight: 400;
+    padding: 4px 0;
+} 
+.quick-launch-popup .results {
+    background: transparent;
+    padding: 8px;
+}
+.quick-launch-popup .results .item {
+    padding: 16px;
+    border-radius: 8px;
+}
+.quick-launch-popup .results .item:hover,
+.quick-launch-popup .results .item.selected {
+    background-color: rgba(128, 130, 158, 0.15);
+} 
+.quick-launch-popup .results .item-title {
+    font-size: 15px;
+    font-family: 'Segoe UI';
+    font-weight: 600;
+    color: #ffffff;
+}
+.quick-launch-popup .results .item-description {
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'Segoe UI';
+    color: rgba(255, 255, 255, 0.6);     
+}
+.quick-launch-popup .results .item-icon-char {
+    font-family: "Segoe Fluent Icons";
+    font-size: 18px;
+    color: #c6cad8;
+    margin: 0;
+    padding: 0;
+}
+.quick-launch-popup .results-empty {
+    font-size: 24px;
+    font-family: 'Segoe UI';
+    color: rgba(255, 255, 255, 0.6);
+    padding-top: 32px;
 }

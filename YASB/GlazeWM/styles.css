@@ -91,6 +91,9 @@ For more information about configuration options, please visit their documentati
     background-color: transparent;
     margin-bottom: 16px;
 }
+.power-menu-popup .profile-info .profile-avatar {
+	width: 1200px;
+}
 .power-menu-popup .profile-info .profile-username {
     font-size: 32px;
     font-weight: 600;

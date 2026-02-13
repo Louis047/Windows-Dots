@@ -12,7 +12,7 @@ glazewm:
 bars:
   primary-bar:
     enabled: True
-    screens: ['primary']
+    screens: ['*']
     class_name: "yasb-bar"
     alignment:
       position: "top"
@@ -257,6 +257,7 @@ widgets:
       offline_label: "Offline"
       hide_empty_workspaces: True
       hide_if_offline: True
+      # monitor_exclusive: False
       enable_scroll_switching: False
       animation: False
   glazewm_binding_mode:
@@ -461,7 +462,7 @@ widgets:
       label_icon_size: 14
       max_length: 75
       max_length_ellipsis: ""
-      monitor_exclusive: True
+      monitor_exclusive: False
       callbacks:
         on_left: "do_nothing"
       rewrite:

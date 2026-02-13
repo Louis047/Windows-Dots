@@ -2,16 +2,16 @@ general:
   # Commands to run when the WM has started. This is useful for running a
   # script or launching another application.
   # Example: The below command launches Zebar/YASB.
-  startup_commands: ['shell-exec gat-gwm']
+  startup_commands: ["shell-exec gat-gwm", "focus --workspace 1"]
   # Commenting the above, found an issue with GlazeWM interfering with Systray in YASB
 
   # Commands to run just before the WM is shutdown.
   # Example: The below command kills Zebar/YASB.
   shutdown_commands: ["shell-exec taskkill /IM gat-gwm.exe /F"]
   # "shell-exec taskkill /IM yasb.exe /F",
-  
+
   # Commands to run after the WM config is reloaded.
-  # config_reload_commands: ["shell-exec yasbc reload"]
+  config_reload_commands: ["focus --workspace 1"]
 
   # Whether to automatically focus windows underneath the cursor.
   focus_follows_cursor: false
@@ -73,7 +73,7 @@ window_effects:
     corner_style:
       enabled: false
       # Allowed values: 'square', 'rounded', 'small_rounded'.
-      style: "square" 
+      style: "square"
 
     # Change the transparency of the window.
     transparency:
@@ -87,9 +87,9 @@ window_effects:
     border:
       enabled: false
       color: "#808080"
-    hide_title_bar: 
+    hide_title_bar:
       enabled: false
-    corner_style: 
+    corner_style:
       enabled: false
       style: "square"
     transparency:
@@ -132,26 +132,26 @@ workspaces:
   - name: "4"
     # display_name: 'IV'
     bind_to_monitor: 0
-    keep_alive: true
+    # keep_alive: true
   - name: "5"
     # display_name: 'V'
     bind_to_monitor: 0
-    keep_alive: true
+    # keep_alive: true
   - name: "6"
     # display_name: 'F'
     bind_to_monitor: 0
-    keep_alive: true
+    # keep_alive: true
   - name: "7"
     # display_name: 'G'
     bind_to_monitor: 1
-    keep_alive: true
+    # keep_alive: true
   - name: "8"
     # display_name: 'H'
     bind_to_monitor: 1
   - name: "9"
     # display_name: 'I'
     bind_to_monitor: 1
-    keep_alive: true
+    # keep_alive: true
 
 window_rules:
   - commands: ['ignore']
@@ -213,7 +213,7 @@ window_rules:
       - window_process: { equals: "zen" }
         window_title: { regex: "[Aa]ctivity [Ii]nformation -*"}
       - window_process: { equals: "zen" }
-        window_title: { regex: "Browser Console" } 
+        window_title: { regex: "Browser Console" }
       - window_process: { equals: "zen" }
         window_title: { regex: "Developer Tools" }
       - window_process: { equals: "zen" }
@@ -237,9 +237,11 @@ window_rules:
       - window_process: { equals: "VirtualBox" }
         window_title: { regex: "Open *"}
       - window_process: { equals: "VirtualBox" }
-        window_title: { regex: "*- Preferences" }  
+        window_title: { regex: "*- Preferences" }
       - window_process: { equals: "steamwebhelper" }
         window_class: { equals: "Intermediate D3D Window" }
+      - window_process: { equals: "vesktop" }
+        window_class: { not_regex: "Vesktop" }
 
       # Visual Studio
       - window_title: { includes: "FLOAT" }
@@ -262,7 +264,7 @@ window_rules:
       - window_process: { equals: "javaw" }
         window_title: { regex: "Import *" }
       - window_process: { equals: "javaw" }
-        window_title: { regex: "Choose *"}  
+        window_title: { regex: "Choose *"}
       - window_process: { equals: "javaw" }
         window_title: { regex: "Analy*" }
       - window_process: { equals: "javaw" }
@@ -277,6 +279,22 @@ window_rules:
         window_title: { regex: "Edit *" }
       - window_process: { equals: "javaw" }
         window_title: { regex: "Save *" }
+
+      # Adobe Apps
+      - window_process: { equals: 'Photoshop' }
+        window_class: { not_regex: 'Photoshop' }
+
+      # Ignore child windows from Adobe Illustrator
+      - window_process: { equals: 'Illustrator' }
+        window_class: { not_regex: 'Illustrator' }
+
+      # Ignore child windows from Adobe After Effects
+      - window_process: { equals: 'AfterFX' }
+        window_class: { not_regex: 'AfterFX' }
+
+      # Ignore child windows from Adobe Premiere Pro
+      - window_process: { equals: 'Adobe Premiere Pro' }
+        window_class: { not_regex: 'Premiere Pro' }
 
       # System Apps
       - window_title: { equals: "Task Manager" }
@@ -461,7 +479,7 @@ keybindings:
     bindings: ["alt+d"]
   - commands: ["focus --prev-active-workspace"]
     bindings: ["alt+a"]
-  
+
   # Move window to next/previous active workspace
   - commands: ["move --next-active-workspace", "focus --next-active-workspace"]
     bindings: ["alt+shift+a"]

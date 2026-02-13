@@ -2,7 +2,7 @@
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: True
 watch_config: False
-debug: False
+debug: True
 update_check: False
 show_systray: True
 glazewm:
@@ -12,7 +12,7 @@ glazewm:
 bars:
   primary-bar:
     enabled: True
-    screens: ["*"]
+    screens: ['primary']
     class_name: "yasb-bar"
     alignment:
       position: "top"
@@ -420,6 +420,7 @@ widgets:
           duration: 0
         charging_options:
           icon_format: "{charging_icon}"
+          blink_charging_icon: False
         status_thresholds:
           critical: 10
           low: 25
@@ -438,14 +439,15 @@ widgets:
     options:
       label: "\ue62a"
       uptime: True
+      show_user: True
       blur: False
       blur_background: True
       animation_duration: 50
       button_row: 3
       buttons:
-        lock: ["\uea75", "Lock"]
-        sleep: ["\u23fe","Sleep"]
-        signout: ["\udb80\udf43", "Sign out"]
+        lock: ["\uf456", "Lock"]
+        sleep: ["\uf4ee","Sleep"]
+        signout: ["\uf08b", "Sign out"]
         shutdown: ["\uf011", "Shut Down"]
         restart: ["\uead2", "Restart"]
         cancel: ["\udb81\udf3a", "Cancel"]

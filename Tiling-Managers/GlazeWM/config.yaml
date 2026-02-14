@@ -214,37 +214,21 @@ window_rules:
       - window_title: { equals: "LocalSend" }
       - window_process: { regex: "[Nn]otepad*" } # For all notepad apps
       - window_process: { equals: "zen" }
-        window_title: { regex: "[Aa]ctivity [Ii]nformation -*"}
-      - window_process: { equals: "zen" }
-        window_title: { regex: "Browser Console" }
-      - window_process: { equals: "zen" }
-        window_title: { regex: "Developer Tools" }
-      - window_process: { equals: "zen" }
-        window_title: { regex: "Extension:*" }
-      - window_process: { equals: "zen" }
-        window_title: { equals: "Library" }
+        window_title: { not_regex: "Zen Browser*"}
       - window_process: { regex: "Flow.Launcher" }
       - window_title: { equals: "Welcome to Flow Launcher" }
       - window_process: { equals: "wish" }
       - window_process: { equals: "ImageGlass" }
-      - window_process: { equals: "wezterm-gui" }
-      - window_process: { equals: "HandBrake" }
       - window_process: { equals: "Everything" }
       - window_process: { equals: "InnoUnpack" }
       - window_process: { equals: "Antigravity" }
-        window_title: { equals: "Manager" }
+        window_title: { not_regex: "Antigravity" }
+      - window_process: { equals: "VirtualBox" }
+        window_title: { not_regex: "Oracle" }
       - window_process: { regex: "vesktop|equibop" }
-        window_title: { regex: "QuickCSS Editor" }
-      - window_process: { equals: "VirtualBox" }
-        window_title: { regex: "New *" }
-      - window_process: { equals: "VirtualBox" }
-        window_title: { regex: "Open *"}
-      - window_process: { equals: "VirtualBox" }
-        window_title: { regex: "*- Preferences" }
-      - window_process: { equals: "steamwebhelper" }
-        window_class: { equals: "Intermediate D3D Window" }
-      - window_process: { equals: "vesktop" }
-        window_class: { not_regex: "Vesktop" }
+        window_title: { not_regex: "Vesktop|Equibop" }
+      - window_process: { equals: "obs64" }
+        window_title: { not_regex: "OBS" }
 
       # Visual Studio
       - window_title: { includes: "FLOAT" }
@@ -444,7 +428,7 @@ keybindings:
     bindings: ["alt+space"]
 
   # Change the focused window to be tiling/floating
-  - commands: ["toggle-floating --centered=true"]
+  - commands: ["toggle-tiling"]
     bindings: ["alt+t"]
 
   # Change the focused window to be fullscreen.

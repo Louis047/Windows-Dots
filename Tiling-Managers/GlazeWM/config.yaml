@@ -192,6 +192,8 @@ window_rules:
       # Ignores Screenshot Apps (tend to cause issue with Tiling Manager, ShareX doesn't smh. I don't understand how the f apps work, it is what it is)
       - window_process: { equals: "Lightshot" }
       - window_process: { equals: "Greenshot" }
+      - window_process: { equals: "ShareX" }
+        window_title: { regex: "Region capture" }
 
   # Floating-required apps
   - commands: ["set-floating"]
@@ -241,7 +243,7 @@ window_rules:
 
       # Jetbrains dotPeek
       - window_process: { equals: "dotPeek64" }
-        window_title: { equals: "dotPeek License Agreement" }
+        window_title: { not_regex: "JetBrains" }
 
       # Ghidra
       - window_process: { equals: "javaw" }
@@ -372,6 +374,45 @@ binding_modes:
       - commands: ['wm-disable-binding-mode --name pause']
         bindings: ['escape', 'enter']
 
+  # Fullscreen mode: all window state toggles available
+  - name: 'fullscreen'
+    keybindings:
+      # Return to tiling
+      - commands: ['set-tiling', 'wm-disable-binding-mode --name fullscreen']
+        bindings: ['alt+f']
+      # Switch to floating
+      - commands: ['set-floating', 'wm-disable-binding-mode --name fullscreen', 'wm-enable-binding-mode --name floating']
+        bindings: ['alt+t']
+      # Minimize from fullscreen
+      - commands: ['set-minimized', 'wm-disable-binding-mode --name fullscreen', 'wm-enable-binding-mode --name minimized']
+        bindings: ['alt+m']
+
+  # Floating mode: all window state toggles available
+  - name: 'floating'
+    keybindings:
+      # Return to tiling
+      - commands: ['set-tiling', 'wm-disable-binding-mode --name floating']
+        bindings: ['alt+t']
+      # Switch to fullscreen
+      - commands: ['set-fullscreen', 'wm-disable-binding-mode --name floating', 'wm-enable-binding-mode --name fullscreen']
+        bindings: ['alt+f']
+      # Minimize from floating
+      - commands: ['set-minimized', 'wm-disable-binding-mode --name floating', 'wm-enable-binding-mode --name minimized']
+        bindings: ['alt+m']
+
+  # Minimized mode: all window state toggles available
+  - name: 'minimized'
+    keybindings:
+      # Unminimize and return to tiling
+      - commands: ['toggle-minimized', 'wm-disable-binding-mode --name minimized']
+        bindings: ['alt+m']
+      # Unminimize and go to fullscreen
+      - commands: ['toggle-minimized', 'set-fullscreen', 'wm-disable-binding-mode --name minimized', 'wm-enable-binding-mode --name fullscreen']
+        bindings: ['alt+f']
+      # Unminimize and go to floating
+      - commands: ['toggle-minimized', 'set-floating', 'wm-disable-binding-mode --name minimized', 'wm-enable-binding-mode --name floating']
+        bindings: ['alt+t']
+
 keybindings:
 
   # Hide YASB Bar
@@ -428,15 +469,18 @@ keybindings:
     bindings: ["alt+space"]
 
   # Change the focused window to be tiling/floating
-  - commands: ["toggle-tiling"]
+  # Pressing again returns to tiling.
+  - commands: ["set-floating", "wm-enable-binding-mode --name floating"]
     bindings: ["alt+t"]
 
   # Change the focused window to be fullscreen.
-  - commands: ["toggle-fullscreen"]
+  # Pressing again returns to tiling.
+  - commands: ["set-fullscreen", "wm-enable-binding-mode --name fullscreen"]
     bindings: ["alt+f"]
 
   # Minimize focused window.
-  - commands: ["toggle-minimized"]
+  # Pressing again unminimizes the window.
+  - commands: ["set-minimized", "wm-enable-binding-mode --name minimized"]
     bindings: ["alt+m"]
 
   # Close focused window.

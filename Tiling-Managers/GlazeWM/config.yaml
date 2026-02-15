@@ -332,6 +332,7 @@ window_rules:
       - window_process: { equals: "WINWORD" }
       - window_process: { equals: "POWERPNT" }
       - window_process: { regex: "EXCEL" }
+      - window_process: { equals: "Notion" }
   - commands: ["move --workspace 5", "focus --workspace 5"]
     match:
       - window_process: { equals: "VirtualBox" }
@@ -374,7 +375,7 @@ binding_modes:
       - commands: ['wm-disable-binding-mode --name pause']
         bindings: ['escape', 'enter']
 
-  # Fullscreen mode: all window state toggles available
+  # Fullscreen mode: all window state toggles available + workspace nav
   - name: 'fullscreen'
     keybindings:
       # Return to tiling
@@ -386,8 +387,53 @@ binding_modes:
       # Minimize from fullscreen
       - commands: ['set-minimized', 'wm-disable-binding-mode --name fullscreen', 'wm-enable-binding-mode --name minimized']
         bindings: ['alt+m']
+      # Workspace navigation
+      - commands: ['focus --workspace 1']
+        bindings: ['alt+1']
+      - commands: ['focus --workspace 2']
+        bindings: ['alt+2']
+      - commands: ['focus --workspace 3']
+        bindings: ['alt+3']
+      - commands: ['focus --workspace 4']
+        bindings: ['alt+4']
+      - commands: ['focus --workspace 5']
+        bindings: ['alt+5']
+      - commands: ['focus --workspace 6']
+        bindings: ['alt+6']
+      - commands: ['focus --workspace 7']
+        bindings: ['alt+7']
+      - commands: ['focus --workspace 8']
+        bindings: ['alt+8']
+      - commands: ['focus --workspace 9']
+        bindings: ['alt+9']
+      - commands: ['move --workspace 1', 'focus --workspace 1']
+        bindings: ['alt+shift+1']
+      - commands: ['move --workspace 2', 'focus --workspace 2']
+        bindings: ['alt+shift+2']
+      - commands: ['move --workspace 3', 'focus --workspace 3']
+        bindings: ['alt+shift+3']
+      - commands: ['move --workspace 4', 'focus --workspace 4']
+        bindings: ['alt+shift+4']
+      - commands: ['move --workspace 5', 'focus --workspace 5']
+        bindings: ['alt+shift+5']
+      - commands: ['move --workspace 6', 'focus --workspace 6']
+        bindings: ['alt+shift+6']
+      - commands: ['move --workspace 7', 'focus --workspace 7']
+        bindings: ['alt+shift+7']
+      - commands: ['move --workspace 8', 'focus --workspace 8']
+        bindings: ['alt+shift+8']
+      - commands: ['move --workspace 9', 'focus --workspace 9']
+        bindings: ['alt+shift+9']
+      - commands: ['focus --next-active-workspace']
+        bindings: ['alt+d']
+      - commands: ['focus --prev-active-workspace']
+        bindings: ['alt+a']
+      - commands: ['move --next-active-workspace', 'focus --next-active-workspace']
+        bindings: ['alt+shift+d']
+      - commands: ['move --prev-active-workspace', 'focus --prev-active-workspace']
+        bindings: ['alt+shift+a']
 
-  # Floating mode: all window state toggles available
+  # Floating mode: all window state toggles available + workspace nav
   - name: 'floating'
     keybindings:
       # Return to tiling
@@ -399,19 +445,109 @@ binding_modes:
       # Minimize from floating
       - commands: ['set-minimized', 'wm-disable-binding-mode --name floating', 'wm-enable-binding-mode --name minimized']
         bindings: ['alt+m']
+      # Workspace navigation
+      - commands: ['focus --workspace 1']
+        bindings: ['alt+1']
+      - commands: ['focus --workspace 2']
+        bindings: ['alt+2']
+      - commands: ['focus --workspace 3']
+        bindings: ['alt+3']
+      - commands: ['focus --workspace 4']
+        bindings: ['alt+4']
+      - commands: ['focus --workspace 5']
+        bindings: ['alt+5']
+      - commands: ['focus --workspace 6']
+        bindings: ['alt+6']
+      - commands: ['focus --workspace 7']
+        bindings: ['alt+7']
+      - commands: ['focus --workspace 8']
+        bindings: ['alt+8']
+      - commands: ['focus --workspace 9']
+        bindings: ['alt+9']
+      - commands: ['move --workspace 1', 'focus --workspace 1']
+        bindings: ['alt+shift+1']
+      - commands: ['move --workspace 2', 'focus --workspace 2']
+        bindings: ['alt+shift+2']
+      - commands: ['move --workspace 3', 'focus --workspace 3']
+        bindings: ['alt+shift+3']
+      - commands: ['move --workspace 4', 'focus --workspace 4']
+        bindings: ['alt+shift+4']
+      - commands: ['move --workspace 5', 'focus --workspace 5']
+        bindings: ['alt+shift+5']
+      - commands: ['move --workspace 6', 'focus --workspace 6']
+        bindings: ['alt+shift+6']
+      - commands: ['move --workspace 7', 'focus --workspace 7']
+        bindings: ['alt+shift+7']
+      - commands: ['move --workspace 8', 'focus --workspace 8']
+        bindings: ['alt+shift+8']
+      - commands: ['move --workspace 9', 'focus --workspace 9']
+        bindings: ['alt+shift+9']
+      - commands: ['focus --next-active-workspace']
+        bindings: ['alt+d']
+      - commands: ['focus --prev-active-workspace']
+        bindings: ['alt+a']
+      - commands: ['move --next-active-workspace', 'focus --next-active-workspace']
+        bindings: ['alt+shift+d']
+      - commands: ['move --prev-active-workspace', 'focus --prev-active-workspace']
+        bindings: ['alt+shift+a']
 
-  # Minimized mode: all window state toggles available
+  # Minimized mode: all window state toggles available + workspace nav
   - name: 'minimized'
     keybindings:
       # Unminimize and return to tiling
-      - commands: ['toggle-minimized', 'wm-disable-binding-mode --name minimized']
+      - commands: ['toggle-minimized', 'set-tiling', 'wm-disable-binding-mode --name minimized']
         bindings: ['alt+m']
       # Unminimize and go to fullscreen
-      - commands: ['toggle-minimized', 'set-fullscreen', 'wm-disable-binding-mode --name minimized', 'wm-enable-binding-mode --name fullscreen']
+      - commands: ['toggle-minimized', 'set-tiling', 'wm-disable-binding-mode --name minimized', 'set-fullscreen', 'wm-enable-binding-mode --name fullscreen']
         bindings: ['alt+f']
       # Unminimize and go to floating
-      - commands: ['toggle-minimized', 'set-floating', 'wm-disable-binding-mode --name minimized', 'wm-enable-binding-mode --name floating']
+      - commands: ['toggle-minimized', 'set-tiling', 'wm-disable-binding-mode --name minimized', 'set-floating', 'wm-enable-binding-mode --name floating']
         bindings: ['alt+t']
+      # Workspace navigation
+      - commands: ['focus --workspace 1']
+        bindings: ['alt+1']
+      - commands: ['focus --workspace 2']
+        bindings: ['alt+2']
+      - commands: ['focus --workspace 3']
+        bindings: ['alt+3']
+      - commands: ['focus --workspace 4']
+        bindings: ['alt+4']
+      - commands: ['focus --workspace 5']
+        bindings: ['alt+5']
+      - commands: ['focus --workspace 6']
+        bindings: ['alt+6']
+      - commands: ['focus --workspace 7']
+        bindings: ['alt+7']
+      - commands: ['focus --workspace 8']
+        bindings: ['alt+8']
+      - commands: ['focus --workspace 9']
+        bindings: ['alt+9']
+      - commands: ['move --workspace 1', 'focus --workspace 1']
+        bindings: ['alt+shift+1']
+      - commands: ['move --workspace 2', 'focus --workspace 2']
+        bindings: ['alt+shift+2']
+      - commands: ['move --workspace 3', 'focus --workspace 3']
+        bindings: ['alt+shift+3']
+      - commands: ['move --workspace 4', 'focus --workspace 4']
+        bindings: ['alt+shift+4']
+      - commands: ['move --workspace 5', 'focus --workspace 5']
+        bindings: ['alt+shift+5']
+      - commands: ['move --workspace 6', 'focus --workspace 6']
+        bindings: ['alt+shift+6']
+      - commands: ['move --workspace 7', 'focus --workspace 7']
+        bindings: ['alt+shift+7']
+      - commands: ['move --workspace 8', 'focus --workspace 8']
+        bindings: ['alt+shift+8']
+      - commands: ['move --workspace 9', 'focus --workspace 9']
+        bindings: ['alt+shift+9']
+      - commands: ['focus --next-active-workspace']
+        bindings: ['alt+d']
+      - commands: ['focus --prev-active-workspace']
+        bindings: ['alt+a']
+      - commands: ['move --next-active-workspace', 'focus --next-active-workspace']
+        bindings: ['alt+shift+d']
+      - commands: ['move --prev-active-workspace', 'focus --prev-active-workspace']
+        bindings: ['alt+shift+a']
 
 keybindings:
 
@@ -438,15 +574,15 @@ keybindings:
   - commands: ["move --direction down"]
     bindings: ["alt+shift+down"]
 
-  # Resize focused window by a percentage or pixel amount.
-  - commands: ["resize --width -2%"]
+  # Move window to a workspace in given direction
+  - commands: ["move --workspace-in-direction left"]  
     bindings: ["alt+ctrl+left"]
-  - commands: ["resize --width +2%"]
+  - commands: ["move --workspace-in-direction right"]
     bindings: ["alt+ctrl+right"]
-  - commands: ["resize --height +2%"]
+  - commands: ["move --workspace-in-direction up"]
     bindings: ["alt+ctrl+up"]
-  - commands: ["resize --height -2%"]
-    bindings: ["alt+ctrl+down"]
+  - commands: ["move --workspace-in-direction down"]
+    bindings: ["alt+ctrl+down"]    
 
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
@@ -480,7 +616,7 @@ keybindings:
 
   # Minimize focused window.
   # Pressing again unminimizes the window.
-  - commands: ["set-minimized", "wm-enable-binding-mode --name minimized"]
+  - commands: ["toggle-minimized", "wm-enable-binding-mode --name minimized"]
     bindings: ["alt+m"]
 
   # Close focused window.

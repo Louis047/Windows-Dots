@@ -255,9 +255,9 @@ widgets:
     type: "glazewm.workspaces.GlazewmWorkspacesWidget"
     options:
       offline_label: "Offline"
-      hide_empty_workspaces: True
+      # hide_empty_workspaces: True # This option is soon to be deprecated with the next update
       hide_if_offline: True
-      # monitor_exclusive: False
+      # monitor_exclusive: False # To implement this option that would finally fullfil the twm ideology
       enable_scroll_switching: False
       animation: False
   glazewm_binding_mode:

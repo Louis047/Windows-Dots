@@ -157,6 +157,11 @@ workspaces:
     # keep_alive: true
 
 window_rules:
+  # Force all new windows to start in tiling mode
+  - commands: ["set-tiling"]
+    match:
+      - window_process: { regex: ".*" }
+
   - commands: ['ignore']
     match:
       # Ignores any Zebar windows.
@@ -199,7 +204,7 @@ window_rules:
   - commands: ["set-floating"]
     match:
       # Essentials
-      - window_process: { regex: "winspy|explorer|qbittorrent|mmc|nvcplui|mpv|vlc|efibooteditor" }
+      - window_process: { regex: "[Ww]in[Ss]py|explorer|qbittorrent|mmc|nvcplui|mpv|vlc|efibooteditor|[Mm]ac[Tt]ray|sine" }
       - window_process: { equals: "GHelper" }
       - window_process: { equals: "SmoothScrollGUI" }
       - window_process: { equals: "Heroic" }
@@ -387,6 +392,9 @@ binding_modes:
       # Minimize from fullscreen
       - commands: ['set-minimized', 'wm-disable-binding-mode --name fullscreen', 'wm-enable-binding-mode --name minimized']
         bindings: ['alt+m']
+      # Close window and reset mode
+      - commands: ['close', 'wm-disable-binding-mode --name fullscreen']
+        bindings: ['alt+q']
       # Workspace navigation
       - commands: ['focus --workspace 1']
         bindings: ['alt+1']
@@ -445,6 +453,9 @@ binding_modes:
       # Minimize from floating
       - commands: ['set-minimized', 'wm-disable-binding-mode --name floating', 'wm-enable-binding-mode --name minimized']
         bindings: ['alt+m']
+      # Close window and reset mode
+      - commands: ['close', 'wm-disable-binding-mode --name floating']
+        bindings: ['alt+q']
       # Workspace navigation
       - commands: ['focus --workspace 1']
         bindings: ['alt+1']
@@ -503,6 +514,9 @@ binding_modes:
       # Unminimize and go to floating
       - commands: ['toggle-minimized', 'set-tiling', 'wm-disable-binding-mode --name minimized', 'set-floating', 'wm-enable-binding-mode --name floating']
         bindings: ['alt+t']
+      # Close window and reset mode
+      - commands: ['close', 'wm-disable-binding-mode --name minimized']
+        bindings: ['alt+q']
       # Workspace navigation
       - commands: ['focus --workspace 1']
         bindings: ['alt+1']

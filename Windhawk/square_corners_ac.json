@@ -2,9 +2,6 @@
   "theme": "",
   "controlStyles[0].target": "Grid#NotificationCenterGrid",
   "controlStyles[0].styles[0]": "BorderThickness=1",
-  "styleConstants[0]": "",
-  "resourceVariables[0].variableKey": "",
-  "resourceVariables[0].value": "",
   "controlStyles[0].styles[1]": "BorderBrush:=<SolidColorBrush Color=\"#555555\" />",
   "controlStyles[0].styles[2]": "CornerRadius=0",
   "controlStyles[0].styles[3]": "VerticalAlignment=Stretch",
@@ -38,6 +35,5 @@
   "controlStyles[8].styles[1]": "RenderTransformOrigin=0.5,0.5",
   "controlStyles[8].styles[2]": "VerticalAlignment=Stretch",
   "controlStyles[9].target": "ControlCenter.ControlCenterPage > Grid#RootGrid > Grid#RootContent",
-  "controlStyles[9].styles[0]": "VerticalAlignment=Top",
-  "themeResourceVariables[0]": ""
+  "controlStyles[9].styles[0]": "VerticalAlignment=Top"
 }

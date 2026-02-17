@@ -236,6 +236,8 @@ window_rules:
         window_title: { not_regex: "Vesktop|Equibop" }
       - window_process: { equals: "obs64" }
         window_title: { not_regex: "OBS" }
+      - window_process: { equals: "GoofCord" }
+        window_title: { not_equals: "GoofCord" }
 
       # Visual Studio
       - window_title: { includes: "FLOAT" }
@@ -326,8 +328,7 @@ window_rules:
       - window_process: { regex: "Code|Trae|Cursor|Windsurf|Zed|Antigravity" }
   - commands: ["move --workspace 3", "focus --workspace 3"]
     match:
-      - window_process:
-          { regex: "[Ee]quibop|[Dd]iscord|[Vv]esktop|[Gg]oofcord|[Ww]ebcord|[Ll]egcord|[Dd]orion" }
+      - window_process: { regex: "[Ee]quibop|[Dd]iscord|[Vv]esktop|GoofCord|[Ww]ebcord|[Ll]egcord|[Dd]orion" }
       - window_title: { equals: "WhatsApp" }
       - window_title: { equals: "Unigram" }
       - window_title: { equals: "Telegram" }

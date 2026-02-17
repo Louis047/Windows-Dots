@@ -50,7 +50,67 @@ Komorebi Setup
 ![PIC 5](https://github.com/Louis047/Windows-Dots/blob/main/Images/Screenshot%202025-04-26%20222339.png)
 
 
-### Setup To Follow:
+### Rice Setup Guide
+
+#### Discord QuickCSS
+Paste the content from `no_rounded.css` to any Discord client that has QuickCSS support
+
+
+#### Flow Launcher
+For an optimal search, make changes to the following plugins
+- Web Searches - Change action keyword for google from `*` to `gg`
+- Program - Index Sources: Tick `UWP Apps`, `Start Menu`, `Registry`; Options: Tick `Hide App Path`, `Hide Uninstallers`, `Hide Duplicated Apps`
+
+Recommended Plugins
+- AnyVideo Downloader
+- Clipboard+
+- Emoji+
+- Temp Cleaner - If using `scoop` add this location to the Temp Folders list `C:\Users\$USER\scoop\cache`
+- Windows Terminal Profiles 
+
+
+#### GlazeWM Autotiler
+To install this, you have to install `rustup` and `cargo` then use the below command
+```
+cargo install --git https://github.com/Dutch-Raptor/GAT-GWM.git --features=no_console
+```
+Have already done the required configurations for it in GlazeWM
+
+
+#### Nilesoft Shell
+Paste the config into the app directory. Make sure to open them as admin. 
+
+
+#### Oh My Posh
+Use `robbyrussel` theme for minimalism
+
+Before that, create a directory for `$POSH_THEMES_PATH`
+```
+mkdir $env:POSH_THEMES_PATH -Force
+```
+
+Now to apply it, add the following command to `$PROFILE`
+```
+if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
+	oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\robbyrussell.omp.json" | Invoke-Expression
+}
+```
+
+> [!NOTE]
+> I recommend to install `oh-my-posh` with `scoop` package manager as the configuration is provided according to that. You can test with other type of installation and let me know of any issues!
+
+
+#### Task Scheduler
+Made changes from the base `AltDrag` config to be optimal for both desktop and laptop users, `tacky-borders` included
+
+
+#### Thide
+Open Powershell and type this command
+```
+thide enable-autostart
+```
+This adds thide to startup to hide taskbar permanently everytime, runs in tray
+
 
 #### Windhawk
 Some useful mods I found for my Windows workflow
@@ -75,41 +135,14 @@ Changes to be made from some mods
 - Taskbar Tray System Icon Tweaks - Hide everything
 
 
+#### Windows Terminal
+In Settings, go to Rendering section and change Graphics API to `Direct2D` to fix font rendering issues
+
+
 #### YASB
 1. To use wallpaper widget, save them in this location `C:\Users\$USER\Pictures\Wallpapers\Home Screen` (path with double backslashes)
 2. Most of the widgets are customized for you, and YASB has the ability to choose your own widgets on runtime
 
-#### Nilesoft Shell
-Paste the config into the app directory. Make sure to open them as admin. 
-
-#### Task Scheduler
-Made changes from the base `AltDrag` config to be optimal for both desktop and laptop users, `tacky-borders` included
-
-#### Thide
-Open Powershell and type this command
-```
-thide enable-autostart
-```
-This adds thide to startup to hide taskbar permanently everytime, runs in tray
-
-#### Flow Launcher
-For an optimal search, make changes to the following plugins
-- Web Searches - Change action keyword for google from `*` to `gg`
-- Program - Index Sources: Tick `UWP Apps`, `Start Menu`, `Registry`; Options: Tick `Hide App Path`, `Hide Uninstallers`, `Hide Duplicated Apps`
-
-Recommended Plugins
-- AnyVideo Downloader
-- Clipboard+
-- Emoji+
-- Temp Cleaner - If using `scoop` add this location to the Temp Folders list `C:\Users\$USER\scoop\cache`
-- Windows Terminal Profiles 
-
-#### GlazeWM Autotiler
-To install this, you have to install `rustup` and `cargo` then use the below command
-```
-cargo install --git https://github.com/Dutch-Raptor/GAT-GWM.git --features=no_console
-```
-Have already done the required configurations for it in GlazeWM
 
 #### Zen Browser
 Some changes in settings required for a good tiling experience
@@ -131,24 +164,3 @@ Recommended Mods
 - New Icons
 - Context Menu Icons
 - Custom Swipe Animation & Color
-
-#### Windows Terminal
-In Settings, go to Rendering section and change Graphics API to `Direct2D` to fix font rendering issues
-
-#### Oh My Posh
-Use `robbyrussel` theme for minimalism
-
-Before that, create a directory for `$POSH_THEMES_PATH`
-```
-mkdir $env:POSH_THEMES_PATH -Force
-```
-
-Now to apply it, add the following command to `$PROFILE`
-```
-if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
-	oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\robbyrussell.omp.json" | Invoke-Expression
-}
-```
-
-> [!NOTE]
-> I recommend to install `oh-my-posh` with `scoop` package manager as the configuration is provided according to that. You can test with other type of installation and let me know of any issues!

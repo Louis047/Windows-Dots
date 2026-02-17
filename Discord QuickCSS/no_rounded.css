@@ -1,0 +1,36 @@
+/* Disable Rounded Borders everywhere (except for few elements)*/
+*,
+*::before,
+*::after{
+    border-radius: 0 !important;
+}
+
+/* Circular server column icons (servers + home + quests) */
+
+[class*="guilds"] [class*="wrapper"],
+[class*="guilds"] [class*="childWrapper"],
+[class*="guilds"] svg,
+[class*="guilds"] img {
+    border-radius: 50% !important;
+}
+
+/* Circular user avatars in chat */
+
+[class*="avatar"] img,
+[class*="avatar"] svg,
+[class*="avatar"] {
+    border-radius: 50% !important;
+}
+
+/* Make server highlight indicator circular */
+
+[class*="guilds"] [class*="pill"] span {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+}
+
+/* Ensure wrapper doesn’t stretch it vertically */
+[class*="guilds"] [class*="pill"] {
+    align-items: center !important;
+}

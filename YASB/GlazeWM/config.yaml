@@ -118,11 +118,9 @@ widgets:
       callbacks:
         on_left: "toggle_notification"
         on_right: "toggle_label"
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
+      animation:
+        enabled: False
+        duration: 0
   sysinfo:
     type: "yasb.grouper.GrouperWidget"
     options:

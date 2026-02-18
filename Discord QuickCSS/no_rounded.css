@@ -14,7 +14,7 @@
     border-radius: 50% !important;
 }
 
-/* === Circular mention / unread counters (red badges) === */
+/* Circular mention / unread counters (red badges) */
 
 [class*="badge"],
 [class*="numberBadge"],

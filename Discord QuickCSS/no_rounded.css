@@ -41,6 +41,21 @@
     width: 8px !important;
     height: 8px !important;
     border-radius: 50% !important;
+    transition: height 180ms ease, width 180ms ease, border-radius 180ms ease;
+}
+
+/* Hover expansion */
+[class*="guilds"] [class*="listItem"]:hover [class*="pill"] span {
+    width: 9px !important;
+    height: 20px !important;          /* subtle hover height */
+    border-radius: 100% !important;
+}
+
+/* Active server (kept for consistency with transition) */
+[class*="guilds"] [class*="listItem"]:has([aria-selected="true"]) [class*="pill"] span {
+    width: 9px !important;
+    height: 30px !important;
+    border-radius: 6px !important;
 }
 
 /* Ensure wrapper doesn’t stretch it vertically */
@@ -48,29 +63,12 @@
     align-items: center !important;
 }
 
+
+
 /* Make expanded folder background circular */
 
 [class*="guilds"] [class*="folder"] {
     border-radius: 24px !important;
-}
-
-/* Fallback — force channel indicator to dot */
-[class*="sidebar"] [class*="pill"] span {
-    width: 8px !important;
-    height: 8px !important;
-    border-radius: 50% !important;
-}
-
-/* Target unread CHANNELS only */
-li[class*="containerDefault"][class*="modeUnread"]::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 6px;
-    bottom: 6px;
-    width: 4px;
-    border-radius: 4px;
-    background: var(--accent-color);
 }
 
 /* Remove default unread indicator for channels */
@@ -88,4 +86,13 @@ div[class*="circleIconButton"] svg {
     border-radius: 50% !important;
 }
 
+/* Stop account panel from floating */
+[class*="panels"] {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    padding: 4px;
+}
 

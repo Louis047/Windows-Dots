@@ -2,7 +2,7 @@ general:
   # Commands to run when the WM has started. This is useful for running a
   # script or launching another application.
   # Example: The below command launches Zebar/YASB.
-  startup_commands: ["shell-exec gat-gwm", "focus --workspace 1"]
+  # startup_commands: ["shell-exec gat-gwm", "focus --workspace 1"]
   # Commenting the above, found an issue with GlazeWM interfering with Systray in YASB
 
   # Commands to run just before the WM is shutdown.
@@ -199,6 +199,11 @@ window_rules:
       - window_process: { equals: "Greenshot" }
       - window_process: { equals: "ShareX" }
         window_title: { regex: "Region capture" }
+
+      # Ignore overlays
+      - window_process: { equals: "Telegram" }
+        window_title: { not_regex: "Telegram" }
+      - window_process: { equals: "PicketHost" }
 
   # Floating-required apps
   - commands: ["set-floating"]

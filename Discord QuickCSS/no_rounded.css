@@ -49,18 +49,12 @@
     transition: height 180ms ease, width 180ms ease, border-radius 180ms ease;
 }
 
-/* Hover expansion */
-[class*="guilds"] [class*="listItem"]:hover [class*="pill"] span {
-    width: 9px !important;
-    height: 20px !important;          /* subtle hover height */
-    border-radius: 100% !important;
-}
-
 /* Active server (kept for consistency with transition) */
 [class*="guilds"] [class*="listItem"]:has([aria-selected="true"]) [class*="pill"] span {
     width: 8px !important;
     height: 30px !important;
     border-radius: 6px !important;
+    transition: height 180ms ease, width 180ms ease, border-radius 180ms ease;
 }
 
 /* Ensure wrapper doesn’t stretch it vertically */
@@ -98,10 +92,13 @@ div[class*="circleIconButton"] svg {
     padding: 4px;
 }
 
-/* Actual text input area */
-[class*="channelTextArea"] {
-    border-radius: 0 !important;
-    margin: 0 10px 16px 10px !important;
+/* Shrink internal height of the message input area */
+[class*="chat"] form [class*="channelTextArea"] {
+    min-height: 0 !important;
 }
 
-
+[class*="chat"] form [class*="scrollableContainer"] {
+    min-height: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}

@@ -11,15 +11,6 @@
 [class*="guilds"] svg,
 [class*="guilds"] img {
     border-radius: 50% !important;
-    transition: border-radius 180ms ease;
-}
-
-/* Squircle on hover */
-[class*="guilds"] [class*="listItem"]:hover [class*="wrapper"],
-[class*="guilds"] [class*="listItem"]:hover [class*="childWrapper"],
-[class*="guilds"] [class*="listItem"]:hover svg,
-[class*="guilds"] [class*="listItem"]:hover img {
-    border-radius: 28% !important; /* squircle feel */
 }
 
 /* Circular mention / unread counters (red badges) */
@@ -49,12 +40,18 @@
     transition: height 180ms ease, width 180ms ease, border-radius 180ms ease;
 }
 
+/* Hover expansion */
+[class*="guilds"] [class*="listItem"]:hover [class*="pill"] span {
+    width: 9px !important;
+    height: 20px !important;          /* subtle hover height */
+    border-radius: 100% !important;
+}
+
 /* Active server (kept for consistency with transition) */
 [class*="guilds"] [class*="listItem"]:has([aria-selected="true"]) [class*="pill"] span {
     width: 8px !important;
     height: 30px !important;
     border-radius: 6px !important;
-    transition: height 180ms ease, width 180ms ease, border-radius 180ms ease;
 }
 
 /* Ensure wrapper doesn’t stretch it vertically */

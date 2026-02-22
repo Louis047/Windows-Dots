@@ -55,6 +55,9 @@ Komorebi Setup
 #### Discord QuickCSS
 Paste the content from `no_rounded.css` to any Discord client that has QuickCSS support
 
+#### ExplorerPatcher
+Import the `reg` file from the directory to the application to use simple alt+tab behavior 
+
 
 #### Flow Launcher
 For an optimal search, make changes to the following plugins

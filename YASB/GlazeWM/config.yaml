@@ -267,8 +267,8 @@ widgets:
       label_if_no_active: ""
       default_icon: "\uf071"
       icons:
-        none: "\udb82\udca4"
-        resize: "\udb82\ude67"
+        none: ""
+        resize: "\udb82\ude68"
         pause: "\uf28c"
       binding_modes_to_cycle_through: [
         "none", # none handles if no binding mode is active
@@ -410,7 +410,7 @@ widgets:
     type: "yasb.battery.BatteryWidget"
     options:
         label: "<span>{icon}</span>{percent}%"
-        label_alt: "\uf463 {power}W \ue95e {health}%"
+        label_alt: "P:{power}W H:{health}%"
         update_interval: 5000
         hide_unsupported: True
         time_remaining_natural: True
@@ -439,6 +439,8 @@ widgets:
       label: "\ue62a"
       uptime: True
       show_user: True
+      # profile_image_size: 180
+      menu_style: "fullscreen"
       blur: False
       blur_background: True
       animation_duration: 50

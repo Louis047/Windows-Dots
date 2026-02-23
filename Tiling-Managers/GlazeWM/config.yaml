@@ -203,7 +203,7 @@ window_rules:
       # Ignore overlays
       - window_process: { equals: "Telegram" }
         window_title: { not_regex: "Telegram" }
-      - window_process: { equals: "PicketHost" }
+      - window_process: { equals: "PickerHost" }
 
   # Floating-required apps
   - commands: ["set-floating"]
@@ -243,6 +243,9 @@ window_rules:
         window_title: { not_regex: "OBS" }
       - window_process: { equals: "GoofCord" }
         window_title: { not_equals: "GoofCord" }
+      - window_process: { equals: "rundll32" }
+        window_title: { equals: "Properties" }
+      - window_process: { regex: "Autoruns" }
 
       # Visual Studio
       - window_title: { includes: "FLOAT" }
@@ -330,7 +333,7 @@ window_rules:
       - window_process: { regex: "zen|chrome|firefox|vivaldi|Arc|librewolf|opera" }
   - commands: ["move --workspace 2", "focus --workspace 2"]
     match:
-      - window_process: { regex: "Code|Trae|Cursor|Windsurf|Zed|Antigravity" }
+      - window_process: { regex: "Code|Trae|Cursor|Windsurf|Zed|Antigravity|OpenCode" }
   - commands: ["move --workspace 3", "focus --workspace 3"]
     match:
       - window_process: { regex: "[Ee]quibop|[Dd]iscord|[Vv]esktop|GoofCord|[Ww]ebcord|[Ll]egcord|[Dd]orion" }

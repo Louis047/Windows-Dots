@@ -483,6 +483,7 @@ For more information about configuration options, please visit their documentati
     color: var(--text_selected);
     border: none;
     outline: none;
+    background: var(--widget_bg);
 }
 .calendar .day-label {
     margin-top: 20px;

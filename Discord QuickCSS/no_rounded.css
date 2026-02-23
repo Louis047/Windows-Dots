@@ -59,9 +59,10 @@
     align-items: center !important;
 }
 
-/* Make expanded folder background circular */
+/* Expanded Folder Section */
 [class*="guilds"] [class*="folder"] {
-    border-radius: 24px !important;
+    border-radius: 0 !important;
+    background: transparent;
 }
 
 /* Remove default unread indicator for channels */
@@ -99,3 +100,21 @@ div[class*="circleIconButton"] svg {
     padding-top: 0px !important;
     padding-bottom: 0px !important;
 }
+
+/* Shrink icons inside bottom profile container (mute, deafen, settings, etc.) */
+[class*="panels"] [class*="container"] [class*="button"] {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Shrink the SVG icons inside them */
+[class*="panels"] [class*="container"] [class*="button"] svg {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* Tighten spacing between the buttons */
+[class*="panels"] [class*="container"] [class*="buttons"] {
+    gap: 2px !important;
+}
+

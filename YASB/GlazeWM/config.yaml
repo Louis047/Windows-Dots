@@ -52,7 +52,6 @@ bars:
       right: 0
     widgets:
       left: [
-        # "quick_launch",
         "power_menu",
         "media",
         "glazewm_binding_mode",
@@ -69,12 +68,80 @@ bars:
         "lines",
         "sysinfo",
         "notifications",
-        "weather",
+        "open_meteo", 
         "wallpapers",
         "notes",
         "clock"
       ]
 widgets:
+  open_meteo:
+    type: "yasb.open_meteo.OpenMeteoWidget"
+    options:
+      label: "<span>{icon}</span> {temp}"
+      label_alt: "{location}: Min {min_temp} Max {max_temp} Hum {humidity}"
+      update_interval: 600
+      hide_decimal: True
+      units: "metric"
+      tooltip: False
+      icons:
+        sunnyDay: "\ue30d"
+        clearNight: "\ue32b"
+        cloudyDay: "\ue312"
+        cloudyNight: "\ue311"
+        drizzleDay: "\udb81\ude7e"
+        drizzleNight: "\udb81\ude7e"
+        rainyDay: "\ue308"
+        rainyNight: "\ue333"
+        snowyDay: "\ue30a"
+        snowyNight: "\ue335"
+        foggyDay: "\ue303"
+        foggyNight: "\ue346"
+        thunderstormDay: "\ue30f"
+        thunderstormNight: "\ue338"
+        default: "\uebaa"
+      animation:
+        enabled: False
+        duration: 0
+      callbacks:
+        on_left: "toggle_card"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+      weather_card:
+        blur: False
+        round_corners: False
+        round_corners_type: "normal"
+        border_color: "none"
+        alignment: "right"
+        direction: "down"
+        offset_top: 4
+        offset_left: 85
+        icon_size: 48
+        show_hourly_forecast: True
+        time_format: "24h"
+        hourly_point_spacing: 76
+        hourly_icon_size: 24
+        icon_smoothing: True
+        temp_line_width: 2
+        current_line_color: "#8EAEE8"
+        current_line_width: 1
+        current_line_style: "dot"
+        hourly_gradient:
+          enabled: False
+          top_color: "#8EAEE8"
+          bottom_color: "#2A3E68"
+        hourly_forecast_buttons:
+          enabled: True
+          default_view: "temperature"
+          temperature_icon: "\udb81\udd99"
+          rain_icon: "\udb81\udd96"
+          snow_icon: "\udb81\udd98"
+        weather_animation:
+          enabled: False
+          snow_overrides_rain: True
+          temp_line_animation_style: both
+          rain_effect_intensity: 1.0
+          snow_effect_intensity: 1.0
+          scale_with_chance: True
   lines:
     type: "yasb.custom.CustomWidget"
     options:
@@ -205,9 +272,10 @@ widgets:
       animation:
         enabled: False
         duration: 0
+      tooltip: False
       gallery:
           enabled: true
-          blur: true
+          blur: false
           image_width: 250
           image_per_page: 7
           gallery_columns: 0 # 0 = auto, matches image_per_page for a single row
@@ -253,9 +321,8 @@ widgets:
     type: "glazewm.workspaces.GlazewmWorkspacesWidget"
     options:
       offline_label: "Offline"
-      # hide_empty_workspaces: True # This option is soon to be deprecated with the next update
       hide_if_offline: True
-      # monitor_exclusive: False # To implement this option that would finally fullfil the twm ideology
+      monitor_exclusive: False 
       enable_scroll_switching: False
       animation: False
   glazewm_binding_mode:
@@ -265,7 +332,7 @@ widgets:
       label_alt: "<span>{icon}</span> {binding_mode}"
       hide_if_no_active: True
       label_if_no_active: ""
-      default_icon: "\uf071"
+      default_icon: ""
       icons:
         none: ""
         resize: "\udb82\ude68"
@@ -286,10 +353,6 @@ widgets:
       hide_empty: False
       callbacks:
         on_left: "toggle_media_menu"
-      max_field_size:
-        label: 17
-        label_alt: 30
-        truncate_whole_label: False
       show_thumbnail: False
       controls_only: False
       controls_left: False
@@ -321,7 +384,6 @@ widgets:
         label: "{%H:%M}"
         label_alt: "{%A %d %B %Y %H:%M}"
         tooltip: False
-        timezones: [] # To be added later once figured out
         calendar:
           blur: False
           round_corners: False
@@ -336,31 +398,6 @@ widgets:
           extended: False
         animation:
           enabled: False
-  weather:
-      type: "yasb.weather.WeatherWidget"
-      options:
-        label: "<span>{icon}</span> {temp}"
-        label_alt: "Min {min_temp} Max {max_temp} Hum {humidity}"
-        api_key: env
-        location: env
-        update_interval: 3600
-        hide_decimal: True
-        tooltip: False
-        animation:
-          enabled: False
-          duration: 0
-        callbacks:
-          on_left: "toggle_card"
-          on_right: "toggle_label"
-        weather_card:
-          blur: False
-          round_corners: False
-          border_color: "None"
-          alignment: "right"
-          direction: "down"
-          icon_size: 64
-          offset_top: 4
-          offset_left: 85
   wifi:
       type: "yasb.wifi.WifiWidget"
       options:
@@ -410,10 +447,10 @@ widgets:
     type: "yasb.battery.BatteryWidget"
     options:
         label: "<span>{icon}</span>{percent}%"
-        label_alt: "P:{power}W H:{health}%"
+        label_alt: "Pow {power}W HP {health}%"
         update_interval: 5000
         hide_unsupported: True
-        time_remaining_natural: True
+        time_remaining_natural: False
         animation:
           enabled: False
           duration: 0
@@ -439,7 +476,7 @@ widgets:
       label: "\ue62a"
       uptime: True
       show_user: True
-      # profile_image_size: 180
+      profile_image_size: 180
       menu_style: "fullscreen"
       blur: False
       blur_background: True
@@ -455,14 +492,17 @@ widgets:
   active_window: # TO-DO: Add rewrite rules for specific apps
     type: "yasb.active_window.ActiveWindowWidget"
     options:
-      label: "{win[title]}"
+      label: "{win[app_name]}"
       label_no_window: ""
       label_alt: "{win[process]}"
-      label_icon: False
-      label_icon_size: 14
+      label_icon: True
+      label_icon_size: 12
       max_length: 75
       max_length_ellipsis: ""
       monitor_exclusive: False
+      animation:
+        enabled: False
+        duration: 0
       callbacks:
         on_left: "do_nothing"
       rewrite:

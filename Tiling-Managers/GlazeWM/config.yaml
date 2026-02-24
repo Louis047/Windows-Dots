@@ -2,7 +2,7 @@ general:
   # Commands to run when the WM has started. This is useful for running a
   # script or launching another application.
   # Example: The below command launches Zebar/YASB.
-  # startup_commands: ["shell-exec gat-gwm", "focus --workspace 1"]
+  startup_commands: ["shell-exec gat-gwm", "focus --workspace 1"]
   # Commenting the above, found an issue with GlazeWM interfering with Systray in YASB
 
   # Commands to run just before the WM is shutdown.
@@ -27,7 +27,7 @@ general:
     # Trigger for cursor jump:
     # - 'monitor_focus': Jump when focus changes between monitors.
     # - 'window_focus': Jump when focus changes between windows.
-    trigger: 'window_focus'
+    trigger: 'monitor_focus'
 
   # How windows should be hidden when switching workspaces.
   # - 'cloak': Recommended. Hides windows with no animation.
@@ -157,11 +157,6 @@ workspaces:
     # keep_alive: true
 
 window_rules:
-  # Force all new windows to start in tiling mode
-  - commands: ["set-tiling"]
-    match:
-      - window_process: { regex: ".*" }
-
   - commands: ['ignore']
     match:
       # Ignores any Zebar windows.

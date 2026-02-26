@@ -71,6 +71,7 @@ Recommended Plugins
 - Temp Cleaner - If using `scoop` add this location to the Temp Folders list `C:\Users\$USER\scoop\cache`
 - Windows Terminal Profiles 
 
+To apply the theme, navigate to `FlowLauncher` directory where it contains the necessary steps documented as images.
 
 #### GlazeWM Autotiler
 To install this, you have to install `rustup` and `cargo` then use the below command

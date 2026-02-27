@@ -266,7 +266,7 @@ widgets:
       label: "<span>\udb83\ude09</span>"
       # Example path to folder with images. Can be a single string or a list of strings.
       # image_path: "C:\\Users\\{Username}\\Images"
-      image_path: "C:\\Users\\Lone\\Pictures\\Wallpapers\\Home Screen\\"
+      image_path: "$env:USERPROFILE/Pictures/Wallpapers/Home Screen"
       change_automatically: false # Automatically change wallpaper
       update_interval: 60 # If change_automatically is true, update interval in seconds
       animation:
@@ -394,7 +394,7 @@ widgets:
           border_color: None
           show_holidays: True
           holiday_color: "#FF6E00"
-          country_code: "IN"
+          country_code: "$env:YASB_CAL_COUNTRY_CODE"
           extended: False
         animation:
           enabled: False

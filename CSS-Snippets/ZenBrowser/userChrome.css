@@ -1,0 +1,308 @@
+/* ZEN BROWSER — FULL CUSTOMIZATION SUITE */
+
+/* ── SECTION A: NO ROUNDED CORNERS ── */
+
+:root {
+  --zen-border-radius: 0px !important;
+  --zen-webview-border-radius: 0px !important;
+  --zen-element-separation: 0px !important;
+  --zen-browser-border-radius: 0px !important;
+  --tab-border-radius: 0px !important;
+  --toolbarbutton-border-radius: 0px !important;
+  --arrowpanel-border-radius: 0px !important;
+  --panel-border-radius: 0px !important;
+  --urlbar-icon-border-radius: 0px !important;
+}
+
+:root:not([inDOMFullscreen="true"])
+  #tabbrowser-tabbox
+  #tabbrowser-tabpanels
+  .browserSidebarContainer {
+  border-radius: 0px !important;
+  margin: 0px !important;
+}
+
+:root:not([inDOMFullscreen="true"])
+  #tabbrowser-tabbox
+  #tabbrowser-tabpanels[zen-split-view="true"]
+  .browserSidebarContainer {
+  border-radius: 0px !important;
+  margin: 0px !important;
+}
+
+#tabbrowser-tabpanels,
+.browserSidebarContainer,
+.browserContainer,
+browser {
+  border-radius: 0px !important;
+}
+
+#urlbar,
+#urlbar-background,
+#urlbar-input-container,
+#searchbar,
+.urlbar-input-box,
+#urlbar-results,
+.urlbarView,
+.urlbarView-body-inner {
+  border-radius: 0px !important;
+}
+
+.tab-background,
+.tabbrowser-tab,
+tab,
+.tab-stack,
+.tab-content,
+.tabbrowser-tab[pinned] .tab-background {
+  border-radius: 0px !important;
+}
+
+#sidebar-box,
+#sidebar,
+#zen-sidebar-panel-wrapper,
+#zen-sidebar-splitter,
+#appcontent {
+  border-radius: 0px !important;
+}
+
+toolbarbutton,
+.toolbarbutton-1,
+.subviewbutton,
+#PanelUI-button,
+#nav-bar toolbarbutton {
+  border-radius: 0px !important;
+}
+
+panel,
+menupopup,
+.panel-arrowcontent,
+.arrowpanel-inner-box,
+#appMenu-popup,
+#contentAreaContextMenu,
+#tabContextMenu,
+#sidebarMenu-popup,
+.autocomplete-richlistbox,
+tooltip,
+.popup-notification-panel,
+notification,
+.notificationbox-stack,
+#notification-popup {
+  border-radius: 0px !important;
+}
+
+#zen-appcontent-wrapper,
+#zen-main-app-wrapper,
+.zen-workspace-tabs-section,
+#zen-browser-tabs-container,
+#zen-tabs-wrapper,
+#zen-sidebar-top-buttons,
+#zen-workspaces-button {
+  border-radius: 0px !important;
+}
+
+#FindToolbar,
+.findbar-container,
+.infobar,
+#reader-mode-button,
+input,
+button,
+textbox {
+  border-radius: 0px !important;
+}
+
+* {
+  --border-radius: 0px !important;
+  border-radius: 0px !important;
+}
+
+
+/* ── SECTION B: HIDE ALL URL BAR TOOLS — DOMAIN ONLY ── */
+
+/*
+  Comprehensive hide of every element except the domain text.
+  Sources: Arc_Zen_Theme (confirmed), Zen Desktop discussions,
+  Firefox-UI-Fix community selectors.
+*/
+
+/* Left-side identity/security icons */
+#identity-box,
+#identity-icon-box,
+#identity-permission-box,
+#identity-icon,
+#permissions-granted-icon {
+  display: none !important;
+}
+
+/* Search mode icon/button */
+#urlbar-search-button,
+.urlbar-go-button,
+#urlbar-label-box,
+.urlbar-input-jumping-icon {
+  display: none !important;
+}
+
+/* Right-side page action buttons — all of them */
+#page-action-buttons,
+#pageActionButton,
+#star-button-box,
+#star-button,
+#pocket-button,
+#urlbar-zoom-button,
+#pageActionSeparator,
+#zen-urlbar-copy-button,
+#reader-mode-button,
+#urlbar-container .urlbar-page-action,
+.urlbar-page-action,
+#tracking-protection-icon-container,
+#zen-urlbar-actions,
+#unified-extensions-button {
+  display: none !important;
+  width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+
+/* ── SECTION C: HIDE NAVIGATION CHEVRONS ── */
+
+#zen-appcontent-navbar-container #back-button,
+#zen-appcontent-navbar-container #forward-button,
+#zen-appcontent-navbar-container #stop-reload-button,
+#nav-bar #back-button,
+#nav-bar #forward-button,
+#nav-bar #stop-reload-button,
+#zen-appcontent-navbar-wrapper #back-button,
+#zen-appcontent-navbar-wrapper #forward-button,
+#zen-appcontent-navbar-wrapper #stop-reload-button {
+  display: none !important;
+}
+
+#nav-bar,
+#zen-appcontent-navbar-container {
+  gap: 0px !important;
+  padding-inline-start: 0px !important;
+}
+
+
+/* ── SECTION D: CENTER URL TEXT ── */
+
+#urlbar-input {
+  text-align: center !important;
+}
+
+#urlbar:not([focused]) #urlbar-input-container {
+  justify-content: center !important;
+}
+
+#urlbar[focused] #urlbar-input {
+  text-align: left !important;
+}
+
+
+/* ── SECTION E: URL BAR POPUP — CENTER SEARCH INPUT TEXT ── */
+
+/* Centers the text/placeholder inside the search input at top of the dropdown */
+#urlbar[open] #urlbar-input,
+#urlbar[open] .urlbar-input-box input,
+#urlbar[open] moz-input-box > input {
+  text-align: center !important;
+}
+
+
+/* ── SECTION F: URL BAR BORDER (essentials style) ── */
+
+/*
+  --zen-colors-border is Zen's official border variable used by
+  the essentials panel. It resolves to a subtle light-on-dark tone.
+  We apply it to #urlbar-background (the visible bar shell).
+*/
+
+#urlbar-background {
+  border: 1px solid var(--zen-colors-border, rgba(255, 255, 255, 0.1)) !important;
+  outline: none !important;
+}
+
+/* Slightly brighter on focus/hover so it feels responsive */
+#urlbar[focused] #urlbar-background,
+#urlbar[open] #urlbar-background {
+  border-color: var(--zen-colors-border, rgba(255, 255, 255, 0.18)) !important;
+}
+
+
+/* ── SECTION F: TAB BACKGROUND — MARGIN + BORDER ── */
+
+.tabbrowser-tab .tab-background {
+  margin-block: 2px !important;
+  margin-inline: 3px !important;
+}
+
+.tabbrowser-tab[selected] .tab-background {
+  border: 1px solid rgba(160, 160, 175, 0.35) !important;
+  outline: none !important;
+}
+
+.tabbrowser-tab:hover:not([selected]) .tab-background {
+  border: 1px solid rgba(140, 140, 155, 0.2) !important;
+}
+
+.tabbrowser-tab:not([selected]) .tab-background {
+  border: 1px solid rgba(130, 130, 145, 0.12) !important;
+}
+
+
+/* ── SECTION G: TAB LOADING ANIMATION (Wireframe 2.0 — tab-bg-loading) ── */
+
+/* Animates the tab background width while a tab is loading.
+   Source: wireframe 2.0 "tab-bg-loading" module (exact implementation). */
+
+@keyframes tabFillAnim {
+  0%   { width: 0%;  opacity: 0.5; }
+  50%  { width: 95%; opacity: 0.75; }
+  100% { width: 95%; opacity: 1; }
+}
+
+.tabbrowser-tab[busy] .tab-background {
+  background: var(--tab-selected-bgcolor) !important;
+  width: 0%;
+  animation: tabFillAnim 2s linear infinite;
+  pointer-events: none;
+}
+
+
+/* ── SECTION H: WORKSPACE BUTTONS (user-adjusted, preserved) ── */
+
+#zen-workspaces-button .zen-workspace-icon,
+.zen-workspace-icon {
+  font-size: 1.3em !important;
+  width: 22px !important;
+  height: 6px !important;
+}
+
+/* Remove background highlight on hover — keep it transparent */
+#zen-workspaces-button toolbarbutton:hover,
+#zen-workspaces-button toolbarbutton:hover:not([active="true"]),
+#zen-workspaces-button toolbarbutton[active="true"]:hover {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Icons desaturated/dimmed by default */
+#zen-workspaces-button toolbarbutton .zen-workspace-icon,
+#zen-workspaces-button toolbarbutton img.zen-workspace-icon {
+  filter: saturate(0%) brightness(60%) !important;
+  transition: filter 0.2s ease !important;
+}
+
+/* Active workspace always full color */
+#zen-workspaces-button toolbarbutton[active="true"] .zen-workspace-icon,
+#zen-workspaces-button toolbarbutton[active="true"] img.zen-workspace-icon {
+  filter: saturate(100%) brightness(100%) !important;
+}
+
+/* Icon pops to full color only when hovering that specific button */
+#zen-workspaces-button toolbarbutton:hover .zen-workspace-icon,
+#zen-workspaces-button toolbarbutton:hover img.zen-workspace-icon {
+  filter: saturate(100%) brightness(100%) !important;
+}

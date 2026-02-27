@@ -1,0 +1,12 @@
+* {
+	border-radius: 0px !important;
+}
+
+.monaco-editor,
+.editor-instance,
+.split-view-view,
+.part,
+.sidebar,
+.panel {
+	border-radius: 0px !important;
+}

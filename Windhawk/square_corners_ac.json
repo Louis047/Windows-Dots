@@ -160,6 +160,8 @@
   "controlStyles[51].styles[0]": "Visibility=Collapsed",
   "controlStyles[52].target": "Windows.UI.Xaml.Controls.ContentPresenter",
   "controlStyles[52].styles[0]": "CornerRadius=0",
+  "controlStyles[53].target": "Windows.UI.Xaml.Controls.ContentControl#PageHeaderContentControl",
+  "controlStyles[53].styles[0]": "Width=64",
   "resourceVariables[0].variableKey": "ListViewItemCornerRadius",
   "resourceVariables[0].value": "0"
 }

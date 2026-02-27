@@ -1,2 +1,1 @@
-### File Location
-YASB - `C:\Users\$USER\.config\yasb`
+### Config Location: `$env:USERPROFILE/.config/yasb`

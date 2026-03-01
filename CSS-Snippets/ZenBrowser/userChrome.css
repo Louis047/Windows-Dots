@@ -270,7 +270,49 @@ textbox {
 }
 
 
-/* ── SECTION H: WORKSPACE BUTTONS (user-adjusted, preserved) ── */
+/* ── SECTION H: WORKSPACE NAME LABEL — TRANSPARENT HOVER ── */
+
+/* The full-row hover background is painted on the outer container,
+   not the inner indicator element. Target both. */
+#zen-current-workspace-indicator-container,
+#zen-current-workspace-indicator-container:hover,
+#zen-current-workspace-indicator-container:is(:hover, :active, [hover], [open]) {
+  --toolbarbutton-hover-background: transparent !important;
+  --toolbarbutton-active-background: transparent !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0px !important;
+}
+
+.zen-current-workspace-indicator,
+.zen-current-workspace-indicator:hover,
+.zen-current-workspace-indicator:is(:hover, :active, [hover]) {
+  --toolbarbutton-hover-background: transparent !important;
+  --toolbarbutton-active-background: transparent !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0px !important;
+}
+
+/* Kill pseudo-element painted backgrounds on both */
+#zen-current-workspace-indicator-container::before,
+#zen-current-workspace-indicator-container::after,
+.zen-current-workspace-indicator::before,
+.zen-current-workspace-indicator::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  display: none !important;
+}
+
+
+/* ── SECTION I: WORKSPACE BUTTONS (user-adjusted, preserved) ── */
 
 #zen-workspaces-button .zen-workspace-icon,
 .zen-workspace-icon {
@@ -305,4 +347,127 @@ textbox {
 #zen-workspaces-button toolbarbutton:hover .zen-workspace-icon,
 #zen-workspaces-button toolbarbutton:hover img.zen-workspace-icon {
   filter: saturate(100%) brightness(100%) !important;
+}
+
+
+/* ── SECTION I: FLOATING STATUSBAR ── */
+
+#statuspanel {
+  margin: 10px !important;
+}
+
+#statuspanel-label {
+  border-radius: 0px !important;
+  padding: 6px 12px !important;
+  border: 1px solid rgba(160, 160, 175, 0.35) !important;
+  background: var(--arrowpanel-background) !important;
+}
+
+
+/* ── SECTION J: FLOATING FINDBAR ── */
+
+.browserStack {
+  position: relative !important;
+}
+
+findbar {
+  position: absolute !important;
+  top: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: max-content !important;
+  min-width: 520px !important;
+  contain: initial !important;
+  border-radius: 0px !important;
+  border: 1px solid rgba(160, 160, 175, 0.35) !important;
+  background: var(--arrowpanel-background) !important;
+  padding: 6px !important;
+  box-shadow: var(--box-shadow-level-3) !important;
+  opacity: 1 !important;
+  transition: transform 0.3s ease, opacity 0.3s ease !important;
+
+  @starting-style {
+    transform: translateX(-50%) translateY(-6px) !important;
+    opacity: 0 !important;
+  }
+
+  &[hidden] {
+    transform: translateX(-50%) translateY(-6px) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s !important;
+    pointer-events: none !important;
+  }
+}
+
+.findbar-container {
+  height: max-content !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.findbar-textbox {
+  border-radius: 0px !important;
+  padding: 8px 12px !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(130, 130, 145, 0.12) !important;
+  outline: none !important;
+  background: var(--toolbar-field-focus-background-color) !important;
+}
+
+.findbar-find-previous,
+.findbar-find-next,
+.findbar-closebutton {
+  position: relative !important;
+  padding: 0 !important;
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 0px !important;
+  margin: 0 !important;
+
+  .toolbarbutton-icon {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+}
+
+.findbar-find-previous {
+  margin-left: 6px !important;
+}
+
+.found-matches {
+  margin: 0 6px !important;
+}
+
+.findbar-highlight,
+.findbar-case-sensitive,
+.findbar-match-diacritics,
+.findbar-entire-word,
+.findbar-find-status {
+  display: none !important;
+}
+
+
+/* ── SECTION K: TRANSPARENT EMPTY TAB AREA ── */
+
+/* The empty space below tabs in the sidebar when not enough tabs fill it */
+#tabbrowser-arrowscrollbox,
+#tabbrowser-tabs,
+.tabbrowser-tab[zen-empty-tab] .tab-background,
+.tabbrowser-tab[zen-empty-tab],
+#tabs-newtab-button,
+#verticaltabs-new-tab-button,
+.zen-empty-tab-area {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Sidebar container background — removes any fill behind the tab list */
+#zen-browser-tabs-container,
+#zen-tabs-wrapper,
+#tabbrowser-tabs[zen-has-empty-tab] {
+  background: transparent !important;
+  background-color: transparent !important;
 }

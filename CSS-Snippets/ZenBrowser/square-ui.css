@@ -1,0 +1,353 @@
+/* THIS IS MADE TO BE USED WITH STYLUS FOR ELIMINATING ROUNDED CORNERS IN WEBISTES. */
+
+/* =====================================================================
+   UNIVERSAL — strip all border-radius from every website
+   The * rule has (0,0,0) specificity so sites with higher-specificity
+   !important rules (e.g. GitHub's .rounded) can still override it.
+   Those are handled in the site-specific sections below.
+   ===================================================================== */
+@-moz-document regexp(".*") {
+  *, *::before, *::after {
+    border-radius: 0 !important;
+  }
+}
+
+
+/* =====================================================================
+   YOUTUBE
+   ===================================================================== */
+@-moz-document domain("youtube.com") {
+
+  /* channel avatars — target the yt-img-shadow wrapper + img inside */
+  ytd-rich-grid-media #avatar yt-img-shadow,
+  ytd-rich-grid-media #avatar yt-img-shadow img,
+  ytd-video-renderer #avatar yt-img-shadow,
+  ytd-video-renderer #avatar yt-img-shadow img,
+  ytd-compact-video-renderer #avatar yt-img-shadow,
+  ytd-compact-video-renderer #avatar yt-img-shadow img,
+  ytd-grid-video-renderer #avatar yt-img-shadow,
+  ytd-grid-video-renderer #avatar yt-img-shadow img,
+  ytd-rich-item-renderer #avatar yt-img-shadow,
+  ytd-rich-item-renderer #avatar yt-img-shadow img,
+  ytd-playlist-video-renderer #avatar yt-img-shadow,
+  ytd-playlist-video-renderer #avatar yt-img-shadow img,
+  ytd-channel-renderer #avatar yt-img-shadow,
+  ytd-channel-renderer #avatar yt-img-shadow img,
+  .ytd-video-owner-renderer yt-img-shadow,
+  .ytd-video-owner-renderer yt-img-shadow img,
+  ytd-account-photo img,
+  ytd-topbar-menu-button-renderer img,
+  ytd-channel-avatar-editor yt-img-shadow,
+  ytd-channel-avatar-editor yt-img-shadow img {
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+
+  /* seekbar scrubber head — main player, volume bar, thumbnail hover */
+  .ytp-scrubber-button,
+  .ytp-scrubber-button::before,
+  .ytp-scrubber-button::after,
+  .ytp-scrubber-pull-indicator,
+  ytd-video-preview .ytp-scrubber-button,
+  ytd-video-preview .ytp-scrubber-button::before,
+  ytd-video-preview .ytp-scrubber-button::after,
+  ytd-video-preview .ytp-scrubber-pull-indicator {
+    border-radius: 50% !important;
+  }
+
+  /* player button hover backgrounds — SQUARED */
+  .ytp-button,
+  .ytp-button::before,
+  .ytp-button::after {
+    border-radius: 0 !important;
+  }
+}
+
+
+/* =====================================================================
+   REDDIT
+   ===================================================================== */
+@-moz-document domain("reddit.com") {
+
+  /* ── search bar — revert so the orange decoration doesn't bleed ── */
+  #search-input-wrapper,
+  #search-input-wrapper *,
+  #search-input-wrapper *::before,
+  #search-input-wrapper *::after,
+  faceplate-search-input,
+  faceplate-search-input *,
+  faceplate-search-input *::before,
+  faceplate-search-input *::after {
+    border-radius: revert !important;
+  }
+
+  /* ── sidebar / panel backgrounds — SQUARED ──
+     Reddit's new Shreddit uses web components for the nav/sidebar cards
+     and for the right-side Recent Posts panel. We target the custom
+     element hosts and their direct children to force 0 radius.         */
+  reddit-left-nav,
+  reddit-sidebar,
+  reddit-sidebar > *,
+  reddit-right-sidebar,
+  reddit-right-sidebar > *,
+  reddit-recent-pages,
+  reddit-recent-pages > *,
+  reddit-games-drawer,
+  reddit-games-drawer > *,
+  /* fallback class-based selectors for items inside those components */
+  .left-nav-section,
+  .left-nav-section > *,
+  .sidebar-grid,
+  .sidebar-grid > *,
+  [class*="left-nav"],
+  [class*="sidebar-section"],
+  [class*="recent-posts"],
+  /* hover/active backgrounds on nav list items */
+  .left-nav-item,
+  .left-nav-link {
+    border-radius: 0 !important;
+  }
+
+  /* ── subreddit / community / user avatars — ROUNDED ──
+     Covers post-header community icon, Recent Posts sidebar icons,
+     comments user avatars. Both new web components and old class names. */
+  shreddit-avatar,
+  shreddit-avatar img,
+  faceplate-avatar,
+  faceplate-avatar img,
+  shreddit-subreddit-icon,
+  shreddit-subreddit-icon img,
+  community-icon,
+  community-icon img,
+  /* post header subreddit icon */
+  [slot="icon"] img,
+  /* generic img inside community link headers */
+  a[href^="/r/"] img,
+  a[href^="https://www.reddit.com/r/"] img,
+  /* recent posts sidebar avatars */
+  .recent-post-pfp img,
+  /* legacy class names */
+  ._1wzhGvvafQFOWAyA157okr,
+  ._3sbtDMYMzm6M3T_Rvijwjl,
+  img[alt*="avatar" i],
+  .avatar img {
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+}
+
+
+/* =====================================================================
+   GITHUB
+   ===================================================================== */
+@-moz-document domain("github.com") {
+
+  /* ── GitHub uses .rounded { border-radius: 6px !important } in their
+     own stylesheet, which beats our universal * rule because class
+     selectors have higher specificity. Override it explicitly.          */
+  .rounded,
+  [class~="rounded"],
+  .rounded-1,
+  .rounded-2,
+  .rounded-3,
+  .border-radius-3,
+  .Box,
+  .Box--condensed,
+  .Box--spacious,
+  [data-view-component="true"].Box,
+  /* feed sub-boxes inside events (starred repo card, release body) */
+  .js-feed-item-component .border,
+  .js-feed-item-component .Box,
+  .js-feed-item-component [class~="rounded"],
+  /* split star button — left rounded corner on the text part */
+  .BtnGroup,
+  .BtnGroup-item,
+  .BtnGroup .btn,
+  /* changelog right panel */
+  .feed-right-column,
+  .feed-right-column > *,
+  .feed-right-column .Box,
+  /* PR page checks container and PR merge-type icon background */
+  .branch-action-item,
+  .branch-action-item-icon,
+  .js-branch-action-items,
+  .merge-box,
+  .merge-box-button-group,
+  .State,
+  /* release body markdown box inside feed */
+  .release-body,
+  .markdown-body .Box {
+    border-radius: 0 !important;
+  }
+
+  /* ── all profile / user / org avatars — ROUNDED ──
+     Broad coverage: img.avatar matches virtually every avatar GitHub
+     renders (feed actors, sidebar repo list, PR participants, etc.)
+     plus specific selectors for areas the generic one may miss.        */
+  img.avatar,
+  img.avatar-user,
+  img[class*="avatar"],
+  /* AvatarStack items */
+  .AvatarStack-body > *,
+  .AvatarStack-body img,
+  /* top-right AppHeader */
+  .AppHeader-user img,
+  header .AppHeader-user button img,
+  /* left sidebar "Top repositories" org/user avatars
+     GitHub renders these as <img class="avatar avatar-small"> inside
+     an <a> within the repo list nav                                    */
+  [aria-label="Top repositories"] img,
+  [data-targets*="repos"] img,
+  .js-repos-container img,
+  #repos-container img,
+  /* feed event actor (the person who starred/forked/etc.) */
+  [data-hovercard-type="user"] img,
+  [data-hovercard-type="organization"] img,
+  /* PR page participant avatars + commit avatars */
+  .js-participants img,
+  .AvatarStack img,
+  /* any remaining avatar img on the page */
+  a[data-hovercard-url*="/hovercards"] img {
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+
+  /* ── feed event badge dot overlaid on actor avatar ── */
+  .TimelineItem-badge,
+  .TimelineItem-badge > svg,
+  .avatar-status,
+  .avatar-status-loading {
+    border-radius: 50% !important;
+  }
+
+  /* ── PR page individual check-item icon (✓ green circle) ──
+     GitHub renders each check row icon as a small colored octicon
+     inside .octicon-check or as a .State--success span                 */
+  .merge-status-item .octicon-circle-check,
+  .merge-status-item .octicon-check,
+  .merge-status-icon svg,
+  .branch-action-item .completeness-indicator-problem,
+  .branch-action-item .completeness-indicator,
+  .js-check-run-icon svg circle,
+  .js-merge-review-section .State--success,
+  .js-merge-review-section .State--warning {
+    border-radius: 50% !important;
+  }
+
+  /* ── code language color dot ── */
+  .repo-language-color,
+  span.repo-language-color {
+    border-radius: 50% !important;
+  }
+}
+
+
+/* =====================================================================
+   GOOGLE SEARCH
+   ===================================================================== */
+@-moz-document domain("google.com") {
+
+  /* site favicon next to indexed links — URL-based match only */
+  img[src*="s2.googleusercontent.com/favicons"],
+  img[src*="t0.gstatic.com/faviconV2"],
+  img[src*="t1.gstatic.com/faviconV2"],
+  img[src*="t2.gstatic.com/faviconV2"],
+  img[src*="t3.gstatic.com/faviconV2"] {
+    border-radius: 50% !important;
+  }
+
+  /* Google Account profile avatar top-right */
+  a[href*="accounts.google.com"] img,
+  [aria-label*="Google Account"] img,
+  #gb img.gbii,
+  .gbii {
+    border-radius: 50% !important;
+  }
+}
+
+
+/* =====================================================================
+   TWITTER / X
+   ===================================================================== */
+@-moz-document domain("twitter.com"), domain("x.com") {
+
+  [data-testid*="UserAvatar"] img,
+  [data-testid*="UserAvatar"] > div,
+  img[src*="profile_images"],
+  a[href*="/photo"] img {
+    border-radius: 50% !important;
+  }
+}
+
+
+/* =====================================================================
+   INSTAGRAM
+   ===================================================================== */
+@-moz-document domain("instagram.com") {
+
+  img[alt*="profile picture" i],
+  ._aadp img,
+  canvas[class*="_aadp"],
+  img[class*="FFVAD"] {
+    border-radius: 50% !important;
+  }
+}
+
+
+/* =====================================================================
+   FACEBOOK
+   ===================================================================== */
+@-moz-document domain("facebook.com") {
+
+  img[data-imgperflogname*="profilePhoto"],
+  div[data-type="profile_photo"] img,
+  .x1rg5ohu.x1n2onr6 img {
+    border-radius: 50% !important;
+  }
+}
+
+
+/* =====================================================================
+   TIKTOK
+   ===================================================================== */
+@-moz-document domain("tiktok.com") {
+
+  img[class*="avatar" i],
+  [class*="AvatarWrapper"] img,
+  [class*="avatar"] img {
+    border-radius: 50% !important;
+  }
+}
+
+
+/* =====================================================================
+   DISCORD
+   ===================================================================== */
+@-moz-document domain("discord.com") {
+
+  img[class*="avatar" i],
+  [class*="avatarWrapperNormal"] img,
+  [class*="avatar"] img {
+    border-radius: 50% !important;
+  }
+
+  [class*="spinner" i] circle,
+  [class*="wanderingCubes" i] {
+    border-radius: 50% !important;
+  }
+}
+
+
+/* =====================================================================
+   LINKEDIN
+   ===================================================================== */
+@-moz-document domain("linkedin.com") {
+
+  img.EntityPhoto-circle-1,
+  img.EntityPhoto-circle-2,
+  img.EntityPhoto-circle-3,
+  [class*="profile-photo"] img,
+  [class*="profile-picture"] img {
+    border-radius: 50% !important;
+  }
+}

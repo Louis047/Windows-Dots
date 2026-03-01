@@ -125,7 +125,7 @@ This adds thide to startup to hide taskbar permanently everytime, runs in tray
 ```
 4. Create a directory named `VSCode-CSS` in the provided path in the command below or you can just create it manually via file explorer
 ```
-mkdir -p 'env:USERPROFILE/Documents/VSCode-CSS'
+mkdir -p '$env:USERPROFILE/Documents/VSCode-CSS'
 ```
 5. Paste the `no_rounded.css` from `CSS-Snippets` to the created directory
 6. Open Command Palette again and type: Enable Custom CSS and JS Loader then restart VS Code once the prompt shows successful (ignore any warning/errors)

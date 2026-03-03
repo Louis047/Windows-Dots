@@ -58,7 +58,6 @@
     border-color: var(--color-accent-primary, AccentColor) !important;
   }
 
-  /* Native fallback for non-component checkboxes */
   input[type="checkbox"] {
     appearance: none !important;
     -moz-appearance: none !important;
@@ -192,9 +191,6 @@
 
 
 /* ── 3: SubDialog inner content (Fonts, Colors, Exceptions…) ── */
-
-/* Each SubDialog loads a separate XHTML document from this chrome:// URL.
-   The about:preferences block cannot reach inside it. */
 
 @-moz-document url-prefix("chrome://browser/content/preferences/") {
 
@@ -391,4 +387,13 @@
     border-radius: 0 !important;
   }
 
+}
+
+
+/* ── 5: Firefox PiP toggle popup ── */
+
+.pip-wrapper,
+.pip-wrapper > *,
+.pip-wrapper > * > * {
+  border-radius: 0 !important;
 }

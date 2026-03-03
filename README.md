@@ -174,11 +174,19 @@ In Settings, go to Rendering section and change Graphics API to `Direct2D` to fi
 #### Zen Browser
 Some changes in settings required for a good tiling experience
 
-Type `about:config` in the search bar and change the following configurations
-1. `zen.theme.content-element-separation` : 0 (You may prefer to keep this default if you love padding)
-2. `zen.view.experimental-no-window-controls` : true 
-3. Follow the guide here to utilize `userChrome.css`: [Live Editing Zen Theme](https://docs.zen-browser.app/guides/live-editing#step-4-edit-the-userchromecss-file)
-4. After enabling the support, paste the CSS for it from `CSS-Snippets` directory to `userChrome.css`
+1. Type `about:config` in the search bar and change the following configurations
+  - `zen.theme.content-element-separation` : 0 (You may prefer to keep this default if you love padding)
+  - `zen.view.experimental-no-window-controls` : true 
+  - `zen.theme.essentials-favicon-bg` : false (for proper tab bar animations in essentials)
+  - `extensions.webextensions.restrictedDomains` : 	accounts-static.cdn.mozilla.net,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,sync.services.mozilla.com (to ensure stylus includes mozilla related websites as well, except for other restricted services)
+2. Follow the guide here to utilize `userChrome.css` and `userContent.css`: [Live Editing Zen Theme](https://docs.zen-browser.app/guides/live-editing#step-4-edit-the-userchromecss-file)
+3. After enabling the support, paste the CSS for it from `CSS-Snippets` directory to `userChrome.css` and `userContent.css`
+
+> [!NOTE]
+> `userChome.css` - For browser user-interface customization
+> `userContent.css` - For customizing inner elements of the browser
    
 Recommended Mods
-- No Sidebar Scrollbar 
+- No Sidebar Scrollbar
+- Left Side Glance
+- Remove Tab X - set for pinned tabs only

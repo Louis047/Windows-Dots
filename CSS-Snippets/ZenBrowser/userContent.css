@@ -1,0 +1,394 @@
+/* ZEN BROWSER — userContent.css */
+
+
+/* ── 1: ALL about: PAGES — zero radius + checkbox fix ── */
+
+@-moz-document url-prefix("about:") {
+
+  *, *::before, *::after { border-radius: 0 !important; }
+
+  :root {
+    --card-border-radius: 0px !important;
+    --border-radius-small: 0px !important;
+    --border-radius-medium: 0px !important;
+    --border-radius-large: 0px !important;
+    --button-border-radius: 0px !important;
+    --in-content-border-radius: 0px !important;
+    --zen-dialog-background: var(--arrowpanel-background) !important;
+  }
+
+  button, moz-button, [is="moz-button"],
+  input[type="button"], input[type="submit"], input[type="reset"],
+  .accessory-button, .ghost-button, .icon-button, .add-engine-button {
+    border-radius: 0 !important;
+  }
+
+  input[type="text"], input[type="search"], input[type="number"],
+  input[type="url"], input[type="email"], input[type="password"],
+  textarea, select, .searchInput, #searchInput {
+    border-radius: 0 !important;
+  }
+
+  /* moz-checkbox is a Lit web component; ::part(checkbox) pierces its shadow DOM.
+     appearance:none is required — without it Gecko ignores border-radius entirely. */
+
+  moz-checkbox {
+    border-radius: 0 !important;
+  }
+
+  moz-checkbox::part(checkbox) {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border-radius: 0 !important;
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    min-height: 14px !important;
+    border: 1.5px solid color-mix(in srgb, currentColor 55%, transparent) !important;
+    background: var(--in-content-box-background, transparent) !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+    vertical-align: middle !important;
+    cursor: default !important;
+  }
+
+  moz-checkbox::part(checkbox):checked,
+  moz-checkbox::part(checkbox):indeterminate {
+    background: var(--color-accent-primary, AccentColor) !important;
+    border-color: var(--color-accent-primary, AccentColor) !important;
+  }
+
+  /* Native fallback for non-component checkboxes */
+  input[type="checkbox"] {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border-radius: 0 !important;
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    min-height: 14px !important;
+    border: 1.5px solid color-mix(in srgb, currentColor 55%, transparent) !important;
+    background: var(--in-content-box-background, transparent) !important;
+    vertical-align: middle !important;
+    cursor: default !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+  }
+
+  input[type="checkbox"]:checked,
+  input[type="checkbox"]:indeterminate {
+    background: var(--color-accent-primary, AccentColor) !important;
+    border-color: var(--color-accent-primary, AccentColor) !important;
+  }
+
+  input[type="checkbox"]:checked::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 1px !important;
+    left: 3.5px !important;
+    width: 4px !important;
+    height: 7px !important;
+    border: 1.5px solid #fff !important;
+    border-top: none !important;
+    border-left: none !important;
+    transform: rotate(45deg) !important;
+  }
+
+  input[type="checkbox"]:focus-visible {
+    outline: 2px solid var(--color-accent-primary, AccentColor) !important;
+    outline-offset: 1px !important;
+  }
+
+  input[type="checkbox"]:indeterminate::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 2px !important;
+    right: 2px !important;
+    height: 1.5px !important;
+    background: #fff !important;
+    transform: translateY(-50%) !important;
+    border: none !important;
+  }
+
+  .card, .card-block, .card-contents, .card-no-hover, .list-card,
+  .options-container, .pane-container, .subcategory,
+  .info-box, .info-box-container, .infobox,
+  .tip-caption, .indent, .help-panel-container,
+  .addon-card, .panel-item,
+  .top-site-outer, .top-site-inner, .tile,
+  .context-menu, .context-menu-item,
+  .weather-card, .ds-card, .ds-image,
+  .profile-card, .profile-item {
+    border-radius: 0 !important;
+  }
+
+  moz-button-group, moz-button-group > *,
+  .button-group, .button-group > * {
+    border-radius: 0 !important;
+  }
+
+  .notification-bar, .notificationbox-stack, notification,
+  .infobar, message-bar, moz-message-bar {
+    border-radius: 0 !important;
+  }
+
+  panel, menupopup, .panel-arrowcontent, .autocomplete-richlistbox,
+  tooltip, .popup-notification-panel, [role="tooltip"], [role="dialog"] {
+    border-radius: 0 !important;
+  }
+
+  progress, .progressmeter-container, .progressmeter-bar { border-radius: 0 !important; }
+  input[type="range"] { border-radius: 0 !important; }
+  input[type="range"]::-moz-range-thumb { border-radius: 0 !important; }
+  input[type="range"]::-moz-range-track { border-radius: 0 !important; }
+
+  #categories > .category, .sidebar-footer-list li, .sidebar-footer-link {
+    border-radius: 0 !important;
+  }
+
+  .tag, .badge, .label-badge, .recommendation-badge { border-radius: 0 !important; }
+
+  tr, td, .cell-edit, .table-container { border-radius: 0 !important; }
+
+  groupbox, .groupbox-body, listbox, richlistbox, tree, treechildren {
+    border-radius: 0 !important;
+  }
+
+  zen-mods-category, zen-keyboard-shortcut,
+  .zen-settings-card, .zen-settings-section,
+  .zen-mod-card, .zen-mod-item,
+  .zen-card, .zen-welcome-card {
+    border-radius: 0 !important;
+  }
+
+}
+
+
+/* ── 2: about:preferences — SubDialog shell ── */
+
+@-moz-document url-prefix("about:preferences") {
+
+  #dialogStack, .dialogStack,
+  #dialogOverlay, .dialogOverlay {
+    border-radius: 0 !important;
+  }
+
+  #dialogBox, .dialogBox {
+    border-radius: 0 !important;
+    background: var(--arrowpanel-background) !important;
+    border: 1px solid rgba(160, 160, 175, 0.35) !important;
+    box-shadow: var(--box-shadow-level-3, 0 8px 32px rgba(0, 0, 0, 0.45)) !important;
+  }
+
+  #dialogFrame, .dialogFrame,
+  #dialogClose, .dialogClose {
+    border-radius: 0 !important;
+  }
+
+}
+
+
+/* ── 3: SubDialog inner content (Fonts, Colors, Exceptions…) ── */
+
+/* Each SubDialog loads a separate XHTML document from this chrome:// URL.
+   The about:preferences block cannot reach inside it. */
+
+@-moz-document url-prefix("chrome://browser/content/preferences/") {
+
+  *, *::before, *::after { border-radius: 0 !important; }
+
+  :root {
+    --card-border-radius: 0px !important;
+    --border-radius-small: 0px !important;
+    --border-radius-medium: 0px !important;
+    --border-radius-large: 0px !important;
+    --button-border-radius: 0px !important;
+    --in-content-border-radius: 0px !important;
+    --zen-dialog-background: var(--arrowpanel-background) !important;
+  }
+
+  button, moz-button, [is="moz-button"],
+  input[type="button"], input[type="submit"], input[type="reset"] {
+    border-radius: 0 !important;
+  }
+
+  button:default, button.primary, button[default="true"], button[dlgtype="accept"] {
+    border-radius: 0 !important;
+    background: var(--color-accent-primary) !important;
+    color: light-dark(var(--zen-branding-paper, #fafafa), var(--zen-branding-dark, #111)) !important;
+    padding-left: 1.2em !important;
+    padding-right: 1.2em !important;
+    border: none !important;
+  }
+
+  button:default::after, button.primary::after,
+  button[default="true"]::after, button[dlgtype="accept"]::after {
+    display: none !important;
+  }
+
+  button:default:hover, button.primary:hover,
+  button[default="true"]:hover, button[dlgtype="accept"]:hover {
+    background: var(--color-accent-primary-hover,
+      color-mix(in srgb, var(--color-accent-primary) 85%, #fff)) !important;
+  }
+
+  button:default:hover:active, button.primary:hover:active,
+  button[default="true"]:hover:active, button[dlgtype="accept"]:hover:active {
+    background: var(--color-accent-primary-active,
+      color-mix(in srgb, var(--color-accent-primary) 70%, #000)) !important;
+    scale: 0.98;
+  }
+
+  button:not(:default):not(.primary):not([default="true"]):not([dlgtype="accept"]) {
+    border-radius: 0 !important;
+    background: var(--button-background-color) !important;
+    color: var(--button-text-color) !important;
+    padding-left: 1.2em !important;
+    padding-right: 1.2em !important;
+  }
+
+  button:not(:default):not(.primary):not([dlgtype="accept"]):hover {
+    background: color-mix(in srgb, currentColor 5%, var(--button-background-color, transparent)) !important;
+  }
+
+  button:not(:default):not(.primary):not([dlgtype="accept"]):hover:active {
+    background: color-mix(in srgb, currentColor 10%, var(--button-background-color, transparent)) !important;
+    scale: 0.98;
+  }
+
+  button::after { display: none !important; }
+
+  select, menulist, .menulist-label-box { border-radius: 0 !important; }
+
+  input[type="text"], input[type="search"], input[type="number"],
+  input[type="url"], textarea { border-radius: 0 !important; }
+
+  moz-checkbox { border-radius: 0 !important; }
+
+  moz-checkbox::part(checkbox) {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border-radius: 0 !important;
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    min-height: 14px !important;
+    border: 1.5px solid color-mix(in srgb, currentColor 55%, transparent) !important;
+    background: var(--in-content-box-background, transparent) !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+  }
+
+  moz-checkbox::part(checkbox):checked {
+    background: var(--color-accent-primary, AccentColor) !important;
+    border-color: var(--color-accent-primary, AccentColor) !important;
+  }
+
+  input[type="checkbox"] {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border-radius: 0 !important;
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    min-height: 14px !important;
+    border: 1.5px solid color-mix(in srgb, currentColor 55%, transparent) !important;
+    background: var(--in-content-box-background, transparent) !important;
+    vertical-align: middle !important;
+    cursor: default !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+  }
+
+  input[type="checkbox"]:checked,
+  input[type="checkbox"]:indeterminate {
+    background: var(--color-accent-primary, AccentColor) !important;
+    border-color: var(--color-accent-primary, AccentColor) !important;
+  }
+
+  input[type="checkbox"]:checked::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 1px !important;
+    left: 3.5px !important;
+    width: 4px !important;
+    height: 7px !important;
+    border: 1.5px solid #fff !important;
+    border-top: none !important;
+    border-left: none !important;
+    transform: rotate(45deg) !important;
+  }
+
+  input[type="checkbox"]:indeterminate::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 2px !important;
+    right: 2px !important;
+    height: 1.5px !important;
+    background: #fff !important;
+    transform: translateY(-50%) !important;
+    border: none !important;
+  }
+
+  groupbox, .groupbox-body, caption, separator,
+  listbox, richlistbox, .listbox, tree, treechildren {
+    border-radius: 0 !important;
+  }
+
+}
+
+
+/* ── 4: chrome://global/content/ — global widget chrome context ── */
+
+@-moz-document url-prefix("chrome://global/content/") {
+
+  *, *::before, *::after { border-radius: 0 !important; }
+
+  :root {
+    --border-radius-small: 0px !important;
+    --border-radius-medium: 0px !important;
+    --border-radius-large: 0px !important;
+    --button-border-radius: 0px !important;
+  }
+
+  moz-checkbox { border-radius: 0 !important; }
+
+  moz-checkbox::part(checkbox) {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border-radius: 0 !important;
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    min-height: 14px !important;
+    border: 1.5px solid color-mix(in srgb, currentColor 55%, transparent) !important;
+    background: transparent !important;
+    position: relative !important;
+  }
+
+  moz-checkbox::part(checkbox):checked {
+    background: var(--color-accent-primary, AccentColor) !important;
+    border-color: var(--color-accent-primary, AccentColor) !important;
+  }
+
+  input[type="checkbox"] {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border-radius: 0 !important;
+  }
+
+  button, input[type="button"], input[type="submit"], input[type="reset"] {
+    border-radius: 0 !important;
+  }
+
+  input[type="text"], input[type="search"], select, textarea {
+    border-radius: 0 !important;
+  }
+
+}

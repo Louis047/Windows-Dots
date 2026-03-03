@@ -1,49 +1,79 @@
-/* THIS IS MADE TO BE USED WITH STYLUS FOR ELIMINATING ROUNDED CORNERS IN WEBISTES. */
-
-/* =====================================================================
-   UNIVERSAL — strip all border-radius from every website
-   The * rule has (0,0,0) specificity so sites with higher-specificity
-   !important rules (e.g. GitHub's .rounded) can still override it.
-   Those are handled in the site-specific sections below.
-   ===================================================================== */
 @-moz-document regexp(".*") {
-  *, *::before, *::after {
+*, *::before, *::after {
     border-radius: 0 !important;
   }
 }
 
-
-/* =====================================================================
-   YOUTUBE
-   ===================================================================== */
 @-moz-document domain("youtube.com") {
-
-  /* channel avatars — target the yt-img-shadow wrapper + img inside */
+/* Avatars */
   ytd-rich-grid-media #avatar yt-img-shadow,
   ytd-rich-grid-media #avatar yt-img-shadow img,
+  ytd-rich-item-renderer #avatar yt-img-shadow,
+  ytd-rich-item-renderer #avatar yt-img-shadow img,
   ytd-video-renderer #avatar yt-img-shadow,
   ytd-video-renderer #avatar yt-img-shadow img,
   ytd-compact-video-renderer #avatar yt-img-shadow,
   ytd-compact-video-renderer #avatar yt-img-shadow img,
   ytd-grid-video-renderer #avatar yt-img-shadow,
   ytd-grid-video-renderer #avatar yt-img-shadow img,
-  ytd-rich-item-renderer #avatar yt-img-shadow,
-  ytd-rich-item-renderer #avatar yt-img-shadow img,
   ytd-playlist-video-renderer #avatar yt-img-shadow,
   ytd-playlist-video-renderer #avatar yt-img-shadow img,
   ytd-channel-renderer #avatar yt-img-shadow,
   ytd-channel-renderer #avatar yt-img-shadow img,
+  ytd-channel-renderer #channel-thumbnail yt-img-shadow,
+  ytd-channel-renderer #channel-thumbnail yt-img-shadow img,
+  ytd-channel-renderer #channel-icon yt-img-shadow,
+  ytd-channel-renderer #channel-icon yt-img-shadow img,
   .ytd-video-owner-renderer yt-img-shadow,
   .ytd-video-owner-renderer yt-img-shadow img,
+  ytd-video-owner-renderer yt-img-shadow,
+  ytd-video-owner-renderer yt-img-shadow img,
+  ytd-guide-entry-renderer yt-img-shadow,
+  ytd-guide-entry-renderer yt-img-shadow img,
+  ytd-guide-entry-renderer #img,
+  ytd-mini-guide-entry-renderer yt-img-shadow,
+  ytd-mini-guide-entry-renderer yt-img-shadow img,
+  ytd-mini-guide-entry-renderer #img,
   ytd-account-photo img,
   ytd-topbar-menu-button-renderer img,
   ytd-channel-avatar-editor yt-img-shadow,
-  ytd-channel-avatar-editor yt-img-shadow img {
+  ytd-channel-avatar-editor yt-img-shadow img,
+  ytd-channel-avatar-editor img,
+  #channel-header-container #avatar yt-img-shadow,
+  #channel-header-container #avatar yt-img-shadow img,
+  #channel-header-container yt-img-shadow,
+  #channel-header-container yt-img-shadow img,
+  ytd-comment-renderer #author-thumbnail yt-img-shadow,
+  ytd-comment-renderer #author-thumbnail yt-img-shadow img,
+  ytd-comment-thread-renderer #author-thumbnail yt-img-shadow,
+  ytd-comment-thread-renderer #author-thumbnail yt-img-shadow img,
+  yt-decorated-avatar-view-model,
+  yt-avatar-shape,
+  .yt-spec-avatar-shape,
+  .yt-spec-avatar-shape--avatar-size-medium,
+  .yt-spec-avatar-shape--avatar-size-small,
+  .yt-spec-avatar-shape--avatar-size-large,
+  .yt-spec-avatar-shape__image,
+  yt-decorated-avatar-view-model img,
+  yt-avatar-shape img,
+  .yt-spec-avatar-shape img {
     border-radius: 50% !important;
     overflow: hidden !important;
   }
 
-  /* seekbar scrubber head — main player, volume bar, thumbnail hover */
+  /* Circular spinner arc only — clip containers intentionally stay square */
+  .ytp-spinner,
+  .ytp-spinner-circle {
+    border-radius: 50% !important;
+  }
+  .ytp-spinner-container,
+  .ytp-spinner-rotator,
+  .ytp-spinner-left,
+  .ytp-spinner-right {
+    border-radius: 0 !important;
+  }
+
+  /* Seekbar scrubber dot */
   .ytp-scrubber-button,
   .ytp-scrubber-button::before,
   .ytp-scrubber-button::after,
@@ -55,7 +85,7 @@
     border-radius: 50% !important;
   }
 
-  /* player button hover backgrounds — SQUARED */
+  /* Player buttons — square */
   .ytp-button,
   .ytp-button::before,
   .ytp-button::after {
@@ -63,89 +93,163 @@
   }
 }
 
-
-/* =====================================================================
-   REDDIT
-   ===================================================================== */
-@-moz-document domain("reddit.com") {
-
-  /* ── search bar — revert so the orange decoration doesn't bleed ── */
-  #search-input-wrapper,
-  #search-input-wrapper *,
-  #search-input-wrapper *::before,
-  #search-input-wrapper *::after,
-  faceplate-search-input,
-  faceplate-search-input *,
-  faceplate-search-input *::before,
-  faceplate-search-input *::after {
-    border-radius: revert !important;
-  }
-
-  /* ── sidebar / panel backgrounds — SQUARED ──
-     Reddit's new Shreddit uses web components for the nav/sidebar cards
-     and for the right-side Recent Posts panel. We target the custom
-     element hosts and their direct children to force 0 radius.         */
-  reddit-left-nav,
-  reddit-sidebar,
-  reddit-sidebar > *,
-  reddit-right-sidebar,
-  reddit-right-sidebar > *,
-  reddit-recent-pages,
-  reddit-recent-pages > *,
-  reddit-games-drawer,
-  reddit-games-drawer > *,
-  /* fallback class-based selectors for items inside those components */
-  .left-nav-section,
-  .left-nav-section > *,
-  .sidebar-grid,
-  .sidebar-grid > *,
-  [class*="left-nav"],
-  [class*="sidebar-section"],
-  [class*="recent-posts"],
-  /* hover/active backgrounds on nav list items */
-  .left-nav-item,
-  .left-nav-link {
-    border-radius: 0 !important;
-  }
-
-  /* ── subreddit / community / user avatars — ROUNDED ──
-     Covers post-header community icon, Recent Posts sidebar icons,
-     comments user avatars. Both new web components and old class names. */
-  shreddit-avatar,
-  shreddit-avatar img,
-  faceplate-avatar,
-  faceplate-avatar img,
-  shreddit-subreddit-icon,
-  shreddit-subreddit-icon img,
-  community-icon,
-  community-icon img,
-  /* post header subreddit icon */
-  [slot="icon"] img,
-  /* generic img inside community link headers */
-  a[href^="/r/"] img,
-  a[href^="https://www.reddit.com/r/"] img,
-  /* recent posts sidebar avatars */
-  .recent-post-pfp img,
-  /* legacy class names */
-  ._1wzhGvvafQFOWAyA157okr,
-  ._3sbtDMYMzm6M3T_Rvijwjl,
-  img[alt*="avatar" i],
-  .avatar img {
+@-moz-document domain("claude.ai") {
+/* Tailwind animate-spin — always a circular spinner on this site */
+  [class*="animate-spin"],
+  [class*="animate-spin"]::before,
+  [class*="animate-spin"]::after {
     border-radius: 50% !important;
-    overflow: hidden !important;
+  }
+  [class*="animate-spin"] > svg,
+  [class*="animate-spin"] svg {
+    border-radius: 50% !important;
+    overflow: visible !important;
   }
 }
 
+@-moz-document domain("reddit.com") {
+:root {
+    --rpl-radius-none:            0px !important;
+    --rpl-radius-xs:              0px !important;
+    --rpl-radius-sm:              0px !important;
+    --rpl-radius-md:              0px !important;
+    --rpl-radius-lg:              0px !important;
+    --rpl-radius-xl:              0px !important;
+    --rpl-radius-2xl:             0px !important;
+    --rpl-radius-full:            0px !important;
+    --rpl-button-border-radius:   0px !important;
+    --radius-button:              0px !important;
+    --radius-pill:                0px !important;
+    --radius-full:                0px !important;
+    --border-radius-full:         0px !important;
+    --border-radius-pill:         0px !important;
+    --border-radius-medium:       0px !important;
+    --border-radius-large:        0px !important;
+    --border-radius-xlarge:       0px !important;
+    --radius:                     0px !important;
+  }
 
-/* =====================================================================
-   GITHUB
-   ===================================================================== */
+  html body recent-posts,
+  html body shreddit-post,
+  html body shreddit-comment,
+  html body shreddit-comment-action-row,
+  html body shreddit-join-button,
+  html body shreddit-subscribe-button,
+  html body shreddit-community-guide-button,
+  html body shreddit-post-overflow-menu,
+  html body shreddit-post-share-button,
+  html body award-button,
+  html body rpl-input-chip,
+  html body rpl-button,
+  html body left-nav-top-section,
+  html body left-nav-communities-controller,
+  html body left-nav-multireddits-controller,
+  html body games-section-badge-controller,
+  html body devvit-games-drawer-item,
+  html body faceplate-hovercard,
+  html body faceplate-expandable-section-helper,
+  html body reddit-sidebar-nav,
+  html body shreddit-feed,
+  html body shreddit-async-loader,
+  html body community-highlight-tower {
+    --rpl-radius-none:            0px !important;
+    --rpl-radius-xs:              0px !important;
+    --rpl-radius-sm:              0px !important;
+    --rpl-radius-md:              0px !important;
+    --rpl-radius-lg:              0px !important;
+    --rpl-radius-xl:              0px !important;
+    --rpl-radius-2xl:             0px !important;
+    --rpl-radius-full:            0px !important;
+    --rpl-button-border-radius:   0px !important;
+    --radius-button:              0px !important;
+    --radius-pill:                0px !important;
+    --radius-full:                0px !important;
+    --border-radius-full:         0px !important;
+    --border-radius-pill:         0px !important;
+    --border-radius-medium:       0px !important;
+    --border-radius-large:        0px !important;
+    --border-radius-xlarge:       0px !important;
+    --radius:                     0px !important;
+    border-radius:                0px !important;
+  }
+
+  html body recent-posts::part(wrapper),
+  html body shreddit-join-button::part(button),
+  html body shreddit-join-button::part(base),
+  html body shreddit-subscribe-button::part(button),
+  html body shreddit-subscribe-button::part(base),
+  html body shreddit-community-guide-button::part(button),
+  html body shreddit-community-guide-button::part(base),
+  html body shreddit-post-share-button::part(button),
+  html body shreddit-post-share-button::part(base),
+  html body award-button::part(button),
+  html body award-button::part(base),
+  html body rpl-input-chip::part(chip),
+  html body rpl-input-chip::part(base),
+  html body rpl-input-chip::part(container),
+  html body rpl-button::part(button),
+  html body rpl-button::part(base) {
+    border-radius: 0 !important;
+  }
+
+  html body *[class*="rounded"],
+  html body *[class*="border-md"],
+  html body .button-shell,
+  html body [class*="button-shell"],
+  html body button[rpl]:not([slot="leading"]),
+  html body reddit-sidebar-nav li > a,
+  html body reddit-sidebar-nav li > div[role="button"],
+  html body reddit-sidebar-nav li > div[tabindex],
+  html body reddit-sidebar-nav *[class*="rounded"],
+  html body games-section-badge-controller div[class*="rounded"],
+  html body games-section-badge-controller *[class*="rounded"] {
+    border-radius: 0 !important;
+  }
+
+  /* Search bar — revert to native */
+  html body #search-input-wrapper,
+  html body #search-input-wrapper *,
+  html body #search-input-wrapper *[class*="rounded"],
+  html body faceplate-search-input,
+  html body faceplate-search-input *,
+  html body faceplate-search-input *[class*="rounded"] {
+    border-radius: revert !important;
+  }
+
+  /* Avatars */
+  html body span[rpl][avatar],
+  html body span[rpl][avatar] > span,
+  html body span[rpl][avatar] > span[class*="rounded"],
+  html body span[rpl][avatar] img,
+  html body img.shreddit-subreddit-icon__icon,
+  html body .fp-avatar-container,
+  html body .fp-avatar-container > span,
+  html body a[aria-label*="avatar" i] span,
+  html body a[aria-label*="avatar" i] img,
+  html body shreddit-avatar,
+  html body shreddit-avatar img,
+  html body faceplate-avatar,
+  html body faceplate-avatar img,
+  html body shreddit-subreddit-icon img,
+  html body community-icon img,
+  html body rpl-input-chip img,
+  html body games-section-badge-controller img,
+  html body devvit-games-drawer-item img,
+  html body rpl-input-chip div img {
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+
+  /* Reddit faceplate-loader spinner (web component used site-wide) */
+  html body faceplate-loader,
+  html body faceplate-loader::before,
+  html body faceplate-loader::after {
+    border-radius: 50% !important;
+  }
+}
+
 @-moz-document domain("github.com") {
-
-  /* ── GitHub uses .rounded { border-radius: 6px !important } in their
-     own stylesheet, which beats our universal * rule because class
-     selectors have higher specificity. Override it explicitly.          */
-  .rounded,
+.rounded,
   [class~="rounded"],
   .rounded-1,
   .rounded-2,
@@ -155,74 +259,47 @@
   .Box--condensed,
   .Box--spacious,
   [data-view-component="true"].Box,
-  /* feed sub-boxes inside events (starred repo card, release body) */
   .js-feed-item-component .border,
   .js-feed-item-component .Box,
   .js-feed-item-component [class~="rounded"],
-  /* split star button — left rounded corner on the text part */
   .BtnGroup,
   .BtnGroup-item,
   .BtnGroup .btn,
-  /* changelog right panel */
   .feed-right-column,
   .feed-right-column > *,
   .feed-right-column .Box,
-  /* PR page checks container and PR merge-type icon background */
   .branch-action-item,
   .branch-action-item-icon,
   .js-branch-action-items,
   .merge-box,
   .merge-box-button-group,
   .State,
-  /* release body markdown box inside feed */
   .release-body,
   .markdown-body .Box {
     border-radius: 0 !important;
   }
 
-  /* ── all profile / user / org avatars — ROUNDED ──
-     Broad coverage: img.avatar matches virtually every avatar GitHub
-     renders (feed actors, sidebar repo list, PR participants, etc.)
-     plus specific selectors for areas the generic one may miss.        */
+  /* Avatars */
   img.avatar,
   img.avatar-user,
   img[class*="avatar"],
-  /* AvatarStack items */
   .AvatarStack-body > *,
   .AvatarStack-body img,
-  /* top-right AppHeader */
   .AppHeader-user img,
   header .AppHeader-user button img,
-  /* left sidebar "Top repositories" org/user avatars
-     GitHub renders these as <img class="avatar avatar-small"> inside
-     an <a> within the repo list nav                                    */
   [aria-label="Top repositories"] img,
   [data-targets*="repos"] img,
   .js-repos-container img,
   #repos-container img,
-  /* feed event actor (the person who starred/forked/etc.) */
   [data-hovercard-type="user"] img,
   [data-hovercard-type="organization"] img,
-  /* PR page participant avatars + commit avatars */
   .js-participants img,
   .AvatarStack img,
-  /* any remaining avatar img on the page */
-  a[data-hovercard-url*="/hovercards"] img {
-    border-radius: 50% !important;
-    overflow: hidden !important;
-  }
-
-  /* ── feed event badge dot overlaid on actor avatar ── */
+  a[data-hovercard-url*="/hovercards"] img,
   .TimelineItem-badge,
   .TimelineItem-badge > svg,
   .avatar-status,
-  .avatar-status-loading {
-    border-radius: 50% !important;
-  }
-
-  /* ── PR page individual check-item icon (✓ green circle) ──
-     GitHub renders each check row icon as a small colored octicon
-     inside .octicon-check or as a .State--success span                 */
+  .avatar-status-loading,
   .merge-status-item .octicon-circle-check,
   .merge-status-item .octicon-check,
   .merge-status-icon svg,
@@ -230,24 +307,22 @@
   .branch-action-item .completeness-indicator,
   .js-check-run-icon svg circle,
   .js-merge-review-section .State--success,
-  .js-merge-review-section .State--warning {
-    border-radius: 50% !important;
-  }
-
-  /* ── code language color dot ── */
+  .js-merge-review-section .State--warning,
   .repo-language-color,
   span.repo-language-color {
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+
+  /* GitHub uses <svg> with class "rotate-loading" for its spinner */
+  svg.rotate-loading,
+  .rotate-loading svg {
     border-radius: 50% !important;
   }
 }
 
-
-/* =====================================================================
-   GOOGLE SEARCH
-   ===================================================================== */
 @-moz-document domain("google.com") {
-
-  /* site favicon next to indexed links — URL-based match only */
+/* Favicons */
   img[src*="s2.googleusercontent.com/favicons"],
   img[src*="t0.gstatic.com/faviconV2"],
   img[src*="t1.gstatic.com/faviconV2"],
@@ -256,36 +331,70 @@
     border-radius: 50% !important;
   }
 
-  /* Google Account profile avatar top-right */
+  /* Forms progress bar */
+  div.cJ3RAd, div.cJ3RAd.graCKc,
+  div.Jo4Fpf, div.Jo4Fpf.rpcWVc {
+    border-radius: 9999px !important;
+  }
+
+  /* Account avatar */
   a[href*="accounts.google.com"] img,
   [aria-label*="Google Account"] img,
-  #gb img.gbii,
-  .gbii {
+  #gb img.gbii, .gbii,
+  img.JZFjpd, .XS2qof img, .Q3BXBb img {
     border-radius: 50% !important;
+  }
+
+  /* AI Mode search button pill */
+  .plR5qb, .plR5qb::before,
+  .bvUkz, .bvUkz::after,
+  .xL0qi, .mTurwe {
+    border-radius: 100px !important;
+  }
+
+  /* Nuclear clip-path reset for the sign-in oval.
+     Applied here AND on accounts.google.com below — belt and suspenders. */
+  *, *::before, *::after {
+    clip-path: none !important;
+  }
+
+  .RveJvd, .RveJvd::before, .RveJvd::after {
+    border-radius: 0 !important;
+    clip-path: none !important;
   }
 }
 
+@-moz-document domain("accounts.google.com") {
+/* accounts.google.com is a separate subdomain — needs its own block */
 
-/* =====================================================================
-   TWITTER / X
-   ===================================================================== */
+
+  *, *::before, *::after {
+    clip-path: none !important;
+  }
+
+  .RveJvd, .RveJvd::before, .RveJvd::after {
+    border-radius: 0 !important;
+    clip-path: none !important;
+  }
+}
+
 @-moz-document domain("twitter.com"), domain("x.com") {
-
-  [data-testid*="UserAvatar"] img,
+[data-testid*="UserAvatar"] img,
   [data-testid*="UserAvatar"] > div,
   img[src*="profile_images"],
   a[href*="/photo"] img {
     border-radius: 50% !important;
   }
+
+  /* X/Twitter spinner */
+  [data-testid="SpinnerIcon"],
+  [data-testid="SpinnerIcon"] svg {
+    border-radius: 50% !important;
+  }
 }
 
-
-/* =====================================================================
-   INSTAGRAM
-   ===================================================================== */
 @-moz-document domain("instagram.com") {
-
-  img[alt*="profile picture" i],
+img[alt*="profile picture" i],
   ._aadp img,
   canvas[class*="_aadp"],
   img[class*="FFVAD"] {
@@ -293,61 +402,50 @@
   }
 }
 
-
-/* =====================================================================
-   FACEBOOK
-   ===================================================================== */
 @-moz-document domain("facebook.com") {
-
-  img[data-imgperflogname*="profilePhoto"],
+img[data-imgperflogname*="profilePhoto"],
   div[data-type="profile_photo"] img,
   .x1rg5ohu.x1n2onr6 img {
     border-radius: 50% !important;
   }
 }
 
-
-/* =====================================================================
-   TIKTOK
-   ===================================================================== */
 @-moz-document domain("tiktok.com") {
-
-  img[class*="avatar" i],
+img[class*="avatar" i],
   [class*="AvatarWrapper"] img,
   [class*="avatar"] img {
     border-radius: 50% !important;
   }
 }
 
-
-/* =====================================================================
-   DISCORD
-   ===================================================================== */
 @-moz-document domain("discord.com") {
-
-  img[class*="avatar" i],
+img[class*="avatar" i],
   [class*="avatarWrapperNormal"] img,
   [class*="avatar"] img {
     border-radius: 50% !important;
   }
 
-  [class*="spinner" i] circle,
-  [class*="wanderingCubes" i] {
+  /* Discord spinner uses class "spinner" directly */
+  [class*="spinner" i],
+  [class*="spinner" i]::before,
+  [class*="spinner" i]::after {
     border-radius: 50% !important;
   }
 }
 
-
-/* =====================================================================
-   LINKEDIN
-   ===================================================================== */
 @-moz-document domain("linkedin.com") {
-
-  img.EntityPhoto-circle-1,
+img.EntityPhoto-circle-1,
   img.EntityPhoto-circle-2,
   img.EntityPhoto-circle-3,
   [class*="profile-photo"] img,
   [class*="profile-picture"] img {
+    border-radius: 50% !important;
+  }
+
+  /* LinkedIn uses .artdeco-spinner */
+  .artdeco-spinner,
+  .artdeco-spinner__bars,
+  [class*="artdeco-spinner"] {
     border-radius: 50% !important;
   }
 }

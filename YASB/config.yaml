@@ -307,13 +307,24 @@ widgets:
     type: "yasb.systray.SystrayWidget"
     options:
       class_name: "systray"
-      label_collapsed: "\uf438"
-      label_expanded: "\uf44a"
+      label_collapsed: "\uf078"
+      label_expanded: "\uf077"
       label_position: "left" # Can be "left" or "right"
       icon_size: 13 # Can be any integer between 8 and 64
       pin_click_modifier: "ctrl" # Can be "ctrl", "alt" or "shift"
       show_unpinned: True
       show_unpinned_button: False
+      # show_in_popup: True
+      # icons_per_row: 4
+      # popup:
+      #   blur: False
+      #   round_corners: False
+      #   border_color: "None"
+      #   alignment: "right"
+      #   direction: "down"
+      #   offset_top: 4
+      #   offset_left: 120
+      #   animation_duration: 0
       show_battery: False
       show_volume: False
       show_network: False

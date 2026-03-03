@@ -56,7 +56,8 @@ For more information about configuration options, please visit their documentati
     --open_meteo_card_day_hover: rgba(255, 255, 255, 0.01);
     --open_meteo_card_day_active: rgba(255, 255, 255, 0.04);
     --open_meteo_card_hourly_active: rgba(255, 255, 255, 0.1);
-    --power_menu_overlay_bg: rgba(0, 0, 0, 0); 
+    --power_menu_overlay_bg: rgba(0, 0, 0, 0);
+    --systray_elem_hover: rgba(255, 255, 255, 0.05);
 }
 
 /*                                 COMMON YASB ELEMENTS                          */
@@ -383,13 +384,13 @@ For more information about configuration options, please visit their documentati
 }
 
 .systray .button {
-    border-radius: 4px;
+    border-radius: 0;
     padding: 2px 2px;
     background: transparent;
 }
 
 .systray .button:hover {
-    background: rgb(44, 44, 44);
+    background: var(--systray_elem_hover);
 }
 
 .systray .button[dragging=true] {
@@ -411,6 +412,34 @@ For more information about configuration options, please visit their documentati
     border: 1px solid #AAAAAA;
     border-radius: 0px;
     border-color: #AAAAAA;
+}
+
+/* Popup styles (when show_in_popup is true) */
+ 
+/* The icon the drag is hovering over (drop target icon) */
+.systray-popup .button.drag-over {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.systray .pinned-container.pinned-container.drop-target {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.systray-popup {
+    background-color: var(--widget_bg);
+    padding: 4px;
+    border: var(--global_widget_border);
+}
+
+.systray-popup .button {
+    padding: 10px;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+}
+.systray-popup .button:hover {
+    background-color: var(--systray_elem_hover);
+    padding: 4px;
 }
 
 /*                          Wi-Fi                           */

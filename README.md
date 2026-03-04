@@ -201,6 +201,7 @@ Changes to be made from some mods
   - Taskmgr.exe
   - explorer.exe
   - Flow.Launcher.exe
+- Windows 11 File Explorer Styler - Set Translucent background effect to `None` to utilize Windows 11 Custom Title Bar Colors mod color.
 
 
 

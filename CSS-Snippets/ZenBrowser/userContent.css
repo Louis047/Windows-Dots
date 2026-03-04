@@ -5,7 +5,11 @@
 
 @-moz-document url-prefix("about:") {
 
-  *, *::before, *::after { border-radius: 0 !important; }
+  *,
+  *::before,
+  *::after {
+    border-radius: 0 !important;
+  }
 
   :root {
     --card-border-radius: 0px !important;
@@ -17,15 +21,29 @@
     --zen-dialog-background: var(--arrowpanel-background) !important;
   }
 
-  button, moz-button, [is="moz-button"],
-  input[type="button"], input[type="submit"], input[type="reset"],
-  .accessory-button, .ghost-button, .icon-button, .add-engine-button {
+  button,
+  moz-button,
+  [is="moz-button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  .accessory-button,
+  .ghost-button,
+  .icon-button,
+  .add-engine-button {
     border-radius: 0 !important;
   }
 
-  input[type="text"], input[type="search"], input[type="number"],
-  input[type="url"], input[type="email"], input[type="password"],
-  textarea, select, .searchInput, #searchInput {
+  input[type="text"],
+  input[type="search"],
+  input[type="number"],
+  input[type="url"],
+  input[type="email"],
+  input[type="password"],
+  textarea,
+  select,
+  .searchInput,
+  #searchInput {
     border-radius: 0 !important;
   }
 
@@ -112,54 +130,117 @@
     border: none !important;
   }
 
-  .card, .card-block, .card-contents, .card-no-hover, .list-card,
-  .options-container, .pane-container, .subcategory,
-  .info-box, .info-box-container, .infobox,
-  .tip-caption, .indent, .help-panel-container,
-  .addon-card, .panel-item,
-  .top-site-outer, .top-site-inner, .tile,
-  .context-menu, .context-menu-item,
-  .weather-card, .ds-card, .ds-image,
-  .profile-card, .profile-item {
+  .card,
+  .card-block,
+  .card-contents,
+  .card-no-hover,
+  .list-card,
+  .options-container,
+  .pane-container,
+  .subcategory,
+  .info-box,
+  .info-box-container,
+  .infobox,
+  .tip-caption,
+  .indent,
+  .help-panel-container,
+  .addon-card,
+  .panel-item,
+  .top-site-outer,
+  .top-site-inner,
+  .tile,
+  .context-menu,
+  .context-menu-item,
+  .weather-card,
+  .ds-card,
+  .ds-image,
+  .profile-card,
+  .profile-item {
     border-radius: 0 !important;
   }
 
-  moz-button-group, moz-button-group > *,
-  .button-group, .button-group > * {
+  moz-button-group,
+  moz-button-group>*,
+  .button-group,
+  .button-group>* {
     border-radius: 0 !important;
   }
 
-  .notification-bar, .notificationbox-stack, notification,
-  .infobar, message-bar, moz-message-bar {
+  .notification-bar,
+  .notificationbox-stack,
+  notification,
+  .infobar,
+  message-bar,
+  moz-message-bar {
     border-radius: 0 !important;
   }
 
-  panel, menupopup, .panel-arrowcontent, .autocomplete-richlistbox,
-  tooltip, .popup-notification-panel, [role="tooltip"], [role="dialog"] {
+  panel,
+  menupopup,
+  .panel-arrowcontent,
+  .autocomplete-richlistbox,
+  tooltip,
+  .popup-notification-panel,
+  [role="tooltip"],
+  [role="dialog"] {
     border-radius: 0 !important;
   }
 
-  progress, .progressmeter-container, .progressmeter-bar { border-radius: 0 !important; }
-  input[type="range"] { border-radius: 0 !important; }
-  input[type="range"]::-moz-range-thumb { border-radius: 0 !important; }
-  input[type="range"]::-moz-range-track { border-radius: 0 !important; }
-
-  #categories > .category, .sidebar-footer-list li, .sidebar-footer-link {
+  progress,
+  .progressmeter-container,
+  .progressmeter-bar {
     border-radius: 0 !important;
   }
 
-  .tag, .badge, .label-badge, .recommendation-badge { border-radius: 0 !important; }
-
-  tr, td, .cell-edit, .table-container { border-radius: 0 !important; }
-
-  groupbox, .groupbox-body, listbox, richlistbox, tree, treechildren {
+  input[type="range"] {
     border-radius: 0 !important;
   }
 
-  zen-mods-category, zen-keyboard-shortcut,
-  .zen-settings-card, .zen-settings-section,
-  .zen-mod-card, .zen-mod-item,
-  .zen-card, .zen-welcome-card {
+  input[type="range"]::-moz-range-thumb {
+    border-radius: 0 !important;
+  }
+
+  input[type="range"]::-moz-range-track {
+    border-radius: 0 !important;
+  }
+
+  #categories>.category,
+  .sidebar-footer-list li,
+  .sidebar-footer-link {
+    border-radius: 0 !important;
+  }
+
+  .tag,
+  .badge,
+  .label-badge,
+  .recommendation-badge {
+    border-radius: 0 !important;
+  }
+
+  tr,
+  td,
+  .cell-edit,
+  .table-container {
+    border-radius: 0 !important;
+  }
+
+  groupbox,
+  .groupbox-body,
+  listbox,
+  richlistbox,
+  tree,
+  treechildren {
+    border-radius: 0 !important;
+  }
+
+  zen-mods-category,
+  zen-keyboard-shortcut,
+  .zen-settings-card,
+  .zen-settings-section,
+  .zen-mod-card,
+  .zen-mod-item,
+  .zen-card,
+  .zen-welcome-card {
     border-radius: 0 !important;
   }
 
@@ -170,20 +251,25 @@
 
 @-moz-document url-prefix("about:preferences") {
 
-  #dialogStack, .dialogStack,
-  #dialogOverlay, .dialogOverlay {
+  #dialogStack,
+  .dialogStack,
+  #dialogOverlay,
+  .dialogOverlay {
     border-radius: 0 !important;
   }
 
-  #dialogBox, .dialogBox {
+  #dialogBox,
+  .dialogBox {
     border-radius: 0 !important;
     background: var(--arrowpanel-background) !important;
     border: 1px solid rgba(160, 160, 175, 0.35) !important;
     box-shadow: var(--box-shadow-level-3, 0 8px 32px rgba(0, 0, 0, 0.45)) !important;
   }
 
-  #dialogFrame, .dialogFrame,
-  #dialogClose, .dialogClose {
+  #dialogFrame,
+  .dialogFrame,
+  #dialogClose,
+  .dialogClose {
     border-radius: 0 !important;
   }
 
@@ -194,7 +280,11 @@
 
 @-moz-document url-prefix("chrome://browser/content/preferences/") {
 
-  *, *::before, *::after { border-radius: 0 !important; }
+  *,
+  *::before,
+  *::after {
+    border-radius: 0 !important;
+  }
 
   :root {
     --card-border-radius: 0px !important;
@@ -206,12 +296,19 @@
     --zen-dialog-background: var(--arrowpanel-background) !important;
   }
 
-  button, moz-button, [is="moz-button"],
-  input[type="button"], input[type="submit"], input[type="reset"] {
+  button,
+  moz-button,
+  [is="moz-button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
     border-radius: 0 !important;
   }
 
-  button:default, button.primary, button[default="true"], button[dlgtype="accept"] {
+  button:default,
+  button.primary,
+  button[default="true"],
+  button[dlgtype="accept"] {
     border-radius: 0 !important;
     background: var(--color-accent-primary) !important;
     color: light-dark(var(--zen-branding-paper, #fafafa), var(--zen-branding-dark, #111)) !important;
@@ -220,21 +317,27 @@
     border: none !important;
   }
 
-  button:default::after, button.primary::after,
-  button[default="true"]::after, button[dlgtype="accept"]::after {
+  button:default::after,
+  button.primary::after,
+  button[default="true"]::after,
+  button[dlgtype="accept"]::after {
     display: none !important;
   }
 
-  button:default:hover, button.primary:hover,
-  button[default="true"]:hover, button[dlgtype="accept"]:hover {
+  button:default:hover,
+  button.primary:hover,
+  button[default="true"]:hover,
+  button[dlgtype="accept"]:hover {
     background: var(--color-accent-primary-hover,
-      color-mix(in srgb, var(--color-accent-primary) 85%, #fff)) !important;
+        color-mix(in srgb, var(--color-accent-primary) 85%, #fff)) !important;
   }
 
-  button:default:hover:active, button.primary:hover:active,
-  button[default="true"]:hover:active, button[dlgtype="accept"]:hover:active {
+  button:default:hover:active,
+  button.primary:hover:active,
+  button[default="true"]:hover:active,
+  button[dlgtype="accept"]:hover:active {
     background: var(--color-accent-primary-active,
-      color-mix(in srgb, var(--color-accent-primary) 70%, #000)) !important;
+        color-mix(in srgb, var(--color-accent-primary) 70%, #000)) !important;
     scale: 0.98;
   }
 
@@ -255,14 +358,27 @@
     scale: 0.98;
   }
 
-  button::after { display: none !important; }
+  button::after {
+    display: none !important;
+  }
 
-  select, menulist, .menulist-label-box { border-radius: 0 !important; }
+  select,
+  menulist,
+  .menulist-label-box {
+    border-radius: 0 !important;
+  }
 
-  input[type="text"], input[type="search"], input[type="number"],
-  input[type="url"], textarea { border-radius: 0 !important; }
+  input[type="text"],
+  input[type="search"],
+  input[type="number"],
+  input[type="url"],
+  textarea {
+    border-radius: 0 !important;
+  }
 
-  moz-checkbox { border-radius: 0 !important; }
+  moz-checkbox {
+    border-radius: 0 !important;
+  }
 
   moz-checkbox::part(checkbox) {
     appearance: none !important;
@@ -332,8 +448,15 @@
     border: none !important;
   }
 
-  groupbox, .groupbox-body, caption, separator,
-  listbox, richlistbox, .listbox, tree, treechildren {
+  groupbox,
+  .groupbox-body,
+  caption,
+  separator,
+  listbox,
+  richlistbox,
+  .listbox,
+  tree,
+  treechildren {
     border-radius: 0 !important;
   }
 
@@ -344,7 +467,11 @@
 
 @-moz-document url-prefix("chrome://global/content/") {
 
-  *, *::before, *::after { border-radius: 0 !important; }
+  *,
+  *::before,
+  *::after {
+    border-radius: 0 !important;
+  }
 
   :root {
     --border-radius-small: 0px !important;
@@ -353,7 +480,9 @@
     --button-border-radius: 0px !important;
   }
 
-  moz-checkbox { border-radius: 0 !important; }
+  moz-checkbox {
+    border-radius: 0 !important;
+  }
 
   moz-checkbox::part(checkbox) {
     appearance: none !important;
@@ -379,11 +508,17 @@
     border-radius: 0 !important;
   }
 
-  button, input[type="button"], input[type="submit"], input[type="reset"] {
+  button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
     border-radius: 0 !important;
   }
 
-  input[type="text"], input[type="search"], select, textarea {
+  input[type="text"],
+  input[type="search"],
+  select,
+  textarea {
     border-radius: 0 !important;
   }
 
@@ -393,7 +528,7 @@
 /* ── 5: Firefox PiP toggle popup ── */
 
 .pip-wrapper,
-.pip-wrapper > *,
-.pip-wrapper > * > * {
+.pip-wrapper>*,
+.pip-wrapper>*>* {
   border-radius: 0 !important;
 }

@@ -134,31 +134,74 @@ mkdir -p '$env:USERPROFILE/Documents/VSCode-CSS'
 
 #### Windhawk
 Some useful mods I found for my Windows workflow
+- "Sign in with a passkey" Blocker - add `zen.exe` to process exclusion list
+- Alt + Tab per monitor
+- Better Dialogs
+- Block Win + V - I prefer Flow Launcher clipboard
+- Center Titlebar
+- Control Panel Color Fix
+- CTRL+SHIFT+C Quotes remover - really handy
+- Customize Windows Notification Placement
+- Dark Mode Context Menus
+- Dark Mode for Notepad
 - Disable rounded corners in Windows 11 - I hate rounded corners with a square monitors so yes 
+- Disable Virtual Desktop Transition Animation
+- Disable Voice Access Hotkey
+- Disable Windows Ink Modifier Tooltips
+- Explorer breadcrumbs Middle-Click New Tab
+- Explorer Font Changer - Very useful to change fonts system-wide(almost). I prefer `Segoe UI Variable Display`
+- F1 Blocker
+- Fix dark mode ListViews
+- Fix white flashes in explorer
+- Message Box Fix
+- No Focus Rectangle
+- No Properties Icon
+- No Run Icon
+- Old Auto Colorization
+- Primary Taskbar on Second Monitor
+- RegEdit Auto Trim Whitespace
+- Select filename extension on double F2
+- Show All Apps by Default in Start Menu
+- Smart Copy and Paste
+- Start Menu open location - Monitor 0
+- Start Menu Size - Width: 450 Height: 650
+- Taskbar Height and Icon Size - For the above
+- Taskbar on top
+- Taskbar Tray System Icon Tweaks - Toggle everything on
+- Turn off change file extension warning
+- UXTheme Hook (For Implementing Windows 10 theme for 11. Theme Link: [10ThemesFor11](https://github.com/SandTechStuff/10ThemeFor11))
+- Windows 11 Custom Title Bar Colors
+- Windows 11 File Explorer Styler - To remove rounded borders (still buggy and yet to fix)
 - Windows 11 Notification Center Styler - Use this to change border to square for and `Action Center` and `Toast Notifications`
 - Windows 11 Start Menu Styler - To remove rounded borders for it as well 
 - Windows 11 Taskbar Styler - To make taskbar transparent and configure border for `Flyouts`
-- Windows 11 File Explorer Styler - To remove rounded borders (still buggy and yet to fix)
-- Windows 11 Custom Title Bar Colors - For this make sure to add the following process in exclusion list in Advanced tab
-  - notepad.exe
-  - Taskmgr.exe
-  - explorer.exe
-  - Flow.Launcher.exe
-- Taskbar Height and Icon Size - For the above
-- Center Titlebar
-- Dark Mode Context Menus
-- Explorer Font Changer - Very useful to change fonts system-wide(almost). I prefer `Segoe UI Variable Display`
-- No Focus Rectangle
-- Taskbar Tray System Icon Tweaks
 
 For square corners in other windows elements (Action Center, Flyouts, Start Menu), copy the respective file content from `Windhawk` directory and paste it in Advanced Settings --> Mod Settings in the following mods
 - Action Center - Windows 11 Notification Center Styler
 - Volume and Brightness Flyouts - Windows 11 Taskbar Styler
 - Start Menu and other elements - Windows 11 Start Menu Styler
+- File explorer - Windows 11 File Explorer Styler
 
 Changes to be made from some mods
+- Customize Windows Notification Placement - Use the following settings
+  - Monitor: 0
+  - Horizontal placement: Right
+  - Distance from right/left: -8
+  - Vertical placement: Top
+  - Distance from bottom/top: -22
+  - Notification appearance animation: Automatic
+- Smart Copy and Paste - Toggle the following options enabled
+  - Remove Tracking Parameters
+  - Auto-trim whitespace
+- "Sign in with a passkey" Blocker - add `zen.exe` to process exclusion list
 - Taskbar Height and Icon Size - Set taskbar height and all other elements to `-1`. Then use `thide` to completely hide it. This is to ensure taskbar isn't visible anymore at any time.
 - Taskbar Tray System Icon Tweaks - Hide everything
+- Windows 11 Custom Title Bar Colors - For this make sure to add the following process in exclusion list in Advanced tab
+  - notepad.exe
+  - Taskmgr.exe
+  - explorer.exe
+  - Flow.Launcher.exe
+
 
 
 #### Windows Terminal
@@ -179,6 +222,7 @@ Some changes in settings required for a good tiling experience
   - `zen.view.experimental-no-window-controls` : true 
   - `zen.theme.essentials-favicon-bg` : false (for proper tab bar animations in essentials)
   - `extensions.webextensions.restrictedDomains` : 	accounts-static.cdn.mozilla.net,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,sync.services.mozilla.com (to ensure stylus includes mozilla related websites as well, except for other restricted services)
+  - `widget.prefer_windows_on_current_virtual_desktop` : false (to fix url links opening in new window when using windows with tiling window managers)
 2. Follow the guide here to utilize `userChrome.css` and `userContent.css`: [Live Editing Zen Theme](https://docs.zen-browser.app/guides/live-editing#step-4-edit-the-userchromecss-file)
 3. After enabling the support, paste the CSS for it from `CSS-Snippets` directory to `userChrome.css` and `userContent.css`
 

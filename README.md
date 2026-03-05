@@ -229,6 +229,9 @@ Some changes in settings required for a good tiling experience
 > `userContent.css` - For customizing inner elements of the browser
    
 Recommended Mods
-- No Sidebar Scrollbar
+- Custom uiFont - set `Inter Variable Text ` as default font
 - Left Side Glance
+- No Sidebar Scrollbar
+- Private Mode Highlighting
 - Remove Tab X - set for pinned tabs only
+

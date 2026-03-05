@@ -174,5 +174,7 @@
   "controlStyles[71].styles[1]": "CornerRadius=0",
   "controlStyles[72].target": "Microsoft.UI.Xaml.Controls.Primitives.ScrollBar#VerticalScrollBar",
   "controlStyles[72].styles[0]": "Visibility=Collapsed",
-  "explorerFrameContainerHeight": 42
+  "explorerFrameContainerHeight": 42,
+  "backgroundTranslucentEffectRegion": "",
+  "backgroundTranslucentEffect": "none"
 }

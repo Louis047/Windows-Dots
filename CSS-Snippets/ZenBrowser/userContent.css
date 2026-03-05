@@ -1,7 +1,7 @@
 /* ZEN BROWSER — userContent.css */
 
 
-/* ── 1: ALL about: PAGES — zero radius + checkbox fix ── */
+/* ── 1: ALL about: PAGES ── */
 
 @-moz-document url-prefix("about:") {
 
@@ -47,35 +47,13 @@
     border-radius: 0 !important;
   }
 
-  /* moz-checkbox is a Lit web component; ::part(checkbox) pierces its shadow DOM.
-     appearance:none is required — without it Gecko ignores border-radius entirely. */
-
+  /* moz-checkbox shadow DOM cannot be styled from userContent.css.
+     Square checkbox rules live in userChrome.css (Section P) instead. */
   moz-checkbox {
     border-radius: 0 !important;
   }
 
-  moz-checkbox::part(checkbox) {
-    appearance: none !important;
-    -moz-appearance: none !important;
-    border-radius: 0 !important;
-    width: 14px !important;
-    height: 14px !important;
-    min-width: 14px !important;
-    min-height: 14px !important;
-    border: 1.5px solid color-mix(in srgb, currentColor 55%, transparent) !important;
-    background: var(--in-content-box-background, transparent) !important;
-    position: relative !important;
-    flex-shrink: 0 !important;
-    vertical-align: middle !important;
-    cursor: default !important;
-  }
-
-  moz-checkbox::part(checkbox):checked,
-  moz-checkbox::part(checkbox):indeterminate {
-    background: var(--color-accent-primary, AccentColor) !important;
-    border-color: var(--color-accent-primary, AccentColor) !important;
-  }
-
+  /* Native non-component checkboxes (XUL / non-Lit contexts) */
   input[type="checkbox"] {
     appearance: none !important;
     -moz-appearance: none !important;
@@ -278,6 +256,9 @@
 
 /* ── 3: SubDialog inner content (Fonts, Colors, Exceptions…) ── */
 
+/* Each SubDialog loads a separate XHTML document from this chrome:// URL;
+   the about:preferences block cannot reach inside it. */
+
 @-moz-document url-prefix("chrome://browser/content/preferences/") {
 
   *,
@@ -380,25 +361,6 @@
     border-radius: 0 !important;
   }
 
-  moz-checkbox::part(checkbox) {
-    appearance: none !important;
-    -moz-appearance: none !important;
-    border-radius: 0 !important;
-    width: 14px !important;
-    height: 14px !important;
-    min-width: 14px !important;
-    min-height: 14px !important;
-    border: 1.5px solid color-mix(in srgb, currentColor 55%, transparent) !important;
-    background: var(--in-content-box-background, transparent) !important;
-    position: relative !important;
-    flex-shrink: 0 !important;
-  }
-
-  moz-checkbox::part(checkbox):checked {
-    background: var(--color-accent-primary, AccentColor) !important;
-    border-color: var(--color-accent-primary, AccentColor) !important;
-  }
-
   input[type="checkbox"] {
     appearance: none !important;
     -moz-appearance: none !important;
@@ -484,24 +446,6 @@
     border-radius: 0 !important;
   }
 
-  moz-checkbox::part(checkbox) {
-    appearance: none !important;
-    -moz-appearance: none !important;
-    border-radius: 0 !important;
-    width: 14px !important;
-    height: 14px !important;
-    min-width: 14px !important;
-    min-height: 14px !important;
-    border: 1.5px solid color-mix(in srgb, currentColor 55%, transparent) !important;
-    background: transparent !important;
-    position: relative !important;
-  }
-
-  moz-checkbox::part(checkbox):checked {
-    background: var(--color-accent-primary, AccentColor) !important;
-    border-color: var(--color-accent-primary, AccentColor) !important;
-  }
-
   input[type="checkbox"] {
     appearance: none !important;
     -moz-appearance: none !important;
@@ -531,4 +475,13 @@
 .pip-wrapper>*,
 .pip-wrapper>*>* {
   border-radius: 0 !important;
+}
+
+
+/* ── 6: addons.mozilla.org ── */
+
+@-moz-document domain("addons.mozilla.org") {
+  * {
+    border-radius: 0 !important;
+  }
 }

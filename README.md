@@ -136,7 +136,6 @@ mkdir -p '$env:USERPROFILE/Documents/VSCode-CSS'
 Some useful mods I found for my Windows workflow
 - "Sign in with a passkey" Blocker - add `zen.exe` to process exclusion list
 - Alt + Tab per monitor
-- Better Dialogs
 - Block Win + V - I prefer Flow Launcher clipboard
 - Center Titlebar
 - Control Panel Color Fix
@@ -149,7 +148,7 @@ Some useful mods I found for my Windows workflow
 - Disable Voice Access Hotkey
 - Disable Windows Ink Modifier Tooltips
 - Explorer breadcrumbs Middle-Click New Tab
-- Explorer Font Changer - Very useful to change fonts system-wide(almost). I prefer `Segoe UI Variable Display`
+- Explorer Font Changer - Very useful to change fonts system-wide(almost). I prefer `Inter Display`
 - F1 Blocker
 - Fix dark mode ListViews
 - Fix white flashes in explorer
@@ -199,8 +198,6 @@ Changes to be made from some mods
 - Windows 11 Custom Title Bar Colors - For this make sure to add the following process in exclusion list in Advanced tab
   - notepad.exe
   - Taskmgr.exe
-  - explorer.exe
-  - Flow.Launcher.exe
 - Windows 11 File Explorer Styler - Set Translucent background effect to `None` to utilize Windows 11 Custom Title Bar Colors mod color.
 
 

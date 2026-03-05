@@ -65,7 +65,7 @@ For more information about configuration options, please visit their documentati
     font-size: 13px;
     color: var(--text);
     font-weight: 750;
-    font-family: "JetBrainsMono NFP";
+    font-family: "Inter Display", "JetBrainsMono NFP";
     margin: 0;
     padding: 0;
 }
@@ -520,7 +520,7 @@ For more information about configuration options, please visit their documentati
     background: var(--widget_bg);
 }
 .calendar .day-label {
-    margin-top: 20px;
+    margin-top: 15px;
 }
 .calendar .day-label,
 .calendar .month-label {
@@ -532,13 +532,13 @@ For more information about configuration options, please visit their documentati
 }
 .calendar .month-label {
     font-weight: normal;
-    margin-bottom: 12px;
+    margin-bottom: 0;
 }
 .calendar .date-label {
     font-size: 88px;
     font-weight: 900;
     color: var(--text);
-    margin-top: -20px;
+    margin-top: -10px;
 }
 .calendar .holiday-label {
     font-size: 14px;

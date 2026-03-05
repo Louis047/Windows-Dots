@@ -165,7 +165,7 @@ widgets:
         direction: "down"
         offset_top: 4
         offset_left: 44
-        max_title_size: 150
+        max_title_size: 70
         show_date_time: True
       icons:
         note: "\udb82\udd0c"
@@ -458,7 +458,7 @@ widgets:
     type: "yasb.battery.BatteryWidget"
     options:
         label: "<span>{icon}</span>{percent}%"
-        label_alt: "Pow {power}W HP {health}%"
+        label_alt: "Pow: {power} W / HP: {health} %"
         update_interval: 5000
         hide_unsupported: True
         time_remaining_natural: False
@@ -487,7 +487,7 @@ widgets:
       label: "\ue62a"
       uptime: True
       show_user: True
-      profile_image_size: 180
+      profile_image_size: 160
       menu_style: "fullscreen"
       blur: False
       blur_background: True

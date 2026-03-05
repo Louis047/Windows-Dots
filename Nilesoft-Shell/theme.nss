@@ -1,14 +1,14 @@
-theme
+﻿theme
 {
-	name = "modern"
+	name = "auto"
 	view = view.small
-	dark = auto
+	dark = default
 	
 	background
 	{
 		color = auto
 		opacity = 100
-		effect = 0
+		effect = 1
 	}
 	
 	item
@@ -23,13 +23,16 @@ theme
 		enabled = true
 		size = 1
 		radius = 0
-		color = #555555
+		color = auto
 		opacity = 100
 	}
 
 	shadow
 	{
-		enabled = false
+		enabled = true
+		size = 2
+		opacity = 50
+		offset = 0
 	}
 
 	separator

@@ -1,8 +1,9 @@
 /* Disable Rounded Borders everywhere (except for few elements)*/
 *,
 *::before,
-*::after{
+*::after {
     border-radius: 0 !important;
+    font-family: "Inter Display";
 }
 
 /* Smooth transition for server column icons */
@@ -43,7 +44,8 @@
 /* Hover expansion */
 [class*="guilds"] [class*="listItem"]:hover [class*="pill"] span {
     width: 9px !important;
-    height: 20px !important;          /* subtle hover height */
+    height: 20px !important;
+    /* subtle hover height */
     border-radius: 100% !important;
 }
 
@@ -80,14 +82,35 @@ div[class*="circleIconButton"] svg {
     border-radius: 50% !important;
 }
 
-/* Stop account panel from floating */
-[class*="panels"] {
-    position: absolute !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    padding: 4px;
+/* Shrink User Panel */
+.panels__5e434
+
+/* user panel */
+    {
+    right: 0;
+    left: unset;
+    width: calc(var(--custom-guild-sidebar-width) - var(--custom-guild-list-width));
+    margin-bottom: 0px;
+}
+
+.guilds__5e434
+
+/* server list */
+    {
+    margin-bottom: 0;
+}
+
+/* Hide VC Settings */
+div[class^="audioButtonParent__"] button[role="switch"] {
+    border-radius: var(--radius-sm);
+
+    &~button {
+        display: none;
+    }
+}
+
+div.container__37e49>div.buttons__37e49 {
+    gap: 1px;
 }
 
 /* Shrink internal height of the message input area */
@@ -117,4 +140,3 @@ div[class*="circleIconButton"] svg {
 [class*="panels"] [class*="container"] [class*="buttons"] {
     gap: 2px !important;
 }
-

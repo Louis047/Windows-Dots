@@ -15,12 +15,18 @@
   --urlbar-icon-border-radius: 0px !important;
 }
 
-:root:not([inDOMFullscreen="true"]) #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer {
+:root:not([inDOMFullscreen="true"])
+  #tabbrowser-tabbox
+  #tabbrowser-tabpanels
+  .browserSidebarContainer {
   border-radius: 0px !important;
   margin: 0px !important;
 }
 
-:root:not([inDOMFullscreen="true"]) #tabbrowser-tabbox #tabbrowser-tabpanels[zen-split-view="true"] .browserSidebarContainer {
+:root:not([inDOMFullscreen="true"])
+  #tabbrowser-tabbox
+  #tabbrowser-tabpanels[zen-split-view="true"]
+  .browserSidebarContainer {
   border-radius: 0px !important;
   margin: 0px !important;
 }
@@ -196,7 +202,7 @@ textbox {
 
 #urlbar[open] #urlbar-input,
 #urlbar[open] .urlbar-input-box input,
-#urlbar[open] moz-input-box>input {
+#urlbar[open] moz-input-box > input {
   text-align: center !important;
 }
 
@@ -238,20 +244,9 @@ textbox {
 /* ── G: TAB LOADING ANIMATION ── */
 
 @keyframes tabFillAnim {
-  0% {
-    width: 0%;
-    opacity: 0.5;
-  }
-
-  95% {
-    width: 100%;
-    opacity: 0.75;
-  }
-
-  100% {
-    width: 100%;
-    opacity: 1;
-  }
+  0%   { width: 0%; opacity: 0.5; }
+  95%  { width: 100%; opacity: 0.75; }
+  100% { width: 100%; opacity: 1; }
 }
 
 .tabbrowser-tab[busy] .tab-stack {
@@ -337,6 +332,7 @@ textbox {
   text-align: center !important;
 }
 
+
 /* ── I: WORKSPACE BUTTONS ── */
 
 #zen-workspaces-button toolbarbutton:hover,
@@ -398,20 +394,6 @@ findbar {
   padding: 6px !important;
   box-shadow: var(--box-shadow-level-3) !important;
   opacity: 1 !important;
-  transition: transform 0.3s ease, opacity 0.3s ease !important;
-
-  @starting-style {
-    transform: translateX(-50%) translateY(-6px) !important;
-    opacity: 0 !important;
-  }
-
-  &[hidden] {
-    transform: translateX(-50%) translateY(-6px) !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s !important;
-    pointer-events: none !important;
-  }
 }
 
 .findbar-container {
@@ -467,19 +449,10 @@ findbar {
 /* ── L: URL BAR POPUP — NO SHADOW ── */
 
 #urlbar[open] .urlbarView,
-.urlbarView {
-  box-shadow: none !important;
-  filter: none !important;
-}
-
-#urlbar-background {
-  box-shadow: none !important;
-}
-
+.urlbarView              { box-shadow: none !important; filter: none !important; }
+#urlbar-background       { box-shadow: none !important; }
 .urlbarView-body-outer,
-.urlbarView-body-inner {
-  box-shadow: none !important;
-}
+.urlbarView-body-inner   { box-shadow: none !important; }
 
 
 /* ── M: DIALOG FIXES (Thanks to @qumeqa) ── */
@@ -527,3 +500,27 @@ button[part="dialog-button"]:hover:active {
 .pinned-tabs-container-separator {
   display: none !important;
 }
+
+
+/* ── O: ZEN FOLDERS — TRANSPARENT HOVER ── */
+
+zen-folder .tab-group-label-container,
+zen-folder .tab-group-label-container:hover,
+zen-folder .tab-group-label-container:is(:hover, :active, [hover], [open]) {
+  --toolbarbutton-hover-background: transparent !important;
+  --toolbarbutton-active-background: transparent !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+zen-folder .tab-group-label-container::before,
+zen-folder .tab-group-label-container::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  display: none !important;
+}
+

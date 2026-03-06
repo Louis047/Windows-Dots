@@ -47,13 +47,51 @@
     border-radius: 0 !important;
   }
 
-  /* moz-checkbox shadow DOM cannot be styled from userContent.css.
-     Square checkbox rules live in userChrome.css (Section P) instead. */
+  /* XUL <image class="checkbox-check"> — native XUL widget visual */
+  .checkbox-check {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border-radius: 0 !important;
+    border: 1.5px solid color-mix(in srgb, currentColor 55%, transparent) !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    min-height: 14px !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  checkbox[checked="true"] .checkbox-check {
+    background-color: var(--color-accent-primary, AccentColor) !important;
+    border-color: var(--color-accent-primary, AccentColor) !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' width='14' height='14'%3E%3Cpath d='M2.5 7L5.5 10.5L11.5 4' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 12px 12px !important;
+  }
+
+  checkbox[indeterminate="true"] .checkbox-check {
+    background-color: var(--color-accent-primary, AccentColor) !important;
+    border-color: var(--color-accent-primary, AccentColor) !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' width='14' height='14'%3E%3Cpath d='M3 7H11' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 12px 12px !important;
+  }
+
+  checkbox:not([checked="true"]):not([indeterminate="true"]) .checkbox-check {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  /* moz-checkbox host */
   moz-checkbox {
     border-radius: 0 !important;
   }
 
-  /* Native non-component checkboxes (XUL / non-Lit contexts) */
+  /* Native input checkboxes */
   input[type="checkbox"] {
     appearance: none !important;
     -moz-appearance: none !important;
@@ -256,9 +294,6 @@
 
 /* ── 3: SubDialog inner content (Fonts, Colors, Exceptions…) ── */
 
-/* Each SubDialog loads a separate XHTML document from this chrome:// URL;
-   the about:preferences block cannot reach inside it. */
-
 @-moz-document url-prefix("chrome://browser/content/preferences/") {
 
   *,
@@ -357,6 +392,44 @@
     border-radius: 0 !important;
   }
 
+  .checkbox-check {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border-radius: 0 !important;
+    border: 1.5px solid color-mix(in srgb, currentColor 55%, transparent) !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    min-height: 14px !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  checkbox[checked="true"] .checkbox-check {
+    background-color: var(--color-accent-primary, AccentColor) !important;
+    border-color: var(--color-accent-primary, AccentColor) !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' width='14' height='14'%3E%3Cpath d='M2.5 7L5.5 10.5L11.5 4' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 12px 12px !important;
+  }
+
+  checkbox[indeterminate="true"] .checkbox-check {
+    background-color: var(--color-accent-primary, AccentColor) !important;
+    border-color: var(--color-accent-primary, AccentColor) !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' width='14' height='14'%3E%3Cpath d='M3 7H11' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 12px 12px !important;
+  }
+
+  checkbox:not([checked="true"]):not([indeterminate="true"]) .checkbox-check {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
   moz-checkbox {
     border-radius: 0 !important;
   }
@@ -425,7 +498,7 @@
 }
 
 
-/* ── 4: chrome://global/content/ — global widget chrome context ── */
+/* ── 4: chrome://global/content/ ── */
 
 @-moz-document url-prefix("chrome://global/content/") {
 
@@ -440,6 +513,35 @@
     --border-radius-medium: 0px !important;
     --border-radius-large: 0px !important;
     --button-border-radius: 0px !important;
+  }
+
+  .checkbox-check {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border-radius: 0 !important;
+    border: 1.5px solid color-mix(in srgb, currentColor 55%, transparent) !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    min-height: 14px !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  checkbox[checked="true"] .checkbox-check {
+    background-color: var(--color-accent-primary, AccentColor) !important;
+    border-color: var(--color-accent-primary, AccentColor) !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' width='14' height='14'%3E%3Cpath d='M2.5 7L5.5 10.5L11.5 4' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 12px 12px !important;
+  }
+
+  checkbox:not([checked="true"]) .checkbox-check {
+    background-color: transparent !important;
+    background-image: none !important;
   }
 
   moz-checkbox {

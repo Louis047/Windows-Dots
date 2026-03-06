@@ -70,7 +70,7 @@ For more information about configuration options, please visit their documentati
     padding: 0;
 }
 .yasb-bar {
-    padding: 0 2px;
+    padding: 0 4px;
     margin: 0;
     background-color: var(--bar_bg);
 }
@@ -172,7 +172,6 @@ For more information about configuration options, please visit their documentati
     border: none;
     padding:0 2px;
     margin: 0 2px 0 2px;
-    font-size: 14px;
 }
 .glazewm-workspaces .ws-btn.active_populated,
 .glazewm-workspaces .ws-btn.active_empty {
@@ -190,13 +189,6 @@ For more information about configuration options, please visit their documentati
 .glazewm-workspaces .ws-btn.populated:hover,
 .glazewm-workspaces .ws-btn.empty:hover {
     color: var(--workspace_hover);
-}
-
-/*                Binding Mode                          */
-.glazewm-binding-mode {
-    color: var(--text);
-    font-weight: 900;
-    margin: 0 0 0 4px;
 }
 
 /*                          Media                              */
@@ -495,7 +487,7 @@ For more information about configuration options, please visit their documentati
 }
 /*                          Clock & Calendar                            */
 .clock-widget .widget-container .label {
-    padding: 0px 0px 0px;
+    padding: 0;
 }
 .calendar {
     background-color: var(--widget_bg);

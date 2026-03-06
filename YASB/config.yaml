@@ -54,7 +54,6 @@ bars:
       left: [
         "power_menu",
         "media",
-        "glazewm_binding_mode",
         "glazewm_workspaces"
       ]
       center: [
@@ -180,7 +179,7 @@ widgets:
     options:
       label: "<span>\udb80\udd78</span>"
       label_alt: "<span>\udb80\udd78</span> {count}"
-      hide_empty: False
+      hide_empty: True
       tooltip: False
       callbacks:
         on_left: "toggle_notification"
@@ -331,32 +330,11 @@ widgets:
   glazewm_workspaces:
     type: "glazewm.workspaces.GlazewmWorkspacesWidget"
     options:
-      offline_label: "Offline"
+      offline_label: "\u2b58"
       hide_if_offline: True
       monitor_exclusive: False 
       enable_scroll_switching: False
       animation: False
-  glazewm_binding_mode:
-    type: "glazewm.binding_mode.GlazewmBindingModeWidget"
-    options:
-      label: "<span>{icon}</span>"
-      label_alt: "<span>{icon}</span> {binding_mode}"
-      hide_if_no_active: True
-      label_if_no_active: ""
-      default_icon: ""
-      icons:
-        none: ""
-        resize: "\udb82\ude68"
-        pause: "\uf28c"
-      binding_modes_to_cycle_through: [
-        "none", # none handles if no binding mode is active
-        "resize",
-        "pause"
-      ]
-      callbacks:
-        on_left: "next_binding_mode"
-        on_middle: "do_nothing"
-        on_right: "disable_binding_mode"
   media:
     type: "yasb.media.MediaWidget"
     options:

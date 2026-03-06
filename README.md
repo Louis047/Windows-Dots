@@ -222,11 +222,17 @@ Some changes in settings required for a good tiling experience
   - `extensions.webextensions.restrictedDomains` : 	accounts-static.cdn.mozilla.net,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,sync.services.mozilla.com (to ensure stylus includes mozilla related websites as well, except for other restricted services)
   - `widget.prefer_windows_on_current_virtual_desktop` : false (to fix url links opening in new window when using windows with tiling window managers)
 2. Follow the guide here to utilize `userChrome.css` and `userContent.css`: [Live Editing Zen Theme](https://docs.zen-browser.app/guides/live-editing#step-4-edit-the-userchromecss-file)
-3. After enabling the support, paste the CSS for it from `CSS-Snippets` directory to `userChrome.css` and `userContent.css`
+3. Paste the zen browser snippets in the `chrome` directory of your current profile
+    - `<profile>\chrome\userChrome.css`
+    - `<profile>\chrome\userContent.css`
 
 > [!NOTE]
 > `userChome.css` - For browser user-interface customization
 > `userContent.css` - For customizing inner elements of the browser
+> To open the current profile folder, do the following steps
+> 1. Open `about:profiles`
+> 2. Open the profile folder which is currently active
+> 3. Follow the above third step
    
 Recommended Mods
 - Custom uiFont - set `Inter Variable Text ` as default font

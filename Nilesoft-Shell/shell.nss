@@ -10,9 +10,7 @@ settings
 
 import 'imports/theme.nss'
 import 'imports/images.nss'
-
 import 'imports/modify.nss'
-
 menu(mode="multiple" title="Pin/Unpin" image=icon.pin)
 {
 }

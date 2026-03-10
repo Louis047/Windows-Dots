@@ -7,7 +7,7 @@ global:
   border_width: 2
   border_offset: -1
   border_radius: Square
-  border_z_order: AboveWindow
+  border_z_order: BelowWindow
 
   active_color: "#DADADA"
   inactive_color: "#5F5F5F"

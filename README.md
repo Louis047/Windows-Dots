@@ -237,11 +237,24 @@ Some changes in settings required for a good tiling experience
   - `zen.theme.border-radius` : 0 
   - `extensions.webextensions.restrictedDomains` : 	accounts-static.cdn.mozilla.net,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,sync.services.mozilla.com (to ensure stylus includes mozilla related websites as well, except for other restricted services)
   - `widget.prefer_windows_on_current_virtual_desktop` : false (to fix url links opening in new window when using windows with tiling window managers)
-2. Install Sine Mods from [here](https://github.com/CosmoCreeper/Sine/releases/latest) and follow the steps
-3. Import this into the Sine mods import section: `Louis047/Square-UI` (NOTE: If you install this, the above config isn't necessary to be set as this mod handles them by default)
-   
+2. Follow the guide here to utilize `userChrome.css` and `userContent.css`: [Live Editing Zen Theme](https://docs.zen-browser.app/guides/live-editing#step-4-edit-the-userchromecss-file)
+3. Paste the zen browser snippets in the `chrome` directory of your current profile
+    - `<profile>\chrome\userChrome.css`
+    - `<profile>\chrome\userContent.css`
+
+> [!NOTE]
+> `userChome.css` - For browser user-interface customization
+> `userContent.css` - For customizing inner elements of the browser
+> To open the current profile folder, do the following steps
+> 1. Open `about:profiles`
+> 2. Open the profile folder which is currently active
+> 3. Follow the above third step
+
+The above steps are purely for customizing zen browser manually. I have worked on a Sine Mod called [`Square UI`](https://github.com/Louis047/Square-UI) for eliminating rounded corners in both the browser and the websites rendered without the need of extensions, and have all the configurations combined and automated. Also has `Custom uiFont` mod integrated.
+
 Recommended Mods
-- Square UI (A Sine Mod that I made for eliminating rounded corners in both the browser and the websites rendered)
+- Square UI (Highlhy recommended if you don't want to add the customizations manually)
+- Custom uiFont
 - Left Side Glance
 - No Sidebar Scrollbar
 - Private Mode Highlighting

@@ -160,15 +160,13 @@ Some useful mods I found for my Windows workflow
 - Disable Voice Access Hotkey
 - Disable Windows Ink Modifier Tooltips
 - Explorer breadcrumbs Middle-Click New Tab
-- Explorer Font Changer - Very useful to change fonts system-wide(almost). I prefer `Inter Display`
+- Explorer Font Changer - Very useful to change fonts system-wide (almost). I prefer `Inter Display`
 - F1 Blocker
-- Fix dark mode ListViews
 - Fix white flashes in explorer
 - Message Box Fix
 - No Focus Rectangle
 - No Properties Icon
 - No Run Icon
-- Old Auto Colorization
 - Primary Taskbar on Second Monitor
 - RegEdit Auto Trim Whitespace
 - Select filename extension on double F2
@@ -176,7 +174,7 @@ Some useful mods I found for my Windows workflow
 - Smart Copy and Paste
 - Start Menu open location - Monitor 0
 - Start Menu Size - Width: 450 Height: 650
-- Taskbar Height and Icon Size - For the above
+- Taskbar Height and Icon Size
 - Taskbar on top
 - Taskbar Tray System Icon Tweaks - Toggle everything on
 - Turn off change file extension warning
@@ -244,19 +242,20 @@ Some changes in settings required for a good tiling experience
 
 > [!NOTE]
 > `userChome.css` - For browser user-interface customization
+> 
 > `userContent.css` - For customizing inner elements of the browser
+> 
 > To open the current profile folder, do the following steps
 > 1. Open `about:profiles`
 > 2. Open the profile folder which is currently active
 > 3. Follow the above third step
 
-The above steps are purely for customizing zen browser manually. I have worked on a Sine Mod called [`Square UI`](https://github.com/Louis047/Square-UI) for eliminating rounded corners in both the browser and the websites rendered without the need of extensions, and have all the configurations combined and automated. Also has `Custom uiFont` mod integrated.
+The above steps are purely for customizing the browser manually. I have worked on a sine mod called [`Square UI`](https://github.com/Louis047/Square-UI) for eliminating rounded corners in both the browser and the websites rendered without the need of extensions, and have all the configurations combined and automated. Also has `Custom uiFont` mod integrated.
 
 Recommended Mods
 - Square UI (Highlhy recommended if you don't want to add the customizations manually)
-- Custom uiFont
+- Custom uiFont (If configured manually)
 - Left Side Glance
 - No Sidebar Scrollbar
-- Private Mode Highlighting
 - Remove Tab X - set for pinned tabs only
 

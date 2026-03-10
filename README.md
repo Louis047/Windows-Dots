@@ -7,6 +7,7 @@
 > 4. If the above command doesn't work, allow Powershell to sign remote scripts `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine` 
 > 5. Make sure to create `.env` for YASB in its default director as some widgets like `weather` rely on it. Documentation [here](https://github.com/amnweb/yasb/wiki/Configuration#environment-variables-support)
 
+
 ### Tools Used:
 - [AltSnap](https://github.com/RamonUnch/AltSnap) - Resizing window with `Alt` Key, with ease
   
@@ -34,6 +35,7 @@
 
 - [Yet Another Status Bar](https://github.com/amnweb/yasb) - A status bar with customizations and extensible features, built using Python
 
+---
 ### Preview:
 
 ![PIC 1](https://github.com/Louis047/Windows-Dots/blob/main/Images/Updated-Dots-1.png)
@@ -46,16 +48,19 @@
 
 ![PIC 5](https://github.com/Louis047/Windows-Dots/blob/main/Images/Updated-Dots-5.png)
 
+---
 ### Rice Setup Guide
 
 #### Discord QuickCSS
 Paste the content from `no_rounded.css` to any Discord client that has QuickCSS support
 
 
+---
 #### ExplorerPatcher
 Import the `reg` file from the directory to the application to use simple alt+tab behavior 
 
 
+---
 #### Flow Launcher
 For an optimal search, make changes to the following plugins
 - Web Searches - Change action keyword for google from `*` to `gg`
@@ -71,6 +76,7 @@ Recommended Plugins
 To apply the theme, navigate to `FlowLauncher` directory where it contains the necessary steps documented as images (STILL NEED TO REFINE IT TO SYNCHRONIZE IT WITH WINDOWS THEME MODE)
 
 
+---
 #### GlazeWM Autotiler
 To install this, you have to install `rustup` and `cargo` then use the below command
 ```
@@ -79,10 +85,12 @@ cargo install --git https://github.com/Dutch-Raptor/GAT-GWM.git --features=no_co
 Have already done the required configurations for it in GlazeWM
 
 
+---
 #### Nilesoft Shell
 Paste the config into the app directory. Make sure to open them as admin. 
 
 
+---
 #### Oh My Posh
 Use `robbyrussel` theme for minimalism
 
@@ -102,10 +110,12 @@ if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
 > I recommend to install `oh-my-posh` with `scoop` package manager as the configuration is provided according to that. You can test with other type of installation and let me know of any issues!
 
 
+---
 #### Task Scheduler
 Made changes from the base `AltDrag` config to be optimal for both desktop and laptop users, `tacky-borders` included
 
 
+---
 #### Thide
 Open Powershell and type this command
 ```
@@ -114,6 +124,7 @@ thide enable-autostart
 This adds thide to startup to hide taskbar permanently everytime, runs in tray
 
 
+---
 #### VSCode
 1. Install `Custom CSS and JS Loader` extension for VSCode
 2. Open Command Palette `Ctrl + Shift + P` then type: Open User Settings (JSON)
@@ -132,6 +143,7 @@ mkdir -p '$env:USERPROFILE/Documents/VSCode-CSS'
 7. You will get a prompt saying 'VSCode is corrupted' ignore it and hide it permanently.
 
 
+---
 #### Windhawk
 Some useful mods I found for my Windows workflow
 - "Sign in with a passkey" Blocker - add `zen.exe` to process exclusion list
@@ -202,16 +214,19 @@ Changes to be made from some mods
 
 
 
+---
 #### Windows Terminal
 In Settings, go to Rendering section and change Graphics API to `Direct2D` to fix font rendering issues
 
 
+---
 #### YASB
 1. To use wallpaper widget, save them in this location `$env:USERPROFILE/Pictures/Wallpapers/Home Screen` 
 2. Most of the widgets are customized for you, and YASB has the ability to choose your own widgets on runtime via the context menu in bar
 3. For `clock` widget, the country code uses `YASB_CAL_COUNTRY_CODE` variable. Make sure to set a country code in your `.env` file. Check docs [here](https://docs.yasb.dev/latest/configuration)
 
 
+---
 #### Zen Browser
 Some changes in settings required for a good tiling experience
 
@@ -219,23 +234,14 @@ Some changes in settings required for a good tiling experience
   - `zen.theme.content-element-separation` : 0 (You may prefer to keep this default if you love padding)
   - `zen.view.experimental-no-window-controls` : true 
   - `zen.theme.essentials-favicon-bg` : false (for proper tab bar animations in essentials)
+  - `zen.theme.border-radius` : 0 
   - `extensions.webextensions.restrictedDomains` : 	accounts-static.cdn.mozilla.net,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,sync.services.mozilla.com (to ensure stylus includes mozilla related websites as well, except for other restricted services)
   - `widget.prefer_windows_on_current_virtual_desktop` : false (to fix url links opening in new window when using windows with tiling window managers)
-2. Follow the guide here to utilize `userChrome.css` and `userContent.css`: [Live Editing Zen Theme](https://docs.zen-browser.app/guides/live-editing#step-4-edit-the-userchromecss-file)
-3. Paste the zen browser snippets in the `chrome` directory of your current profile
-    - `<profile>\chrome\userChrome.css`
-    - `<profile>\chrome\userContent.css`
-
-> [!NOTE]
-> `userChome.css` - For browser user-interface customization
-> `userContent.css` - For customizing inner elements of the browser
-> To open the current profile folder, do the following steps
-> 1. Open `about:profiles`
-> 2. Open the profile folder which is currently active
-> 3. Follow the above third step
+2. Install Sine Mods from [here](https://github.com/CosmoCreeper/Sine/releases/latest) and follow the steps
+3. Import this into the Sine mods import section: `Louis047/Square-UI` (NOTE: If you install this, the above config isn't necessary to be set as this mod handles them by default)
    
 Recommended Mods
-- Custom uiFont - set `Inter Variable Text ` as default font
+- Square UI (A Sine Mod that I made for eliminating rounded corners in both the browser and the websites rendered)
 - Left Side Glance
 - No Sidebar Scrollbar
 - Private Mode Highlighting

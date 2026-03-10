@@ -90,13 +90,11 @@ div[class*="circleIconButton"] svg {
     right: 0;
     left: unset;
     width: calc(var(--custom-guild-sidebar-width) - var(--custom-guild-list-width));
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
-.guilds__5e434
-
-/* server list */
-    {
+/* Shrink server list */
+.guilds__5e434 {
     margin-bottom: 0;
 }
 
@@ -109,20 +107,107 @@ div[class^="audioButtonParent__"] button[role="switch"] {
     }
 }
 
-div.container__37e49>div.buttons__37e49 {
-    gap: 1px;
+/* Override midnight's chatbar height variable */
+body {
+    --chatbar-height: 40px;
+    --custom-channel-textarea-text-area-height: 40px;
 }
 
-/* Shrink internal height of the message input area */
-[class*="chat"] form [class*="channelTextArea"] {
+/* Bottom spacing — applies to both chatbar and follow bar */
+.channelBottomBarArea_f75fb0 {
+    padding: 0 10px 10px 10px !important;
+}
+
+/* Outer chatbar box */
+.channelTextArea_f75fb0 {
     min-height: 0 !important;
 }
 
-[class*="chat"] form [class*="scrollableContainer"] {
-    min-height: 0px !important;
-    padding-top: 0px !important;
-    padding-bottom: 0px !important;
+/* The inner flex row — ONLY set align-items here, nothing else */
+.themedBackground__74017 {
+    align-items: center !important;
 }
+
+/* Inner scrollable text region */
+.scrollableContainer_ec4baf {
+    min-height: 0 !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+}
+
+/* Actual typing area */
+.slateTextArea_ec4baf {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    margin-left: 0;
+}
+
+/* Left + attach button */
+.attachWrapper__0923f {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    height: auto !important;
+    background: transparent !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.icon__4d3a9 {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.attachButton__74017 {
+    height: auto !important;
+    padding: 0 0 0 4px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.attachButton__74017:hover {
+    background: transparent !important;
+}
+
+/* Shrink only the + attach button SVG */
+.attachButton__74017 svg {
+    width: 16px !important;
+    height: 20px !important;
+}
+
+/* Right-side icon toolbar */
+.buttons__74017 {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    height: auto !important;
+    align-self: center !important;
+    gap: 1px !important;
+}
+
+/* Follow bar */
+.wrapper__44df5 {
+    height: 42px !important;
+    min-height: 0 !important;
+    max-height: 42px !important;
+    display: flex !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+/* Follow bar outer form — this is what needs the bottom margin */
+.form_f75fb0:has(.wrapper__44df5) {
+    padding-bottom: 10px !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+
 
 /* Shrink icons inside bottom profile container (mute, deafen, settings, etc.) */
 [class*="panels"] [class*="container"] [class*="button"] {

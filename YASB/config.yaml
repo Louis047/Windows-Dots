@@ -266,26 +266,26 @@ widgets:
       # Example path to folder with images. Can be a single string or a list of strings.
       # image_path: "C:\\Users\\{Username}\\Images"
       image_path: "$env:USERPROFILE/Pictures/Wallpapers/Home Screen"
-      change_automatically: false # Automatically change wallpaper
-      update_interval: 60 # If change_automatically is true, update interval in seconds
+      change_automatically: False # Automatically change wallpaper
+      update_interval: 81400 # If change_automatically is true, update interval in seconds
       animation:
         enabled: False
         duration: 0
       tooltip: False
       gallery:
-          enabled: true
-          blur: false
+          enabled: True
+          blur: False
           image_width: 250
           image_per_page: 7
           gallery_columns: 0 # 0 = auto, matches image_per_page for a single row
           horizontal_position: "center" # left/center/right placement on screen
           vertical_position: "center" # top/center/bottom placement
           position_offset: 0 # minimum gap (px) from screen edges - see below for advanced options
-          respect_work_area: true # clamp to OS work area (avoids Windows taskbar)
-          show_buttons: false
+          respect_work_area: True # clamp to OS work area (avoids Windows taskbar)
+          show_buttons: False
           orientation: "portrait"
           image_spacing: 12
-          lazy_load: false
+          lazy_load: False  
           lazy_load_fadein: 0
           image_corner_radius: 0
 
@@ -298,7 +298,7 @@ widgets:
         "lines"
       ]
       collapse_options:
-        enabled: true
+        enabled: True
         expanded_label: "\uf054"
         collapsed_label: "\uf053"
         label_position: "left"

@@ -131,7 +131,7 @@ workspaces:
   - name: "3"
     # display_name: 'III'
     bind_to_monitor: 1
-    keep_alive: true
+    keep_alive: true 
   - name: "4"
     # display_name: 'IV'
     bind_to_monitor: 0

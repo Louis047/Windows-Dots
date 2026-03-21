@@ -8,7 +8,7 @@ general:
     enabled: false
     trigger: 'monitor_focus'
   hide_method: 'cloak'
-  show_all_in_taskbar: false
+  show_all_in_taskbar: true
 
 gaps:
   scale_with_dpi: true
@@ -52,7 +52,7 @@ window_behavior:
       centered: false
       shown_on_top: false
     fullscreen:
-      maximized: false
+      maximized: true
       shown_on_top: false
 
 workspaces:
@@ -233,6 +233,7 @@ window_rules:
   - commands: ["move --workspace 5", "focus --workspace 5"]
     match:
       - window_process: { equals: "VirtualBox" }
+      - window_process: { equals: "vmware" }
   - commands: ["move --workspace 6", "focus --workspace 6"]
     match:
       - window_process: { equals: "Riot Client" }

@@ -2,7 +2,7 @@
 *::before,
 *::after {
     border-radius: 0 !important;
-    font-family: "DepartureMono Nerd Font Propo" !important;
+    /* font-family: "DepartureMono Nerd Font Propo" !important; */
     font-weight: 500 !important;
 }
 

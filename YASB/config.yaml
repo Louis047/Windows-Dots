@@ -2,7 +2,7 @@
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: True
 watch_config: False
-debug: True
+debug: False
 update_check: False
 show_systray: True
 glazewm:
@@ -28,9 +28,9 @@ bars:
       border_color: None
     window_flags:
       always_on_top: False
-      windows_app_bar: True # This interferes with apps in full-screen. Notably while watching videos in full screen
-      hide_on_fullscreen: False
-      hide_on_maximized: False
+      windows_app_bar: True     
+      hide_on_fullscreen: True
+      hide_on_maximized: True
       auto_hide: False
     layouts:
       left:
@@ -54,7 +54,10 @@ bars:
       left: [
         "power_menu",
         "media",
-        "glazewm_workspaces"
+        "lines",
+        "glazewm_workspaces",
+        "lines",
+        "taskbar"
       ]
       center: [
         "active_window"
@@ -73,6 +76,24 @@ bars:
         "clock"
       ]
 widgets:
+  taskbar:
+    type: "yasb.taskbar.TaskbarWidget"
+    options:
+      icon_size: 12
+      tooltip: False
+      show_only_visible: False
+      strict_filtering: True
+      monitor_exclusive: True
+      animation:
+        enabled: False
+      preview:
+        enabled: False
+      title_label:
+        enabled: False
+      ignore_apps:
+        processes: []
+        titles: []
+        classes: []
   open_meteo:
     type: "yasb.open_meteo.OpenMeteoWidget"
     options:
@@ -330,8 +351,8 @@ widgets:
   glazewm_workspaces:
     type: "glazewm.workspaces.GlazewmWorkspacesWidget"
     options:
-      offline_label: "\u2b58"
-      hide_if_offline: True
+      offline_label: "\uf05e"
+      hide_if_offline: False
       monitor_exclusive: False 
       enable_scroll_switching: False
       animation: False
@@ -484,7 +505,7 @@ widgets:
       label: "{win[app_name]}"
       label_no_window: ""
       label_alt: "{win[process]}"
-      label_icon: True
+      label_icon: False
       label_icon_size: 12
       max_length: 75
       max_length_ellipsis: ""

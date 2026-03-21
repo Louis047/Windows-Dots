@@ -3,7 +3,7 @@ Base Configuration, modified from i3-style with a new look.
 For more information about configuration options, please visit their documentation https://github.com/amnweb/yasb/wiki
 */
 :root {
-    --line: rgb(125, 125, 125);
+    --line: rgba(255, 255, 255, 0.4);
     --power_menu_elem_bg: rgba(15, 15, 15, 1);
     --power_menu_elem_hover: rgba(45, 45, 45, 1);
     --power_menu_buttons: rgba(100, 100, 100, 1);
@@ -58,14 +58,17 @@ For more information about configuration options, please visit their documentati
     --open_meteo_card_hourly_active: rgba(255, 255, 255, 0.1);
     --power_menu_overlay_bg: rgba(0, 0, 0, 0);
     --systray_elem_hover: rgba(255, 255, 255, 0.05);
+    --taskbar_hover: rgba(255, 255, 255, 0.1);
+    --taskbar_fg: rgba(255, 255, 255, 0.15);
+    --taskbar_flashing: rgba(255, 255, 255, 0.3);
 }
 
 /*                                 COMMON YASB ELEMENTS                          */
 * {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text);
     font-weight: 750;
-    font-family: "Inter Display", "JetBrainsMono NFP";
+    font-family: "DepartureMono Nerd Font Propo";
     margin: 0;
     padding: 0;
 }
@@ -112,6 +115,7 @@ For more information about configuration options, please visit their documentati
 }
 .power-menu-widget .label {
     padding: 0 2px 0 2px;
+    font-family: "JetBrainsMono NFP";
 }
 .power-menu-popup {
     background: transparent;
@@ -141,7 +145,7 @@ For more information about configuration options, please visit their documentati
 .power-menu-popup .button .label {
     margin-bottom: 8px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text);
     margin: 12px 0 0 0;
 }
@@ -200,6 +204,7 @@ For more information about configuration options, please visit their documentati
     color: var(--text);
     padding: 0 2px 0 8px;
     font-size: 14px;
+    font-family: "JetBrainsMono NFP";
 }
 
 /*                          Media-Menu                          */
@@ -212,7 +217,6 @@ For more information about configuration options, please visit their documentati
 .media-menu .title,
 .media-menu .artist {
     margin-left: 10px;
-
 }
 .media-menu .title {
     color: var(--text);
@@ -229,7 +233,7 @@ For more information about configuration options, please visit their documentati
     font-size: 11px;
     color: var(--media_menu_source_text);
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 0;
     background-color: var(--media_menu_source);
     padding: 4px 6px;
 }
@@ -867,11 +871,36 @@ For more information about configuration options, please visit their documentati
     color: var(--text_hover);
 }
 
+/*                         Taskbar                          */
+.taskbar-widget .app-container {
+    margin: 4px 2px;
+    border-radius: 0;
+    border: var(--global_widget_border);
+    padding: 0 4px;
+}
+
+.taskbar-widget .app-container.foreground {
+    background-color: var(--taskbar_fg);
+}
+
+.taskbar-widget .app-container.flashing {
+    background-color: var(--taskbar_flashing);
+}
+
+.taskbar-widget .app-container.running {
+    background-color: transparent;
+}
+
+.taskbar-widget .app-container:hover {
+    background-color: var(--taskbar_hover);
+}
+
 /*                  Lines-Separator             */
 .separator-widget .widget-container .label {
     color: var(--line);
     padding: 0;
     margin: 0;
+    font-weight: 900;
 }
 
 /*              Border Fixes                    */
@@ -887,8 +916,8 @@ QPushButton {
     border-radius: 0px;
     color: var(--text);
     padding: 4px 8px;
-    font-family: "JetBrainsMono NFP";
-    font-size: 11px;
+    font-family: "DepartureMono Nerd Font Propo";
+    font-size: 12px;
     font-weight: 700;
     margin-top: 8px;
 }

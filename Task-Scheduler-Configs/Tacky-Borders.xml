@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-16"?>
 <Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <RegistrationInfo>
-    <Author>ASS-SUS\Lone</Author>
-    <URI>\AltSnap</URI>
+    <URI>\TackyBorders</URI>
   </RegistrationInfo>
   <Triggers>
     <LogonTrigger>
       <Enabled>true</Enabled>
-      <Delay>PT10S</Delay>
+      <Delay>PT2S</Delay>
     </LogonTrigger>
   </Triggers>
   <Principals>
     <Principal id="Author">
-      <GroupId>S-1-5-32-545</GroupId>
       <RunLevel>HighestAvailable</RunLevel>
     </Principal>
   </Principals>

@@ -77,6 +77,10 @@ To apply the theme, navigate to `FlowLauncher` directory where it contains the n
 
 
 ---
+#### GlazeWM
+Save the `launch_glazewm.vbs` script from `Backups` directory to `Documents\VBS-Scripts` and use the task scheduler for it to ensure the fastest startup for it. The current and traditional methods for GlazeWM is horrendously slow and this is the best one I found. 
+
+---
 #### GlazeWM Autotiler
 To install this, you have to install `rustup` and `cargo` then use the below command
 ```

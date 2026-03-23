@@ -10,210 +10,292 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/Themes/Base.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Themes/Base.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    
-    
+
+
     <!-- Blur behind the window -->
     <system:Boolean x:Key="ThemeBlurEnabled">False</system:Boolean>
-    
-    <!-- Main window background -->
+
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- WINDOW                                                      -->
+    <!-- Color01B = window background (dark #161616 / light #F5F5F5)-->
+    <!-- SystemThemeBorder = border brush, adapts automatically      -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
     <Style
         x:Key="WindowBorderStyle"
         BasedOn="{StaticResource BaseWindowBorderStyle}"
         TargetType="{x:Type Border}">
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="#FF555555" />
-        <Setter Property="Background" Value="#FF161616"/>
-        <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="BorderThickness"
+                Value="1"/>
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource SystemThemeBorder}"/>
+        <Setter Property="Background"
+                Value="{DynamicResource Color01B}"/>
+        <Setter Property="CornerRadius"
+                Value="0"/>
+        <Setter Property="UseLayoutRounding"
+                Value="True"/>
     </Style>
-    
+
     <Style
         x:Key="WindowStyle"
         BasedOn="{StaticResource BaseWindowStyle}"
-        TargetType="{x:Type Window}" />
-        
-    <Style x:Key="WindowRadius" TargetType="{x:Type Border}" />
-    
-    
-    <!-- Query input text box -->
+        TargetType="{x:Type Window}"/>
+
+    <Style x:Key="WindowRadius"
+            TargetType="{x:Type Border}"/>
+
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- QUERY BOX                                                   -->
+    <!-- Color05B = primary text (dark #FAFAFA / light #1A1A1A)     -->
+    <!-- QuerySuggestionBoxForeground = muted suggestion text        -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
     <Style
         x:Key="QueryBoxStyle"
         BasedOn="{StaticResource BaseQueryBoxStyle}"
         TargetType="{x:Type TextBox}">
-        <Setter Property="Foreground" Value="#FFFAFAFA" />
-        <Setter Property="CaretBrush" Value="#FFFAFAFA" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource Color05B}"/>
+        <Setter Property="CaretBrush"
+                Value="{DynamicResource Color05B}"/>
     </Style>
 
-    <!-- Query suggestion text box -->
     <Style
         x:Key="QuerySuggestionBoxStyle"
         BasedOn="{StaticResource BaseQuerySuggestionBoxStyle}"
         TargetType="{x:Type TextBox}">
-        <Setter Property="Foreground" Value="#FF7B7B7B" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource QuerySuggestionBoxForeground}"/>
     </Style>
-    
-    <!-- The panel with the time and date -->
+
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- CLOCK / DATE                                                -->
+    <!-- ClockDateForeground = adapts automatically                  -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
     <Style
         x:Key="ClockPanel"
         BasedOn="{StaticResource ClockPanel}"
         TargetType="{x:Type StackPanel}">
-        <Setter Property="Margin" Value="0 0 24 0" />
+        <Setter Property="Margin"
+                Value="0 0 24 0"/>
     </Style>
-    
-    <!-- Time text block -->
+
     <Style
         x:Key="ClockBox"
         BasedOn="{StaticResource BaseClockBox}"
         TargetType="{x:Type TextBlock}">
-        <Setter Property="Margin" Value="0 0 0 0" />
-        <Setter Property="Foreground" Value="#FFADADAD" />
-        <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontStyle" Value="Normal" />
-        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="Margin"
+                Value="0 0 0 0"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource ClockDateForeground}"/>
+        <Setter Property="FontFamily"
+                Value="{DynamicResource ResultItemFont}"/>
+        <Setter Property="FontSize"
+                Value="16"/>
+        <Setter Property="FontStyle"
+                Value="Normal"/>
+        <Setter Property="FontWeight"
+                Value="Normal"/>
     </Style>
-    
-    <!-- Date text block -->
+
     <Style
         x:Key="DateBox"
         BasedOn="{StaticResource BaseDateBox}"
         TargetType="{x:Type TextBlock}">
-        <Setter Property="Margin" Value="0 0 0 0" />
-        <Setter Property="Foreground" Value="#FF7A7A7A" />
-        <Setter Property="FontSize" Value="12" />
-        <Setter Property="FontStyle" Value="Normal" />
-        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="Margin"
+                Value="0 0 0 0"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource ClockDateForeground}"/>
+        <Setter Property="FontFamily"
+                Value="{DynamicResource ResultItemFont}"/>
+        <Setter Property="FontSize"
+                Value="12"/>
+        <Setter Property="FontStyle"
+                Value="Normal"/>
+        <Setter Property="FontWeight"
+                Value="Normal"/>
     </Style>
-    
-    <!-- Icon to the right of the query text box -->
+
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SEARCH ICON / PENDING LINE / SEPARATOR                      -->
+    <!-- SeparatorForeground = divider color, adapts automatically   -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
     <Style
         x:Key="SearchIconStyle"
         BasedOn="{StaticResource BaseSearchIconStyle}"
         TargetType="{x:Type Path}">
-        <Setter Property="Visibility" Value="Collapsed" />
-        <Setter Property="Width" Value="0" />
-        <Setter Property="Height" Value="0" />
+        <Setter Property="Visibility"
+                Value="Collapsed"/>
+        <Setter Property="Width"
+                Value="0"/>
+        <Setter Property="Height"
+                Value="0"/>
     </Style>
-    
-    <!-- Progress bar under the query text box -->
+
     <Style
         x:Key="PendingLineStyle"
         BasedOn="{StaticResource BasePendingLineStyle}"
         TargetType="{x:Type Line}">
-        <Setter Property="Stroke" Value="#FFCDCDCD" />
-        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="Stroke"
+                Value="{DynamicResource SeparatorForeground}"/>
+        <Setter Property="StrokeThickness"
+                Value="1"/>
     </Style>
-    
-    
-    <!-- Separator between the query box and the results -->
+
     <Style
         x:Key="SeparatorStyle"
         BasedOn="{StaticResource BaseSeparatorStyle}"
         TargetType="{x:Type Rectangle}">
-        <Setter Property="Fill" Value="#FF303030" />
-        <Setter Property="Height" Value="1" />
-        <Setter Property="Margin" Value="0 0 0 0" />
+        <Setter Property="Fill"
+                Value="{DynamicResource SeparatorForeground}"/>
+        <Setter Property="Height"
+                Value="1"/>
+        <Setter Property="Margin"
+                Value="0 0 0 0"/>
     </Style>
-    
-    
-    <!-- Margins for the list of results -->
+
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- RESULT ITEMS                                                -->
+    <!-- Color05B        = primary text                             -->
+    <!-- SubTitleForeground / SubTitleSelectedForeground = subtitles-->
+    <!-- NewHotkeyForeground = hotkey badges                        -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
     <Thickness x:Key="ResultMargin">0 0 0 0</Thickness>
 
-    <!-- Result title -->
     <Style
         x:Key="ItemTitleStyle"
         BasedOn="{StaticResource BaseItemTitleStyle}"
         TargetType="{x:Type TextBlock}">
-        <Setter Property="Foreground" Value="#FFFAFAFA" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource Color05B}"/>
     </Style>
-    
+
     <Style
         x:Key="ItemTitleSelectedStyle"
         BasedOn="{StaticResource BaseItemTitleSelectedStyle}"
         TargetType="{x:Type TextBlock}">
-        <Setter Property="Foreground" Value="#FFFAFAFA" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource Color05B}"/>
     </Style>
-    
-    <!-- Result subtitle -->
+
     <Style
         x:Key="ItemSubTitleStyle"
         BasedOn="{StaticResource BaseItemSubTitleStyle}"
         TargetType="{x:Type TextBlock}">
-        <Setter Property="Foreground" Value="#FF7D7D7D" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource SubTitleForeground}"/>
     </Style>
-    
+
     <Style
         x:Key="ItemSubTitleSelectedStyle"
         BasedOn="{StaticResource BaseItemSubTitleSelectedStyle}"
         TargetType="{x:Type TextBlock}">
-        <Setter Property="Foreground" Value="#FF7D7D7D" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource SubTitleSelectedForeground}"/>
     </Style>
-    
-    <!-- Result hotkey (Alt+1, Alt+2, etc.) -->
-    <Style x:Key="ItemHotkeyStyle" TargetType="{x:Type TextBlock}">
-        <Setter Property="FontSize" Value="12" />
-        <Setter Property="Foreground" Value="#676767" />
+
+    <Style x:Key="ItemHotkeyStyle"
+            TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize"
+                Value="12"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource NewHotkeyForeground}"/>
     </Style>
-    
-    <Style x:Key="ItemHotkeySelectedStyle" TargetType="{x:Type TextBlock}">
-        <Setter Property="FontSize" Value="12" />
-        <Setter Property="Foreground" Value="#d4d4d4" />
+
+    <Style x:Key="ItemHotkeySelectedStyle"
+            TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize"
+                Value="12"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource NewHotkeyForeground}"/>
     </Style>
-    
-    <!-- Result glyph -->
-    <Style x:Key="ItemGlyph" TargetType="{x:Type TextBlock}">
-        <Setter Property="Foreground" Value="#FFEAEAEA" />
-        <Setter Property="Width" Value="24" />
-        <Setter Property="Height" Value="24" />
-        <Setter Property="FontSize" Value="24" />
+
+    <Style x:Key="ItemGlyph"
+            TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground"
+                Value="{DynamicResource Color05B}"/>
+        <Setter Property="Width"
+                Value="24"/>
+        <Setter Property="Height"
+                Value="24"/>
+        <Setter Property="FontSize"
+                Value="24"/>
     </Style>
-    
-    <Style x:Key="ItemGlyphSelectedStyle" TargetType="{x:Type TextBlock}">
-        <Setter Property="Foreground" Value="#FFEAEAEA" />
-        <Setter Property="Width" Value="24" />
-        <Setter Property="Height" Value="24" />
-        <Setter Property="FontSize" Value="24" />
+
+    <Style x:Key="ItemGlyphSelectedStyle"
+            TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground"
+                Value="{DynamicResource Color05B}"/>
+        <Setter Property="Width"
+                Value="24"/>
+        <Setter Property="Height"
+                Value="24"/>
+        <Setter Property="FontSize"
+                Value="24"/>
     </Style>
-    
-    <!-- Selected result styles -->
-    <SolidColorBrush x:Key="ItemSelectedBackgroundColor">#FF2D2D2D</SolidColorBrush>
+
+    <!-- ItemSelectedBackgroundColorBrush is a Base.xaml key that   -->
+    <!-- resolves to the correct shade for each OS theme mode        -->
+    <SolidColorBrush x:Key="ItemSelectedBackgroundColor"
+            Color="{m:DynamicColor ItemSelectedBackgroundColorBrush}"/>
     <CornerRadius x:Key="ItemRadius">0</CornerRadius>
     <Thickness x:Key="ItemMargin">0 0 0 0</Thickness>
-    
-    <!-- Highlighted text -->
+
     <Style x:Key="HighlightStyle">
-        <Setter Property="Inline.Foreground" Value="#FFFAFAFA" />
-        <Setter Property="Inline.FontStyle" Value="Normal" />
-        <Setter Property="Inline.FontWeight" Value="Normal" />
+        <Setter Property="Inline.Foreground"
+                Value="{DynamicResource Color05B}"/>
+        <Setter Property="Inline.FontStyle"
+                Value="Normal"/>
+        <Setter Property="Inline.FontWeight"
+                Value="Normal"/>
     </Style>
-    
-    
-    <!-- Bullets -->
+
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- BULLETS (hidden)                                            -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
     <Style
         x:Key="BulletStyle"
         BasedOn="{StaticResource BaseBulletStyle}"
         TargetType="{x:Type Border}">
-        <Setter Property="Visibility" Value="Collapsed" />
+        <Setter Property="Visibility"
+                Value="Collapsed"/>
     </Style>
-    
+
     <Style
         x:Key="ItemBulletSelectedStyle"
         BasedOn="{StaticResource BaseBulletStyle}"
         TargetType="{x:Type Border}">
-        <Setter Property="Visibility" Value="Collapsed" />
+        <Setter Property="Visibility"
+                Value="Collapsed"/>
     </Style>
-    
-    
-    <!-- Scrollbar container -->
+
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SCROLLBAR                                                   -->
+    <!-- ThumbColor = scrollbar thumb, adapts automatically          -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
     <Style
         x:Key="ScrollBarStyle"
         BasedOn="{StaticResource BaseScrollBarStyle}"
         TargetType="{x:Type ScrollBar}">
-        <Setter Property="Width" Value="4" />
+        <Setter Property="Width"
+                Value="4"/>
     </Style>
 
-    <!-- Scrollbar thumb -->
     <Style
         x:Key="ThumbStyle"
         BasedOn="{StaticResource BaseThumbStyle}"
@@ -222,53 +304,75 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
                     <Border
-                        Background="#FF4D4D4D"
+                        Background="{DynamicResource ThumbColor}"
                         BorderBrush="Transparent"
                         BorderThickness="0"
                         CornerRadius="0"
-                        DockPanel.Dock="Right" />
+                        DockPanel.Dock="Right"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    
-    <!-- Preview Panel -->
+
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- PREVIEW PANEL                                               -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
     <Style
         x:Key="PreviewBorderStyle"
         BasedOn="{StaticResource BasePreviewBorderStyle}"
         TargetType="{x:Type Border}">
-        <Setter Property="BorderBrush" Value="#FF303030" />
-        <Setter Property="BorderThickness" Value="1 0 0 0" />
-        <Setter Property="Margin" Value="0 0 12 0" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource SeparatorForeground}"/>
+        <Setter Property="BorderThickness"
+                Value="1 0 0 0"/>
+        <Setter Property="Margin"
+                Value="0 0 12 0"/>
     </Style>
-    
+
     <Style
         x:Key="PreviewItemTitleStyle"
         BasedOn="{StaticResource BasePreviewItemTitleStyle}"
         TargetType="{x:Type TextBlock}">
-        <Setter Property="Foreground" Value="#FFFAFAFA" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontStyle" Value="Normal" />
-        <Setter Property="FontWeight" Value="Normal" />
-        <Setter Property="LineHeight" Value="21" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource Color05B}"/>
+        <Setter Property="FontFamily"
+                Value="{DynamicResource ResultItemFont}"/>
+        <Setter Property="FontSize"
+                Value="14"/>
+        <Setter Property="FontStyle"
+                Value="Normal"/>
+        <Setter Property="FontWeight"
+                Value="Normal"/>
+        <Setter Property="LineHeight"
+                Value="21"/>
     </Style>
-    
+
     <Style
         x:Key="PreviewItemSubTitleStyle"
         BasedOn="{StaticResource BasePreviewItemSubTitleStyle}"
         TargetType="{x:Type TextBlock}">
-        <Setter Property="Foreground" Value="#FF5F5F5F" />
-        <Setter Property="FontSize" Value="12" />
-        <Setter Property="FontStyle" Value="Normal" />
-        <Setter Property="FontWeight" Value="Normal" />
-        <Setter Property="LineHeight" Value="18" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource SubTitleForeground}"/>
+        <Setter Property="FontFamily"
+                Value="{DynamicResource ResultItemFont}"/>
+        <Setter Property="FontSize"
+                Value="12"/>
+        <Setter Property="FontStyle"
+                Value="Normal"/>
+        <Setter Property="FontWeight"
+                Value="Normal"/>
+        <Setter Property="LineHeight"
+                Value="18"/>
     </Style>
-    
+
     <Style
         x:Key="PreviewGlyph"
         BasedOn="{StaticResource BasePreviewGlyph}"
         TargetType="{x:Type TextBlock}">
-        <Setter Property="Foreground" Value="#FFEAEAEA" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource Color05B}"/>
     </Style>
-    
+
 </ResourceDictionary>

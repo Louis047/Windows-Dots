@@ -51,8 +51,8 @@
 ---
 ### Rice Setup Guide
 
-#### Discord QuickCSS
-Paste the content from `no_rounded.css` to any Discord client that has QuickCSS support
+#### Discord
+Paste the content from `no_rounded.css` from `Backups` to any Discord client that has QuickCSS support, `Vesktop` / `Equibop` recommended
 
 
 ---
@@ -126,21 +126,10 @@ This adds thide to startup to hide taskbar permanently everytime, runs in tray
 
 ---
 #### VSCode
-1. Install `Custom CSS and JS Loader` extension for VSCode
-2. Open Command Palette `Ctrl + Shift + P` then type: Open User Settings (JSON)
-3. Paste the below JSON snippet and save it
-```json
-"vscode_custom_css.imports": [
-	        "file:///${env:USERPROFILE}/Documents/VSCode-CSS/no_rounded.css"
-]
-```
-4. Create a directory named `VSCode-CSS` in the provided path in the command below or you can just create it manually via file explorer
-```
-mkdir -p '$env:USERPROFILE/Documents/VSCode-CSS'
-```
-5. Paste the `no_rounded.css` from `CSS-Snippets` to the created directory
-6. Open Command Palette again and type: Enable Custom CSS and JS Loader then restart VS Code once the prompt shows successful (ignore any warning/errors)
-7. You will get a prompt saying 'VSCode is corrupted' ignore it and hide it permanently.
+1. Install `VSCode Tweaker` mod from Windhawk
+2. Go to mod settings and change the css to Inline
+3. Paste the `no_rounded.css` content into it 
+4. Restart VSCode to apply (If open)
 
 
 ---
@@ -253,7 +242,11 @@ Some changes in settings required for a good tiling experience
 The above steps are purely for customizing the browser manually. I have worked on a sine mod called [`Square UI`](https://github.com/Louis047/Square-UI) for eliminating rounded corners in both the browser and the websites rendered without the need of extensions, and have all the configurations combined and automated. Also has `Custom uiFont` mod integrated.
 
 Recommended Mods
-- Square UI (Highlhy recommended if you don't want to add the customizations manually)
+
+If using Sine Mods
+- Square UI (Highly recommended if you don't want to add the customizations manually)
+
+If not using Sine Mods
 - Custom uiFont (If configured manually)
 - Left Side Glance
 - No Sidebar Scrollbar

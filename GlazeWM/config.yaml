@@ -52,7 +52,7 @@ window_behavior:
       centered: false
       shown_on_top: false
     fullscreen:
-      maximized: true
+      maximized: false
       shown_on_top: false
 
 workspaces:
@@ -201,6 +201,7 @@ window_rules:
       - window_title: { equals: "Fastboot Firmware Flasher" }
       - window_title: { equals: "Realtek Audio Console" }
       - window_title: { equals: "Screenbox" }
+      - window_process: { equals: "yasb_themes" }
 
   # Tiling Required Apps (for UWP Apps)
   - commands: ["set-tiling"]
@@ -209,6 +210,7 @@ window_rules:
       - window_process: { equals: "devenv" }
         window_title: { not_regex: "(Rename|Search|Find and Replace)" }
       - window_process: { equals: "Dorion" }
+      - window_process: { equals: "vmware" }
 
   # Start apps in their own workspaces (cuz i love seeing them in an instant lol)
   - commands: ["move --workspace 1", "focus --workspace 1"]

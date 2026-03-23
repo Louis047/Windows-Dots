@@ -246,6 +246,8 @@ Some changes in settings required for a good tiling experience
 
 The above steps are purely for customizing the browser manually. I have worked on a sine mod called [`Square UI`](https://github.com/Louis047/Square-UI) for eliminating rounded corners in both the browser and the websites rendered without the need of extensions, and have all the configurations combined and automated. Also has `Custom uiFont` mod integrated.
 
+You can install Sine Mods [here](https://github.com/CosmoCreeper/Sine/releases/latest)
+
 Recommended Mods
 
 If using Sine Mods

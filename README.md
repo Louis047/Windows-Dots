@@ -25,7 +25,7 @@
 
 - [Nilesoft Shell](https://github.com/moudey/Shell) - A great context menu customization tool with extensive features, allowing you to add your own context menu options with the help of scripts
 
-- [Smooth-Scroll](https://www.smoothscroll.net/win/) - A paid software with trial period, improves smooth scrolling in Windows and MacOS
+- [SmoothScroll](https://www.smoothscroll.net/win/) - A paid software with trial period, improves smooth scrolling in Windows and MacOS
 
 - [Tacky-Borders](https://github.com/lukeyou05/tacky-borders) - A cool Windows Border Customization without any compromise in resource usage
 
@@ -50,6 +50,14 @@
 
 ---
 ### Rice Setup Guide
+
+### Automated
+
+TO-DO: Add Automation Script `install.ps1` with interactive TUI, not sure if it should be run as admin. Some cannot be done automatically as it requires manual intervention.
+
+### Manual
+
+Follow the below steps if you prefer to install stuff manually.
 
 #### Discord
 Paste the content from `no_rounded.css` from `Backups` to any Discord client that has QuickCSS support, `Vesktop` / `Equibop` recommended
@@ -78,7 +86,7 @@ To apply the theme, navigate to `FlowLauncher` directory where it contains the n
 
 ---
 #### GlazeWM
-Save the `launch_glazewm.vbs` script from `Backups` directory to `Documents\VBS-Scripts` and use the task scheduler for it to ensure the fastest startup for it. The current and traditional methods for GlazeWM is horrendously slow and this is the best one I found. 
+Save the `launch_glazewm.vbs` script from `Backups` directory to `Documents\VBS-Scripts` and follow the steps in  `Task-Scheduler-Configs` for it to importh its task. This to ensure the fastest startup for it. The current and traditional methods for GlazeWM is horrendously slow and this is the best one I found. 
 
 
 ---
@@ -116,10 +124,19 @@ if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
 
 
 ---
+#### SmoothScroll
+Save both the scripts from `Backups` directory to `Documents\VBS-Scripts` and follow the steps in `Task-Scheduler-Configs` for importing their tasks. This is to ensure you can use this tool with a faster startup and permanently. 
+
+---
 #### Task Scheduler
-Made changes from the base `AltDrag` config to be optimal for both desktop and laptop users, `tacky-borders` included
+Made changes from the base `AltDrag` config to be optimal for both desktop and laptop users, made for the below list:
+- AltSnap
+- Block-WinTab
+- GlazeWM
+- SmoothScroll (Both Cleanup and Launch)
+- Tacky-Borders
 
-
+All run with the highest privileges to ensure the modifications cover all apps by default. 
 ---
 #### Thide
 Open Powershell and type this command

@@ -36,9 +36,6 @@
     "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono'",
     "terminal.integrated.defaultProfile.windows": "PowerShell",
     "editor.wordWrap": "on",
-    "vscode_custom_css.imports": [
-        "file:///${env:USERPROFILE}/Documents/VSCode-CSS/no_rounded.css"
-    ],
     "editor.cursorStyle": "block",
     "remote.defaultExtensionsIfInstalledLocally": [
         "GitHub.copilot",
@@ -49,10 +46,10 @@
     "C_Cpp.copilotHover": "disabled",
     "telemetry.feedback.enabled": false,
     "chat.commandCenter.enabled": false,
-    "chat.notifyWindowOnConfirmation": false,
+    "chat.notifyWindowOnConfirmation": "off",
     "explorer.confirmDragAndDrop": false,
     "chat.mcp.access": "none",
-    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.secondarySideBar.defaultVisibility": "visible",
     "editor.fontFamily": "'JetBrainsMono Nerd Font Mono'",
     "chat.useAgentSkills": true,
     "github.copilot.chat.agent.autoFix": true,
@@ -82,7 +79,6 @@
             "approveResponse": true
         }
     },
-    "chat.viewSessions.orientation": "stacked",
     "terminal.integrated.fontLigatures.enabled": true,
     "terminal.integrated.fontSize": 12,
     "editor.fontSize": 12,
@@ -96,11 +92,12 @@
     "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI Variable Text', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
     "workbench.colorCustomizations": {
         "window.activeBorder": "#000000",
-        "window.inactiveBorder": "#000000"
+        "window.inactiveBorder": "#000000",
+        "tab.activeBorderTop": "#00000000",
+        "tab.unfocusedActiveBorderTop": "#00000000"
     },
     "editor.roundedSelection": false,
     "workbench.editor.tabSizing": "fixed",
-    "workbench.editor.tabHeight": "compact",
     "editor.guides.bracketPairs": false,
     "editor.bracketPairColorization.enabled": false,
     "vscode-edge-devtools.webhintInstallNotification": true,
@@ -114,6 +111,6 @@
     "git.ignoreWindowsGit27Warning": true,
     "debug.toolBarLocation": "docked",
     "codesnap.roundedCorners": false,
-    "github.copilot.chat.anthropic.contextEditing.enabled": true
+    "editor.formatOnPaste": true,
+    "chat.viewSessions.orientation": "stacked"
 }
- 

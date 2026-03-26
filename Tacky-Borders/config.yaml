@@ -1,34 +1,34 @@
 watch_config_changes: True
-rendering_backend: Legacy
+rendering_backend: V2
 
 enable_logging: True
 
 global:
-  border_width: 2
+  border_width: 1
   border_offset: -1
   border_radius: Square
   border_z_order: BelowWindow
 
-  active_color: "#DADADA"
+  active_color: "#EFEFEF"
   inactive_color: "#5F5F5F"
 
   initialize_delay: 0
   unminimize_delay: 0
 
-  follow_native_border: False
+  follow_native_border: True
 
   effects:
-    enabled: False
+    enabled: True
     active:
       - type: Shadow
-        blur: 3
+        blur: 1
         spread: 3
-        opacity: 0.9
+        opacity: 1
     inactive:
       - type: Shadow
-        blur: 2
-        spread: 2
-        opacity: 0.6
+        blur: 1
+        spread: 3
+        opacity: 1
 
 window_rules:
   - match: Class
@@ -63,6 +63,6 @@ window_rules:
     name: "seelen-ui"
     enabled: False
 
-  - match: Process
-    name: "Cloudflare WARP"
-    enabled: False
+  - match: Class
+    name: "#32770 (Dialog)"
+    enabled: True

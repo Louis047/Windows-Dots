@@ -1,55 +1,23 @@
 ﻿theme
 {
-	name = "auto"
-	view = view.compact
-	dark = default
-	
-	background
-	{
-		color = auto
-		opacity = 100
-		effect = auto
-	}
-	
+	name="modern"
+	view=auto
+	border.enabled=true
+	border.size=1
+	border.radius=0
+	border.color=#555555
+	layout.popup=-1
+	image.enabled=false
 	item
 	{
-		radius = 0
-		prefix = 0
-		opacity = 100
-		padding = 6
-		margin = 0
+		prefix=0
+		back
+		{
+			normal = #00000000
+			normal.disabled = #00000000
+			select = #00000000
+			select.disabled = #00000000
+		}
 	}
-
-	border
-	{
-		enabled = true
-		size = 1
-		radius = 0
-		color = auto
-		opacity = 100
-	}
-
-	separator
-	{
-		size = 1
-		color = auto
-		opacity = 50
-		margin = [2,2]
-	}
-
-	shadow
-	{
-		enabled = false
-	}
-
-	image
-	{
-		enabled = false
-	}
-
-	layout
-	{
-		popup = -1
-	}
-
+	separator.margin=[8,2]
 }

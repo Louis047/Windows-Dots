@@ -862,7 +862,7 @@
 }
 
 /* Dark */
-.dark .wallpapers-gallery-window {
+.dark.wallpapers-gallery-window {
     background-color: var(--widget_bg);
     border: var(--global_widget_border);
 }
@@ -1656,10 +1656,10 @@ QPushButton {
 
 /* TOOLTIP */
 .tooltip {
-    background-color: var(--tooltip_color);
-    border: var(--global_widget_border);
+    background-color: var(--l-tooltip_color);
+    border: var(--l-tooltip_border);
     border-radius: 0;
-    color: var(--text);
+    color: var(--l-text);
     padding: 4px 8px;
     font-family: "DepartureMono Nerd Font Propo";
     font-size: 11px;
@@ -1667,6 +1667,11 @@ QPushButton {
     margin-top: 4px;
 }
 
+.dark.tooltip {
+    background-color: var(--tooltip_color);
+    border: var(--global_widget_border);
+    color: var(--text);
+}
 
 /* CONTEXT MENU */
 .context-menu,
@@ -1737,6 +1742,34 @@ QPushButton {
 
 .context-menu .menu-checkbox .checkbox:focus {
     outline: none;
+}
+
+/* Dark */
+.dark.context-menu,
+.dark.context-menu .menu-checkbox,
+.dark.context-menu.submenu {
+    background-color: var(--context_menu_bg);
+    color: var(--text);
+    border: var(--global_widget_border);
+}
+
+.dark.context-menu::separator {
+    background-color: var(--context_menu_separator);
+}
+
+.dark.context-menu::item:disabled,
+.dark.context-menu .menu-checkbox .checkbox:disabled {
+    color: var(--context_menu_disabled);
+}
+
+.dark.context-menu .menu-checkbox .checkbox::indicator:unchecked {
+    background-color: var(--context_menu_box_unchecked);
+    border: 1px solid var(--context_menu_separator);
+}
+
+.dark.context-menu .menu-checkbox .checkbox::indicator:checked {
+    background-color: var(--context_menu_box_checked);
+    border: 1px solid var(--context_menu_separator);
 }
 
 

@@ -202,6 +202,7 @@ window_rules:
       - window_title: { equals: "Realtek Audio Console" }
       - window_title: { equals: "Screenbox" }
       - window_process: { equals: "yasb_themes" }
+      - window_process: { regex: "[nN]ana[zZ]ip*" }
 
   # Tiling Required Apps (for UWP Apps)
   - commands: ["set-tiling"]

@@ -1,0 +1,44 @@
+{
+    "apps": {
+        "C:\\Program Files\\AMD\\CNext\\CNext\\RadeonSoftware.exe": {
+            "enabled": false
+        },
+        "C:\\Program Files\\BCUninstaller\\BCUninstaller.exe": {
+            "enabled": false
+        },
+        "C:\\Program Files\\ShareX\\ShareX.exe": {
+            "enabled": false
+        },
+        "C:\\Program Files\\WindowsApps\\NVIDIACorp.NVIDIAControlPanel_8.1.969.0_x64__56jybvy8sckqj\\nvcplui.exe": {
+            "enabled": false
+        },
+        "C:\\Program Files\\YASB\\yasb.exe": {
+            "enabled": false,
+            "name": "YASB",
+            "path": "C:\\Program Files\\YASB\\yasb.exe"
+        }
+    },
+    "def": {
+        "accelerationDefault": false,
+        "accelerationDelta": 70.0,
+        "accelerationMax": 7.0,
+        "animationTime": 360.0,
+        "enabled": true,
+        "horizontalShiftKey": true,
+        "horizontalSmoothing": true,
+        "linesToScroll": 1.0,
+        "name": "",
+        "pulseAlgorithm": true,
+        "pulseNormalize": 1.0,
+        "pulseScale": 3.0,
+        "reverseDirection": false,
+        "stepSize": 120.0
+    },
+    "global": {
+        "globalEnabled": true,
+        "launchOnLogin": false,
+        "showExitNote": false,
+        "showMenuBarIcon": true,
+        "showMinimizeNote": false
+    }
+}

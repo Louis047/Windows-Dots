@@ -796,7 +796,7 @@
 .wifi-widget .widget-container .icon {
     background: transparent;
     padding: 0 1px;
-    font-size: 16px;
+    font-size: 14px;
     font-family: "Segoe Fluent Icons";
     font-weight: 900;
 }
@@ -862,7 +862,7 @@
 }
 
 /* Dark */
-.dark.wallpapers-gallery-window {
+.dark .wallpapers-gallery-window {
     background-color: var(--widget_bg);
     border: var(--global_widget_border);
 }
@@ -989,10 +989,6 @@
 .notification-widget .widget-container {
     background: transparent;
     margin: 3px 0 3px 0;
-}
-
-.notification-widget .icon {
-    font-size: 13px;
 }
 
 
@@ -1270,12 +1266,11 @@
 /* VOLUME & AUDIO MENU */
 .volume-widget .widget-container .icon {
     padding: 0;
-    font-family: "Segoe Fluent Icons";
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .volume-widget .widget-container .label {
-    padding: 0 0 0 1px;
+    padding: 0 0 0 3px;
 }
 
 .volume-slider {

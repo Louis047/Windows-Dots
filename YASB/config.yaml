@@ -199,7 +199,7 @@ widgets:
         alignment: "right"
         direction: "down"
         offset_top: 10
-        offset_left: 79
+        offset_left: 95
         max_title_size: 150
         show_date_time: True
       icons:
@@ -224,7 +224,7 @@ widgets:
       hide_empty: False
       icons:
         new: "\udb80\udc9f"
-        default: "\uf49a"
+        default: "\udb80\udc9c"
       tooltip: False
       callbacks:
         on_left: "toggle_notification"
@@ -526,11 +526,11 @@ widgets:
         enabled: False
         duration: 0
       volume_icons:
-        - "\ue74f"  # Icon for muted
-        - "\ue994"  # Icon for 0-10% volume
-        - "\ue994"  # Icon for 11-30% volume
-        - "\ue994"  # Icon for 31-60% volume
-        - "\ue994"  # Icon for 61-100% volume
+        - "\uf466"  # Icon for muted
+        - "\uf485"  # Icon for 0-10% volume
+        - "\uf485"  # Icon for 11-30% volume
+        - "\uf485"  # Icon for 31-60% volume
+        - "\uf485"  # Icon for 61-100% volume
       audio_menu:
         blur: False
         round_corners: False

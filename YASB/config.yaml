@@ -15,7 +15,7 @@ bars:
     screens: ['*']
     class_name: "yasb-bar"
     alignment:
-      position: "top"
+      position: "bottom"
       align: "center"
     animation:
       enabled: False
@@ -46,10 +46,10 @@ bars:
       width: "100%"
       height: 30
     padding:
-      top: 12
-      left: 12
+      top: 0
+      left: 0
       bottom: 0
-      right: 12
+      right: 0
     widgets:
       left: [
         "power_menu",
@@ -138,9 +138,9 @@ widgets:
         round_corners: False
         border_color: "none"
         alignment: "right"
-        direction: "down"
-        offset_top: 10
-        offset_left: 120
+        direction: "up"
+        offset_top: 6
+        offset_left: 179
         icon_size: 48
         show_hourly_forecast: True
         time_format: "24h"
@@ -197,9 +197,9 @@ widgets:
         round_corners: False
         border_color: "None"
         alignment: "right"
-        direction: "down"
-        offset_top: 10
-        offset_left: 95
+        direction: "up"
+        offset_top: 6
+        offset_left: 86
         max_title_size: 150
         show_date_time: True
       icons:
@@ -256,8 +256,8 @@ widgets:
         round_corners: False
         border_color: "None"
         alignment: "right"
-        direction: "down"
-        offset_top: 10
+        direction: "up"
+        offset_top: 6
         offset_left: 75
       callbacks:
         on_left: "toggle_label"
@@ -292,7 +292,9 @@ widgets:
         show_graph: True
         show_graph_grid: True
         graph_history_size: 60
-        offset_top: 10
+        alignment: "right"
+        direction: "up"
+        offset_top: 6
         offset_left: 120
       label_shadow:
         enabled: True
@@ -322,7 +324,9 @@ widgets:
         show_graph: True
         show_graph_grid: True
         graph_history_size: 60
-        offset_top: 10
+        alignment: "right"
+        direction: "up"
+        offset_top: 6
         offset_left: 120
       label_shadow:
         enabled: True
@@ -382,8 +386,8 @@ widgets:
         round_corners: False
         border_color: "None"
         alignment: "right"
-        direction: "down"
-        offset_top: 10
+        direction: "up"
+        offset_top: 6
         offset_left: 75
       show_battery: False
       show_volume: False
@@ -447,9 +451,9 @@ widgets:
         round_corners: False
         border_color: "None"
         alignment: "left"
-        direction: "down"
-        offset_top: 10
-        offset_left: -27
+        direction: "up"
+        offset_top: 6
+        offset_left: -19
         thumbnail_corner_radius: 0
         thumbnail_size: 140
         max_title_size: 80
@@ -476,9 +480,9 @@ widgets:
         blur: False
         round_corners: False
         alignment: "right"
-        direction: "down"
-        offset_top: 10
-        offset_left: 4
+        direction: "up"
+        offset_top: 6
+        offset_left: -3
         border_color: None
         show_holidays: True
         holiday_color: "#FF6E00"
@@ -534,10 +538,10 @@ widgets:
       audio_menu:
         blur: False
         round_corners: False
-        border_color: 'None'
-        alignment: 'right'
-        direction: 'down'
-        offset_top: 10
+        border_color: "None"
+        alignment: "right"
+        direction: "up"
+        offset_top: 6
         offset_left: 80
       callbacks:
         on_left: "toggle_volume_menu"

@@ -3,7 +3,7 @@
     /* DARK THEME VARIABLES (applied via .yasb-bar.dark or .dark) */
 
     /* Bar */
-    --bar_bg: #000000;
+    --bar_bg: #111012;
     --bar_border: 1px solid #afafaf;
 
     /* Text */
@@ -209,7 +209,6 @@
     padding: 0 4px;
     margin: 0;
     background-color: var(--l-bar_bg);
-    border: var(--l-bar_border);
 }
 
 .yasb-bar .label,
@@ -220,7 +219,6 @@
 /* ── BAR: Dark mode ── */
 .yasb-bar.dark {
     background-color: var(--bar_bg);
-    border: var(--bar_border);
 }
 
 .yasb-bar.dark .label,

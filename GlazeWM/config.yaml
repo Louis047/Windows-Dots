@@ -12,12 +12,12 @@ general:
 
 gaps:
   scale_with_dpi: true
-  inner_gap: "12px"
+  inner_gap: "6px"
   outer_gap:
-    top: "12px"
-    right: "12px"
-    bottom: "12px"
-    left: "12px"
+    top: "8px"
+    right: "8px"
+    bottom: "8px"
+    left: "8px"
 
 window_effects:
   focused_window:
@@ -203,6 +203,10 @@ window_rules:
       - window_title: { equals: "Screenbox" }
       - window_process: { equals: "yasb_themes" }
       - window_process: { regex: "[nN]ana[zZ]ip*" }
+      - window_process: { regex: "gimp*" }
+        window_title: { not_equals: "GNU Image Manipulation Program" }
+      - window_process: { regex: "gimp*" }
+        window_title: { not_regex: "*GIMP" }
 
   # Tiling Required Apps (for UWP Apps)
   - commands: ["set-tiling"]
@@ -237,6 +241,7 @@ window_rules:
     match:
       - window_process: { equals: "VirtualBox" }
       - window_process: { equals: "vmware" }
+      - window_process: { regex: "gimp*" }
   - commands: ["move --workspace 6", "focus --workspace 6"]
     match:
       - window_process: { equals: "Riot Client" }
@@ -489,9 +494,9 @@ keybindings:
   - commands: ["focus --prev-active-workspace"]
     bindings: ["alt+a"]
   - commands: ["move --next-active-workspace", "focus --next-active-workspace"]
-    bindings: ["alt+shift+a"]
-  - commands: ["move --prev-active-workspace", "focus --prev-active-workspace"]
     bindings: ["alt+shift+d"]
+  - commands: ["move --prev-active-workspace", "focus --prev-active-workspace"]
+    bindings: ["alt+shift+a"]
   - commands: ["focus --workspace 1"]
     bindings: ["alt+1"]
   - commands: ["focus --workspace 2"]

@@ -6,10 +6,7 @@
 // @author          Lone
 // @github          https://github.com/Louis047
 // @include         explorer.exe
-// @include         svchost.exe
-// @include         ShellExperienceHost.exe
 // @architecture    x86-64
-// @compilerOptions -lcomctl32
 // ==/WindhawkMod==
 // ==WindhawkModReadme==
 /*
@@ -18,13 +15,13 @@ Selectively disable Windows keyboard shortcuts with individual toggles for each 
 ## Features
 - Disable any Windows key combination
 - Individual toggle for each shortcut
-- Changes apply immediately
+- Changes apply immediately (auto-restarts explorer)
 - Uses multiple hooking strategies for comprehensive coverage
 ## How It Works
-This mod uses a 3-pronged approach to block Windows shortcuts:
-1. **CreateProcessInternalW hook** - Blocks shortcuts that launch host processes (Win+S, Win+.)
-2. **RegisterHotKey hook** - Blocks API-registered hotkeys (Win+V, Win+F, etc.)
-3. **GetMessageW/PeekMessageW hooks** - Intercepts WM_HOTKEY messages for internal shell shortcuts (Win+E, Win+R, Win+D, Win+Tab)
+This mod uses a 3-layer approach to block Windows shortcuts:
+1. **Low-level keyboard hook (WH_KEYBOARD_LL)** - Intercepts Win+A at the keyboard level (only when enabled)
+2. **CreateProcessInternalW hook** - Blocks shortcuts that launch host processes (Win+S, Win+.)
+3. **RegisterHotKey hook** - Blocks API-registered hotkeys at registration time (Win+V, Win+F, Win+E, Win+R, etc.)
 ## Supported Shortcuts
 ### General
 - Win+A through Win+Z (excluding Win, Win+L, Win+Q)
@@ -40,18 +37,18 @@ This mod uses a 3-pronged approach to block Windows shortcuts:
 - Win+Period/Semicolon for Emoji picker
 - Office hotkeys (Ctrl+Shift+Alt+Win)
 ## Notes
-- The mod targets explorer.exe, svchost.exe, and ShellExperienceHost.exe
-- Restart explorer.exe for changes to take full effect on first install
+- Explorer auto-restarts when settings change or mod uninstalls
 - Win key (Start Menu) is handled by the "Block Start Menu and Hosts" mod
 - Win+L (Lock PC) cannot be blocked through standard hooks
 - Win+Q is redundant with Win+S (both open Search)
+- Win+A uses a low-level keyboard hook (same technique as AutoHotkey/PowerToys)
 */
 // ==/WindhawkModReadme==
 // ==WindhawkModSettings==
 /*
 - DisableWinA: false
   $name: Win+A
-  $description: Action Center / Quick Settings
+  $description: Action Center / Quick Settings (uses keyboard hook)
 - DisableWinB: false
   $name: Win+B
   $description: Focus system tray
@@ -468,7 +465,164 @@ void TerminateConfiguredProcesses()
   }
 }
 // ============================================================================
-// LAYER 1: CreateProcessInternalW hook (for process-spawn shortcuts)
+// LAYER 1: Low-level keyboard hook to intercept Win+A
+// Win+A does NOT use RegisterHotKey/WM_HOTKEY - it must be blocked at the
+// keyboard input level using WH_KEYBOARD_LL.
+//
+// CRITICAL: WH_KEYBOARD_LL requires the installing thread to have a message
+// loop! We create a dedicated thread with its own message pump.
+// ============================================================================
+HHOOK g_keyboardHook = NULL;
+HANDLE g_hookThread = NULL;
+DWORD g_hookThreadId = 0;
+volatile bool g_hookThreadRunning = false;
+volatile bool g_winKeyDown = false;
+
+// Extra info marker to identify our own injected keys (if any)
+#define INJECTED_KEY_ID 0xDEADBEEF
+
+LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
+{
+  if (nCode == HC_ACTION)
+  {
+    KBDLLHOOKSTRUCT *pKbd = (KBDLLHOOKSTRUCT *)lParam;
+
+    // Skip keys we injected ourselves
+    if (pKbd->dwExtraInfo == INJECTED_KEY_ID)
+    {
+      return CallNextHookEx(g_keyboardHook, nCode, wParam, lParam);
+    }
+
+    DWORD vkCode = pKbd->vkCode;
+    bool isKeyDown = (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN);
+    bool isKeyUp = (wParam == WM_KEYUP || wParam == WM_SYSKEYUP);
+
+    // Track Windows key state
+    if (vkCode == VK_LWIN || vkCode == VK_RWIN)
+    {
+      if (isKeyDown)
+      {
+        g_winKeyDown = true;
+      }
+      else if (isKeyUp)
+      {
+        g_winKeyDown = false;
+      }
+    }
+
+    // Block Win+A if enabled
+    if (g_winKeyDown && vkCode == 'A' && isKeyDown && g_settings.DisableWinA)
+    {
+      Wh_Log(L"[KeyboardHook] Blocked Win+A");
+      return 1; // Block the key - don't pass to next hook
+    }
+  }
+
+  return CallNextHookEx(g_keyboardHook, nCode, wParam, lParam);
+}
+
+// Thread function that installs the hook and runs a message loop
+DWORD WINAPI KeyboardHookThreadProc(LPVOID lpParam)
+{
+  // Install the low-level keyboard hook from THIS thread
+  g_keyboardHook = SetWindowsHookExW(
+      WH_KEYBOARD_LL,
+      LowLevelKeyboardProc,
+      GetModuleHandleW(NULL),
+      0 // 0 = global hook
+  );
+
+  if (g_keyboardHook)
+  {
+    Wh_Log(L"[KeyboardHook] Installed hook from dedicated thread (tid: %d)", GetCurrentThreadId());
+  }
+  else
+  {
+    Wh_Log(L"[KeyboardHook] Failed to install hook (error: %d)", GetLastError());
+    return 1;
+  }
+
+  g_hookThreadRunning = true;
+
+  // Message loop - REQUIRED for WH_KEYBOARD_LL to receive callbacks
+  MSG msg;
+  while (g_hookThreadRunning && GetMessageW(&msg, NULL, 0, 0))
+  {
+    // Check for our custom quit message
+    if (msg.message == WM_QUIT)
+    {
+      break;
+    }
+    TranslateMessage(&msg);
+    DispatchMessageW(&msg);
+  }
+
+  // Unhook when thread exits
+  if (g_keyboardHook)
+  {
+    UnhookWindowsHookEx(g_keyboardHook);
+    g_keyboardHook = NULL;
+    Wh_Log(L"[KeyboardHook] Unhooked from thread exit");
+  }
+
+  return 0;
+}
+
+void InstallKeyboardHook()
+{
+  if (g_hookThread == NULL && g_settings.DisableWinA)
+  {
+    g_hookThreadRunning = true;
+    g_hookThread = CreateThread(
+        NULL,
+        0,
+        KeyboardHookThreadProc,
+        NULL,
+        0,
+        &g_hookThreadId);
+    if (g_hookThread)
+    {
+      Wh_Log(L"[KeyboardHook] Created hook thread (tid: %d)", g_hookThreadId);
+    }
+    else
+    {
+      Wh_Log(L"[KeyboardHook] Failed to create thread (error: %d)", GetLastError());
+      g_hookThreadRunning = false;
+    }
+  }
+}
+
+void UninstallKeyboardHook()
+{
+  if (g_hookThread)
+  {
+    // Signal the thread to exit
+    g_hookThreadRunning = false;
+
+    // Post WM_QUIT to break the message loop
+    if (g_hookThreadId)
+    {
+      PostThreadMessageW(g_hookThreadId, WM_QUIT, 0, 0);
+    }
+
+    // Wait for thread to exit (with timeout)
+    DWORD waitResult = WaitForSingleObject(g_hookThread, 2000);
+    if (waitResult == WAIT_TIMEOUT)
+    {
+      Wh_Log(L"[KeyboardHook] Thread didn't exit in time, terminating");
+      TerminateThread(g_hookThread, 0);
+    }
+
+    CloseHandle(g_hookThread);
+    g_hookThread = NULL;
+    g_hookThreadId = 0;
+    g_winKeyDown = false;
+    Wh_Log(L"[KeyboardHook] Uninstalled keyboard hook thread");
+  }
+}
+
+// ============================================================================
+// LAYER 2: CreateProcessInternalW hook (for process-spawn shortcuts)
 // Blocks: Win+S (Search), Win+. (Emoji)
 // ============================================================================
 typedef BOOL(WINAPI *CreateProcessInternalW_t)(
@@ -867,359 +1021,58 @@ BOOL WINAPI RegisterHotKey_Hook(HWND hWnd, int id, UINT fsModifiers, UINT vk)
   return RegisterHotKey_Original(hWnd, id, fsModifiers, vk);
 }
 // ============================================================================
-// LAYER 3: GetMessageW/PeekMessageW hooks (for internal WM_HOTKEY messages)
-// Blocks: Win+E, Win+R, Win+D, Win+Tab, Win+Arrow, etc.
+// Explorer restart helper
 // ============================================================================
-// Check if a WM_HOTKEY message should be blocked based on modifiers and vk
-bool ShouldBlockWmHotkey(WORD mods, WORD vk)
+void RestartExplorer()
 {
-  bool hasWin = (mods & MOD_WIN) != 0;
-  bool hasShift = (mods & MOD_SHIFT) != 0;
-  bool hasCtrl = (mods & MOD_CONTROL) != 0;
-  bool hasAlt = (mods & MOD_ALT) != 0;
-  if (!hasWin)
-    return false;
-  // Office hotkeys (Ctrl+Shift+Alt+Win)
-  if (hasCtrl && hasShift && hasAlt && g_settings.DisableOfficeHotkeys)
+  Wh_Log(L"Restarting explorer.exe...");
+
+  // Find and terminate explorer.exe
+  HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+  if (hSnap == INVALID_HANDLE_VALUE)
+    return;
+
+  PROCESSENTRY32W pe;
+  pe.dwSize = sizeof(pe);
+  DWORD explorerPid = 0;
+
+  if (Process32FirstW(hSnap, &pe))
   {
-    // Office hotkey VKs: W, T, Y, O, P, D, L, X, N, SPACE, or no VK
-    if (!vk || vk == 'W' || vk == 'T' || vk == 'Y' || vk == 'O' ||
-        vk == 'P' || vk == 'D' || vk == 'L' || vk == 'X' || vk == 'N' ||
-        vk == VK_SPACE)
+    do
     {
-      return true;
+      if (_wcsicmp(pe.szExeFile, L"explorer.exe") == 0)
+      {
+        explorerPid = pe.th32ProcessID;
+        break;
+      }
+    } while (Process32NextW(hSnap, &pe));
+  }
+  CloseHandle(hSnap);
+
+  if (explorerPid)
+  {
+    HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, FALSE, explorerPid);
+    if (hProcess)
+    {
+      TerminateProcess(hProcess, 0);
+      CloseHandle(hProcess);
+
+      // Wait a moment for explorer to fully terminate
+      Sleep(500);
+
+      // Restart explorer
+      STARTUPINFOW si = {sizeof(si)};
+      PROCESS_INFORMATION pi;
+      if (CreateProcessW(L"C:\\Windows\\explorer.exe", NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi))
+      {
+        CloseHandle(pi.hProcess);
+        CloseHandle(pi.hThread);
+        Wh_Log(L"Explorer restarted successfully");
+      }
     }
   }
-  // Win+Ctrl+Shift combinations
-  if (hasCtrl && hasShift && !hasAlt)
-  {
-    if (vk == 'B' && g_settings.DisableWinCtrlShiftB)
-      return true;
-  }
-  // Win+Shift combinations
-  if (hasShift && !hasCtrl && !hasAlt)
-  {
-    switch (vk)
-    {
-    case 'M':
-      if (g_settings.DisableWinShiftM)
-        return true;
-      break;
-    case 'S':
-      if (g_settings.DisableWinShiftS)
-        return true;
-      break;
-    case VK_LEFT:
-      if (g_settings.DisableWinShiftLeft)
-        return true;
-      break;
-    case VK_RIGHT:
-      if (g_settings.DisableWinShiftRight)
-        return true;
-      break;
-    case VK_UP:
-      if (g_settings.DisableWinShiftUp)
-        return true;
-      break;
-    case VK_DOWN:
-      if (g_settings.DisableWinShiftDown)
-        return true;
-      break;
-    }
-    if (g_settings.DisableWinShiftNumbers && IsNumberKey(vk))
-      return true;
-  }
-  // Win+Ctrl combinations
-  if (hasCtrl && !hasShift && !hasAlt)
-  {
-    switch (vk)
-    {
-    case 'C':
-      if (g_settings.DisableWinCtrlC)
-        return true;
-      break;
-    case 'D':
-      if (g_settings.DisableWinCtrlD)
-        return true;
-      break;
-    case 'N':
-      if (g_settings.DisableWinCtrlN)
-        return true;
-      break;
-    case 'O':
-      if (g_settings.DisableWinCtrlO)
-        return true;
-      break;
-    case 'Q':
-      if (g_settings.DisableWinCtrlQ)
-        return true;
-      break;
-    case 'S':
-      if (g_settings.DisableWinCtrlS)
-        return true;
-      break;
-    case VK_F4:
-      if (g_settings.DisableWinCtrlF4)
-        return true;
-      break;
-    case VK_LEFT:
-      if (g_settings.DisableWinCtrlLeft)
-        return true;
-      break;
-    case VK_RIGHT:
-      if (g_settings.DisableWinCtrlRight)
-        return true;
-      break;
-    case VK_RETURN:
-      if (g_settings.DisableWinCtrlEnter)
-        return true;
-      break;
-    }
-    if (g_settings.DisableWinCtrlNumbers && IsNumberKey(vk))
-      return true;
-  }
-  // Win+Alt combinations
-  if (hasAlt && !hasShift && !hasCtrl)
-  {
-    switch (vk)
-    {
-    case 'B':
-      if (g_settings.DisableWinAltB)
-        return true;
-      break;
-    case 'D':
-      if (g_settings.DisableWinAltD)
-        return true;
-      break;
-    case 'G':
-      if (g_settings.DisableWinAltG)
-        return true;
-      break;
-    case 'K':
-      if (g_settings.DisableWinAltK)
-        return true;
-      break;
-    case 'M':
-      if (g_settings.DisableWinAltM)
-        return true;
-      break;
-    case 'R':
-      if (g_settings.DisableWinAltR)
-        return true;
-      break;
-    case 'T':
-      if (g_settings.DisableWinAltT)
-        return true;
-      break;
-    case VK_SNAPSHOT:
-      if (g_settings.DisableWinAltPrtSc)
-        return true;
-      break;
-    }
-    if (g_settings.DisableWinAltNumbers && IsNumberKey(vk))
-      return true;
-  }
-  // Win + key only
-  if (!hasShift && !hasCtrl && !hasAlt)
-  {
-    switch (vk)
-    {
-    case 'A':
-      if (g_settings.DisableWinA)
-        return true;
-      break;
-    case 'B':
-      if (g_settings.DisableWinB)
-        return true;
-      break;
-    case 'C':
-      if (g_settings.DisableWinC)
-        return true;
-      break;
-    case 'D':
-      if (g_settings.DisableWinD)
-        return true;
-      break;
-    case 'E':
-      if (g_settings.DisableWinE)
-        return true;
-      break;
-    case 'F':
-      if (g_settings.DisableWinF)
-        return true;
-      break;
-    case 'G':
-      if (g_settings.DisableWinG)
-        return true;
-      break;
-    case 'H':
-      if (g_settings.DisableWinH)
-        return true;
-      break;
-    case 'I':
-      if (g_settings.DisableWinI)
-        return true;
-      break;
-    case 'J':
-      if (g_settings.DisableWinJ)
-        return true;
-      break;
-    case 'K':
-      if (g_settings.DisableWinK)
-        return true;
-      break;
-    case 'M':
-      if (g_settings.DisableWinM)
-        return true;
-      break;
-    case 'N':
-      if (g_settings.DisableWinN)
-        return true;
-      break;
-    case 'O':
-      if (g_settings.DisableWinO)
-        return true;
-      break;
-    case 'P':
-      if (g_settings.DisableWinP)
-        return true;
-      break;
-    case 'R':
-      if (g_settings.DisableWinR)
-        return true;
-      break;
-    case 'S':
-      if (g_settings.DisableWinS)
-        return true;
-      break;
-    case 'T':
-      if (g_settings.DisableWinT)
-        return true;
-      break;
-    case 'U':
-      if (g_settings.DisableWinU)
-        return true;
-      break;
-    case 'V':
-      if (g_settings.DisableWinV)
-        return true;
-      break;
-    case 'W':
-      if (g_settings.DisableWinW)
-        return true;
-      break;
-    case 'X':
-      if (g_settings.DisableWinX)
-        return true;
-      break;
-    case 'Y':
-      if (g_settings.DisableWinY)
-        return true;
-      break;
-    case 'Z':
-      if (g_settings.DisableWinZ)
-        return true;
-      break;
-    case VK_TAB:
-      if (g_settings.DisableWinTab)
-        return true;
-      break;
-    case VK_UP:
-      if (g_settings.DisableWinUp)
-        return true;
-      break;
-    case VK_DOWN:
-      if (g_settings.DisableWinDown)
-        return true;
-      break;
-    case VK_LEFT:
-      if (g_settings.DisableWinLeft)
-        return true;
-      break;
-    case VK_RIGHT:
-      if (g_settings.DisableWinRight)
-        return true;
-      break;
-    case VK_HOME:
-      if (g_settings.DisableWinHome)
-        return true;
-      break;
-    case VK_OEM_COMMA:
-      if (g_settings.DisableWinComma)
-        return true;
-      break;
-    case VK_PAUSE:
-      if (g_settings.DisableWinPause)
-        return true;
-      break;
-    case VK_OEM_PLUS:
-      if (g_settings.DisableWinPlus)
-        return true;
-      break;
-    case VK_OEM_MINUS:
-      if (g_settings.DisableWinMinus)
-        return true;
-      break;
-    case VK_ESCAPE:
-      if (g_settings.DisableWinEsc)
-        return true;
-      break;
-    case VK_SPACE:
-      if (g_settings.DisableWinSpace)
-        return true;
-      break;
-    case VK_OEM_PERIOD:
-      if (g_settings.DisableWinPeriod)
-        return true;
-      break;
-    case VK_OEM_1:
-      if (g_settings.DisableWinSemicolon)
-        return true;
-      break;
-    case VK_SNAPSHOT:
-      if (g_settings.DisableWinPrtSc)
-        return true;
-      break;
-    }
-    if (g_settings.DisableWinNumbers && IsNumberKey(vk))
-      return true;
-  }
-  return false;
 }
-typedef BOOL(WINAPI *GetMessageW_t)(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax);
-GetMessageW_t GetMessageW_Original;
-BOOL WINAPI GetMessageW_Hook(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax)
-{
-  BOOL ret = GetMessageW_Original(lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax);
-  if (ret && lpMsg && lpMsg->message == WM_HOTKEY)
-  {
-    WORD mods = LOWORD(lpMsg->lParam);
-    WORD vk = HIWORD(lpMsg->lParam);
-    if (ShouldBlockWmHotkey(mods, vk))
-    {
-      Wh_Log(L"[GetMessageW] Blocked WM_HOTKEY: mods=0x%X, vk=0x%X", mods, vk);
-      lpMsg->message = WM_NULL;
-    }
-  }
-  return ret;
-}
-typedef BOOL(WINAPI *PeekMessageW_t)(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax, UINT wRemoveMsg);
-PeekMessageW_t PeekMessageW_Original;
-BOOL WINAPI PeekMessageW_Hook(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax, UINT wRemoveMsg)
-{
-  BOOL ret = PeekMessageW_Original(lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax, wRemoveMsg);
-  if (ret && lpMsg && (wRemoveMsg & PM_REMOVE) && lpMsg->message == WM_HOTKEY)
-  {
-    WORD mods = LOWORD(lpMsg->lParam);
-    WORD vk = HIWORD(lpMsg->lParam);
-    if (ShouldBlockWmHotkey(mods, vk))
-    {
-      Wh_Log(L"[PeekMessageW] Blocked WM_HOTKEY: mods=0x%X, vk=0x%X", mods, vk);
-      lpMsg->message = WM_NULL;
-    }
-  }
-  return ret;
-}
+
 // ============================================================================
 // Windhawk mod entry points
 // ============================================================================
@@ -1229,7 +1082,12 @@ BOOL Wh_ModInit()
   LoadSettings();
   // Terminate any existing host processes based on settings
   TerminateConfiguredProcesses();
-  // LAYER 1: Hook CreateProcessInternalW for process-spawn shortcuts
+
+  // LAYER 1: Install low-level keyboard hook for Win+A
+  // Win+A doesn't use RegisterHotKey/WM_HOTKEY - must be blocked at keyboard level
+  InstallKeyboardHook();
+
+  // LAYER 2: Hook CreateProcessInternalW for process-spawn shortcuts
   HMODULE hKernelBase = GetModuleHandleW(L"kernelbase.dll");
   if (hKernelBase)
   {
@@ -1244,30 +1102,15 @@ BOOL Wh_ModInit()
       Wh_Log(L"Failed to find CreateProcessInternalW");
     }
   }
-  // LAYER 2 & 3: Hook user32.dll functions
+  // LAYER 3: Hook RegisterHotKey to block hotkey registration
   HMODULE hUser32 = GetModuleHandleW(L"user32.dll");
   if (hUser32)
   {
-    // RegisterHotKey hook
     void *pRegisterHotKey = (void *)GetProcAddress(hUser32, "RegisterHotKey");
     if (pRegisterHotKey)
     {
       Wh_SetFunctionHook(pRegisterHotKey, (void *)RegisterHotKey_Hook, (void **)&RegisterHotKey_Original);
       Wh_Log(L"Hooked RegisterHotKey");
-    }
-    // GetMessageW hook
-    void *pGetMessageW = (void *)GetProcAddress(hUser32, "GetMessageW");
-    if (pGetMessageW)
-    {
-      Wh_SetFunctionHook(pGetMessageW, (void *)GetMessageW_Hook, (void **)&GetMessageW_Original);
-      Wh_Log(L"Hooked GetMessageW");
-    }
-    // PeekMessageW hook
-    void *pPeekMessageW = (void *)GetProcAddress(hUser32, "PeekMessageW");
-    if (pPeekMessageW)
-    {
-      Wh_SetFunctionHook(pPeekMessageW, (void *)PeekMessageW_Hook, (void **)&PeekMessageW_Original);
-      Wh_Log(L"Hooked PeekMessageW");
     }
   }
   Wh_Log(L"Mod initialization complete");
@@ -1276,11 +1119,19 @@ BOOL Wh_ModInit()
 void Wh_ModUninit()
 {
   Wh_Log(L"Uninitializing Disable Windows Shortcuts mod");
-  // Hooks are automatically removed by Windhawk
+  // Uninstall keyboard hook
+  UninstallKeyboardHook();
+  // Restart explorer to restore all hotkeys that were blocked
+  RestartExplorer();
 }
 void Wh_ModSettingsChanged()
 {
-  Wh_Log(L"Settings changed, reloading...");
+  Wh_Log(L"Settings changed, restarting explorer to apply...");
+  // Update keyboard hook based on new settings
+  UninstallKeyboardHook();
   LoadSettings();
+  InstallKeyboardHook();
   TerminateConfiguredProcesses();
+  // Restart explorer to re-register hotkeys with new settings
+  RestartExplorer();
 }

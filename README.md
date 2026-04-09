@@ -5,21 +5,23 @@
 > 2. `$USER` - Your User Name
 > 3. If `$PROFILE` doesn't exist, use this command to create a profile for powershell `New-Item -Path $PROFILE -Type File -Force`
 > 4. If the above command doesn't work, allow Powershell to sign remote scripts `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine` 
-> 5. Make sure to create `.env` for YASB in its default director as some widgets like `weather` rely on it. Documentation [here](https://github.com/amnweb/yasb/wiki/Configuration#environment-variables-support)
+> 5. Make sure to create `.env` for YASB in its default director as some widgets rely on it for privacy and compatibility reasons. Documentation [here](https://github.com/amnweb/yasb/wiki/Configuration#environment-variables-support)
 
 
-### Tools Used:
+## Tools Used:
 - [AltSnap](https://github.com/RamonUnch/AltSnap) - Resizing window with `Alt` Key, with ease
   
 - [ExplorerPatcher](https://github.com/valinet/ExplorerPatcher) - A good customization tool for Windows 10/11 with extensible features
 
+- [Everything](https://www.voidtools.com/) - Replacement for Windows Search Indexing. Fastest and Lightest. Using Alpha version. 
+
 - [Fastfetch](https://github.com/fastfetch-cli/fastfetch) - A good CLI tool to fetch information about your system.
 
-- [Flow Launcher](https://github.com/Flow-Launcher/Flow.Launcher) - Powetoys Run, but way better
+- [Flow Launcher](https://github.com/Flow-Launcher/Flow.Launcher) - Powetoys Run, but way better with plugins support
 
 - [GlazeWM](https://github.com/glzr-io/glazewm) - i3-like window tiling manager, built using Rust
 
-- [GlazeWM Autotiler](https://github.com/Dutch-Raptor/GAT-GWM) - Implements automatic tiling to GlazeWM
+- [GAT-GWM](https://github.com/Dutch-Raptor/GAT-GWM) - Auto-tiler support for GlazeWM
   
 - [MacType](https://github.com/snowie2000/mactype) - If you love MacOS and want better font rendering, this software is a heaven. Recently brought back from dead. Really recommend this. (even though their website is dead, good to see this project active in github)
 
@@ -31,63 +33,105 @@
 
 - [Thide](https://github.com/amnweb/thide) - Another goated tool by YASB dev, a lightweight tool to hide taskbar permanently
 
-- [WindHawk](https://github.com/ramensoftware/windhawk) - Windows Customization made easy. Every user should try this
+- [Windhawk](https://github.com/ramensoftware/windhawk) - Windows Customization made easy. Every user should try this
 
 - [Yet Another Status Bar](https://github.com/amnweb/yasb) - A status bar with customizations and extensible features, built using Python
 
 ---
-### Preview:
+## Preview:
 
-![PIC 1](https://github.com/Louis047/Windows-Dots/blob/main/Images/Updated-Dots-1.png)
+![PIC 1](https://github.com/Louis047/Windows-Dots/blob/main/Assets/Updated-Dots-1.png)
 
-![PIC 2](https://github.com/Louis047/Windows-Dots/blob/main/Images/Updated-Dots-2.png)
+![PIC 2](https://github.com/Louis047/Windows-Dots/blob/main/Assets/Updated-Dots-2.png)
 
-![PIC 3](https://github.com/Louis047/Windows-Dots/blob/main/Images/Updated-Dots-3.png)
+![PIC 3](https://github.com/Louis047/Windows-Dots/blob/main/Assets/Updated-Dots-3.png)
 
-![PIC 4](https://github.com/Louis047/Windows-Dots/blob/main/Images/Updated-Dots-4.png)
+![PIC 4](https://github.com/Louis047/Windows-Dots/blob/main/Assets/Updated-Dots-4.png)
 
-![PIC 5](https://github.com/Louis047/Windows-Dots/blob/main/Images/Updated-Dots-5.png)
+![PIC 5](https://github.com/Louis047/Windows-Dots/blob/main/Assets/Updated-Dots-5.png)
 
 ---
-### Rice Setup Guide
-
-### Automated
+## Rice Setup Guide
 
 TO-DO: Add Automation Script `install.ps1` with interactive TUI, not sure if it should be run as admin. Some cannot be done automatically as it requires manual intervention.
 
-### Manual
+If you want to have more control over installing, follow the guide provided below. Almost everything is covered.
 
-Follow the below steps if you prefer to install stuff manually.
-
+---
 #### Discord
 Paste the content from `no_rounded.css` from `Backups` to any Discord client that has QuickCSS support, `Vesktop` / `Equibop` recommended
 
-
 ---
 #### ExplorerPatcher
-Import the `reg` file from the directory to the application to use simple alt+tab behavior 
-
+Import the `reg` file from `Configurations\ExplorerPatcher` directory to the application to use simple alt+tab behavior 
 
 ---
 #### Flow Launcher
-For an optimal search, make changes to the following plugins
-- Web Searches - Change action keyword for google from `*` to `gg`
-- Program - Index Sources: Tick `UWP Apps`, `Start Menu`, `Registry`; Options: Tick `Hide App Path`, `Hide Uninstallers`, `Hide Duplicated Apps`
 
 Recommended Plugins
 - AnyVideo Downloader
 - Clipboard+
+- Colors
+- CurrencyPP
+- DayNight Toggle
 - Emoji+
+- Env
+- Google Meet Creator
+- Lorem Ipsum Generator
+- Nicknames Generator
+- Speed Test
+- StringUtils
 - Temp Cleaner - If using `scoop` add this location to the Temp Folders list `C:\Users\$USER\scoop\cache`
-- Windows Terminal Profiles 
+- Uninstaller+
+- Win Hotkey
+- Windows Services Manager
+- Windows Terminal Profiles
 
-To apply the theme, navigate to `FlowLauncher` directory where it contains the necessary steps documented as images
+Changes to be made to the plugins manually:
+- AnyVideo Downloader
+  - Download Path: `%USERPROFILE%\Videos\Downloads`
+- Clipboard+
+  - Action Keyword: cp
+  - List max records: 100
+  - Uncheck Windows Clipboard-related options
+  - Check Encrypt data in the database
+  - Keep text: 1 hour
+  - Keep Assets: 1 hour
+  - Keep files: 1 hour 
+- Emoji+
+  - Action Keyword: :
+- Explorer
+  - General Settings
+    - Uncheck 1st and 3rd option
+    - Index Search Engine: Everything
+    - Content Search Engine: Everything
+    - Directory Recursive Search Engine: Everything
+    - Maximum Results: 50
+  - Everything Setting
+    - Check both the options
+- Plugins Manager
+  - Check all options
+- Program 
+  - For optimal search with correct results, follow the options below
+    - Index Sources: Tick `UWP Apps`, `Start Menu`, `Registry`
+    - Options: Tick `Hide App Path`, `Hide Uninstallers`, `Hide Duplicated Apps`
+- Shell
+  - Check only Always run as administrator option
+- Temp Cleaner
+  - Add the following directories, separated by `;`
+    - `%LOCALAPPDATA%\Temp`
+    - `C:\Windows\Prefetch`
+    - `%USERPROFILE%\scoop\cache` (if using scoop)
+    - [MORE TO BE ADDED]
+- Web Searches 
+  - Change action keyword for google from `*` to `gg`
+  - Max Suggestions: 5
+  - Check Use Search Query Autocomplete
+  - Autocomplete Data from: Google
+- Win Hotkey
+  - Maximum press time to trigger flow (ms): Leave Blank
 
-
----
-#### GlazeWM
-Save the `launch_glazewm.vbs` script from `Backups` directory to `Documents\VBS-Scripts` and follow the steps in  `Task-Scheduler-Configs` for it to importh its task. This to ensure the fastest startup for it. The current and traditional methods for GlazeWM is horrendously slow and this is the best one I found. 
-
+To apply the theme, navigate to `Configurations\FlowLauncher` directory where it contains the necessary steps documented as Assets
 
 ---
 #### GlazeWM Autotiler
@@ -95,13 +139,12 @@ To install this, you have to install `rustup` and `cargo` then use the below com
 ```
 cargo install --git https://github.com/Dutch-Raptor/GAT-GWM.git --features=no_console
 ```
-Have already done the required configurations for it in GlazeWM
-
+Configuration uses this already so works out-of-the-box. Make sure to install this first before using GlazeWM.
 
 ---
 #### Nilesoft Shell
-Paste the config into the app directory. Make sure to open them as admin. 
-
+- Copy `theme.nss` and `shell.nss`
+- Paste in the directory where the app is present. Usually in `C:\Program Files\Nilesoft Shell`
 
 ---
 #### Oh My Posh
@@ -122,13 +165,8 @@ if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
 > [!NOTE]
 > I recommend to install `oh-my-posh` with `scoop` package manager as the configuration is provided according to that. You can test with other type of installation and let me know of any issues!
 
-
 ---
-#### SmoothScroll
-Save both the scripts from `Backups` directory to `Documents\VBS-Scripts` and follow the steps in `Task-Scheduler-Configs` for importing their tasks. This is to ensure you can use this tool with a faster startup and permanently. 
-
----
-#### Task Scheduler
+#### Tasks-Scripts
 Made changes from the base `AltDrag` config to be optimal for both desktop and laptop users, made for the below list:
 - AltSnap
 - Block-WinTab
@@ -137,6 +175,9 @@ Made changes from the base `AltDrag` config to be optimal for both desktop and l
 - Tacky-Borders
 
 All run with the highest privileges to ensure the modifications cover all apps by default. 
+
+Save the Scripts in the following directory: `Documents\VBS-Scripts`
+
 ---
 #### Thide
 Open Powershell and type this command
@@ -145,95 +186,151 @@ thide enable-autostart
 ```
 This adds thide to startup to hide taskbar permanently everytime, runs in tray
 
-
----
-#### VSCode
-1. Install `VSCode Tweaker` mod from Windhawk
-2. Go to mod settings and change the css to Inline
-3. Paste the `no_rounded.css` content into it 
-4. Restart VSCode to apply (If open)
-
-
 ---
 #### Windhawk
 Some useful mods I found for my Windows workflow
 - "Sign in with a passkey" Blocker - add `zen.exe` to process exclusion list
 - Alt + Tab per monitor
-- Block Win + V - I prefer Flow Launcher clipboard
-- Center Titlebar
-- Control Panel Color Fix
+- Auto Custom Titlebar Colors
+- Better Dialogs
+- Better file sizes in Explorer details
+- Block Start Menu and Hosts
+- Classic Explorer navigation bar (Only for Windows 11)
+- Context Menu Preloader
 - CTRL+SHIFT+C Quotes remover - really handy
 - Customize Windows Notification Placement
-- Dark Mode Context Menus
 - Dark Mode for Notepad
-- Disable rounded corners in Windows 11 - I hate rounded corners with a square monitors so yes 
-- Disable Virtual Desktop Transition Animation
-- Disable Voice Access Hotkey
+- Dark Paint
+- Disable rounded corners in Windows 11 (Only for Windows 11)
 - Disable Windows Ink Modifier Tooltips
-- Explorer breadcrumbs Middle-Click New Tab
-- Explorer Font Changer - Very useful to change fonts system-wide (almost). I prefer `Inter Display`
+- Disable Windows Shortcuts (Local Mod)
 - F1 Blocker
-- Fix white flashes in explorer
+- Fix Basic Caption Text
+- Fix Darkmode ListViews
+- Hide Home,Gallery & OneDrive in Explorer
+- Legacy Shell Message Boxes
 - Message Box Fix
 - No Focus Rectangle
 - No Properties Icon
 - No Run Icon
+- Notepad Multi-Select
+- Old Auto Colorization
 - Primary Taskbar on Second Monitor
 - RegEdit Auto Trim Whitespace
+- Resource Redirect
 - Select filename extension on double F2
-- Show All Apps by Default in Start Menu
+- Shell Animation Disabler
+- Show All Apps by Default in Start Menu (Only for Windows 11)
+- Shrink Address Bar Height
 - Smart Copy and Paste
-- Start Menu open location - Monitor 0
-- Start Menu Size - Width: 450 Height: 650
+- Smooth Scroll for Win32
+- Start Menu open location 
+- Start Menu Size 
 - Taskbar Height and Icon Size
-- Taskbar on top
-- Taskbar Tray System Icon Tweaks - Toggle everything on
+- Taskbar on top (Only for Windows 11)
+- Taskbar Tray System Icon Tweaks (Only for Windows 11)
 - Turn off change file extension warning
-- UXTheme Hook (For Implementing Windows 10 theme for 11. Theme Link: [10ThemesFor11](https://github.com/SandTechStuff/10ThemeFor11))
-- Windows 11 Custom Title Bar Colors
-- Windows 11 File Explorer Styler - To remove rounded borders (still buggy and yet to fix)
-- Windows 11 Notification Center Styler - Use this to change border to square for and `Action Center` and `Toast Notifications`
-- Windows 11 Start Menu Styler - To remove rounded borders for it as well 
-- Windows 11 Taskbar Styler - To make taskbar transparent and configure border for `Flyouts`
+- UXTheme Hook (For Implementing Windows 10 theme for 11. Theme Link: [10ThemesFor11](https://github.com/SandTechStuff/10ThemeFor11)) (Only for Windows 11)
+- VSCode Tweaker
+- Windhawk UI Tweaker (Fork of VSCode Tweaker)
+- Windows 11 Old Task Manager (Only for Windows 11)
+- Windows 11 Notification Center Styler (Only for Windows 11)
+- Windows 11 Start Menu Styler (Only for Windows 11)) 
+- Windows 11 Taskbar Styler (Only for Windows 11)
+- Windows 7 Command Bar
+- Word PDF Lossless Export
 
-For square corners in other windows elements (Action Center, Flyouts, Start Menu), copy the respective file content from `Windhawk` directory and paste it in Advanced Settings --> Mod Settings in the following mods
-- Action Center - Windows 11 Notification Center Styler
+For square corners in other windows elements (Action Center, Flyouts, Start Menu), copy the respective file content from `Configurations\Windhawk\mod-configs` directory. Paste them in respective mods in Settings set as Textual mode for easy config application. 
+
+Below are the mods associated with the configs
+- Action Center, Toast Notifications and Notification Center - Windows 11 Notification Center Styler
 - Volume and Brightness Flyouts - Windows 11 Taskbar Styler
-- Start Menu and other elements - Windows 11 Start Menu Styler
+- Start Menu and Lock Screen - Windows 11 Start Menu Styler
 - File explorer - Windows 11 File Explorer Styler
 
-Changes to be made from some mods
-- Customize Windows Notification Placement - Use the following settings
+Changes to be made for the mods manually
+- Alt+Tab per monitor
+  - Display Location: Where cursor is located
+  - Windows to show: Windows from the monitor wheere cursor is located
+- Auto Custom Titlebar Colors - 
+  - Add the following processes to custom exclusion list
+    - notepad.exe (If using UWP version)
+    - Taskmgr.exe (If using UWP version)
+    - zen.exe
+- Better Dialogs
+  - Replace Message Boxes with Task Dialogs: On
+  - Use modern folder picker dialog: On 
+- Better file sizes in Explorer details
+  - Show folder sizes: Enabled via `Everything` integration (Install Everything Alpha for best performance)
+  - Mix files and folders when sorting by size: On
+  - Use MB/GB for large files: On
+- Block Start menu and Hosts
+  - All On
+- Classic Explorer navigation bar
+  - Explorer style: Classic ribbon UI (no tabs)
+- Customize Windows Notification Placement
   - Monitor: 0
   - Horizontal placement: Right
-  - Distance from right/left: -8
+  - Distance from right/left: 4
   - Vertical placement: Top
-  - Distance from bottom/top: -22
+  - Distance from bottom/top: -14
   - Notification appearance animation: Automatic
-- Smart Copy and Paste - Toggle the following options enabled
+- Fix Basic Caption Text
+  - Small window icons: On
+- Message Box Fix
+  - Message box style: Windows 7-10 1703
+- No Properties Icon
+  - Remove window icon from all property sheets: On
+- Old Auto Colorization
+  - Auto colorization mode: Windows 10 1507-1803
+- Resource Redirect
+  - Icon theme: Paper (by niivu)
+- Shell Animation Disabler
+  - All On
+- Smart Copy and Paste
   - Remove Tracking Parameters
   - Auto-trim whitespace
-- "Sign in with a passkey" Blocker - add `zen.exe` to process exclusion list
-- Taskbar Height and Icon Size - Set taskbar height and all other elements to `-1`. Then use `thide` to completely hide it. This is to ensure taskbar isn't visible anymore at any time.
-- Taskbar Tray System Icon Tweaks - Hide everything
-- Windows 11 Custom Title Bar Colors - For this make sure to add the following process in exclusion list in Advanced tab
-  - notepad.exe
-  - Taskmgr.exe
-- Windows 11 File Explorer Styler - Set Translucent background effect to `None` to utilize Windows 11 Custom Title Bar Colors mod color.
-
-
+- Smooth Scroll for Win32
+  - V-Sync: On
+- Start menu open location
+  - Monitor: 0
+- Start Menu Size
+  - Start menu width: 450
+  - Start menu height: 650
+- "Sign in with a passkey" Blocker 
+  - add `zen.exe` to process exclusion list
+- Taskbar Height and Icon Size 
+  - Set taskbar height and all other elements to `-1`. Then use `thide` to completely hide it. This is to ensure taskbar isn't visible anymore at any time.
+- Taskbar Tray System Icon Tweaks 
+  - All On
+- VSCode Tweaker
+  - Add `Antigravity.exe` to custom process inclusion list
+  - Code Snippets
+    - Snippet Type: Javascript
+    - Snippet Source: Inline code
+    - Snippet Code: Inside `Configurations\VSCode` directory, paste it in the input box
+- Windhawk UI Tweaker
+  - Fork VSCode Tweaker and do the following to the code
+    - Replace `Code.exe` with `VSCodium.exe`
+    - Code Snippets
+      - Snippet Type: Electron main.js
+      - Snippet Source: Inline code
+      - Snippet Code: Inside `Configurations\VSCode` directory, paste it in the input box
+  - Forking VSCode Tweaker Mod is necessary as from my testing, adding `VSCodium.exe` to VSCode Tweaker shows a warning everytime but works. It's annoying, this is the better way.
 
 ---
 #### Windows Terminal
-In Settings, go to Rendering section and change Graphics API to `Direct2D` to fix font rendering issues
-
+1. In Settings, go to Rendering section and change Graphics API to `Direct2D` to fix font rendering issues
+2. Use `Dark+` color scheme for best colors
+3. For `micro`
+   - Open Command Bar with `Ctrl+e`
+   - Type `set colorscheme geany`
+   - Restart
 
 ---
 #### YASB
-1. To use wallpaper widget, save them in this location `$env:USERPROFILE/Pictures/Wallpapers/Home Screen` 
-2. Most of the widgets are customized for you, and YASB has the ability to choose your own widgets on runtime via the context menu in bar
-3. For `clock` widget, the country code uses `YASB_CAL_COUNTRY_CODE` variable. Make sure to set a country code in your `.env` file. Check docs [here](https://docs.yasb.dev/latest/configuration)
-
+1. To use wallpaper gallery, save them here: `$env:USERPROFILE/Pictures/Wallpapers/Home Screen` 
+2. For `clock` widget, the country code uses `YASB_CAL_COUNTRY_CODE` variable. Make sure to set a country code in your `.env` file. Check docs [here](https://docs.yasb.dev/latest/configuration)
 
 ---
 #### Zen Browser
@@ -247,7 +344,7 @@ Some changes in settings required for a good tiling experience
   - `extensions.webextensions.restrictedDomains` : 	accounts-static.cdn.mozilla.net,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,sync.services.mozilla.com (to ensure stylus includes mozilla related websites as well, except for other restricted services)
   - `widget.prefer_windows_on_current_virtual_desktop` : false (to fix url links opening in new window when using windows with tiling window managers)
 2. Follow the guide here to utilize `userChrome.css` and `userContent.css`: [Live Editing Zen Theme](https://docs.zen-browser.app/guides/live-editing#step-4-edit-the-userchromecss-file)
-3. Paste the zen browser snippets in the `chrome` directory of your current profile
+3. Paste the zen browser snippets from `Configurations\ZenBrowser\Hard Backup` directory to your current profile (You can find you current active profile from `about:profiles`)
     - `<profile>\chrome\userChrome.css`
     - `<profile>\chrome\userContent.css`
 
@@ -275,4 +372,3 @@ If not using Sine Mods
 - Left Side Glance
 - No Sidebar Scrollbar
 - Remove Tab X - set for pinned tabs only
-

@@ -2,17 +2,14 @@
 *::before,
 *::after {
     border-radius: 0 !important;
-    /* font-family: "DepartureMono Nerd Font Propo" !important; */
     font-weight: 500 !important;
 }
-
 [class*="guilds"] [class*="wrapper"],
 [class*="guilds"] [class*="childWrapper"],
 [class*="guilds"] svg,
 [class*="guilds"] img {
     border-radius: 50% !important;
 }
-
 [class*="numberBadge"],
 [class*="unreadBadge"] {
     border-radius: 50% !important;
@@ -23,53 +20,43 @@
     justify-content: center !important;
     padding: 0 !important;
 }
-
 [class*="avatar"] img,
 [class*="avatar"] svg,
 [class*="avatar"] {
     border-radius: 50% !important;
 }
-
 [class*="guilds"] [class*="pill"] span {
     width: 8px !important;
     height: 8px !important;
     border-radius: 50% !important;
     transition: height 180ms ease, width 180ms ease, border-radius 180ms ease;
 }
-
 [class*="guilds"] [class*="listItem"]:hover [class*="pill"] span {
     width: 9px !important;
     height: 20px !important;
     border-radius: 100% !important;
 }
-
 [class*="guilds"] [class*="listItem"]:has([aria-selected="true"]) [class*="pill"] span {
     width: 8px !important;
     height: 30px !important;
     border-radius: 6px !important;
 }
-
 [class*="guilds"] [class*="pill"] {
     align-items: center !important;
 }
-
 [class*="guilds"] [class*="folder"] {
     border-radius: 0 !important;
     background: transparent;
 }
-
 li[class*="containerDefault"] [class*="unread"] {
     display: none !important;
 }
-
 div[class*="circleIconButton"] {
     border-radius: 50% !important;
 }
-
 div[class*="circleIconButton"] svg {
     border-radius: 50% !important;
 }
-
 .panels__5e434 {
     right: 0;
     left: 0;
@@ -113,8 +100,8 @@ div[class*="circleIconButton"] svg {
 }
 
 /* Last item padding for normal mode without scrollerSpacer */
-[class*="scrollerInner"]>li:last-child,
-[class*="scrollerInner"]>[class*="messageListItem"]:last-child {
+[class*="scrollerInner"] > li:last-child,
+[class*="scrollerInner"] > [class*="messageListItem"]:last-child {
     padding-bottom: 36px !important;
 }
 
@@ -197,12 +184,10 @@ div[class^="audioButtonParent__"] button[role="switch"] ~ button {
     padding: 0 !important;
     margin: 0 !important;
 }
-
 [class*="panels"] [class*="container"] [class*="button"] svg {
     width: 18px !important;
     height: 18px !important;
 }
-
 [class*="panels"] [class*="container"] [class*="buttons"] {
     gap: 2px !important;
 }
@@ -211,15 +196,12 @@ div[class^="audioButtonParent__"] button[role="switch"] ~ button {
 ::-webkit-scrollbar {
     display: none !important;
 }
-
 ::-webkit-scrollbar-track {
     display: none !important;
 }
-
 ::-webkit-scrollbar-thumb {
     display: none !important;
 }
-
 * {
     scrollbar-width: none !important;
 }
@@ -227,4 +209,42 @@ div[class^="audioButtonParent__"] button[role="switch"] ~ button {
 /* Remove text overflow ellipsis */
 * {
     text-overflow: clip !important;
+}
+
+/* Primary method: Discord's own theme class selectors */
+.theme-dark {
+    --background-primary: #444444 !important;
+    --background-secondary: #3a3a3a !important;
+    --background-secondary-alt: #3a3a3a !important;
+    --background-tertiary: #2e2e2e !important;
+    --channeltextarea-background: #3a3a3a !important;
+}
+
+.theme-light {
+    --background-primary: #bbbbbb !important;
+    --background-secondary: #c5c5c5 !important;
+    --background-secondary-alt: #c5c5c5 !important;
+    --background-tertiary: #d1d1d1 !important;
+    --channeltextarea-background: #c5c5c5 !important;
+}
+
+/* Secondary method: OS-level media query fallback */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-primary: #444444 !important;
+        --background-secondary: #3a3a3a !important;
+        --background-secondary-alt: #3a3a3a !important;
+        --background-tertiary: #2e2e2e !important;
+        --channeltextarea-background: #3a3a3a !important;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-primary: #bbbbbb !important;
+        --background-secondary: #c5c5c5 !important;
+        --background-secondary-alt: #c5c5c5 !important;
+        --background-tertiary: #d1d1d1 !important;
+        --channeltextarea-background: #c5c5c5 !important;
+    }
 }

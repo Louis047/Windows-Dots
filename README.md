@@ -252,7 +252,7 @@ Changes to be made for the mods manually
 - Alt+Tab per monitor
   - Display Location: Where cursor is located
   - Windows to show: Windows from the monitor wheere cursor is located
-- Auto Custom Titlebar Colors - 
+- Auto Custom Titlebar Colors
   - Add the following processes to custom exclusion list
     - notepad.exe (If using UWP version)
     - Taskmgr.exe (If using UWP version)

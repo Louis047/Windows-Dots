@@ -15,7 +15,7 @@ bars:
     screens: ['*']
     class_name: "yasb-bar"
     alignment:
-      position: "bottom"
+      position: "top"
       align: "center"
     animation:
       enabled: False
@@ -591,18 +591,23 @@ widgets:
       label: "\ue62a"
       uptime: True
       show_user: True
-      profile_image_size: 160
-      menu_style: "fullscreen"
-      blur: False
-      blur_background: True
-      animation_duration: 50
-      button_row: 3
+      profile_image_size: 72
+      menu_style: "popup"
+      uptime: True
+      popup:
+        blur: False
+        round_corners: False
+        border_color: "None"
+        alignment: "left"
+        direction: "up"
+        offset_top: 6
+        offset_left: 0
       buttons:
+        restart: ["\uead2", "Restart"]
         lock: ["\uf456", "Lock"]
         sleep: ["\uf4ee", "Sleep"]
         signout: ["\uf08b", "Sign out"]
         shutdown: ["\uf011", "Shut Down"]
-        restart: ["\uead2", "Restart"]
         cancel: ["\udb81\udf3a", "Cancel"]
       label_shadow:
         enabled: True

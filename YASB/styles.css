@@ -249,111 +249,97 @@
     font-family: "JetBrainsMono NFP";
 }
 
-/* ── Overlay background ── */
 /* Light */
-.power-menu-overlay {
-    background-color: var(--l-power_menu_overlay_bg);
+.power-menu-compact {
+    min-width: 180px;
+    background-color: var(--l-popup_bg);
+    border: var(--global_widget_border);
 }
 
-/* Dark */
-.dark .power-menu-overlay {
-    background-color: var(--power_menu_overlay_bg);
+.power-menu-compact .profile-info {
+    padding: 18px 16px 12px 16px;
+    border-bottom: 1px solid var(--l-notes_border);
 }
 
-/* ── Profile info ── */
-.power-menu-popup .profile-info {
-    padding: 0 0 16px 0;
-    background-color: transparent;
-    margin-bottom: 16px;
-}
-
-/* Light */
-.power-menu-popup .profile-info .profile-username {
-    font-size: 32px;
-    font-weight: 750;
-    color: var(--l-power_menu_text);
-    margin-bottom: 12px;
-    margin-top: 24px;
-}
-
-.power-menu-popup .profile-info .profile-account-type {
-    font-size: 18px;
-    color: var(--l-power_menu_text);
-    font-weight: 600;
-}
-
-/* Dark */
-.dark .power-menu-popup .profile-info .profile-username {
-    color: var(--power_menu_text);
-}
-
-.dark .power-menu-popup .profile-info .profile-account-type {
-    color: var(--power_menu_text);
-}
-
-/* ── Popup container ── */
-.power-menu-popup {
-    background: transparent;
-    margin-bottom: 56px;
-}
-
-/* ── Buttons ── */
-/* Light */
-.power-menu-popup .button {
-    padding: 0;
-    width: 180px;
-    height: 230px;
-    border-radius: 0px;
-    background-color: var(--l-power_menu_elem_bg);
-    color: var(--l-power_menu_text);
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-    margin: 4px;
-}
-
-.power-menu-popup .button.hover {
-    background-color: var(--l-power_menu_elem_hover);
-    border-left: 4px solid var(--l-power_menu_border);
-    border-right: 4px solid var(--l-power_menu_border);
-    border-top: 4px solid var(--l-power_menu_border);
-    border-bottom: 4px solid var(--l-power_menu_border);
-}
-
-.power-menu-popup .button .label {
+.power-menu-compact .profile-info .profile-username {
     font-size: 16px;
-    font-weight: 600;
-    color: var(--l-power_menu_text);
-    margin: 12px 0 0 0;
+    font-weight: 800;
+    color: var(--l-text);
+    margin-top: 12px;
 }
 
-.power-menu-popup .button .icon {
-    font-size: 64px;
-    color: var(--l-power_menu_buttons);
-    margin-bottom: 24px;
+.power-menu-compact .profile-info .profile-account-type {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--l-text_alt);
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+
+.power-menu-compact .buttons {
+    background-color: transparent;
+    margin: 0 0;
+}
+
+.power-menu-compact .button {
+    padding: 12px 16px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+.power-menu-compact .buttons {
+	background-color: var(--widget_bg_alt);
+	margin: 0 12px 12px 12px;
+	border: var(--global_widget_border_alt);
+}
+
+.power-menu-compact .button.hover {
+    background-color: var(--l-notes_elem_hover);
+}
+
+.power-menu-compact .button .icon {
+    font-size: 16px;
+    color: var(--l-text_alt);
+    font-family: "JetBrainsMono NFP";
+    padding-right: 10px;
+    min-width: 20px;
+}
+
+.power-menu-compact .button .label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--l-text);
 }
 
 /* Dark */
-.dark .power-menu-popup .button {
-    background-color: var(--power_menu_elem_bg);
-    color: var(--power_menu_text);
+.yasb-bar.dark .power-menu-compact {
+    background-color: var(--widget_bg);
+    border: var(--global_widget_border);
 }
 
-.dark .power-menu-popup .button.hover {
-    background-color: var(--power_menu_elem_hover);
-    border-left: 4px solid var(--power_menu_border);
-    border-right: 4px solid var(--power_menu_border);
-    border-top: 4px solid var(--power_menu_border);
-    border-bottom: 4px solid var(--power_menu_border);
+.yasb-bar.dark .power-menu-compact .profile-info {
+    border-bottom: 1px solid var(--notes_border);
 }
 
-.dark .power-menu-popup .button .label {
-    color: var(--power_menu_text);
+.yasb-bar.dark .power-menu-compact .profile-info .profile-username {
+    color: var(--text);
 }
 
-.dark .power-menu-popup .button .icon {
-    color: var(--power_menu_buttons);
+.yasb-bar.dark .power-menu-compact .profile-info .profile-account-type {
+    color: var(--text_alt);
+}
+
+.yasb-bar.dark .power-menu-compact .button.hover {
+    background-color: var(--notes_elem_hover);
+}
+
+.yasb-bar.dark .power-menu-compact .button .icon {
+    color: var(--text_alt);
+}
+
+.yasb-bar.dark .power-menu-compact .button .label {
+    color: var(--text);
 }
 
 /* ── Uptime ── */

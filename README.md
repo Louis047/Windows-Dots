@@ -215,7 +215,6 @@ Some useful mods I found for my Windows workflow
 - No Run Icon
 - Notepad Multi-Select
 - Old Auto Colorization
-- Primary Taskbar on Second Monitor
 - RegEdit Auto Trim Whitespace
 - Resource Redirect
 - Select filename extension on double F2

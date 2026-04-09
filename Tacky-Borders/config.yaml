@@ -7,7 +7,7 @@ global:
   border_width: 1
   border_offset: -1
   border_radius: Square
-  border_z_order: BelowWindow
+  border_z_order: AboveWindow
 
   active_color: "#EFEFEF"
   inactive_color: "#5F5F5F"
@@ -18,7 +18,7 @@ global:
   follow_native_border: True
 
   effects:
-    enabled: True
+    enabled: False
     active:
       - type: Shadow
         blur: 1

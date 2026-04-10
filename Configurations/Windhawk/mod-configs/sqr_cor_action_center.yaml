@@ -3,35 +3,36 @@ controlStyles:
   - target: Grid#NotificationCenterGrid
     styles:
       - BorderThickness=1
-      - 'BorderBrush:=<SolidColorBrush Color="#555555" />'
+      - BorderBrush:=<SolidColorBrush Color="#555555" />
       - CornerRadius=0
       - VerticalAlignment=Stretch
+      - Margin=0,12,8,0
   - target: Grid#ControlCenterRegion
     styles:
       - BorderThickness=1
-      - 'BorderBrush:=<SolidColorBrush Color="#555555" />'
+      - BorderBrush:=<SolidColorBrush Color="#555555" />
       - CornerRadius=0
       - Padding=0,0,0,4
   - target: Grid#CalendarCenterGrid
     styles:
       - BorderThickness=1
-      - 'BorderBrush:=<SolidColorBrush Color="#555555" />'
+      - BorderBrush:=<SolidColorBrush Color="#555555" />
       - CornerRadius=0
-      - Margin=0,12,0,6
+      - Margin=0,16,8,14
   - target: Grid#MediaTransportControlsRegion
     styles:
       - BorderThickness=1
-      - 'BorderBrush:=<SolidColorBrush Color="#555555" />'
+      - BorderBrush:=<SolidColorBrush Color="#555555" />
       - CornerRadius=0
       - Height=470
   - target: ActionCenter.FlexibleToastView#FlexibleNormalToastView
     styles:
-      - 'Background:=<SolidColorBrush Color="Transparent"/>'
+      - Background:=<SolidColorBrush Color="Transparent"/>
   - target: Border#ToastBackgroundBorder2
     styles:
       - CornerRadius=0
       - BorderThickness=1
-      - 'BorderBrush:=<SolidColorBrush Color="#555555" />'
+      - BorderBrush:=<SolidColorBrush Color="#555555" />
   - target: ActionCenter.FlexibleItemView
     styles:
       - CornerRadius=0
@@ -41,10 +42,10 @@ controlStyles:
   - target: ControlCenter.PaginatedToggleButton#SplitL2Button
     styles:
       - CornerRadius=0
-  - target: 'ControlCenter.PaginatedToggleButton#ToggleButton > Windows.UI.Xaml.Controls.ContentPresenter#ContentPresenter'
+  - target: ControlCenter.PaginatedToggleButton#ToggleButton > Windows.UI.Xaml.Controls.ContentPresenter#ContentPresenter
     styles:
       - CornerRadius=0
-  - target: 'ControlCenter.PaginatedToggleButton#SplitL2Button > Windows.UI.Xaml.Controls.ContentPresenter#ContentPresenter'
+  - target: ControlCenter.PaginatedToggleButton#SplitL2Button > Windows.UI.Xaml.Controls.ContentPresenter#ContentPresenter
     styles:
       - CornerRadius=0
   - target: QuickActions.AccessibleToggleButton#ToggleButton
@@ -53,25 +54,25 @@ controlStyles:
   - target: QuickActions.AccessibleToggleButton#SplitL2Button
     styles:
       - CornerRadius=0
-  - target: 'QuickActions.AccessibleToggleButton#ToggleButton > Windows.UI.Xaml.Controls.ContentPresenter#ContentPresenter'
+  - target: QuickActions.AccessibleToggleButton#ToggleButton > Windows.UI.Xaml.Controls.ContentPresenter#ContentPresenter
     styles:
       - CornerRadius=0
-  - target: 'QuickActions.AccessibleToggleButton#SplitL2Button > Windows.UI.Xaml.Controls.ContentPresenter#ContentPresenter'
+  - target: QuickActions.AccessibleToggleButton#SplitL2Button > Windows.UI.Xaml.Controls.ContentPresenter#ContentPresenter
     styles:
       - CornerRadius=0
   - target: Windows.UI.Xaml.Controls.Grid#L1Grid > Border
     styles:
       - CornerRadius=0
-  - target: 'NetworkUX.View.SettingsListViewItem > Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenter#Root'
+  - target: NetworkUX.View.SettingsListViewItem > Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenter#Root
     styles:
       - CornerRadius=0
-  - target: 'Windows.UI.Xaml.Controls.Button#FooterButton > Windows.UI.Xaml.Controls.ContentPresenter#ContentPresenter'
+  - target: Windows.UI.Xaml.Controls.Button#FooterButton > Windows.UI.Xaml.Controls.ContentPresenter#ContentPresenter
     styles:
       - CornerRadius=0
-  - target: 'Windows.UI.Xaml.Controls.Button[AutomationProperties.AutomationId=Microsoft.QuickAction.Battery] > Windows.UI.Xaml.Controls.ContentPresenter#ContentPresenter'
+  - target: Windows.UI.Xaml.Controls.Button[AutomationProperties.AutomationId=Microsoft.QuickAction.Battery] > Windows.UI.Xaml.Controls.ContentPresenter#ContentPresenter
     styles:
       - CornerRadius=0
-  - target: 'Windows.UI.Xaml.Controls.Button[AutomationProperties.AutomationId=Microsoft.QuickAction.Volume]'
+  - target: Windows.UI.Xaml.Controls.Button[AutomationProperties.AutomationId=Microsoft.QuickAction.Volume]
     styles:
       - CornerRadius=0
   - target: Windows.UI.Xaml.Controls.Button#VolumeL2Button
@@ -80,7 +81,7 @@ controlStyles:
   - target: Windows.UI.Xaml.Controls.Button#BackButton
     styles:
       - CornerRadius=0
-  - target: 'Windows.UI.Xaml.Controls.Button#BackButton > Windows.UI.Xaml.Controls.ContentPresenter#ContentPresenter'
+  - target: Windows.UI.Xaml.Controls.Button#BackButton > Windows.UI.Xaml.Controls.ContentPresenter#ContentPresenter
     styles:
       - CornerRadius=0
   - target: ScrollViewer#ListContent
@@ -89,7 +90,7 @@ controlStyles:
   - target: ContentPresenter#PageContent > Grid > Border
     styles:
       - CornerRadius=0
-  - target: 'QuickActions.ControlCenter.AccessibleWindow#PageWindow > ContentPresenter > Grid#FullScreenPageRoot > ContentPresenter#PageHeader'
+  - target: QuickActions.ControlCenter.AccessibleWindow#PageWindow > ContentPresenter > Grid#FullScreenPageRoot > ContentPresenter#PageHeader
     styles:
       - CornerRadius=0
   - target: Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenter
@@ -144,32 +145,32 @@ controlStyles:
   - target: Windows.UI.Xaml.Controls.Primitives.RepeatButton#NextButton
     styles:
       - Margin=0,0,4,0
-  - target: 'Windows.UI.Xaml.Controls.Primitives.RepeatButton#PreviousButton > ContentPresenter#ContentPresenter@CommonStates'
+  - target: Windows.UI.Xaml.Controls.Primitives.RepeatButton#PreviousButton > ContentPresenter#ContentPresenter@CommonStates
     styles:
       - CornerRadius=0
-      - 'Background@Normal:=<SolidColorBrush Color="Transparent" />'
-      - 'Background@PointerOver:=<SolidColorBrush Color="#2A2A2A" />'
-      - 'Background@Pressed:=<SolidColorBrush Color="#1F1F1F" />'
+      - Background@Normal:=<SolidColorBrush Color="Transparent" />
+      - Background@PointerOver:=<SolidColorBrush Color="#2A2A2A" />
+      - Background@Pressed:=<SolidColorBrush Color="#1F1F1F" />
       - BorderThickness=0
       - Width=40
       - Height=40
       - Padding=0
-  - target: 'Button#PlayPauseButton > ContentPresenter#ContentPresenter@CommonStates'
+  - target: Button#PlayPauseButton > ContentPresenter#ContentPresenter@CommonStates
     styles:
       - CornerRadius=0
-      - 'Background@Normal:=<SolidColorBrush Color="Transparent" />'
-      - 'Background@PointerOver:=<SolidColorBrush Color="#2A2A2A" />'
-      - 'Background@Pressed:=<SolidColorBrush Color="#1F1F1F" />'
+      - Background@Normal:=<SolidColorBrush Color="Transparent" />
+      - Background@PointerOver:=<SolidColorBrush Color="#2A2A2A" />
+      - Background@Pressed:=<SolidColorBrush Color="#1F1F1F" />
       - BorderThickness=0
       - Width=40
       - Height=40
       - Padding=0
-  - target: 'Windows.UI.Xaml.Controls.Primitives.RepeatButton#NextButton > ContentPresenter#ContentPresenter@CommonStates'
+  - target: Windows.UI.Xaml.Controls.Primitives.RepeatButton#NextButton > ContentPresenter#ContentPresenter@CommonStates
     styles:
       - CornerRadius=0
-      - 'Background@Normal:=<SolidColorBrush Color="Transparent" />'
-      - 'Background@PointerOver:=<SolidColorBrush Color="#2A2A2A" />'
-      - 'Background@Pressed:=<SolidColorBrush Color="#1F1F1F" />'
+      - Background@Normal:=<SolidColorBrush Color="Transparent" />
+      - Background@PointerOver:=<SolidColorBrush Color="#2A2A2A" />
+      - Background@Pressed:=<SolidColorBrush Color="#1F1F1F" />
       - BorderThickness=0
       - Width=40
       - Height=40
@@ -182,15 +183,15 @@ controlStyles:
       - CornerRadius=0
   - target: CalendarViewDayItem > Border@CommonStates
     styles:
-      - 'Background@Selected:=<SolidColorBrush Color="#13D6FF" />'
-      - 'Background@PointerOver:=<SolidColorBrush Color="#0FBFEF" />'
-      - 'Background@Normal:=<SolidColorBrush Color="Transparent" />'
+      - Background@Selected:=<SolidColorBrush Color="#13D6FF" />
+      - Background@PointerOver:=<SolidColorBrush Color="#0FBFEF" />
+      - Background@Normal:=<SolidColorBrush Color="Transparent" />
       - BorderThickness=0
       - CornerRadius=0
   - target: CalendarViewDayItem > TextBlock
     styles:
-      - 'Foreground@Selected:=<SolidColorBrush Color="#FFFFFF" />'
-      - 'Foreground@Normal:=<SolidColorBrush Color="#E6E6E6" />'
+      - Foreground@Selected:=<SolidColorBrush Color="#FFFFFF" />
+      - Foreground@Normal:=<SolidColorBrush Color="#E6E6E6" />
   - target: Microsoft.UI.Xaml.Controls.PipsPager#QuickActionsPager
     styles:
       - Visibility=Collapsed
@@ -214,15 +215,19 @@ controlStyles:
       - Height=20
       - Width=20
       - Margin=0
-  - target: 'Windows.UI.Xaml.Controls.Primitives.Thumb#HorizontalThumb > Windows.UI.Xaml.Controls.Border'
+  - target: Windows.UI.Xaml.Controls.Primitives.Thumb#HorizontalThumb > Windows.UI.Xaml.Controls.Border
     styles:
-      - 'Background:=<WindhawkBlur BlurAmount="5" TintColor="#00FFFFFF"/>'
-      - 'BorderBrush:=<SolidColorBrush Color="White" Opacity="0.2"/>'
+      - Background:=<WindhawkBlur BlurAmount="5" TintColor="#00FFFFFF"/>
+      - BorderBrush:=<SolidColorBrush Color="White" Opacity="0.2"/>
       - BorderThickness=1
       - CornerRadius=15
-  - target: 'Windows.UI.Xaml.Controls.Primitives.Thumb#HorizontalThumb > Windows.UI.Xaml.Controls.Border > Windows.UI.Xaml.Shapes.Ellipse#SliderInnerThumb'
+  - target: Windows.UI.Xaml.Controls.Primitives.Thumb#HorizontalThumb > Windows.UI.Xaml.Controls.Border > Windows.UI.Xaml.Shapes.Ellipse#SliderInnerThumb
     styles:
       - Visibility=Visible
   - target: Windows.UI.Xaml.Controls.Primitives.ScrollBar#VerticalScrollBar
     styles:
       - Visibility=0
+styleConstants:
+  - ''
+themeResourceVariables:
+  - ''

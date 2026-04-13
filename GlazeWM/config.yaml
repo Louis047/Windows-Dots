@@ -112,7 +112,7 @@ window_rules:
   - commands: ["set-floating"]
     match:
       - window_process: { regex: "[Ww]in[Ss]py|explorer|qbittorrent|mmc|nvcplui|mpv|vlc|efibooteditor|[Mm]ac[Tt]ray|sine" }
-      - window_process: { equals: "GHelper" }
+      - window_process: { regex: "[gG][hH]elper" }
       - window_process: { equals: "SmoothScrollGUI" }
       - window_process: { equals: "Heroic" }
       - window_title: { equals: "Snipping Tool" }
@@ -254,7 +254,7 @@ window_rules:
       - window_process: { regex: "Spotify" }
   - commands: ["move --workspace 8", "focus --workspace 8"]
     match:
-      - window_title: { equals: "UniGetUI" }
+      - window_process: { equals: "UniGetUI" }
   - commands: ["move --workspace 9", "focus --workspace 9"]
     match:
       - window_process: { regex: "obs64" }

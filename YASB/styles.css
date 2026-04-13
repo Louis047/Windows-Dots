@@ -289,7 +289,7 @@
 }
 
 .power-menu-compact .buttons {
-	background-color: var(--widget_bg_alt);
+	background-color: var(--l-popup_bg_alt);
 	margin: 0 12px 12px 12px;
 	border: var(--global_widget_border_alt);
 }
@@ -328,6 +328,12 @@
 
 .yasb-bar.dark .power-menu-compact .profile-info .profile-account-type {
     color: var(--text_alt);
+}
+
+.yasb-bar.dark .power-menu-compact .buttons {
+	background-color: var(--widget_bg_alt);
+	margin: 0 12px 12px 12px;
+	border: var(--global_widget_border_alt);
 }
 
 .yasb-bar.dark .power-menu-compact .button.hover {
@@ -417,6 +423,7 @@
 }
 
 .yasb-bar.dark .glazewm-workspaces .offline-status {
+    font-family: "JetBrainsMono NFP";
 	color: var(--text);
 }
 
@@ -745,7 +752,7 @@
 /* Light */
 .systray-popup {
     background-color: var(--l-popup_bg);
-    padding: 4px;
+    padding: 0;
     border: var(--global_widget_border);
 }
 
@@ -780,9 +787,8 @@
 .wifi-widget .widget-container .icon {
     background: transparent;
     padding: 0 1px;
-    font-size: 14px;
+    font-size: 12px;
     font-family: "Segoe Fluent Icons";
-    font-weight: 900;
 }
 
 
@@ -898,6 +904,7 @@
 
 .calendar .day-label {
     margin-top: 15px;
+    margin-bottom: 4px;
 }
 
 .calendar .day-label,
@@ -910,8 +917,8 @@
 }
 
 .calendar .month-label {
-    font-weight: normal;
-    margin-bottom: 0;
+	font-weight: 600;
+    margin-bottom: 6px;
 }
 
 .calendar .date-label {
@@ -969,7 +976,9 @@
 .notification-widget {
     padding: 0 4px 0 3px;
 }
-
+.notification-widget .icon {
+	font-size: 14px;
+}
 .notification-widget .widget-container {
     background: transparent;
     margin: 3px 0 3px 0;
@@ -1019,8 +1028,6 @@
 .notes-menu {
     min-width: 400px;
     max-width: 400px;
-    min-height: 800px;
-    max-height: 800px;
     background-color: var(--l-popup_bg);
     border: var(--global_widget_border);
 }
@@ -1245,7 +1252,6 @@
 .yasb-bar.dark .notes-menu .input-copy-button {
     color: var(--text);
 }
-
 
 /* VOLUME & AUDIO MENU */
 .volume-widget .widget-container .icon {
@@ -1641,9 +1647,9 @@ QPushButton {
     color: var(--l-text);
     padding: 4px 8px;
     font-family: "DepartureMono Nerd Font Propo";
-    font-size: 11px;
-    font-weight: 700;
-    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 900;
+    margin-top: 5px;
 }
 
 .dark.tooltip {
@@ -1655,7 +1661,7 @@ QPushButton {
 /* CONTEXT MENU */
 .context-menu,
 .context-menu .menu-checkbox {
-    padding: 4px 0px;
+    padding: 6px 0px;
     font-size: 12px;
 }
 

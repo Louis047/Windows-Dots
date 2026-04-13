@@ -18,13 +18,12 @@ Selectively disable Windows keyboard shortcuts with individual toggles for each 
 - Changes apply immediately (auto-restarts explorer)
 - Uses multiple hooking strategies for comprehensive coverage
 ## How It Works
-This mod uses a 3-layer approach to block Windows shortcuts:
-1. **Low-level keyboard hook (WH_KEYBOARD_LL)** - Intercepts Win+A at the keyboard level (only when enabled)
-2. **CreateProcessInternalW hook** - Blocks shortcuts that launch host processes (Win+S, Win+.)
-3. **RegisterHotKey hook** - Blocks API-registered hotkeys at registration time (Win+V, Win+F, Win+E, Win+R, etc.)
+This mod uses a 2-layer approach to block Windows shortcuts:
+1. **CreateProcessInternalW hook** - Blocks shortcuts that launch host processes (Win+S, Win+.)
+2. **RegisterHotKey hook** - Blocks API-registered hotkeys at registration time (Win+V, Win+F, Win+E, Win+R, etc.)
 ## Supported Shortcuts
 ### General
-- Win+A through Win+Z (excluding Win, Win+L, Win+Q)
+- Win+B through Win+Z (excluding Win, Win+L, Win+Q)
 - Win+Tab, Win+Arrow Keys, Win+Home
 ### With Modifiers
 - Win+Shift combinations
@@ -41,14 +40,10 @@ This mod uses a 3-layer approach to block Windows shortcuts:
 - Win key (Start Menu) is handled by the "Block Start Menu and Hosts" mod
 - Win+L (Lock PC) cannot be blocked through standard hooks
 - Win+Q is redundant with Win+S (both open Search)
-- Win+A uses a low-level keyboard hook (same technique as AutoHotkey/PowerToys)
 */
 // ==/WindhawkModReadme==
 // ==WindhawkModSettings==
 /*
-- DisableWinA: false
-  $name: Win+A
-  $description: Action Center / Quick Settings (uses keyboard hook)
 - DisableWinB: false
   $name: Win+B
   $description: Focus system tray
@@ -260,7 +255,6 @@ This mod uses a 3-layer approach to block Windows shortcuts:
 // Settings structure
 struct
 {
-  bool DisableWinA;
   bool DisableWinB;
   bool DisableWinC;
   bool DisableWinD;
@@ -335,7 +329,6 @@ struct
 // ============================================================================
 void LoadSettings()
 {
-  g_settings.DisableWinA = Wh_GetIntSetting(L"DisableWinA");
   g_settings.DisableWinB = Wh_GetIntSetting(L"DisableWinB");
   g_settings.DisableWinC = Wh_GetIntSetting(L"DisableWinC");
   g_settings.DisableWinD = Wh_GetIntSetting(L"DisableWinD");
@@ -465,164 +458,7 @@ void TerminateConfiguredProcesses()
   }
 }
 // ============================================================================
-// LAYER 1: Low-level keyboard hook to intercept Win+A
-// Win+A does NOT use RegisterHotKey/WM_HOTKEY - it must be blocked at the
-// keyboard input level using WH_KEYBOARD_LL.
-//
-// CRITICAL: WH_KEYBOARD_LL requires the installing thread to have a message
-// loop! We create a dedicated thread with its own message pump.
-// ============================================================================
-HHOOK g_keyboardHook = NULL;
-HANDLE g_hookThread = NULL;
-DWORD g_hookThreadId = 0;
-volatile bool g_hookThreadRunning = false;
-volatile bool g_winKeyDown = false;
-
-// Extra info marker to identify our own injected keys (if any)
-#define INJECTED_KEY_ID 0xDEADBEEF
-
-LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
-{
-  if (nCode == HC_ACTION)
-  {
-    KBDLLHOOKSTRUCT *pKbd = (KBDLLHOOKSTRUCT *)lParam;
-
-    // Skip keys we injected ourselves
-    if (pKbd->dwExtraInfo == INJECTED_KEY_ID)
-    {
-      return CallNextHookEx(g_keyboardHook, nCode, wParam, lParam);
-    }
-
-    DWORD vkCode = pKbd->vkCode;
-    bool isKeyDown = (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN);
-    bool isKeyUp = (wParam == WM_KEYUP || wParam == WM_SYSKEYUP);
-
-    // Track Windows key state
-    if (vkCode == VK_LWIN || vkCode == VK_RWIN)
-    {
-      if (isKeyDown)
-      {
-        g_winKeyDown = true;
-      }
-      else if (isKeyUp)
-      {
-        g_winKeyDown = false;
-      }
-    }
-
-    // Block Win+A if enabled
-    if (g_winKeyDown && vkCode == 'A' && isKeyDown && g_settings.DisableWinA)
-    {
-      Wh_Log(L"[KeyboardHook] Blocked Win+A");
-      return 1; // Block the key - don't pass to next hook
-    }
-  }
-
-  return CallNextHookEx(g_keyboardHook, nCode, wParam, lParam);
-}
-
-// Thread function that installs the hook and runs a message loop
-DWORD WINAPI KeyboardHookThreadProc(LPVOID lpParam)
-{
-  // Install the low-level keyboard hook from THIS thread
-  g_keyboardHook = SetWindowsHookExW(
-      WH_KEYBOARD_LL,
-      LowLevelKeyboardProc,
-      GetModuleHandleW(NULL),
-      0 // 0 = global hook
-  );
-
-  if (g_keyboardHook)
-  {
-    Wh_Log(L"[KeyboardHook] Installed hook from dedicated thread (tid: %d)", GetCurrentThreadId());
-  }
-  else
-  {
-    Wh_Log(L"[KeyboardHook] Failed to install hook (error: %d)", GetLastError());
-    return 1;
-  }
-
-  g_hookThreadRunning = true;
-
-  // Message loop - REQUIRED for WH_KEYBOARD_LL to receive callbacks
-  MSG msg;
-  while (g_hookThreadRunning && GetMessageW(&msg, NULL, 0, 0))
-  {
-    // Check for our custom quit message
-    if (msg.message == WM_QUIT)
-    {
-      break;
-    }
-    TranslateMessage(&msg);
-    DispatchMessageW(&msg);
-  }
-
-  // Unhook when thread exits
-  if (g_keyboardHook)
-  {
-    UnhookWindowsHookEx(g_keyboardHook);
-    g_keyboardHook = NULL;
-    Wh_Log(L"[KeyboardHook] Unhooked from thread exit");
-  }
-
-  return 0;
-}
-
-void InstallKeyboardHook()
-{
-  if (g_hookThread == NULL && g_settings.DisableWinA)
-  {
-    g_hookThreadRunning = true;
-    g_hookThread = CreateThread(
-        NULL,
-        0,
-        KeyboardHookThreadProc,
-        NULL,
-        0,
-        &g_hookThreadId);
-    if (g_hookThread)
-    {
-      Wh_Log(L"[KeyboardHook] Created hook thread (tid: %d)", g_hookThreadId);
-    }
-    else
-    {
-      Wh_Log(L"[KeyboardHook] Failed to create thread (error: %d)", GetLastError());
-      g_hookThreadRunning = false;
-    }
-  }
-}
-
-void UninstallKeyboardHook()
-{
-  if (g_hookThread)
-  {
-    // Signal the thread to exit
-    g_hookThreadRunning = false;
-
-    // Post WM_QUIT to break the message loop
-    if (g_hookThreadId)
-    {
-      PostThreadMessageW(g_hookThreadId, WM_QUIT, 0, 0);
-    }
-
-    // Wait for thread to exit (with timeout)
-    DWORD waitResult = WaitForSingleObject(g_hookThread, 2000);
-    if (waitResult == WAIT_TIMEOUT)
-    {
-      Wh_Log(L"[KeyboardHook] Thread didn't exit in time, terminating");
-      TerminateThread(g_hookThread, 0);
-    }
-
-    CloseHandle(g_hookThread);
-    g_hookThread = NULL;
-    g_hookThreadId = 0;
-    g_winKeyDown = false;
-    Wh_Log(L"[KeyboardHook] Uninstalled keyboard hook thread");
-  }
-}
-
-// ============================================================================
-// LAYER 2: CreateProcessInternalW hook (for process-spawn shortcuts)
+// LAYER 1: CreateProcessInternalW hook (for process-spawn shortcuts)
 // Blocks: Win+S (Search), Win+. (Emoji)
 // ============================================================================
 typedef BOOL(WINAPI *CreateProcessInternalW_t)(
@@ -851,10 +687,6 @@ BOOL WINAPI RegisterHotKey_Hook(HWND hWnd, int id, UINT fsModifiers, UINT vk)
     {
       switch (vk)
       {
-      case 'A':
-        if (g_settings.DisableWinA)
-          block = true;
-        break;
       case 'B':
         if (g_settings.DisableWinB)
           block = true;
@@ -1083,11 +915,7 @@ BOOL Wh_ModInit()
   // Terminate any existing host processes based on settings
   TerminateConfiguredProcesses();
 
-  // LAYER 1: Install low-level keyboard hook for Win+A
-  // Win+A doesn't use RegisterHotKey/WM_HOTKEY - must be blocked at keyboard level
-  InstallKeyboardHook();
-
-  // LAYER 2: Hook CreateProcessInternalW for process-spawn shortcuts
+  // LAYER 1: Hook CreateProcessInternalW for process-spawn shortcuts
   HMODULE hKernelBase = GetModuleHandleW(L"kernelbase.dll");
   if (hKernelBase)
   {
@@ -1102,7 +930,7 @@ BOOL Wh_ModInit()
       Wh_Log(L"Failed to find CreateProcessInternalW");
     }
   }
-  // LAYER 3: Hook RegisterHotKey to block hotkey registration
+  // LAYER 2: Hook RegisterHotKey to block hotkey registration
   HMODULE hUser32 = GetModuleHandleW(L"user32.dll");
   if (hUser32)
   {
@@ -1119,18 +947,13 @@ BOOL Wh_ModInit()
 void Wh_ModUninit()
 {
   Wh_Log(L"Uninitializing Disable Windows Shortcuts mod");
-  // Uninstall keyboard hook
-  UninstallKeyboardHook();
   // Restart explorer to restore all hotkeys that were blocked
   RestartExplorer();
 }
 void Wh_ModSettingsChanged()
 {
   Wh_Log(L"Settings changed, restarting explorer to apply...");
-  // Update keyboard hook based on new settings
-  UninstallKeyboardHook();
   LoadSettings();
-  InstallKeyboardHook();
   TerminateConfiguredProcesses();
   // Restart explorer to re-register hotkeys with new settings
   RestartExplorer();

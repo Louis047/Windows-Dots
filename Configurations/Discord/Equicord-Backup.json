@@ -10,6 +10,7 @@
         "enableOnlineThemes": false,
         "pinnedThemes": [],
         "themeNames": {},
+        "themeActivationModes": {},
         "enableReactDevtools": false,
         "mainWindowFrameless": false,
         "frameless": true,
@@ -80,7 +81,7 @@
                 "enabled": false
             },
             "WebRichPresence": {
-                "enabled": true
+                "enabled": false
             },
             "BetterFolders": {
                 "enabled": false
@@ -127,17 +128,20 @@
                 "enabled": true,
                 "format": "human",
                 "allCallTimers": false,
-                "showWithoutHover": false,
+                "showWithoutHover": true,
                 "showRoleColor": false,
                 "trackSelf": false,
-                "showSeconds": false,
+                "showSeconds": true,
                 "watchLargeGuilds": false
+            },
+            "CharacterCounter": {
+                "enabled": false
             },
             "ClearURLs": {
                 "enabled": true
             },
             "ClientTheme": {
-                "enabled": true,
+                "enabled": false,
                 "color": "313338"
             },
             "ColorSighted": {
@@ -229,7 +233,7 @@
                 "disableEmbedPermissionCheck": true
             },
             "FakeProfileThemes": {
-                "enabled": true,
+                "enabled": false,
                 "nitroFirst": true
             },
             "FavoriteEmojiFirst": {
@@ -242,11 +246,12 @@
                 "enabled": true
             },
             "FixImagesQuality": {
-                "enabled": true,
+                "enabled": false,
                 "originalImagesInChat": false
             },
             "FixSpotifyEmbeds": {
-                "enabled": true
+                "enabled": true,
+                "volume": 10
             },
             "FixYoutubeEmbeds": {
                 "enabled": true,
@@ -305,8 +310,8 @@
                 "saveZoomValues": true,
                 "invertScroll": true,
                 "nearestNeighbour": true,
-                "square": true,
-                "zoom": 2,
+                "square": false,
+                "zoom": 1.420833377838135,
                 "size": 100,
                 "zoomSpeed": 0.5
             },
@@ -434,7 +439,7 @@
                 "enabled": false
             },
             "NoProfileThemes": {
-                "enabled": true
+                "enabled": false
             },
             "NoReplyMention": {
                 "enabled": false
@@ -563,7 +568,7 @@
                 "useCompact": false
             },
             "ShikiCodeblocks": {
-                "enabled": true,
+                "enabled": false,
                 "theme": "https://cdn.jsdelivr.net/gh/shikijs/textmate-grammars-themes@bc5436518111d87ea58eb56d97b3f9bec30e6b83/packages/tm-themes/themes/dark-plus.json",
                 "tryHljs": "SECONDARY",
                 "useDevIcon": "COLOR",
@@ -600,7 +605,7 @@
                 "enabled": false
             },
             "SilentTyping": {
-                "enabled": true,
+                "enabled": false,
                 "enabledGlobally": true,
                 "hideChatBoxTypingIndicators": false,
                 "hideMembersListTypingIndicators": false,
@@ -650,7 +655,12 @@
                 "enabled": false
             },
             "TypingIndicator": {
-                "enabled": false
+                "enabled": true,
+                "includeCurrentChannel": true,
+                "includeMutedChannels": true,
+                "includeIgnoredUsers": true,
+                "includeBlockedUsers": true,
+                "indicatorMode": 1
             },
             "TypingTweaks": {
                 "enabled": false
@@ -675,7 +685,7 @@
                 "showInMessages": true
             },
             "USRBG": {
-                "enabled": true,
+                "enabled": false,
                 "nitroFirst": false,
                 "voiceBackground": true
             },
@@ -789,9 +799,6 @@
             "ChannelTabs": {
                 "enabled": false
             },
-            "CharacterCounter": {
-                "enabled": false
-            },
             "CleanChannelName": {
                 "enabled": true
             },
@@ -836,8 +843,8 @@
             },
             "Declutter": {
                 "enabled": true,
-                "removeNameplate": true,
-                "removeProfileEffect": true,
+                "removeNameplate": false,
+                "removeProfileEffect": false,
                 "removeClanTag": true,
                 "alwaysShowUsername": true,
                 "removeShopAboveDM": false,
@@ -847,7 +854,7 @@
                 "removeGiftButton": true,
                 "removeUnavailableEmojiPicker": true,
                 "removeAudioMenus": true,
-                "removeButtonTooltips": false
+                "removeButtonTooltips": true
             },
             "DisableCameras": {
                 "enabled": true
@@ -860,6 +867,18 @@
             },
             "Dragify": {
                 "enabled": false
+            },
+            "EquibopStreamFixes": {
+                "enabled": true,
+                "unlockQualityOptions": true,
+                "removeResolutionCap": true,
+                "forceEncoderSettings": true,
+                "raiseBitrateCaps": true,
+                "preventFramerateReduction": true,
+                "preventDownscale": true,
+                "keyframeInterval": 5000,
+                "minBitrate": 500,
+                "bitsPerPixelPct": 8
             },
             "EquicordToolbox": {
                 "enabled": true,
@@ -893,7 +912,7 @@
                 "enabled": false
             },
             "FontLoader": {
-                "enabled": true,
+                "enabled": false,
                 "applyOnCodeBlocks": false,
                 "selectedFont": ""
             },
@@ -935,11 +954,6 @@
             },
             "GuildPickerDumper": {
                 "enabled": false
-            },
-            "GuildTagSettings": {
-                "enabled": true,
-                "hideTags": true,
-                "disableAdoptTagPrompt": true
             },
             "HideChatButtons": {
                 "enabled": false
@@ -1129,7 +1143,7 @@
                 "platform": "desktop"
             },
             "PolishWording": {
-                "enabled": true,
+                "enabled": false,
                 "quickDisable": true,
                 "blockedWords": "",
                 "fixApostrophes": true,
@@ -1195,14 +1209,12 @@
                     "play": [],
                     "achievement": []
                 },
-                "onQuestsPage": false,
+                "onQuestsPage": true,
                 "unclaimedUnignoredQuests": 3,
                 "triggerQuestsRerender": true,
                 "lastQuestPageSort": "questify",
-                "lastQuestPageFilters": {}
-            },
-            "QuestionMarkReplacement": {
-                "enabled": false
+                "lastQuestPageFilters": {},
+                "completeVideoQuestsQuicker": false
             },
             "Quoter": {
                 "enabled": false
@@ -1377,9 +1389,6 @@
             "SongSpotlight": {
                 "enabled": false
             },
-            "SoundBoardLogger": {
-                "enabled": false
-            },
             "SplitLargeMessages": {
                 "enabled": true,
                 "maxLength": 0,
@@ -1437,7 +1446,21 @@
                 "title": "Equicord"
             },
             "ToastNotifications": {
-                "enabled": false
+                "enabled": false,
+                "ignoreUsers": "",
+                "notifyFor": "",
+                "disableInStreamerMode": true,
+                "determineServerNotifications": true,
+                "friendServerNotifications": true,
+                "position": "top-right",
+                "timeout": 5,
+                "opacity": 100,
+                "maxNotifications": 3,
+                "renderImages": true,
+                "directMessages": true,
+                "groupMessages": true,
+                "friendActivity": true,
+                "streamingTreatment": 0
             },
             "ToggleVideoBind": {
                 "enabled": false,
@@ -1494,7 +1517,7 @@
                 "enabled": true
             },
             "VoiceButtons": {
-                "enabled": true,
+                "enabled": false,
                 "showChatButton": true,
                 "showMuteButton": true,
                 "showDeafenButton": true,
@@ -1505,6 +1528,9 @@
                 "showButtonsSelf": "display",
                 "whichNameToShow": "both",
                 "buttonPosition": "left"
+            },
+            "VoiceChannelLog": {
+                "enabled": false
             },
             "VoiceChatUtilities": {
                 "enabled": false,
@@ -1550,6 +1576,9 @@
             "HeaderBarAPI": {
                 "enabled": true
             },
+            "ProfileCollectionsAPI": {
+                "enabled": true
+            },
             "UserAreaAPI": {
                 "enabled": false
             },
@@ -1565,12 +1594,21 @@
                 "forceRoleIcon": false,
                 "restoreFileDownloadButton": false,
                 "noModalAnimation": false,
+                "disableAdoptTagPrompt": true,
                 "noBulletPoints": false,
-                "accountStandingButton": false
+                "accountStandingButton": false,
+                "jsonGateway": false,
+                "refreshSlashCommands": false
             },
             "Settings": {
                 "enabled": true,
                 "settingsLocation": "aboveNitro"
+            },
+            "QuestionMarkReplacement": {
+                "enabled": false
+            },
+            "SoundBoardLogger": {
+                "enabled": false
             },
             "DisableDeepLinks": {
                 "enabled": true
@@ -1580,6 +1618,12 @@
             },
             "WebContextMenus": {
                 "enabled": true
+            },
+            "CollapsibleUI": {
+                "enabled": false
+            },
+            "CustomStatusTimeouts": {
+                "enabled": false
             }
         },
         "uiElements": {
@@ -1597,12 +1641,12 @@
             "authenticated": true,
             "url": "https://cloud.equicord.org/",
             "settingsSync": true,
-            "settingsSyncVersion": 1774033529117
+            "settingsSyncVersion": 1776793099687
         },
         "ignoreResetWarning": false,
         "userCssVars": {}
     },
-    "quickCss": "*,\r\n*::before,\r\n*::after {\r\n    border-radius: 0 !important;\r\n    font-family: \"DepartureMono Nerd Font Propo\" !important;\r\n    font-weight: 500 !important;\r\n}\r\n[class*=\"guilds\"] [class*=\"wrapper\"],\r\n[class*=\"guilds\"] [class*=\"childWrapper\"],\r\n[class*=\"guilds\"] svg,\r\n[class*=\"guilds\"] img {\r\n    border-radius: 50% !important;\r\n}\r\n[class*=\"numberBadge\"],\r\n[class*=\"unreadBadge\"] {\r\n    border-radius: 50% !important;\r\n    min-width: 18px !important;\r\n    height: 18px !important;\r\n    display: flex !important;\r\n    align-items: center !important;\r\n    justify-content: center !important;\r\n    padding: 0 !important;\r\n}\r\n[class*=\"avatar\"] img,\r\n[class*=\"avatar\"] svg,\r\n[class*=\"avatar\"] {\r\n    border-radius: 50% !important;\r\n}\r\n[class*=\"guilds\"] [class*=\"pill\"] span {\r\n    width: 8px !important;\r\n    height: 8px !important;\r\n    border-radius: 50% !important;\r\n    transition: height 180ms ease, width 180ms ease, border-radius 180ms ease;\r\n}\r\n[class*=\"guilds\"] [class*=\"listItem\"]:hover [class*=\"pill\"] span {\r\n    width: 9px !important;\r\n    height: 20px !important;\r\n    border-radius: 100% !important;\r\n}\r\n[class*=\"guilds\"] [class*=\"listItem\"]:has([aria-selected=\"true\"]) [class*=\"pill\"] span {\r\n    width: 8px !important;\r\n    height: 30px !important;\r\n    border-radius: 6px !important;\r\n}\r\n[class*=\"guilds\"] [class*=\"pill\"] {\r\n    align-items: center !important;\r\n}\r\n[class*=\"guilds\"] [class*=\"folder\"] {\r\n    border-radius: 0 !important;\r\n    background: transparent;\r\n}\r\nli[class*=\"containerDefault\"] [class*=\"unread\"] {\r\n    display: none !important;\r\n}\r\ndiv[class*=\"circleIconButton\"] {\r\n    border-radius: 50% !important;\r\n}\r\ndiv[class*=\"circleIconButton\"] svg {\r\n    border-radius: 50% !important;\r\n}\r\n.panels__5e434 {\r\n    right: 0;\r\n    left: 0;\r\n    bottom: 0;\r\n    width: auto !important;\r\n}\r\n\r\n/* Gradient — small consistent fade in both modes */\r\n[class*=\"chatTypingGradient\"],\r\n[class*=\"chatGradientBase\"] {\r\n    height: 16px !important;\r\n    min-height: 0 !important;\r\n}\r\n\r\n/* Typing/slowmode bar — tight, no bulk */\r\n[class*=\"typing\"][class*=\"base\"] {\r\n    min-height: 0 !important;\r\n    height: auto !important;\r\n    padding: 2px 8px !important;\r\n    margin: 0 !important;\r\n    background: transparent !important;\r\n    box-shadow: none !important;\r\n}\r\n\r\n/* Hide typing dots, keep slowmode text */\r\n[class*=\"typingDots\"] {\r\n    display: none !important;\r\n}\r\n\r\n[class*=\"cooldownText\"] {\r\n    display: inline-flex !important;\r\n    align-items: center !important;\r\n    gap: 4px !important;\r\n}\r\n\r\n/* Spacer — consistent in both normal and slowmode */\r\n[class*=\"scrollerSpacer\"] {\r\n    height: 18px !important;\r\n    min-height: 0 !important;\r\n    flex: 0 0 36px !important;\r\n}\r\n\r\n/* Last item padding for normal mode without scrollerSpacer */\r\n[class*=\"scrollerInner\"] > li:last-child,\r\n[class*=\"scrollerInner\"] > [class*=\"messageListItem\"]:last-child {\r\n    padding-bottom: 36px !important;\r\n}\r\n\r\n/* Message input only — target channelTextArea specifically */\r\n[class*=\"channelTextArea\"] {\r\n    position: sticky !important;\r\n    bottom: 0 !important;\r\n    left: 0 !important;\r\n    right: 0 !important;\r\n    width: 100% !important;\r\n    max-width: 100% !important;\r\n    margin: 0 !important;\r\n    padding-left: 0 !important;\r\n    padding-right: 0 !important;\r\n    box-sizing: border-box !important;\r\n    align-self: stretch !important;\r\n}\r\n\r\n/* Follow container — sticky to bottom, preserve its natural height */\r\n[class*=\"formWithLoadedChatInput\"],\r\nform[class*=\"form_\"] {\r\n    position: sticky !important;\r\n    bottom: 0 !important;\r\n    left: 0 !important;\r\n    right: 0 !important;\r\n    width: 100% !important;\r\n    max-width: 100% !important;\r\n    margin: 0 !important;\r\n    padding-left: 0 !important;\r\n    padding-right: 0 !important;\r\n    box-sizing: border-box !important;\r\n    z-index: 1 !important;\r\n}\r\n\r\n/* Jump to present bar — full width, flush to bottom above input, no height change */\r\n[class*=\"jumpToPresentBar\"] {\r\n    left: 0 !important;\r\n    right: 0 !important;\r\n    bottom: 0 !important;\r\n    width: 100% !important;\r\n    max-width: 100% !important;\r\n    margin: 0 !important;\r\n    box-sizing: border-box !important;\r\n}\r\n\r\n/* New messages bar — same treatment */\r\n[class*=\"newMessagesBar\"] {\r\n    left: 0 !important;\r\n    right: 0 !important;\r\n    width: 100% !important;\r\n    max-width: 100% !important;\r\n    margin: 0 !important;\r\n    box-sizing: border-box !important;\r\n}\r\n\r\n/* Follow container bar — edge to edge */\r\n[class*=\"followContainer\"] {\r\n    position: sticky !important;\r\n    bottom: 0 !important;\r\n    left: 0 !important;\r\n    right: 0 !important;\r\n    width: 100% !important;\r\n    max-width: 100% !important;\r\n    margin: 0 !important;\r\n    box-sizing: border-box !important;\r\n}\r\n\r\n/* [class*=\"guilds\"] {\r\n    margin-bottom: 0 !important;\r\n}\r\ndiv[class^=\"audioButtonParent__\"] button[role=\"switch\"] {\r\n    border-radius: var(--radius-sm);\r\n}\r\ndiv[class^=\"audioButtonParent__\"] button[role=\"switch\"] ~ button {\r\n    display: none;\r\n}\r\n*/\r\n\r\n[class*=\"panels\"] [class*=\"container\"] [class*=\"button\"] {\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n[class*=\"panels\"] [class*=\"container\"] [class*=\"button\"] svg {\r\n    width: 18px !important;\r\n    height: 18px !important;\r\n}\r\n[class*=\"panels\"] [class*=\"container\"] [class*=\"buttons\"] {\r\n    gap: 2px !important;\r\n}\r\n\r\n/* Hide scrollbars */\r\n::-webkit-scrollbar {\r\n    display: none !important;\r\n}\r\n::-webkit-scrollbar-track {\r\n    display: none !important;\r\n}\r\n::-webkit-scrollbar-thumb {\r\n    display: none !important;\r\n}\r\n* {\r\n    scrollbar-width: none !important;\r\n}\r\n\r\n/* Remove text overflow ellipsis */\r\n* {\r\n    text-overflow: clip !important;\r\n}",
+    "quickCss": "*,\r\n*::before,\r\n*::after {\r\n    border-radius: 0 !important;\r\n}\r\n[class*=\"guilds\"] [class*=\"wrapper\"],\r\n[class*=\"guilds\"] [class*=\"childWrapper\"],\r\n[class*=\"guilds\"] svg,\r\n[class*=\"guilds\"] img {\r\n    border-radius: 50% !important;\r\n}\r\n[class*=\"numberBadge\"],\r\n[class*=\"unreadBadge\"] {\r\n    border-radius: 50% !important;\r\n    min-width: 18px !important;\r\n    height: 18px !important;\r\n    display: flex !important;\r\n    align-items: center !important;\r\n    justify-content: center !important;\r\n    padding: 0 !important;\r\n}\r\n[class*=\"avatar\"] img,\r\n[class*=\"avatar\"] svg,\r\n[class*=\"avatar\"] {\r\n    border-radius: 50% !important;\r\n}\r\n[class*=\"guilds\"] [class*=\"pill\"] span {\r\n    width: 8px !important;\r\n    height: 8px !important;\r\n    border-radius: 50% !important;\r\n    transition: height 180ms ease, width 180ms ease, border-radius 180ms ease;\r\n}\r\n[class*=\"guilds\"] [class*=\"listItem\"]:hover [class*=\"pill\"] span {\r\n    width: 9px !important;\r\n    height: 20px !important;\r\n    border-radius: 100% !important;\r\n}\r\n[class*=\"guilds\"] [class*=\"listItem\"]:has([aria-selected=\"true\"]) [class*=\"pill\"] span {\r\n    width: 8px !important;\r\n    height: 30px !important;\r\n    border-radius: 6px !important;\r\n}\r\n[class*=\"guilds\"] [class*=\"pill\"] {\r\n    align-items: center !important;\r\n}\r\n[class*=\"guilds\"] [class*=\"folder\"] {\r\n    border-radius: 0 !important;\r\n    background: transparent;\r\n}\r\nli[class*=\"containerDefault\"] [class*=\"unread\"] {\r\n    display: none !important;\r\n}\r\ndiv[class*=\"circleIconButton\"] {\r\n    border-radius: 50% !important;\r\n}\r\ndiv[class*=\"circleIconButton\"] svg {\r\n    border-radius: 50% !important;\r\n}\r\n.panels__5e434 {\r\n    right: 0;\r\n    left: 0;\r\n    bottom: 0;\r\n    width: auto !important;\r\n}\r\n\r\n/* Gradient — small consistent fade in both modes */\r\n[class*=\"chatTypingGradient\"],\r\n[class*=\"chatGradientBase\"] {\r\n    height: 16px !important;\r\n    min-height: 0 !important;\r\n}\r\n\r\n/* Typing/slowmode bar — tight, no bulk */\r\n[class*=\"typing\"][class*=\"base\"] {\r\n    min-height: 0 !important;\r\n    height: auto !important;\r\n    padding: 2px 8px !important;\r\n    margin: 0 !important;\r\n    background: transparent !important;\r\n    box-shadow: none !important;\r\n}\r\n\r\n/* Hide typing dots, keep slowmode text */\r\n[class*=\"typingDots\"] {\r\n    display: none !important;\r\n}\r\n\r\n[class*=\"cooldownText\"] {\r\n    display: inline-flex !important;\r\n    align-items: center !important;\r\n    gap: 4px !important;\r\n}\r\n\r\n/* Spacer — consistent in both normal and slowmode */\r\n[class*=\"scrollerSpacer\"] {\r\n    height: 18px !important;\r\n    min-height: 0 !important;\r\n    flex: 0 0 36px !important;\r\n}\r\n\r\n/* Last item padding for normal mode without scrollerSpacer */\r\n[class*=\"scrollerInner\"] > li:last-child,\r\n[class*=\"scrollerInner\"] > [class*=\"messageListItem\"]:last-child {\r\n    padding-bottom: 36px !important;\r\n}\r\n\r\n/* Message input only — target channelTextArea specifically */\r\n[class*=\"channelTextArea\"] {\r\n    position: sticky !important;\r\n    bottom: 0 !important;\r\n    left: 0 !important;\r\n    right: 0 !important;\r\n    width: 100% !important;\r\n    max-width: 100% !important;\r\n    margin: 0 !important;\r\n    padding-left: 0 !important;\r\n    padding-right: 0 !important;\r\n    box-sizing: border-box !important;\r\n    align-self: stretch !important;\r\n}\r\n\r\n/* Follow container — sticky to bottom, preserve its natural height */\r\n[class*=\"formWithLoadedChatInput\"],\r\nform[class*=\"form_\"] {\r\n    position: sticky !important;\r\n    bottom: 0 !important;\r\n    left: 0 !important;\r\n    right: 0 !important;\r\n    width: 100% !important;\r\n    max-width: 100% !important;\r\n    margin: 0 !important;\r\n    padding-left: 0 !important;\r\n    padding-right: 0 !important;\r\n    box-sizing: border-box !important;\r\n    z-index: 1 !important;\r\n}\r\n\r\n/* Jump to present bar — full width, flush to bottom above input, no height change */\r\n[class*=\"jumpToPresentBar\"] {\r\n    left: 0 !important;\r\n    right: 0 !important;\r\n    bottom: 0 !important;\r\n    width: 100% !important;\r\n    max-width: 100% !important;\r\n    margin: 0 !important;\r\n    box-sizing: border-box !important;\r\n}\r\n\r\n/* New messages bar — same treatment */\r\n[class*=\"newMessagesBar\"] {\r\n    left: 0 !important;\r\n    right: 0 !important;\r\n    width: 100% !important;\r\n    max-width: 100% !important;\r\n    margin: 0 !important;\r\n    box-sizing: border-box !important;\r\n}\r\n\r\n/* Follow container bar — edge to edge */\r\n[class*=\"followContainer\"] {\r\n    position: sticky !important;\r\n    bottom: 0 !important;\r\n    left: 0 !important;\r\n    right: 0 !important;\r\n    width: 100% !important;\r\n    max-width: 100% !important;\r\n    margin: 0 !important;\r\n    box-sizing: border-box !important;\r\n}\r\n\r\n/* [class*=\"guilds\"] {\r\n    margin-bottom: 0 !important;\r\n}\r\ndiv[class^=\"audioButtonParent__\"] button[role=\"switch\"] {\r\n    border-radius: var(--radius-sm);\r\n}\r\ndiv[class^=\"audioButtonParent__\"] button[role=\"switch\"] ~ button {\r\n    display: none;\r\n}\r\n*/\r\n\r\n[class*=\"panels\"] [class*=\"container\"] [class*=\"button\"] {\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n[class*=\"panels\"] [class*=\"container\"] [class*=\"button\"] svg {\r\n    width: 18px !important;\r\n    height: 18px !important;\r\n}\r\n[class*=\"panels\"] [class*=\"container\"] [class*=\"buttons\"] {\r\n    gap: 2px !important;\r\n}\r\n\r\n/* Hide scrollbars */\r\n::-webkit-scrollbar {\r\n    display: none !important;\r\n}\r\n::-webkit-scrollbar-track {\r\n    display: none !important;\r\n}\r\n::-webkit-scrollbar-thumb {\r\n    display: none !important;\r\n}\r\n* {\r\n    scrollbar-width: none !important;\r\n}\r\n\r\n/* Remove text overflow ellipsis */\r\n* {\r\n    text-overflow: clip !important;\r\n}",
     "dataStore": [
         [
             "EquicordChangelog_KnownPlugins",
@@ -4071,6 +4115,12 @@
                     ]
                 ],
                 [
+                    "CharacterCounter",
+                    [
+                        "colorEffects"
+                    ]
+                ],
+                [
                     "ClearURLs",
                     []
                 ],
@@ -4442,6 +4492,7 @@
                         "inlineEdits",
                         "ignoreBots",
                         "ignoreSelf",
+                        "ignoreSelfEdits",
                         "ignoreUsers",
                         "ignoreChannels",
                         "ignoreGuilds",
@@ -4491,10 +4542,6 @@
                 ],
                 [
                     "DisableDeepLinks",
-                    []
-                ],
-                [
-                    "NoDefaultHangStatus",
                     []
                 ],
                 [
@@ -5297,12 +5344,6 @@
                     ]
                 ],
                 [
-                    "CharacterCounter",
-                    [
-                        "colorEffects"
-                    ]
-                ],
-                [
                     "CleanChannelName",
                     []
                 ],
@@ -5325,6 +5366,16 @@
                         "blockedReplyDisplay",
                         "guildBlackList",
                         "guildWhiteList"
+                    ]
+                ],
+                [
+                    "CollapsibleUI",
+                    [
+                        "transitionMs",
+                        "channelListCollapsed",
+                        "membersListCollapsed",
+                        "chatButtonsCollapsed",
+                        "userAreaCollapsed"
                     ]
                 ],
                 [
@@ -5438,6 +5489,16 @@
                     ]
                 ],
                 [
+                    "CustomStatusTimeouts",
+                    [
+                        "showForeverOnTop",
+                        "extraSeconds",
+                        "extraMinutes",
+                        "extraHours",
+                        "extraDays"
+                    ]
+                ],
+                [
                     "CustomTimestamps",
                     [
                         "formats"
@@ -5498,6 +5559,20 @@
                     ]
                 ],
                 [
+                    "EquibopStreamFixes",
+                    [
+                        "unlockQualityOptions",
+                        "removeResolutionCap",
+                        "forceEncoderSettings",
+                        "preventDownscale",
+                        "keyframeInterval",
+                        "minBitrate",
+                        "raiseBitrateCaps",
+                        "preventFramerateReduction",
+                        "bitsPerPixelPct"
+                    ]
+                ],
+                [
                     "EquicordHelper",
                     [
                         "noMirroredCamera",
@@ -5508,7 +5583,9 @@
                         "accountStandingButton",
                         "restoreFileDownloadButton",
                         "noBulletPoints",
-                        "noModalAnimation"
+                        "noModalAnimation",
+                        "disableAdoptTagPrompt",
+                        "jsonGateway"
                     ]
                 ],
                 [
@@ -5575,10 +5652,13 @@
                         "autoSend",
                         "autoFormat",
                         "interceptDiscordUpload",
+                        "interceptDiscordUploadOnlyOverLimit",
                         "gofileToken",
                         "uploadTimeoutMs",
                         "stripQueryParams",
+                        "corsProxyUrl",
                         "apngToGif",
+                        "preserveOriginalFilename",
                         "autoCopy",
                         "settingsComponent"
                     ]
@@ -5704,13 +5784,6 @@
                 [
                     "GuildPickerDumper",
                     []
-                ],
-                [
-                    "GuildTagSettings",
-                    [
-                        "hideTags",
-                        "disableAdoptTagPrompt"
-                    ]
                 ],
                 [
                     "HideChatButtons",
@@ -5933,6 +6006,7 @@
                         "logsDir",
                         "importLogs",
                         "exportLogs",
+                        "clearLogsOnRestart",
                         "openLogs",
                         "openImageCacheFolder",
                         "clearLogs"
@@ -5954,7 +6028,14 @@
                     "MessageTranslate",
                     [
                         "targetLanguage",
-                        "confidenceRequirement"
+                        "confidenceRequirement",
+                        "autoTranslate",
+                        "skipOwnMessages",
+                        "skipBotMessages",
+                        "ignoredGuilds",
+                        "ignoredChannels",
+                        "ignoredUsers",
+                        "showIndicator"
                     ]
                 ],
                 [
@@ -6008,6 +6089,27 @@
                     "MusicControls",
                     [
                         "hoverControls",
+                        "showMusicNoteOnNoLyrics",
+                        "lyricsPosition",
+                        "lyricsProvider",
+                        "spotifyLyricsApiUrl",
+                        "lyricsProviderSettings",
+                        "translateTo",
+                        "lyricsConversion",
+                        "fallbackProvider",
+                        "showFailedToasts",
+                        "lyricDelay",
+                        "purgeLyricsCache",
+                        "spotifySectionTitle",
+                        "showSpotifyControls",
+                        "showSpotifyLyrics",
+                        "useSpotifyUris",
+                        "previousButtonRestartsTrack",
+                        "tdalSectionTitle",
+                        "installTidalWithWS",
+                        "showTidalControls",
+                        "showTidalLyrics",
+                        "websocketURL",
                         "ShowMusicNoteOnNoLyrics",
                         "LyricsPosition",
                         "LyricsProvider",
@@ -6018,14 +6120,7 @@
                         "LyricDelay",
                         "PurgeLyricsCache",
                         "SpotifySectionTitle",
-                        "showSpotifyControls",
-                        "showSpotifyLyrics",
-                        "useSpotifyUris",
-                        "previousButtonRestartsTrack",
                         "TidalSectionTitle",
-                        "installTidalWithWS",
-                        "showTidalControls",
-                        "showTidalLyrics",
                         "YtmSectionTitle",
                         "showYoutubeMusicControls",
                         "YoutubeMusicApiUrl"
@@ -6125,6 +6220,7 @@
                         "disableFriendsListActiveNowPromotion",
                         "disableMembersListActivelyPlayingIcon",
                         "makeMobileQuestsDesktopCompatible",
+                        "completeVideoQuestsQuicker",
                         "completeVideoQuestsInBackground",
                         "completeGameQuestsInBackground",
                         "completeAchievementQuestsInBackground",
@@ -6170,12 +6266,6 @@
                     ]
                 ],
                 [
-                    "QuestionMarkReplacement",
-                    [
-                        "replace"
-                    ]
-                ],
-                [
                     "Quoter",
                     [
                         "quoteFont",
@@ -6201,6 +6291,7 @@
                         "selfMute",
                         "selfDeafen",
                         "leaveEmpty",
+                        "prioritizeFriends",
                         "avoidStages",
                         "avoidAfk",
                         "video",
@@ -6431,15 +6522,6 @@
                     ]
                 ],
                 [
-                    "SoundBoardLogger",
-                    [
-                        "SavedIds",
-                        "FileType",
-                        "OpenLogs",
-                        "soundVolume"
-                    ]
-                ],
-                [
                     "SplitLargeMessages",
                     [
                         "maxLength",
@@ -6593,8 +6675,9 @@
                         "systemPrompt",
                         "maxTokens",
                         "endpoint",
-                        "autoRespond",
-                        "supportImages"
+                        "mode",
+                        "supportImages",
+                        "autoRespond"
                     ]
                 ],
                 [
@@ -6703,6 +6786,20 @@
                     ]
                 ],
                 [
+                    "VoiceChannelLog",
+                    [
+                        "logJoinLeave",
+                        "logSoundboard",
+                        "logMuteDeafen",
+                        "logVideo",
+                        "logStream",
+                        "logActivity",
+                        "ignoreBlockedUsers",
+                        "soundboardFileType",
+                        "soundboardVolume"
+                    ]
+                ],
+                [
                     "VoiceChatUtilities",
                     [
                         "waitAfter",
@@ -6798,14 +6895,51 @@
                     []
                 ],
                 [
+                    "ProfileCollectionsAPI",
+                    []
+                ],
+                [
                     "UserAreaAPI",
                     []
+                ],
+                [
+                    "NoDefaultHangStatus",
+                    []
+                ],
+                [
+                    "GuildTagSettings",
+                    [
+                        "hideTags",
+                        "disableAdoptTagPrompt"
+                    ]
+                ],
+                [
+                    "QuestionMarkReplacement",
+                    [
+                        "replace"
+                    ]
+                ],
+                [
+                    "SoundBoardLogger",
+                    [
+                        "SavedIds",
+                        "FileType",
+                        "OpenLogs",
+                        "soundVolume"
+                    ]
                 ]
             ]
         ],
         [
             "Vencord_cloudManifest",
             [
+                {
+                    "key": "dataStore",
+                    "version": 1,
+                    "checksum": "64a73cba52dc0ab2",
+                    "size_bytes": 90435,
+                    "updated_at": 1775809041510
+                },
                 {
                     "key": "quickCss",
                     "version": 1,
@@ -6914,6 +7048,7 @@
                 "DragFavoriteEmotes": 1774025169.988,
                 "Dragify": 1774025169.988,
                 "DynamicImageModalAPI": 1774025169.988,
+                "EquibopStreamFixes": 1775996745.541,
                 "EquicordHelper": 1774025169.988,
                 "EquicordToolbox": 1774025169.988,
                 "Equissant": 1774025169.988,
@@ -6957,7 +7092,6 @@
                 "GoogleThat": 1774025169.988,
                 "GreetStickerPicker": 1774025169.988,
                 "GuildPickerDumper": 1774025169.988,
-                "GuildTagSettings": 1774025169.988,
                 "HeaderBarAPI": 1774025169.988,
                 "HideChatButtons": 1774025169.988,
                 "HideMedia": 1774025169.988,
@@ -7066,9 +7200,9 @@
                 "PlatformSpoofer": 1774025169.988,
                 "PolishWording": 1774025169.988,
                 "PreviewMessage": 1774025169.988,
+                "ProfileCollectionsAPI": 1775996745.541,
                 "ProfileSets": 1774025169.988,
                 "Questify": 1774025169.988,
-                "QuestionMarkReplacement": 1774025169.988,
                 "QuickMention": 1774025169.988,
                 "QuickReply": 1774025169.988,
                 "Quoter": 1774025169.988,
@@ -7123,7 +7257,6 @@
                 "SongLink": 1774025169.988,
                 "SongSpotlight": 1774025169.988,
                 "SortFriends": 1774025169.988,
-                "SoundBoardLogger": 1774025169.988,
                 "SplitLargeMessages": 1774025169.988,
                 "SpotifyActivityToggle": 1774025169.988,
                 "SpotifyCrack": 1774025169.988,
@@ -7178,6 +7311,7 @@
                 "ViewRaw": 1774025169.988,
                 "ViewRawVariant": 1774025169.988,
                 "VoiceButtons": 1774025169.988,
+                "VoiceChannelLog": 1775996745.541,
                 "VoiceChatDoubleClick": 1774025169.988,
                 "VoiceChatUtilities": 1774025169.988,
                 "VoiceDownload": 1774025169.988,
@@ -7205,6 +7339,49 @@
         [
             "notification-log",
             [
+                {
+                    "title": "Quest Completed!",
+                    "body": "The DISCOVER ENSHROUDED Quest has completed.",
+                    "timestamp": 1776792754174,
+                    "id": "iEgMvac6NJVrKnX6VTxJJ"
+                },
+                {
+                    "title": "Quest Completed!",
+                    "body": "The ROAD TO IMMORTALITY Quest has completed.",
+                    "timestamp": 1776612291193,
+                    "id": "bH0X_KTiUshB1uZ7zQqQr"
+                },
+                {
+                    "title": "Quest Completed!",
+                    "body": "The MOUSE P.I FOR HIRE Quest has completed.",
+                    "timestamp": 1776353609349,
+                    "id": "OATZXfkPx0L5P75Ie2TA5"
+                },
+                {
+                    "title": "Quest Completed!",
+                    "body": "The MARVEL STRIKE FORCE Quest has completed.",
+                    "timestamp": 1776325882697,
+                    "id": "mXsYUv4HWrdz0CHR7K0P2"
+                },
+                {
+                    "title": "Quest Completed!",
+                    "body": "The DIVE INTO MONGIL: STAR DIVE Quest has completed.",
+                    "timestamp": 1776325854135,
+                    "id": "0CSKeIpObE4rcg_-3K-ou"
+                },
+                {
+                    "title": "Quest Completed!",
+                    "body": "The LEE CRONIN’S THE MUMMY Quest has completed.",
+                    "timestamp": 1776272598514,
+                    "id": "alHmGh0MF620pX9Q7DUzZ"
+                },
+                {
+                    "title": "Cloud Settings",
+                    "body": "Your settings have been updated! Click here to restart to fully apply changes!",
+                    "color": "var(--green-360)",
+                    "timestamp": 1775989601293,
+                    "id": "z9yv51KyNmMjXS1cOzwsK"
+                },
                 {
                     "title": "Cloud Integration",
                     "body": "Cloud integrations enabled!",
@@ -7468,18 +7645,18 @@
             "relationship-notifier-groups-648918998011871293",
             [
                 [
-                    "1456155016481210523",
-                    {
-                        "id": "1456155016481210523",
-                        "name": "Tamil People",
-                        "iconURL": null
-                    }
-                ],
-                [
                     "1304419120371994695",
                     {
                         "id": "1304419120371994695",
                         "name": "Amma ke MINE(o)RS",
+                        "iconURL": null
+                    }
+                ],
+                [
+                    "1456155016481210523",
+                    {
+                        "id": "1456155016481210523",
+                        "name": "Tamil People",
                         "iconURL": null
                     }
                 ],
@@ -7505,67 +7682,11 @@
             "relationship-notifier-guilds-648918998011871293",
             [
                 [
-                    "538672958110171137",
+                    "1269411543615930421",
                     {
-                        "id": "538672958110171137",
-                        "name": "Devfolio",
-                        "iconURL": "https://cdn.discordapp.com/icons/538672958110171137/a27ad83f95ce07c4c0659f3ab7ba9dbf.png"
-                    }
-                ],
-                [
-                    "619835916139364383",
-                    {
-                        "id": "619835916139364383",
-                        "name": "Revision",
-                        "iconURL": "https://cdn.discordapp.com/icons/619835916139364383/ee79a8591f7ff077e2d78a09dbea8041.png"
-                    }
-                ],
-                [
-                    "672016669509681182",
-                    {
-                        "id": "672016669509681182",
-                        "name": "IND",
-                        "iconURL": "https://cdn.discordapp.com/icons/672016669509681182/624452e3b2df2fc2ef21e6b153908593.png"
-                    }
-                ],
-                [
-                    "697021345434828841",
-                    {
-                        "id": "697021345434828841",
-                        "name": "Anti Denuvo Sanctuary",
-                        "iconURL": "https://cdn.discordapp.com/icons/697021345434828841/2a7cdd265160331996cb4c32d16ce3c2.png"
-                    }
-                ],
-                [
-                    "727828229250875472",
-                    {
-                        "id": "727828229250875472",
-                        "name": "Flow-Launcher",
-                        "iconURL": "https://cdn.discordapp.com/icons/727828229250875472/4f4e9a3b426a2f306b7509076973f40d.png"
-                    }
-                ],
-                [
-                    "744549769610788884",
-                    {
-                        "id": "744549769610788884",
-                        "name": "new bot pasanga",
-                        "iconURL": "https://cdn.discordapp.com/icons/744549769610788884/071729b387527a2ffd1685d5402c2ae1.png"
-                    }
-                ],
-                [
-                    "795710270000332800",
-                    {
-                        "id": "795710270000332800",
-                        "name": "AtlasOS",
-                        "iconURL": "https://cdn.discordapp.com/icons/795710270000332800/4d27d3c83866f17917a12c37197e2cc0.png"
-                    }
-                ],
-                [
-                    "820732039253852171",
-                    {
-                        "id": "820732039253852171",
-                        "name": "Legcord",
-                        "iconURL": "https://cdn.discordapp.com/icons/820732039253852171/221b1c0d9633e453070a2df6cc601cc8.png"
+                        "id": "1269411543615930421",
+                        "name": "NXT Client",
+                        "iconURL": "https://cdn.discordapp.com/icons/1269411543615930421/d3c713e5f89aaa3e72b6a5b11b6af7b8.png"
                     }
                 ],
                 [
@@ -7577,51 +7698,35 @@
                     }
                 ],
                 [
-                    "898554690126630914",
+                    "1242166840096981122",
                     {
-                        "id": "898554690126630914",
-                        "name": "Komorebi Community Server",
-                        "iconURL": "https://cdn.discordapp.com/icons/898554690126630914/cd764628ee7b49397357c7efadf66d67.png"
+                        "id": "1242166840096981122",
+                        "name": "GameDrive",
+                        "iconURL": "https://cdn.discordapp.com/icons/1242166840096981122/e808fadca440e8d9ad29dc7bb80d31e2.png"
                     }
                 ],
                 [
-                    "923944342991818753",
+                    "1377068283693629592",
                     {
-                        "id": "923944342991818753",
-                        "name": "Windhawk",
-                        "iconURL": "https://cdn.discordapp.com/icons/923944342991818753/d10eb30b9f78fa7de2eb6a0b73d01a9e.png"
+                        "id": "1377068283693629592",
+                        "name": "Sine",
+                        "iconURL": "https://cdn.discordapp.com/icons/1377068283693629592/597a2dfcbba029f7fd2232290006d35a.png"
                     }
                 ],
                 [
-                    "974519864045756446",
+                    "1169089289552924712",
                     {
-                        "id": "974519864045756446",
-                        "name": "OpenAI",
-                        "iconURL": "https://cdn.discordapp.com/icons/974519864045756446/faf92a94b62b294f7048baa9f385d56a.png"
+                        "id": "1169089289552924712",
+                        "name": "refact0r/themes",
+                        "iconURL": "https://cdn.discordapp.com/icons/1169089289552924712/eb831dfb49c2367b201abe0119e19d31.png"
                     }
                 ],
                 [
-                    "1007681454555283456",
+                    "746721520931569757",
                     {
-                        "id": "1007681454555283456",
-                        "name": "IND",
-                        "iconURL": "https://cdn.discordapp.com/icons/1007681454555283456/02f2757ae205cec4ce1907ba0ec72412.png"
-                    }
-                ],
-                [
-                    "1015060230222131221",
-                    {
-                        "id": "1015060230222131221",
-                        "name": "libVencore",
-                        "iconURL": "https://cdn.discordapp.com/icons/1015060230222131221/0fdc21fa2852b67710d19ecd32b6462e.png"
-                    }
-                ],
-                [
-                    "1036154345777016852",
-                    {
-                        "id": "1036154345777016852",
-                        "name": "Failed abortions",
-                        "iconURL": "https://cdn.discordapp.com/icons/1036154345777016852/b777e1a655ab999cccc9cc41c5086d1b.png"
+                        "id": "746721520931569757",
+                        "name": "MAS",
+                        "iconURL": "https://cdn.discordapp.com/icons/746721520931569757/b06600f3490ed379b6f1d2795aa2fa80.png"
                     }
                 ],
                 [
@@ -7641,91 +7746,83 @@
                     }
                 ],
                 [
-                    "1088172780480114748",
-                    {
-                        "id": "1088172780480114748",
-                        "name": "Zen 👋😊",
-                        "iconURL": "https://cdn.discordapp.com/icons/1088172780480114748/144a4372592d4d3eb0618a3e2be6cf4b.png"
-                    }
-                ],
-                [
-                    "1119682140293038120",
-                    {
-                        "id": "1119682140293038120",
-                        "name": "Astaghfirullah",
-                        "iconURL": null
-                    }
-                ],
-                [
-                    "1169089289552924712",
-                    {
-                        "id": "1169089289552924712",
-                        "name": "refact0r/themes",
-                        "iconURL": "https://cdn.discordapp.com/icons/1169089289552924712/eb831dfb49c2367b201abe0119e19d31.png"
-                    }
-                ],
-                [
-                    "1172245377395728464",
-                    {
-                        "id": "1172245377395728464",
-                        "name": "All Things Linux",
-                        "iconURL": "https://cdn.discordapp.com/icons/1172245377395728464/a_ff448f7aa72327278eaefdcd4aae38fd.png"
-                    }
-                ],
-                [
-                    "1173279886065029291",
-                    {
-                        "id": "1173279886065029291",
-                        "name": "Equicord",
-                        "iconURL": "https://cdn.discordapp.com/icons/1173279886065029291/cac7a420c32b896ccb2c36828462838e.png"
-                    }
-                ],
-                [
-                    "1269411543615930421",
-                    {
-                        "id": "1269411543615930421",
-                        "name": "NXT Client",
-                        "iconURL": "https://cdn.discordapp.com/icons/1269411543615930421/d3c713e5f89aaa3e72b6a5b11b6af7b8.png"
-                    }
-                ],
-                [
-                    "1281967196557283341",
-                    {
-                        "id": "1281967196557283341",
-                        "name": "DODI Repacks",
-                        "iconURL": "https://cdn.discordapp.com/icons/1281967196557283341/fd58bd29e8f2ec11f4a5baa077023696.png"
-                    }
-                ],
-                [
-                    "1353495377768218654",
-                    {
-                        "id": "1353495377768218654",
-                        "name": "YASB Reborn",
-                        "iconURL": "https://cdn.discordapp.com/icons/1353495377768218654/1d8bab37811f6104ec78e6ca7c7baacb.png"
-                    }
-                ],
-                [
-                    "1377068283693629592",
-                    {
-                        "id": "1377068283693629592",
-                        "name": "Sine",
-                        "iconURL": "https://cdn.discordapp.com/icons/1377068283693629592/597a2dfcbba029f7fd2232290006d35a.png"
-                    }
-                ],
-                [
-                    "1387519366651842574",
-                    {
-                        "id": "1387519366651842574",
-                        "name": "niri",
-                        "iconURL": "https://cdn.discordapp.com/icons/1387519366651842574/e93791a6ca515faa8422151aae908e41.png"
-                    }
-                ],
-                [
                     "1401598189823590460",
                     {
                         "id": "1401598189823590460",
                         "name": "Noctalia",
                         "iconURL": "https://cdn.discordapp.com/icons/1401598189823590460/6801026e0b56e2f6c271c3bd0edd1d94.png"
+                    }
+                ],
+                [
+                    "923944342991818753",
+                    {
+                        "id": "923944342991818753",
+                        "name": "Windhawk",
+                        "iconURL": "https://cdn.discordapp.com/icons/923944342991818753/d10eb30b9f78fa7de2eb6a0b73d01a9e.png"
+                    }
+                ],
+                [
+                    "795710270000332800",
+                    {
+                        "id": "795710270000332800",
+                        "name": "AtlasOS",
+                        "iconURL": "https://cdn.discordapp.com/icons/795710270000332800/4d27d3c83866f17917a12c37197e2cc0.png"
+                    }
+                ],
+                [
+                    "1007681454555283456",
+                    {
+                        "id": "1007681454555283456",
+                        "name": "IND",
+                        "iconURL": "https://cdn.discordapp.com/icons/1007681454555283456/02f2757ae205cec4ce1907ba0ec72412.png"
+                    }
+                ],
+                [
+                    "538672958110171137",
+                    {
+                        "id": "538672958110171137",
+                        "name": "Devfolio",
+                        "iconURL": "https://cdn.discordapp.com/icons/538672958110171137/a27ad83f95ce07c4c0659f3ab7ba9dbf.png"
+                    }
+                ],
+                [
+                    "974519864045756446",
+                    {
+                        "id": "974519864045756446",
+                        "name": "OpenAI",
+                        "iconURL": "https://cdn.discordapp.com/icons/974519864045756446/faf92a94b62b294f7048baa9f385d56a.png"
+                    }
+                ],
+                [
+                    "898554690126630914",
+                    {
+                        "id": "898554690126630914",
+                        "name": "Komorebi Community Server",
+                        "iconURL": "https://cdn.discordapp.com/icons/898554690126630914/cd764628ee7b49397357c7efadf66d67.png"
+                    }
+                ],
+                [
+                    "1036154345777016852",
+                    {
+                        "id": "1036154345777016852",
+                        "name": "Failed abortions",
+                        "iconURL": "https://cdn.discordapp.com/icons/1036154345777016852/b777e1a655ab999cccc9cc41c5086d1b.png"
+                    }
+                ],
+                [
+                    "727828229250875472",
+                    {
+                        "id": "727828229250875472",
+                        "name": "Flow-Launcher",
+                        "iconURL": "https://cdn.discordapp.com/icons/727828229250875472/4f4e9a3b426a2f306b7509076973f40d.png"
+                    }
+                ],
+                [
+                    "1487105710214086666",
+                    {
+                        "id": "1487105710214086666",
+                        "name": "DenuvOwO",
+                        "iconURL": "https://cdn.discordapp.com/icons/1487105710214086666/ce63cc974aaea09faca1257efcde74c5.png"
                     }
                 ],
                 [
@@ -7737,6 +7834,22 @@
                     }
                 ],
                 [
+                    "1119682140293038120",
+                    {
+                        "id": "1119682140293038120",
+                        "name": "Astaghfirullah",
+                        "iconURL": null
+                    }
+                ],
+                [
+                    "672016669509681182",
+                    {
+                        "id": "672016669509681182",
+                        "name": "IND",
+                        "iconURL": "https://cdn.discordapp.com/icons/672016669509681182/624452e3b2df2fc2ef21e6b153908593.png"
+                    }
+                ],
+                [
                     "1430889676264177687",
                     {
                         "id": "1430889676264177687",
@@ -7745,11 +7858,99 @@
                     }
                 ],
                 [
-                    "1242166840096981122",
+                    "1387519366651842574",
                     {
-                        "id": "1242166840096981122",
-                        "name": "GameDrive",
-                        "iconURL": "https://cdn.discordapp.com/icons/1242166840096981122/e808fadca440e8d9ad29dc7bb80d31e2.png"
+                        "id": "1387519366651842574",
+                        "name": "niri & DMS",
+                        "iconURL": "https://cdn.discordapp.com/icons/1387519366651842574/8d9615816af8984ababc6bcacf810468.png"
+                    }
+                ],
+                [
+                    "1281967196557283341",
+                    {
+                        "id": "1281967196557283341",
+                        "name": "DODI Repacks",
+                        "iconURL": "https://cdn.discordapp.com/icons/1281967196557283341/53733b70abaddfc612695c46891635d7.png"
+                    }
+                ],
+                [
+                    "1173279886065029291",
+                    {
+                        "id": "1173279886065029291",
+                        "name": "Equicord",
+                        "iconURL": "https://cdn.discordapp.com/icons/1173279886065029291/9ecc091c083e5572ae459366f4a9b6c3.png"
+                    }
+                ],
+                [
+                    "1077324213142175744",
+                    {
+                        "id": "1077324213142175744",
+                        "name": "Rectify11 Community",
+                        "iconURL": "https://cdn.discordapp.com/icons/1077324213142175744/4879662adc30686e743e9cc67ae2b23d.png"
+                    }
+                ],
+                [
+                    "1353495377768218654",
+                    {
+                        "id": "1353495377768218654",
+                        "name": "YASB Reborn",
+                        "iconURL": "https://cdn.discordapp.com/icons/1353495377768218654/1d8bab37811f6104ec78e6ca7c7baacb.png"
+                    }
+                ],
+                [
+                    "744549769610788884",
+                    {
+                        "id": "744549769610788884",
+                        "name": "new bot pasanga",
+                        "iconURL": "https://cdn.discordapp.com/icons/744549769610788884/071729b387527a2ffd1685d5402c2ae1.png"
+                    }
+                ],
+                [
+                    "619835916139364383",
+                    {
+                        "id": "619835916139364383",
+                        "name": "Revision",
+                        "iconURL": "https://cdn.discordapp.com/icons/619835916139364383/ee79a8591f7ff077e2d78a09dbea8041.png"
+                    }
+                ],
+                [
+                    "697021345434828841",
+                    {
+                        "id": "697021345434828841",
+                        "name": "Anti Denuvo Sanctuary",
+                        "iconURL": "https://cdn.discordapp.com/icons/697021345434828841/e2f5f0755c2e30e3b26b0b3751a07f30.png"
+                    }
+                ],
+                [
+                    "1088172780480114748",
+                    {
+                        "id": "1088172780480114748",
+                        "name": "Zen 👋😊",
+                        "iconURL": "https://cdn.discordapp.com/icons/1088172780480114748/144a4372592d4d3eb0618a3e2be6cf4b.png"
+                    }
+                ],
+                [
+                    "820732039253852171",
+                    {
+                        "id": "820732039253852171",
+                        "name": "Legcord",
+                        "iconURL": "https://cdn.discordapp.com/icons/820732039253852171/221b1c0d9633e453070a2df6cc601cc8.png"
+                    }
+                ],
+                [
+                    "1172245377395728464",
+                    {
+                        "id": "1172245377395728464",
+                        "name": "All Things Linux",
+                        "iconURL": "https://cdn.discordapp.com/icons/1172245377395728464/a_ff448f7aa72327278eaefdcd4aae38fd.png"
+                    }
+                ],
+                [
+                    "1015060230222131221",
+                    {
+                        "id": "1015060230222131221",
+                        "name": "libVencore",
+                        "iconURL": "https://cdn.discordapp.com/icons/1015060230222131221/a_0ede020b37d18eb32582e7e789f99778.png"
                     }
                 ]
             ]

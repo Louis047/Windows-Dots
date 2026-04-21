@@ -93,10 +93,6 @@
     --open_meteo_card_day_active: rgba(255, 255, 255, 0.04);
     --open_meteo_card_hourly_active: rgba(255, 255, 255, 0.1);
 
-    /* CPU / Memory popup */
-    --cpu_mem_graph_line: #0f6bff;
-    /* graph accent — theme-independent */
-
     /* Power menu */
     --power_menu_elem_bg: rgba(15, 15, 15, 1);
     --power_menu_elem_hover: rgba(45, 45, 45, 1);
@@ -198,7 +194,7 @@
 /* COMMON YASB ELEMENTS */
 * {
     font-size: 14px;
-    font-weight: 750;
+    font-weight: 800;
     font-family: "DepartureMono Nerd Font Propo";
     margin: 0;
     padding: 0;
@@ -233,7 +229,7 @@
 
 .icon {
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .widget .label {
@@ -276,6 +272,12 @@
     margin-bottom: 6px;
 }
 
+.power-menu-compact .profile-info .manage-accounts {
+	color: var(--l-text);
+	font-size: 12px;
+	font-weight: 700;
+}
+
 .power-menu-compact .buttons {
     background-color: transparent;
     margin: 0 0;
@@ -290,7 +292,7 @@
 
 .power-menu-compact .buttons {
 	background-color: var(--l-popup_bg_alt);
-	margin: 0 12px 12px 12px;
+	margin: 0 16px 16px 16px;
 	border: var(--global_widget_border_alt);
 }
 
@@ -330,9 +332,12 @@
     color: var(--text_alt);
 }
 
+.yasb-bar.dark .power-menu-compact .profile-info .manage-accounts {
+	color: var(--text);
+}
+
 .yasb-bar.dark .power-menu-compact .buttons {
 	background-color: var(--widget_bg_alt);
-	margin: 0 12px 12px 12px;
 	border: var(--global_widget_border_alt);
 }
 
@@ -787,10 +792,8 @@
 .wifi-widget .widget-container .icon {
     background: transparent;
     padding: 0 1px;
-    font-size: 12px;
-    font-family: "Segoe Fluent Icons";
+    font-family: "Segoe MDL2 Assets";
 }
-
 
 /* BATTERY */
 .battery-widget .widget-container .icon {
@@ -1839,11 +1842,6 @@ QPushButton {
     margin-top: 12px;
     margin-left: 24px;
     margin-right: 24px;
-}
-
-.cpu-popup .cpu-graph,
-.memory-popup .memory-graph {
-    color: var(--cpu_mem_graph_line);
 }
 
 /* Light */

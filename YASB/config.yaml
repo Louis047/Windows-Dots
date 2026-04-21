@@ -380,7 +380,7 @@ widgets:
       show_unpinned_button: False
       show_in_popup: True
       icons_per_row: 4
-      use_hook: False
+      use_hook: True
       popup:
         blur: False
         round_corners: False
@@ -509,10 +509,10 @@ widgets:
       ethernet_label: "<span>\ue839</span>"
       wifi_icons: [
         "\uf384",  # 0% strength icon
-        "\ue701",  # 1-20% strength
-        "\ue701",  # 21-40% strength
-        "\ue701",  # 41-80% strength
-        "\ue701"   # 81-100% strength
+        "\uec3f",  # 1-20% strength
+        "\uec3f",  # 21-40% strength
+        "\uec3f",  # 41-80% strength
+        "\uec3f"   # 81-100% strength
       ]
       label_shadow:
         enabled: True
@@ -601,7 +601,7 @@ widgets:
         alignment: "left"
         direction: "down"
         offset_top: 6
-        offset_left: 0
+        offset_left: 3
       buttons:
         restart: ["\uead2", "Restart"]
         lock: ["\uf456", "Lock"]

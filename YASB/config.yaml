@@ -21,16 +21,16 @@ bars:
       enabled: False
       duration: 0
     blur_effect:
-      enabled: True
+      enabled: False
       acrylic: False
-      dark_mode: True
+      dark_mode: False
       round_corners: False
       border_color: None
     window_flags:
       always_on_top: False
       windows_app_bar: True
-      hide_on_fullscreen: True
-      hide_on_maximized: True
+      hide_on_fullscreen: False
+      hide_on_maximized: False
       auto_hide: False
     layouts:
       left:

@@ -1,0 +1,1 @@
+Make sure to install `eza` for alias compatiblity.

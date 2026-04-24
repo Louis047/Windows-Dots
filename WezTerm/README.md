@@ -1,0 +1,1 @@
+### Config Location: `$env:USERPROFILE/.config/wezterm`

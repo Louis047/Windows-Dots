@@ -33,6 +33,8 @@
 
 - [Thide](https://github.com/amnweb/thide) - Another goated tool by YASB dev, a lightweight tool to hide taskbar permanently
 
+- [WezTerm](https://github.com/wezterm/wezterm) - GPU-Accelerated terminal emulator, cross platform. Has suppport for dynamic themes adaptable to OS with `Lua` config for extensive customizability.
+
 - [Windhawk](https://github.com/ramensoftware/windhawk) - Windows Customization made easy. Every user should try this
 
 - [Yet Another Status Bar](https://github.com/amnweb/yasb) - A status bar with customizations and extensible features, built using Python

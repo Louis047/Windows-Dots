@@ -5,8 +5,11 @@ local config = wezterm.config_builder()
 config.font = wezterm.font 'DepartureMono Nerd Font Propo'
 config.font_size = 10
 
--- Use PowerShell Core (pwsh) as default shell
-config.default_prog = { 'pwsh', '-NoLogo' }
+-- Detect OS and set appropriate shell
+local target_triple = wezterm.target_triple
+if target_triple:find 'windows' then
+  config.default_prog = { 'pwsh', '-NoLogo' }
+end
 
 -- Skip Exit Confirmation
 config.window_close_confirmation = 'NeverPrompt'
@@ -31,7 +34,6 @@ else
   config.color_scheme = 'Github Light (Gogh)'
 end
 
--- Fix for tui-text editors visual artifacts
 config.enable_kitty_keyboard = true
 
 return config

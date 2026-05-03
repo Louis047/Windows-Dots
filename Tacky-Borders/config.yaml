@@ -9,9 +9,13 @@ global:
   border_radius: Square
   border_z_order: AboveWindow
 
-  active_color: "#EFEFEF"
-  inactive_color: "#5F5F5F"
-
+  active_color:
+    dark: "#EFEFEF"
+    light: "#101010"
+  inactive_color:
+    dark: "#5F5F5F"
+    light: "#A0A0A0"
+      
   initialize_delay: 0
   unminimize_delay: 0
 

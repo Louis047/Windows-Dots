@@ -170,15 +170,20 @@ if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
 ---
 #### Tasks-Scripts
 Made changes from the base `AltDrag` config to be optimal for both desktop and laptop users, made for the below list:
+
+VBS (Used for startups)
 - AltSnap
 - Block-WinTab
 - GlazeWM
-- SmoothScroll (Both Cleanup and Launch)
+- SmoothScroll (Cleanup and Launch)
 - Tacky-Borders
+
+BAT (Used for configuring registry entries)
+- Shortcut Remove (Apply and Revert)
 
 All run with the highest privileges to ensure the modifications cover all apps by default. 
 
-Save the Scripts in the following directory: `Documents\VBS-Scripts`
+Save the Scripts in the following directory: `Documents\Scripts\`
 
 ---
 #### Thide
@@ -189,9 +194,14 @@ thide enable-autostart
 This adds thide to startup to hide taskbar permanently everytime, runs in tray
 
 ---
+#### WezTerm
+Save the config in `%USERPROFILE%\.config\wezterm` (create directory if doesn't exist). Has support for hot reload. 
+
+---
 #### Windhawk
 Some useful mods I found for my Windows workflow
 - "Sign in with a passkey" Blocker - add `zen.exe` to process exclusion list
+- Accent Highlight Color
 - Alt + Tab per monitor
 - Auto Custom Titlebar Colors
 - Better Dialogs
@@ -205,12 +215,15 @@ Some useful mods I found for my Windows workflow
 - Dark Paint
 - Disable rounded corners in Windows 11 (Only for Windows 11)
 - Disable Windows Ink Modifier Tooltips
-- Disable Windows Shortcuts (Local Mod)
+- Disable Windows Shortcuts
+- Explorer Ctrl+N to New File
+- Explorer Navigation Tree Offset
+- Explorer TreeItem Tweaker
+- Explroer TreeLine Killer
 - F1 Blocker
 - Fix Basic Caption Text
 - Fix Darkmode ListViews
 - Hide Home,Gallery & OneDrive in Explorer
-- Legacy Shell Message Boxes
 - Message Box Fix
 - No Focus Rectangle
 - No Properties Icon
@@ -223,10 +236,7 @@ Some useful mods I found for my Windows workflow
 - Shell Animation Disabler
 - Show All Apps by Default in Start Menu (Only for Windows 11)
 - Shrink Address Bar Height
-- Smart Copy and Paste
-- Smooth Scroll for Win32
-- Start Menu open location 
-- Start Menu Size 
+- Smooth Scroll for Win32 
 - Taskbar Height and Icon Size
 - Taskbar on top (Only for Windows 11)
 - Taskbar Tray System Icon Tweaks (Only for Windows 11)
@@ -234,9 +244,9 @@ Some useful mods I found for my Windows workflow
 - UXTheme Hook (For Implementing Windows 10 theme for 11. Theme Link: [10ThemesFor11](https://github.com/SandTechStuff/10ThemeFor11)) (Only for Windows 11)
 - VSCode Tweaker
 - Windhawk UI Tweaker (Fork of VSCode Tweaker)
-- Windows 11 Old Task Manager (Only for Windows 11)
 - Windows 11 Notification Center Styler (Only for Windows 11)
-- Windows 11 Start Menu Styler (Only for Windows 11)) 
+- Windows 11 Old Task Manager (Only for Windows 11)
+- Windows 11 Start Menu Styler (Only for Windows 11) 
 - Windows 11 Taskbar Styler (Only for Windows 11)
 - Windows 7 Command Bar
 - Word PDF Lossless Export
@@ -278,6 +288,15 @@ Changes to be made for the mods manually
   - Notification appearance animation: Automatic
 - Fix Basic Caption Text
   - Small window icons: On
+- Explorer Navigation Tree Offset
+  - All On
+  - Navigation tree left shift: 0
+- Explorer TreeItem Tweaker
+  - Corner Radius: 0 
+  - Width Mode: 2
+  - All Off except Hide Pin Button
+- Explorer TreeLine Tweaker
+  - All On
 - Message Box Fix
   - Message box style: Windows 7-10 1703
 - No Properties Icon
@@ -369,7 +388,7 @@ If using Sine Mods
 - Square UI (Highly recommended if you don't want to add the customizations manually)
 
 If not using Sine Mods
-- Custom uiFont (If configured manually)
+- Custom uiFont 
 - Left Side Glance
 - No Sidebar Scrollbar
 - Remove Tab X - set for pinned tabs only

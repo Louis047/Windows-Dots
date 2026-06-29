@@ -42,15 +42,15 @@
 ---
 ## Preview:
 
-![PIC 1](https://github.com/Louis047/Windows-Dots/blob/main/Assets/Updated-Dots-1.png)
+![PIC 1](https://raw.githubusercontent.com/Louis047/Windows-Dots/main/Assets/Updated-Dots-1.png)
 
-![PIC 2](https://github.com/Louis047/Windows-Dots/blob/main/Assets/Updated-Dots-2.png)
+![PIC 2](https://raw.githubusercontent.com/Louis047/Windows-Dots/main/Assets/Updated-Dots-2.png)
 
-![PIC 3](https://github.com/Louis047/Windows-Dots/blob/main/Assets/Updated-Dots-3.png)
+![PIC 3](https://raw.githubusercontent.com/Louis047/Windows-Dots/main/Assets/Updated-Dots-3.png)
 
-![PIC 4](https://github.com/Louis047/Windows-Dots/blob/main/Assets/Updated-Dots-4.png)
+![PIC 4](https://raw.githubusercontent.com/Louis047/Windows-Dots/main/Assets/Updated-Dots-4.png)
 
-![PIC 5](https://github.com/Louis047/Windows-Dots/blob/main/Assets/Updated-Dots-5.png)
+![PIC 5](https://raw.githubusercontent.com/Louis047/Windows-Dots/main/Assets/Updated-Dots-5.png)
 
 ---
 ## Rice Setup Guide

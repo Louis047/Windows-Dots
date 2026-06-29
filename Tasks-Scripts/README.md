@@ -1,5 +1,5 @@
-![Import-Task](https://github.com/Louis047/Windows-Dots/blob/main/Assets/Import.png)
+![Import-Task](https://raw.githubusercontent.com/Louis047/Windows-Dots/main/Assets/Import.png)
 
-![App-Path](https://github.com/Louis047/Windows-Dots/blob/main/Assets/App-Path.png)
+![App-Path](https://raw.githubusercontent.com/Louis047/Windows-Dots/main/Assets/App-Path.png)
 
 Save the scripts in `Documents\VBS-Scripts`
